@@ -4,7 +4,6 @@ import { X, Mail, Instagram, ExternalLink } from 'lucide-react';
 
 /**
  * --- CONFIGURATION DU THÈME & CONTENUS ---
- * Structure bilingue pour la gestion des textes et images.
  */
 const CONTENT = {
   FR: {
@@ -317,11 +316,12 @@ const TypographyStyles = () => (
       transition: color 0.4s ease;
     }
 
-    /* COULEUR DE TEST : ROUGE TRANSPARENT POUR DIAGNOSTIQUER VERCEL */
+    /* SOLUTION FINALE : BLANC À 92% + FLOU ÉLEVÉ + BORDURE DISCRÈTE */
     .nav-blur {
-      backdrop-filter: blur(20px) !important;
-      -webkit-backdrop-filter: blur(20px) !important;
-      background-color: rgba(230, 0, 38, 0.3) !important; 
+      backdrop-filter: blur(16px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+      background-color: rgba(255, 255, 255, 0.92) !important;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
     }
 
     .scroll-progress-container-desktop {
@@ -635,7 +635,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Header collant - TEST ROUGE POUR VERCEL */}
+      {/* Header collant - SOLUTION BLANC FLOU */}
       <AnimatePresence>
         {headerVisible && (
           <motion.header 
