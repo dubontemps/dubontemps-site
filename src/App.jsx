@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, Mail, Instagram, ExternalLink } from 'lucide-react';
 
 /**
  * --- CONFIGURATION DU THÈME & CONTENUS ---
+ * Structure bilingue pour la gestion des textes et images.
  */
 const CONTENT = {
   FR: {
@@ -31,7 +32,7 @@ const CONTENT = {
         caption: "Équation sauvage", 
         year: "2026",
         tech: "Tirage pigmentaire, papier baryté",
-        note: "Quand des intelligneces prédictives cherchent à réduire l’inconnu, l’imaginaire cultive [[l’imprévu]]." 
+        note: "Quand des intelligences prédictives cherchent à réduire l’inconnu, l’imaginaire cultive [[l’imprévu]]." 
       },
       { 
         id: 'img-2', 
@@ -240,6 +241,9 @@ const CONTENT = {
   }
 };
 
+/**
+ * --- STYLES GLOBAUX & TYPOGRAPHIE ---
+ */
 const TypographyStyles = () => (
   <style>{`
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&family=Shippori+Mincho:wght@300;400;500;600;700&display=swap');
@@ -252,7 +256,6 @@ const TypographyStyles = () => (
       --sans: 'Inter', sans-serif;
       --serif: 'Shippori Mincho', serif;
       --header-h: 84px;
-      --feed-margin-v: 32px;
     }
 
     body { 
@@ -271,9 +274,7 @@ const TypographyStyles = () => (
       cursor: pointer;
     }
 
-    header {
-      padding-top: 20px;
-    }
+    header { padding-top: 20px; }
 
     .logo-style {
       font-family: var(--serif);
@@ -287,7 +288,6 @@ const TypographyStyles = () => (
       line-height: 1;
       text-transform: lowercase; 
       transition: color 0.4s ease;
-      margin-top: 0; 
     }
     .logo-style:hover { color: var(--carmine); }
 
@@ -303,7 +303,6 @@ const TypographyStyles = () => (
       line-height: 1; 
       text-transform: lowercase;
       transition: color 0.4s ease, transform 0.3s ease;
-      margin-top: 0; 
     }
     .brand-style:hover { color: var(--carmine); }
 
@@ -315,7 +314,6 @@ const TypographyStyles = () => (
       letter-spacing: -0.02em;
       line-height: 1;
       transition: color 0.4s ease;
-      margin-top: 0; 
     }
 
     .nav-blur {
@@ -479,35 +477,17 @@ const TypographyStyles = () => (
     /* OVERLAYS & LIGHTBOX */
     .lightbox-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
       background: white; 
       z-index: 5000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       cursor: zoom-out;
     }
 
     .lightbox-img {
-      width: 100%;
-      height: 100%;
+      max-width: 90%; max-height: 90%;
       object-fit: contain; 
-      padding: 0; 
-    }
-
-    .mobile-menu-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: white;
-      z-index: 3000;
-      display: flex; flex-direction: column;
-      padding: 24px;
     }
 
     .footer-mention {
@@ -522,7 +502,6 @@ const TypographyStyles = () => (
 
     @media (max-width: 768px) {
       :root {
-        --feed-margin-v: 24px;
         --header-h: 64px;
       }
       header { padding-top: 0 !important; }
@@ -588,47 +567,40 @@ export default function App() {
   const navData = CONTENT[lang].nav;
 
   return (
-    <div className="relative w-full bg-white">
+    <div className="relative w-full bg-white min-h-screen">
       <TypographyStyles />
 
-      {/* Lightbox for images */}
+      {/* Lightbox */}
       <AnimatePresence>
         {zoomImage && (
           <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             onClick={() => setZoomImage(null)}
             className="lightbox-overlay"
-            role="dialog"
-            aria-label="Image Zoom"
           >
             <motion.img 
-              initial={{ scale: 0.9, opacity: 0 }} 
-              animate={{ scale: 1, opacity: 1 }} 
-              exit={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              src={zoomImage} 
-              className="lightbox-img" 
-              alt="Zoomed view"
+              src={zoomImage} className="lightbox-img" alt="Vue agrandie"
             />
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Mobile Menu */}
+      {/* Menu Mobile - CORRECTIF : bg-white forcé via Tailwind et !important interne */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
             initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="mobile-menu-overlay"
+            className="fixed inset-0 w-full h-full bg-white z-[3000] flex flex-col p-6 overflow-y-auto"
+            style={{ backgroundColor: '#FFFFFF' }} // Double sécurité inline
           >
             <div className="flex justify-between items-center h-[var(--header-h)] mb-12">
               <button onClick={() => {setMobileMenuOpen(false); window.scrollTo({top:0, behavior:'smooth'})}} className="logo-style">
                 {CONTENT[lang].brand}
               </button>
-              <button onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
+              <button onClick={() => setMobileMenuOpen(false)} aria-label="Fermer le menu" className="text-black">
                 <X size={24} strokeWidth={1.5} />
               </button>
             </div>
@@ -646,10 +618,12 @@ export default function App() {
         )}
       </AnimatePresence>
 
+      {/* Barre de progression Bureau */}
       <div className="scroll-progress-container-desktop hidden md:block">
         <motion.div className="scroll-progress-bar-desktop" style={{ height: '100%', scaleY: scale }} />
       </div>
 
+      {/* Barre de progression Mobile */}
       <AnimatePresence>
         {headerVisible && (
           <div className="scroll-progress-container-mobile md:hidden">
@@ -658,6 +632,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
+      {/* Header collant */}
       <AnimatePresence>
         {headerVisible && (
           <motion.header 
@@ -667,7 +642,6 @@ export default function App() {
             <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
               {CONTENT[lang].brand}
             </button>
-            
             <nav className="hidden md:flex gap-14 items-baseline">
               <button onClick={() => scrollTo('works')} className="brand-style">{navData.works}</button>
               <button onClick={() => scrollTo('index-anchor')} className="brand-style">{navData.index}</button>
@@ -676,7 +650,6 @@ export default function App() {
                 {lang === 'FR' ? 'en' : 'fr'}
               </button>
             </nav>
-
             <button onClick={() => setMobileMenuOpen(true)} className="md:hidden mobile-nav-btn">
               {navData.menu}
             </button>
@@ -685,13 +658,13 @@ export default function App() {
       </AnimatePresence>
 
       <main className="relative z-[5]">
+        {/* Hero */}
         <section className="w-full flex flex-col bg-white">
           <div className="w-full h-[85vh] overflow-hidden">
             <motion.img 
               initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 2.5 }} 
-              src={CONTENT[lang].hero.url} 
-              alt={CONTENT[lang].hero.alt}
+              src={CONTENT[lang].hero.url} alt={CONTENT[lang].hero.alt}
               className="w-full h-full object-cover object-bottom" 
             />
           </div>
@@ -711,6 +684,7 @@ export default function App() {
           </div>
         </section>
 
+        {/* Works */}
         <section id="works" className="bg-white pt-[20vh] space-y-[40vh] md:space-y-[60vh]">
           {stream.map((item, idx) => (
             <motion.div 
@@ -727,21 +701,9 @@ export default function App() {
                     {item.tech}
                   </div>
                 </div>
-
-                <div 
-                  className="overflow-hidden bg-zinc-50 cursor-zoom-in" 
-                  onClick={() => setZoomImage(item.url)}
-                  role="button"
-                >
-                  <motion.img 
-                    whileHover={{ scale: 1.01 }} 
-                    src={item.url} 
-                    alt={item.caption}
-                    loading="lazy"
-                    className="w-full h-auto transition-transform duration-[1500ms]" 
-                  />
+                <div className="overflow-hidden bg-zinc-50 cursor-zoom-in group" onClick={() => setZoomImage(item.url)}>
+                  <motion.img whileHover={{ scale: 1.01 }} src={item.url} alt={item.caption} loading="lazy" className="w-full h-auto transition-transform duration-[1500ms]" />
                 </div>
-
                 <div className="mt-8 flex flex-col">
                   <div className="flex flex-col items-end text-right">
                     <h2 className="text-meta-title">{item.caption}</h2>
@@ -756,12 +718,12 @@ export default function App() {
           ))}
         </section>
 
+        {/* Index */}
         <section id="index-anchor" className="relative mt-[25vh] py-24 px-6 md:px-[8%] bg-[#FAFAFA] border-t border-zinc-100 z-[100]">
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
              <p className="index-intro-text">{indexData.intro}</p>
              <span className="selection-label-style">{indexData.selectionLabel}</span>
           </motion.div>
-
           <div className="grid grid-cols-2 gap-x-10 gap-y-16 md:gap-x-24 md:gap-y-20">
             <div className="flex flex-col col-span-2 md:col-span-1">
               <span className="index-num">{indexData.collabs.num}</span>
@@ -775,7 +737,6 @@ export default function App() {
                 ))}
               </div>
             </div>
-
             <div className="flex flex-col">
               <span className="index-num">{indexData.awards.num}</span>
               <h3 className="index-label">{indexData.awards.label}</h3>
@@ -783,14 +744,15 @@ export default function App() {
                 {indexData.awards.items.map((a, i) => (
                   <div key={i}>
                     {a.url ? (
-                      <a href={a.url} target="_blank" rel="noopener noreferrer" className="index-item-link">{a.label}</a>
+                      <a href={a.url} target="_blank" rel="noopener noreferrer" className="index-item-link inline-flex items-center gap-2">
+                        {a.label} <ExternalLink size={12} className="opacity-40" />
+                      </a>
                     ) : <p className="index-item-static">{a.label}</p>}
                     <p className="index-item-sub">{a.subtitle}</p>
                   </div>
                 ))}
               </div>
             </div>
-
             <div className="flex flex-col">
               <span className="index-num">{indexData.exhibitions.num}</span>
               <h3 className="index-label">{indexData.exhibitions.label}</h3>
@@ -803,7 +765,6 @@ export default function App() {
                 ))}
               </div>
             </div>
-
             <div className="flex flex-col col-span-2 md:col-span-1">
               <span className="index-num">{indexData.publications.num}</span>
               <h3 className="index-label">{indexData.publications.label}</h3>
@@ -813,17 +774,14 @@ export default function App() {
                     <a key={i} href={p.url} target="_blank" rel="noopener noreferrer" className="index-item-link">
                       {p.name}
                     </a>
-                  ) : (
-                    <span key={i} className="index-item-static">
-                      {p.name}
-                    </span>
-                  )
+                  ) : <span key={i} className="index-item-static">{p.name}</span>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
+        {/* Footer */}
         <footer id="contact" className="relative px-6 md:px-14 py-20 md:py-0 md:h-[var(--header-h)] bg-white flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0 border-t border-zinc-100 z-[100]">
           <nav className="flex flex-wrap justify-center gap-8 md:gap-16 items-center">
             {footerData.links.map((link, i) => (
