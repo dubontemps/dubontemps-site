@@ -193,7 +193,7 @@ const CONTENT = {
         items: [
             { client: 'Musée national de Cluny', role: "Re-wilding of 4000m2 in Paris. Heritage campaign, documentary, ministerial inauguration.", date: '2025' },
             { client: 'Louis Wallecan', role: "Documentary portrait for Duel Magazine. Art shooting, exhibition AD for French Theory", date: '2025' },
-            { client: 'Communauté Écotable', role: "Portraits on sustainable food (Ground Control, François Hollande pour La France s'engage, Isana, Botanique,etc.).", date: '21—24' }
+            { client: 'Communauté Écotable', role: "Portraits on sustainable food (Ground Control, François Hollande pour La France s'engage, Isana, Botanique, etc.).", date: '21—24' }
         ] 
       },
       awards: { 
@@ -274,8 +274,6 @@ const TypographyStyles = () => (
       cursor: pointer;
     }
 
-    header { padding-top: 0px; }
-
     .logo-style {
       font-family: var(--serif);
       font-size: 22px; 
@@ -289,7 +287,6 @@ const TypographyStyles = () => (
       text-transform: lowercase; 
       transition: color 0.4s ease;
     }
-    .logo-style:hover { color: var(--carmine); }
 
     .brand-style { 
       font-family: var(--sans);
@@ -304,7 +301,6 @@ const TypographyStyles = () => (
       text-transform: lowercase;
       transition: color 0.4s ease, transform 0.3s ease;
     }
-    .brand-style:hover { color: var(--carmine); }
 
     .mobile-nav-btn {
       font-family: var(--sans);
@@ -560,12 +556,11 @@ export default function App() {
   const footerData = CONTENT[lang].footer;
   const navData = CONTENT[lang].nav;
 
-  // STYLE EN LIGNE POUR FORCER LA TRANSPARENCE ET LE FLOU SUR VERCEL
-  const headerStyle = {
-    backgroundColor: 'rgba(252, 252, 252, 0.75)',
-    backdropFilter: 'blur(20px)',
-    WebkitBackdropFilter: 'blur(20px)',
-    borderBottom: '1px solid rgba(0, 0, 0, 0.03)',
+  // VERSION ROUGE TEST - TRANSPARENCE ET FLOU
+  const headerTestStyle = {
+    backgroundColor: 'rgba(230, 0, 38, 0.85)', // Rouge carmin transparent
+    backdropFilter: 'blur(15px)',
+    WebkitBackdropFilter: 'blur(15px)',
     zIndex: 9999
   };
 
@@ -635,26 +630,26 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Header collant - MÉTHODE INLINE STYLE */}
+      {/* Header collant - VERSION ROUGE POUR TEST DE TRANSPARENCE */}
       <AnimatePresence>
         {headerVisible && (
           <motion.header 
             initial={{ y: -84, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -84, opacity: 0 }}
-            style={headerStyle}
-            className="fixed top-0 left-0 w-full px-6 md:px-14 h-[var(--header-h)] flex justify-between items-center md:items-center"
+            style={headerTestStyle}
+            className="fixed top-0 left-0 w-full px-6 md:px-14 h-[var(--header-h)] flex justify-between items-center"
           >
-            <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
+            <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style !text-white">
               {CONTENT[lang].brand}
             </button>
             <nav className="hidden md:flex gap-14 items-center">
-              <button onClick={() => scrollTo('works')} className="brand-style">{navData.works}</button>
-              <button onClick={() => scrollTo('index-anchor')} className="brand-style">{navData.index}</button>
-              <button onClick={() => scrollTo('contact')} className="brand-style">{navData.contact}</button>
-              <button onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} className="brand-style">
+              <button onClick={() => scrollTo('works')} className="brand-style !text-white">{navData.works}</button>
+              <button onClick={() => scrollTo('index-anchor')} className="brand-style !text-white">{navData.index}</button>
+              <button onClick={() => scrollTo('contact')} className="brand-style !text-white">{navData.contact}</button>
+              <button onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} className="brand-style !text-white">
                 {lang === 'FR' ? 'en' : 'fr'}
               </button>
             </nav>
-            <button onClick={() => setMobileMenuOpen(true)} className="md:hidden mobile-nav-btn">
+            <button onClick={() => setMobileMenuOpen(true)} className="md:hidden mobile-nav-btn !text-white">
               {navData.menu}
             </button>
           </motion.header>
