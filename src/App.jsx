@@ -256,7 +256,7 @@ const TypographyStyles = () => (
       --sans: 'Inter', sans-serif;
       --serif: 'Shippori Mincho', serif;
       --header-h: 84px;
-      color-scheme: light !important; /* Force le mode clair au niveau du navigateur */
+      color-scheme: light !important;
     }
 
     body { 
@@ -317,10 +317,11 @@ const TypographyStyles = () => (
       transition: color 0.4s ease;
     }
 
+    /* COULEUR DE TEST : ROUGE TRANSPARENT POUR DIAGNOSTIQUER VERCEL */
     .nav-blur {
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px); /* Support Safari */
-      background-color: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      background-color: rgba(230, 0, 38, 0.3) !important; 
     }
 
     .scroll-progress-container-desktop {
@@ -589,14 +590,14 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Menu Mobile - CORRECTIF CIBLÉ : bg-white opaque SEULEMENT sur l'overlay mobile */}
+      {/* Menu Mobile */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
             initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 w-full h-full bg-white z-[3000] flex flex-col p-6 overflow-y-auto"
-            style={{ backgroundColor: '#FFFFFF' }} // Fond forcé opaque pour contrer le dark mode forcé sur mobile
+            className="fixed inset-0 w-full h-full z-[3000] flex flex-col p-6 overflow-y-auto"
+            style={{ backgroundColor: '#FFFFFF' }} 
           >
             <div className="flex justify-between items-center h-[var(--header-h)] mb-12">
               <button onClick={() => {setMobileMenuOpen(false); window.scrollTo({top:0, behavior:'smooth'})}} className="logo-style">
@@ -634,7 +635,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Header collant - RESTAURATION DE LA TRANSPARENCE (nav-blur) */}
+      {/* Header collant - TEST ROUGE POUR VERCEL */}
       <AnimatePresence>
         {headerVisible && (
           <motion.header 
