@@ -264,18 +264,11 @@ const TypographyStyles = () => (
       overflow-x: hidden;
     }
 
-    /* Reset global pour les boutons pour éviter les bugs Safari iOS */
     a, button {
       text-decoration: none;
       color: inherit;
       -webkit-tap-highlight-color: transparent;
       cursor: pointer;
-      background: transparent;
-      border: none;
-      padding: 0;
-      margin: 0;
-      -webkit-appearance: none;
-      appearance: none;
     }
 
     header {
@@ -287,10 +280,14 @@ const TypographyStyles = () => (
       font-size: 22px; 
       font-weight: 600; 
       letter-spacing: -0.02em;
+      background: none;
+      border: none;
       color: var(--ink);
+      padding: 0; 
       line-height: 1;
       text-transform: lowercase; 
       transition: color 0.4s ease;
+      margin-top: 0; 
     }
     .logo-style:hover { color: var(--carmine); }
 
@@ -299,10 +296,14 @@ const TypographyStyles = () => (
       font-size: 18px; 
       font-weight: 400; 
       letter-spacing: -0.04em;
+      background: none;
+      border: none;
       color: var(--ink);
+      padding: 0;
       line-height: 1; 
       text-transform: lowercase;
       transition: color 0.4s ease, transform 0.3s ease;
+      margin-top: 0; 
     }
     .brand-style:hover { color: var(--carmine); }
 
@@ -314,13 +315,15 @@ const TypographyStyles = () => (
       letter-spacing: -0.02em;
       line-height: 1;
       transition: color 0.4s ease;
-      background: transparent !important;
+      margin-top: 0; 
+      /* Correction spécifique pour Safari iOS */
       -webkit-appearance: none;
+      background: transparent;
+      border: none;
     }
 
     .nav-blur {
       backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px); /* Support Safari */
       background-color: rgba(255, 255, 255, 0.85);
     }
 
@@ -592,7 +595,7 @@ export default function App() {
     <div className="relative w-full bg-white">
       <TypographyStyles />
 
-      {/* Lightbox pour images */}
+      {/* Lightbox for images */}
       <AnimatePresence>
         {zoomImage && (
           <motion.div 
@@ -617,7 +620,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Menu Mobile */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
