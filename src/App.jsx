@@ -274,7 +274,7 @@ const TypographyStyles = () => (
       cursor: pointer;
     }
 
-    header { padding-top: 20px; }
+    header { padding-top: 0px; }
 
     .logo-style {
       font-family: var(--serif);
@@ -314,14 +314,6 @@ const TypographyStyles = () => (
       letter-spacing: -0.02em;
       line-height: 1;
       transition: color 0.4s ease;
-    }
-
-    /* SOLUTION FINALE : BLANC À 92% + FLOU ÉLEVÉ + BORDURE DISCRÈTE */
-    .nav-blur {
-      backdrop-filter: blur(16px) saturate(180%) !important;
-      -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-      background-color: rgba(255, 255, 255, 0.92) !important;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
     }
 
     .scroll-progress-container-desktop {
@@ -507,7 +499,6 @@ const TypographyStyles = () => (
       :root {
         --header-h: 64px;
       }
-      header { padding-top: 0 !important; }
       .logo-style { font-size: 24px; }
       .mobile-nav-btn { font-size: 18px; }
       header, footer {
@@ -568,6 +559,15 @@ export default function App() {
   const indexData = CONTENT[lang].index;
   const footerData = CONTENT[lang].footer;
   const navData = CONTENT[lang].nav;
+
+  // STYLE EN LIGNE POUR FORCER LA TRANSPARENCE ET LE FLOU SUR VERCEL
+  const headerStyle = {
+    backgroundColor: 'rgba(252, 252, 252, 0.75)',
+    backdropFilter: 'blur(20px)',
+    WebkitBackdropFilter: 'blur(20px)',
+    borderBottom: '1px solid rgba(0, 0, 0, 0.03)',
+    zIndex: 9999
+  };
 
   return (
     <div className="relative w-full bg-white min-h-screen">
@@ -635,17 +635,18 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Header collant - SOLUTION BLANC FLOU */}
+      {/* Header collant - MÉTHODE INLINE STYLE */}
       <AnimatePresence>
         {headerVisible && (
           <motion.header 
             initial={{ y: -84, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -84, opacity: 0 }}
-            className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-14 h-[var(--header-h)] flex justify-between items-center md:items-baseline nav-blur"
+            style={headerStyle}
+            className="fixed top-0 left-0 w-full px-6 md:px-14 h-[var(--header-h)] flex justify-between items-center md:items-center"
           >
             <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
               {CONTENT[lang].brand}
             </button>
-            <nav className="hidden md:flex gap-14 items-baseline">
+            <nav className="hidden md:flex gap-14 items-center">
               <button onClick={() => scrollTo('works')} className="brand-style">{navData.works}</button>
               <button onClick={() => scrollTo('index-anchor')} className="brand-style">{navData.index}</button>
               <button onClick={() => scrollTo('contact')} className="brand-style">{navData.contact}</button>
