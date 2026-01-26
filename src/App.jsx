@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -8,18 +8,27 @@ import { X } from 'lucide-react';
 const CONTENT = {
   FR: {
     brand: "dubontemps",
+    meta: {
+      title: "Dubontemps | Photographe paysage & documentaire | Paris",
+      description: "Dubontemps développe une écriture photographique entre paysage, présence et mémoire. Explorez ses séries et tirages d'art, distinctions (ND Awards MH, Lensculture Editors' Pick) et collaborations (Musée de Cluny)."
+    },
     nav: { works: 'images', index: 'index', contact: 'contact', menu: 'menu' },
     hero: { 
-      url: 'https://i.ibb.co/7d0QhhHV/couv.jpg',
-      alt: 'Couverture Dubontemps - Paysage'
+      url: '/images/dubontemps-smithsonian-2026-biarritz--surfers-mist-washi-lg.jpg',
+      alt: 'Surfeurs dans la brume, Biarritz, collines espagnoles, 2026, tirage d’art papier washi japonais, Dubontemps'
+    },
+    sections: {
+      manifesto: "Manifeste et démarche",
+      gallery: "Galerie de travaux photographiques",
+      index: "Index, collaborations et distinctions",
+      contact: "Coordonnées et réseaux sociaux"
     },
     manifesto: [
       "Un paysage est une scène active.",
-      "Un champ d’interactions imprévisibles.",
-      "Un incident, une absence, suffisent.", 
+      "Un champ d’interactions imprévisibles.", 
       "",
       "La distance et la hauteur révèlent", 
-      "les signaux qui déplacent le regard.",
+      "le signal ou l'absence qui déplace le regard.",
       "",
       "L’image ne capture pas :", 
       "elle naît de la [[relation]] et de la [[mémoire]].",
@@ -27,65 +36,70 @@ const CONTENT = {
     stream: [
       { 
         id: 'img-1', 
-        url: 'https://i.ibb.co/7Njxf518/serie1-1.jpg', 
+        url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
         caption: "Équation sauvage", 
         year: "2026",
         tech: "Tirage pigmentaire, papier baryté",
-        note: "Quand des intelligneces prédictives cherchent à réduire l’inconnu, l’imaginaire cultive [[l’imprévu]]." 
+        alt: "Ombres de palmier et marcheurs, Palma de Majorque, série Équation Sauvage 2026, tirage pigmentaire papier baryté, Dubontemps",
+        note: "Les technologies prédictives cherchent à effacer l’inconnu. L’imaginaire cultive [[l’imprévu]]." 
       },
       { 
         id: 'img-2', 
-        url: 'https://i.ibb.co/jZ57sPDN/serie1-3.jpg', 
+        url: '/images/dubontemps-wild-equation-2026-pacific-aerial-view-sandbank-washi-lg.jpg', 
         caption: "Équation sauvage", 
         year: "2026",
         tech: "Tirage pigmentaire, papier washi japonais",
-        note: "Regarder le réel : vertige, fascination ou [[urgence]] face à ce qui pourrait disparaître.", 
+        alt: "Vue aérienne d'un banc de sable dans l’océan Pacifique, Vancouver Island, série Équation Sauvage 2026, tirage pigmentaire papier washi japonais, Dubontemps",
+        note: "Voir ce qui est prêt de [[disparaître]].", 
         side: 'right'
       },
       { 
         id: 'img-3', 
-        url: 'https://i.ibb.co/4gVbxdhH/serie1-2.jpg', 
+        url: '/images/dubontemps-wild-equation-2026-clayoquot-sound-aerial-view-forest-washi-lg.jpg', 
         caption: "Équation sauvage", 
         year: "2026",
         tech: "Tirage pigmentaire, papier washi japonais",
-        note: "La nature n’est pas un décor. C’est un [[langage discret]]." 
+        alt: "Forêt primitive dans la brume, Clayoquot Sound, Vancouver Island, série Équation Sauvage 2026, tirage pigmentaire papier washi japonais, Dubontemps",
+        note: "La nature n’est pas un décor, c'est un [[langage]]." 
       },
       { 
         id: 'img-4', 
-        url: 'https://i.ibb.co/QjqdyMNY/serie2-1.jpg', 
+        url: '/images/dubontemps-art-of-silence-2025-idf-mysterious-windows-matte-lg.jpg', 
         caption: "L’art du silence", 
         year: "2025",
         tech: "Tirage pigmentaire, papier fine art mat",
-        note: "Dans l’épaisseur du silence, avancer entre [[veille et songe]].",
+        alt: "Fenêtres sur la rivière dans une forêt brumeuse, Île-de-France, série L’Art du Silence 2025, tirage pigmentaire papier fine art mat, Dubontemps",
+        note: "Un [[chemin]] s'esquisse entre le visible et l'invisible.",
         side: 'right'
       },
       { 
         id: 'img-5', 
-        url: 'https://i.ibb.co/wZ7s9cYL/serie2-2.jpg', 
+        url: '/images/dubontemps-art-of-silence-2025-brittany-tree-shadow-matte-lg.jpg', 
         caption: "L’art du silence", 
         year: "2025",
         tech: "Tirage pigmentaire, papier fine art mat",
-        note: "Là où l’ombre façonne la lumière, [[rêver]] pour résister." 
+        alt: "Grand arbre et ombres vues de haut, pâquerettes, chaise en retrait, Finistère Nord Bretagne, série L’Art du Silence 2025, tirage pigmentaire papier fine art mat, Dubontemps",
+        note: "[[Rêver]] c'est résister." 
       }
     ],
     index: {
-      intro: "Ma pratique se situe entre l'observation documentaire et le geste photographique. Parallèlement à mes explorations en France et à l'international, je collabore avec des artisans, des artistes et des institutions culturelles.",
+      intro: "Je collabore avec des artisans, des artistes et des institutions culturelles. Ma pratique explore l'intersection entre nature, présence et mémoire. En France et à l'international.",
       selectionLabel: "Sélection de références",
       collabs: {
         label: "Collaborations",
         num: "01",
         items: [
-          { client: 'Musée national de Cluny', role: "Re-végétalisation de 4000m2 dans Paris. Campagne patrimoniale, reportages, inauguration ministérielle.", date: '2025' },
+          { client: 'Musée national de Cluny', role: "Végétalisation de 4000m2 dans Paris. Campagne patrimoniale, reportages, inauguration ministérielle.", date: '2025' },
           { client: 'Louis Wallecan', role: "Portrait documentaire pour Duel Magazine. Art shooting et DA d'exposition pour French Theory.", date: '2025' },
-          { client: 'Communauté Écotable', role: "Portraits sur l'alimentation durable (Ground Control, François Hollande pour La France s'engage, Isana, Botanique, etc.).", date: '21—24' }
+          { client: 'Communauté Écotable', role: "Portraits sur l'alimentation durable (Ground Control, François Hollande pour La France s'engage, Isana, Refugee Food, etc.).", date: '21—24' }
         ]
       },
       awards: {
         label: "Distinctions",
         num: "02",
         items: [
-          { label: "Smithsonian", subtitle: "Top 10, 2026" },
-          { label: "Lensculture Art", subtitle: "Critics' Choice, 2025" },
+          { label: "Smithsonian", subtitle: "" },
+          { label: "Lensculture Art", subtitle: "Editors' Pick, 2025" },
           { label: "ND Awards", subtitle: "Honorable Mention, 2025", url: "https://ndawards.net/winners-gallery/nd-awards-2025/professional/landscape/hm/22577/" },
           { label: "World Food Awards", subtitle: "Shortlist Crop, 2022" }
         ]
@@ -114,9 +128,9 @@ const CONTENT = {
       }
     },
     footer: {
-      location: "studio rue lamarck, paris",
+      location: "rue lamarck, paris",
       links: [
-        { label: "email", url: "mailto:atimsit@gmail.com" },
+        { label: "email", url: "mailto:alexandra@dubontemps.org" },
         { label: "instagram", url: "https://www.instagram.com/_dubontemps_/" },
         { label: "portfolio", url: "https://drive.google.com" }
       ]
@@ -124,21 +138,30 @@ const CONTENT = {
   },
   EN: {
     brand: "dubontemps",
+    meta: {
+      title: "Dubontemps | Landscape & Documentary Photographer | Paris",
+      description: "Dubontemps develops a photographic language between landscape, presence, and memory. Explore her series and fine art prints, her awards ((ND Awards MH, Lensculture Editors' Pick) and collaborations (Musée de Cluny)."
+    },
     nav: { works: 'images', index: 'index', contact: 'contact', menu: 'menu' },
     hero: { 
       url: 'https://i.ibb.co/7d0QhhHV/couv.jpg',
-      alt: 'Dubontemps Cover - Landscape'
+      alt: 'Surfers in the mist facing Spanish hills, Biarritz, 2026, art print on Japanese washi paper, Dubontemps'
+    },
+    sections: {
+      manifesto: "Manifesto and approach",
+      gallery: "Photographic work gallery",
+      index: "Index, collaborations and awards",
+      contact: "Contact details and social media"
     },
     manifesto: [
       "A landscape is an active stage.",
       "A field of unpredictable interactions.",
-      "An incident, an absence, is enough.",
       "",
-      "From distance, from height",
-      "signals surface and shift the gaze.",
+      "Distance and height reveal",
+      "the signal, the absence that shifts the gaze.",
       "",
       "The image does not capture:",
-      "it emerges quietly from [[relation]], from [[memory]].",
+      "it arises from [[relation]], from [[memory]].",
     ],
     stream: [
       { 
@@ -147,7 +170,8 @@ const CONTENT = {
         caption: 'Wild Equation', 
         year: "2026",
         tech: "Pigment inkjet print, baryta paper",
-        note: "When predictive intelligences seek to reduce the unknown, imagination cultivates the [[unforeseen]]." 
+        alt: "Palm shadows and walkers, Palma de Mallorca, Équation Sauvage series 2026, pigment print on baryta paper, Dubontemps",
+        note: "Predictive technologies seek to erase the unknown. Imagination nurtures the [[unforeseen]]." 
       },
       { 
         id: 'img-2-en', 
@@ -155,7 +179,8 @@ const CONTENT = {
         caption: 'Wild Equation', 
         year: "2026",
         tech: "Pigment inkjet print, handmade Japanese washi paper",
-        note: "Observing reality: vertigo, fascination or [[urgency]] facing what may vanish.", 
+        alt: "Aerial view of a sandbank in the Pacific Ocean, Vancouver Island, Équation Sauvage series 2026, pigment print on Japanese washi paper, Dubontemps",
+        note: "Witnessing what is about to [[disappear]].", 
         side: 'right'
       },
       { 
@@ -164,7 +189,8 @@ const CONTENT = {
         caption: 'Wild Equation', 
         year: "2026",
         tech: "Pigment inkjet print, handmade Japanese washi paper",
-        note: "Nature is not a backdrop. It is a [[discreet language]]." 
+        alt: "Primitive forest in the mist, Clayoquot Sound, Vancouver Island, Équation Sauvage series 2026, pigment print on Japanese washi paper, Dubontemps",
+        note: "Nature is not a backdrop, it is a [[language]]." 
       },
       { 
         id: 'img-4-en', 
@@ -172,7 +198,8 @@ const CONTENT = {
         caption: 'The Art of Silence', 
         year: "2025",
         tech: "Pigment inkjet print, matte fine art paper",
-        note: "In the depth of silence, advancing between [[waking and dreaming]].",
+        alt: "Windows over river in the misty forest, Île-de-France, L’Art of Silence series 2025, pigment print on fine art matte paper, Dubontemps",
+        note: "A [[path]] is traced between visible and invisible.",
         side: 'right'
       },
       { 
@@ -181,11 +208,12 @@ const CONTENT = {
         caption: 'The Art of Silence', 
         year: "2025",
         tech: "Pigment inkjet print, matte fine art paper",
-        note: "Where shadow shapes light, to [[dream]] is to resist." 
+        alt: "Large tree's shadows from above, daisies, chair in the distance, Finistère North Brittany, L’Art of Silence series 2025, pigment print on fine art matte paper, Dubontemps",
+        note: "To [[dream]] is to resist." 
       }
     ],
     index: {
-      intro: "My photographic practice lies between documentary observation and photographic gesture. Alongside my explorations in France and abroad, I collaborate with craftsmen, artists and cultural institutions.",
+      intro: "I collaborate with craftsmen, artists and cultural institutions. My work explores landscape, human presence and memory. In France and abroad.",
       selectionLabel: "Selected references",
       collabs: { 
         label: "Collaborations", 
@@ -193,15 +221,15 @@ const CONTENT = {
         items: [
             { client: 'Musée national de Cluny', role: "Re-wilding of 4000m2 in Paris. Heritage campaign, documentary, ministerial inauguration.", date: '2025' },
             { client: 'Louis Wallecan', role: "Documentary portrait for Duel Magazine. Art shooting, exhibition AD for French Theory", date: '2025' },
-            { client: 'Communauté Écotable', role: "Portraits on sustainable food (Ground Control, François Hollande pour La France s'engage, Isana, Botanique,etc.).", date: '21—24' }
+            { client: 'Communauté Écotable', role: "Portraits on sustainable food (Ground Control, François Hollande pour La France s'engage, Isana, Refugee Food, etc.).", date: '21—24' }
         ] 
       },
       awards: { 
         label: "Awards", 
         num: "02", 
         items: [
-            { label: "Smithsonian", subtitle: "Top 10, 2026" },
-            { label: "Lensculture Art", subtitle: "Critics' Choice, 2025" },
+            { label: "Smithsonian", subtitle: "" },
+            { label: "Lensculture Art", subtitle: "Editors' Pick, 2025" },
             { label: "ND Awards", subtitle: "Honorable Mention, 2025", url: "https://ndawards.net/winners-gallery/nd-awards-2025/professional/landscape/hm/22577/" },
             { label: "World Food Awards", subtitle: "Shortlist Crop, 2022" }
         ] 
@@ -230,9 +258,9 @@ const CONTENT = {
       }
     },
     footer: {
-      location: "studio rue lamarck, paris",
+      location: "rue lamarck, paris",
       links: [
-        { label: "email", url: "mailto:atimsit@gmail.com" },
+        { label: "email", url: "mailto:alexandra@dubontemps.org" },
         { label: "instagram", url: "https://www.instagram.com/_dubontemps_/" },
         { label: "portfolio", url: "https://drive.google.com" }
       ]
@@ -287,7 +315,8 @@ const TypographyStyles = () => (
       line-height: 1;
       text-transform: lowercase; 
       transition: color 0.4s ease;
-      margin-top: 0; 
+      margin-top: 0;
+      display: inline-block;
     }
     .logo-style:hover { color: var(--carmine); }
 
@@ -316,7 +345,6 @@ const TypographyStyles = () => (
       line-height: 1;
       transition: color 0.4s ease;
       margin-top: 0; 
-      /* Correction spécifique pour Safari iOS */
       -webkit-appearance: none;
       background: transparent;
       border: none;
@@ -390,7 +418,7 @@ const TypographyStyles = () => (
     }
 
     .text-note, .text-manifesto { 
-      font-size: 18px; 
+      font-size: 16px; 
       line-height: 1.7; 
       font-weight: 300; 
       color: var(--ink-soft); 
@@ -398,7 +426,7 @@ const TypographyStyles = () => (
     }
 
     .index-intro-text {
-      font-size: 18px; 
+      font-size: 16px; 
       line-height: 1.6;
       font-weight: 300; 
       color: var(--ink-soft); 
@@ -433,6 +461,7 @@ const TypographyStyles = () => (
       font-weight: 600; 
       opacity: 0.25;
       margin-bottom: 16px; 
+      display: block;
     }
     
     .index-item-static { 
@@ -471,7 +500,7 @@ const TypographyStyles = () => (
     .accident-signal {
       font-family: var(--serif);
       font-style: italic;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 300; 
       color: var(--ink);
       position: relative;
@@ -480,7 +509,6 @@ const TypographyStyles = () => (
       display: inline-block;
     }
 
-    /* OVERLAYS & LIGHTBOX */
     .lightbox-overlay {
       position: fixed;
       top: 0;
@@ -522,6 +550,19 @@ const TypographyStyles = () => (
       line-height: 1.2;
       text-transform: lowercase;
       opacity: 0.4;
+    }
+
+    /* SEO Helper - Masqué visuellement mais accessible aux robots */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
     }
 
     @media (max-width: 768px) {
@@ -568,6 +609,40 @@ export default function App() {
     restDelta: 0.001
   });
 
+  // SEO & Head Management
+  useEffect(() => {
+    document.title = CONTENT[lang].meta.title;
+    document.documentElement.lang = lang.toLowerCase();
+    
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = "description";
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = CONTENT[lang].meta.description;
+  }, [lang]);
+
+  // JSON-LD Structured Data
+  const structuredData = useMemo(() => {
+    return {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dubontemps",
+      "url": typeof window !== 'undefined' ? window.location.href : '',
+      "jobTitle": "Photographer",
+      "description": CONTENT[lang].meta.description,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Paris",
+        "addressCountry": "FR"
+      },
+      "sameAs": [
+        "https://www.instagram.com/_dubontemps_/"
+      ]
+    };
+  }, [lang]);
+
   useEffect(() => {
     const unsubscribe = scrollY.on("change", (latest) => {
       setHeaderVisible(latest >= 100);
@@ -577,25 +652,38 @@ export default function App() {
 
   const scrollTo = (id) => {
     setMobileMenuOpen(false);
-    const el = document.getElementById(id);
-    if (el) {
-        window.scrollTo({
-            top: el.getBoundingClientRect().top + window.pageYOffset - 84,
-            behavior: 'smooth'
-        });
-    }
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    const header = document.querySelector('header');
+    const headerHeight = header ? header.offsetHeight : (window.innerWidth < 768 ? 64 : 84);
+    
+    const bodyRect = document.body.getBoundingClientRect().top;
+    const targetRect = target.getBoundingClientRect().top;
+    const targetPosition = targetRect - bodyRect;
+    
+    const offsetPosition = targetPosition - headerHeight;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
   };
 
   const stream = CONTENT[lang].stream;
   const indexData = CONTENT[lang].index;
   const footerData = CONTENT[lang].footer;
   const navData = CONTENT[lang].nav;
+  const sectionTitles = CONTENT[lang].sections;
 
   return (
     <div className="relative w-full bg-white">
       <TypographyStyles />
+      
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
 
-      {/* Lightbox for images */}
       <AnimatePresence>
         {zoomImage && (
           <motion.div 
@@ -605,7 +693,8 @@ export default function App() {
             onClick={() => setZoomImage(null)}
             className="lightbox-overlay"
             role="dialog"
-            aria-label="Image Zoom"
+            aria-modal="true"
+            aria-label="Aperçu image agrandie"
           >
             <motion.img 
               initial={{ scale: 0.9, opacity: 0 }} 
@@ -614,49 +703,50 @@ export default function App() {
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               src={zoomImage} 
               className="lightbox-img" 
-              alt="Zoomed view"
+              alt="Image en plein écran"
             />
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
             initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             className="mobile-menu-overlay"
+            role="navigation"
+            aria-label="Menu principal mobile"
           >
             <div className="flex justify-between items-center h-[var(--header-h)] mb-12">
               <button onClick={() => {setMobileMenuOpen(false); window.scrollTo({top:0, behavior:'smooth'})}} className="logo-style">
                 {CONTENT[lang].brand}
               </button>
-              <button onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
+              <button onClick={() => setMobileMenuOpen(false)} aria-label="Fermer le menu">
                 <X size={24} strokeWidth={1.5} />
               </button>
             </div>
-            <nav className="flex flex-col gap-10">
-              <button onClick={() => scrollTo('works')} className="brand-style text-left text-2xl">{navData.works}</button>
-              <button onClick={() => scrollTo('index-anchor')} className="brand-style text-left text-2xl">{navData.index}</button>
-              <button onClick={() => scrollTo('contact')} className="brand-style text-left text-2xl">{navData.contact}</button>
-              <div className="flex gap-4 mt-8 pt-8 border-t border-zinc-100">
-                <button onClick={() => setLang('FR')} className={`brand-style ${lang === 'FR' ? 'opacity-100' : 'opacity-30'}`}>fr</button>
-                <span className="opacity-10 brand-style">/</span>
-                <button onClick={() => setLang('EN')} className={`brand-style ${lang === 'EN' ? 'opacity-100' : 'opacity-30'}`}>en</button>
-              </div>
-            </nav>
+            <ul className="flex flex-col gap-10 list-none p-0 m-0">
+              <li><button onClick={() => scrollTo('works-anchor')} className="brand-style text-left text-2xl">{navData.works}</button></li>
+              <li><button onClick={() => scrollTo('index-anchor')} className="brand-style text-left text-2xl">{navData.index}</button></li>
+              <li><button onClick={() => scrollTo('contact-anchor')} className="brand-style text-left text-2xl">{navData.contact}</button></li>
+              <li className="flex gap-4 mt-8 pt-8 border-t border-zinc-100">
+                <button onClick={() => setLang('FR')} className={`brand-style ${lang === 'FR' ? 'opacity-100' : 'opacity-30'}`} aria-label="Passer en français">fr</button>
+                <span className="opacity-10 brand-style" aria-hidden="true">/</span>
+                <button onClick={() => setLang('EN')} className={`brand-style ${lang === 'EN' ? 'opacity-100' : 'opacity-30'}`} aria-label="Switch to english">en</button>
+              </li>
+            </ul>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <div className="scroll-progress-container-desktop hidden md:block">
+      <div className="scroll-progress-container-desktop hidden md:block" aria-hidden="true">
         <motion.div className="scroll-progress-bar-desktop" style={{ height: '100%', scaleY: scale }} />
       </div>
 
       <AnimatePresence>
         {headerVisible && (
-          <div className="scroll-progress-container-mobile md:hidden">
+          <div className="scroll-progress-container-mobile md:hidden" aria-hidden="true">
             <motion.div className="scroll-progress-bar-mobile" style={{ width: '100%', scaleX: scale }} />
           </div>
         )}
@@ -668,20 +758,30 @@ export default function App() {
             initial={{ y: -84, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -84, opacity: 0 }}
             className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-14 h-[var(--header-h)] flex justify-between items-center md:items-baseline nav-blur"
           >
-            <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
-              {CONTENT[lang].brand}
-            </button>
-            
-            <nav className="hidden md:flex gap-14 items-baseline">
-              <button onClick={() => scrollTo('works')} className="brand-style">{navData.works}</button>
-              <button onClick={() => scrollTo('index-anchor')} className="brand-style">{navData.index}</button>
-              <button onClick={() => scrollTo('contact')} className="brand-style">{navData.contact}</button>
-              <button onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} className="brand-style">
-                {lang === 'FR' ? 'en' : 'fr'}
+            <h1 className="m-0 p-0 leading-none">
+              <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
+                {CONTENT[lang].brand}
               </button>
+            </h1>
+            
+            <nav className="hidden md:flex gap-14 items-baseline" aria-label="Menu principal">
+              <ul className="flex gap-14 list-none p-0 m-0 items-baseline">
+                <li><button onClick={() => scrollTo('works-anchor')} className="brand-style">{navData.works}</button></li>
+                <li><button onClick={() => scrollTo('index-anchor')} className="brand-style">{navData.index}</button></li>
+                <li><button onClick={() => scrollTo('contact-anchor')} className="brand-style">{navData.contact}</button></li>
+                <li>
+                  <button 
+                    onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} 
+                    className="brand-style"
+                    aria-label={lang === 'FR' ? 'Switch to English' : 'Passer en Français'}
+                  >
+                    {lang === 'FR' ? 'en' : 'fr'}
+                  </button>
+                </li>
+              </ul>
             </nav>
 
-            <button onClick={() => setMobileMenuOpen(true)} className="md:hidden mobile-nav-btn">
+            <button onClick={() => setMobileMenuOpen(true)} className="md:hidden mobile-nav-btn" aria-label="Ouvrir le menu">
               {navData.menu}
             </button>
           </motion.header>
@@ -689,7 +789,10 @@ export default function App() {
       </AnimatePresence>
 
       <main className="relative z-[5]">
-        <section className="w-full flex flex-col bg-white">
+        {/* Section Hero & Manifeste */}
+        <section className="w-full flex flex-col bg-white" aria-labelledby="section-manifesto">
+          <h2 id="section-manifesto" className="sr-only">{sectionTitles.manifesto}</h2>
+          
           <div className="w-full h-[85vh] overflow-hidden">
             <motion.img 
               initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }}
@@ -699,7 +802,9 @@ export default function App() {
               className="w-full h-full object-cover object-bottom" 
             />
           </div>
-          <div className="pt-[40vh] pb-[15vh] px-6 md:px-[15%]">
+
+          {/* AJUSTEMENT : pb-[25vh] pour créer la respiration sous le manifeste */}
+          <div className="pt-[40vh] pb-[25vh] px-6 md:px-[15%]">
             <div className="md:max-w-3xl ml-auto text-left md:text-right">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
@@ -715,17 +820,23 @@ export default function App() {
           </div>
         </section>
 
-        <section id="works" className="bg-white pt-[20vh] space-y-[40vh] md:space-y-[60vh]">
+        {/* Section Galerie d'Images */}
+        {/* AJUSTEMENT : pt-0 pour supprimer le vide en haut de la section works */}
+        <section className="bg-white pt-0 space-y-[40vh] md:space-y-[60vh] relative" aria-labelledby="section-gallery">
+          {/* AJUSTEMENT : L'ancre est absolue pour ne pas pousser le premier enfant (image 1) du space-y */}
+          <div id="works-anchor" className="absolute top-[-100px] left-0" aria-hidden="true" />
+          <h2 id="section-gallery" className="sr-only">{sectionTitles.gallery}</h2>
+          
           {stream.map((item, idx) => (
-            <motion.div 
+            <motion.article 
               key={item.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }} viewport={{ once: true, margin: "-10%" }}
               className={`flex flex-col px-6 md:px-0 ${item.side === 'right' ? 'md:items-end md:pr-[10%]' : 'md:items-start md:pl-[10%]'}`}
             >
-              <div className="w-full md:w-[64vw]">
+              <figure className="w-full md:w-[64vw] m-0 p-0">
                 <div className="flex justify-between items-end mb-6">
                   <div className="text-meta-label">
-                    {`${String(idx + 1).padStart(2, '0')} / ${String(stream.length).padStart(2, '0')}`}
+                    <span className="sr-only">Project</span> {`${String(idx + 1).padStart(2, '0')} / ${String(stream.length).padStart(2, '0')}`}
                   </div>
                   <div className="text-meta-label text-right opacity-40 uppercase tracking-widest text-[10px] md:text-[12px]">
                     {item.tech}
@@ -736,109 +847,129 @@ export default function App() {
                   className="overflow-hidden bg-zinc-50 cursor-zoom-in" 
                   onClick={() => setZoomImage(item.url)}
                   role="button"
+                  aria-label={`Enlarge image: ${item.caption}`}
+                  tabIndex="0"
+                  onKeyDown={(e) => e.key === 'Enter' && setZoomImage(item.url)}
                 >
                   <motion.img 
                     whileHover={{ scale: 1.01 }} 
                     src={item.url} 
-                    alt={item.caption}
+                    alt={item.alt}
                     loading="lazy"
                     className="w-full h-auto transition-transform duration-[1500ms]" 
                   />
                 </div>
 
-                <div className="mt-8 flex flex-col">
+                <figcaption className="mt-8 flex flex-col">
                   <div className="flex flex-col items-end text-right">
-                    <h2 className="text-meta-title">{item.caption}</h2>
+                    <h2 className="text-meta-title m-0">{item.caption}</h2>
                     <span className="text-meta-date">{item.year}</span>
                   </div>
                   <div className="mt-8 md:mt-12 max-w-lg">
                     <p className="text-note"><MixedText text={item.note} /></p>
                   </div>
-                </div>
-              </div>
-            </motion.div>
+                </figcaption>
+              </figure>
+            </motion.article>
           ))}
         </section>
 
-        <section id="index-anchor" className="relative mt-[25vh] py-24 px-6 md:px-[8%] bg-[#FAFAFA] border-t border-zinc-100 z-[100]">
+        {/* Section Index & Collabs */}
+        <section id="index-anchor" className="relative mt-[25vh] py-24 px-6 md:px-[8%] bg-[#FAFAFA] border-t border-zinc-100 z-[100]" aria-labelledby="section-index">
+          <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
+          
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
              <p className="index-intro-text">{indexData.intro}</p>
-             <span className="selection-label-style">{indexData.selectionLabel}</span>
+             <span className="selection-label-style" aria-hidden="true">{indexData.selectionLabel}</span>
           </motion.div>
 
           <div className="grid grid-cols-2 gap-x-10 gap-y-16 md:gap-x-24 md:gap-y-20">
+            {/* Collaborations */}
             <div className="flex flex-col col-span-2 md:col-span-1">
-              <span className="index-num">{indexData.collabs.num}</span>
+              <span className="index-num" aria-hidden="true">{indexData.collabs.num}</span>
               <h3 className="index-label">{indexData.collabs.label}</h3>
-              <div className="space-y-6 md:space-y-10">
+              <ul className="list-none p-0 m-0 space-y-6 md:space-y-10">
                 {indexData.collabs.items.map((c, i) => (
-                  <div key={i} className="max-w-[420px]">
-                    <p className="index-item-static">{c.client}</p>
-                    <p className="index-item-sub">{c.role} <span className="opacity-50 ml-1">{c.date}</span></p>
-                  </div>
+                  <li key={i} className="max-w-[420px]">
+                    <p className="index-item-static m-0">{c.client}</p>
+                    <p className="index-item-sub m-0">{c.role} <span className="opacity-50 ml-1">{c.date}</span></p>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
+            {/* Awards */}
             <div className="flex flex-col">
-              <span className="index-num">{indexData.awards.num}</span>
+              <span className="index-num" aria-hidden="true">{indexData.awards.num}</span>
               <h3 className="index-label">{indexData.awards.label}</h3>
-              <div className="space-y-6 md:space-y-10">
+              <ul className="list-none p-0 m-0 space-y-6 md:space-y-10">
                 {indexData.awards.items.map((a, i) => (
-                  <div key={i}>
+                  <li key={i}>
                     {a.url ? (
                       <a href={a.url} target="_blank" rel="noopener noreferrer" className="index-item-link">{a.label}</a>
-                    ) : <p className="index-item-static">{a.label}</p>}
-                    <p className="index-item-sub">{a.subtitle}</p>
-                  </div>
+                    ) : <p className="index-item-static m-0">{a.label}</p>}
+                    <p className="index-item-sub m-0">{a.subtitle}</p>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
+            {/* Exhibitions */}
             <div className="flex flex-col">
-              <span className="index-num">{indexData.exhibitions.num}</span>
+              <span className="index-num" aria-hidden="true">{indexData.exhibitions.num}</span>
               <h3 className="index-label">{indexData.exhibitions.label}</h3>
-              <div className="space-y-6 md:space-y-10">
+              <ul className="list-none p-0 m-0 space-y-6 md:space-y-10">
                 {indexData.exhibitions.items.map((e, i) => (
-                  <div key={i}>
-                    <p className="index-item-static">{e.label}</p>
-                    <p className="index-item-sub">{e.subtitle}</p>
-                  </div>
+                  <li key={i}>
+                    <p className="index-item-static m-0">{e.label}</p>
+                    <p className="index-item-sub m-0">{e.subtitle}</p>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
+            {/* Publications */}
             <div className="flex flex-col col-span-2 md:col-span-1">
-              <span className="index-num">{indexData.publications.num}</span>
+              <span className="index-num" aria-hidden="true">{indexData.publications.num}</span>
               <h3 className="index-label">{indexData.publications.label}</h3>
-              <div className="flex flex-wrap gap-x-6 gap-y-3 md:gap-x-8 md:gap-y-4">
+              <ul className="list-none p-0 m-0 flex flex-wrap gap-x-6 gap-y-3 md:gap-x-8 md:gap-y-4">
                 {indexData.publications.items.map((p, i) => (
-                  p.url ? (
-                    <a key={i} href={p.url} target="_blank" rel="noopener noreferrer" className="index-item-link">
-                      {p.name}
-                    </a>
-                  ) : (
-                    <span key={i} className="index-item-static">
-                      {p.name}
-                    </span>
-                  )
+                  <li key={i}>
+                    {p.url ? (
+                      <a href={p.url} target="_blank" rel="noopener noreferrer" className="index-item-link">
+                        {p.name}
+                      </a>
+                    ) : (
+                      <span className="index-item-static">
+                        {p.name}
+                      </span>
+                    )}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </section>
 
-        <footer id="contact" className="relative px-6 md:px-14 py-20 md:py-0 md:h-[var(--header-h)] bg-white flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0 border-t border-zinc-100 z-[100]">
-          <nav className="flex flex-wrap justify-center gap-8 md:gap-16 items-center">
-            {footerData.links.map((link, i) => (
-              <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" className="brand-style">
-                {link.label}
-              </a>
-            ))}
+        {/* Footer & Contact */}
+        <footer id="contact-anchor" className="relative px-6 md:px-14 py-20 md:py-0 md:h-[var(--header-h)] bg-white flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0 border-t border-zinc-100 z-[100]" aria-labelledby="section-contact">
+          <h2 id="section-contact" className="sr-only">{sectionTitles.contact}</h2>
+          
+          <nav aria-label="Contact links and social media">
+            <ul className="list-none p-0 m-0 flex flex-wrap justify-center gap-8 md:gap-16 items-center">
+              {footerData.links.map((link, i) => (
+                <li key={i}>
+                  <a href={link.url} target="_blank" rel="noopener noreferrer" className="brand-style">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </nav>
-          <div className="footer-mention">
-            © {CONTENT[lang].brand} . {footerData.location}
-          </div>
+          
+          <address className="footer-mention not-italic">
+            © {new Date().getFullYear()} {CONTENT[lang].brand} . {footerData.location}
+          </address>
         </footer>
       </main>
     </div>
