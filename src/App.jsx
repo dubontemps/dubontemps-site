@@ -144,7 +144,7 @@ const CONTENT = {
     },
     nav: { works: 'images', index: 'index', contact: 'contact', menu: 'menu' },
     hero: { 
-      url: 'https://i.ibb.co/7d0QhhHV/couv.jpg',
+      url: '/images/dubontemps-smithsonian-2026-biarritz--surfers-mist-washi-lg.jpg',
       alt: 'Surfers in the mist facing Spanish hills, Biarritz, 2026, art print on Japanese washi paper, Dubontemps'
     },
     sections: {
@@ -158,7 +158,7 @@ const CONTENT = {
       "A field of unpredictable interactions.",
       "",
       "Distance and height reveal",
-      "the signal, the absence that shifts the gaze.",
+      "the signal or the absence that shifts the gaze.",
       "",
       "The image does not capture:",
       "it arises from [[relation]], from [[memory]].",
@@ -166,7 +166,7 @@ const CONTENT = {
     stream: [
       { 
         id: 'img-1-en', 
-        url: 'https://i.ibb.co/7Njxf518/serie1-1.jpg', 
+        url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
         caption: 'Wild Equation', 
         year: "2026",
         tech: "Pigment inkjet print, baryta paper",
@@ -175,7 +175,7 @@ const CONTENT = {
       },
       { 
         id: 'img-2-en', 
-        url: 'https://i.ibb.co/jZ57sPDN/serie1-3.jpg', 
+        url: '/images/dubontemps-wild-equation-2026-pacific-aerial-view-sandbank-washi-lg.jpg', 
         caption: 'Wild Equation', 
         year: "2026",
         tech: "Pigment inkjet print, handmade Japanese washi paper",
@@ -185,7 +185,7 @@ const CONTENT = {
       },
       { 
         id: 'img-3-en', 
-        url: 'https://i.ibb.co/4gVbxdhH/serie1-2.jpg', 
+        url: '/images/dubontemps-wild-equation-2026-clayoquot-sound-aerial-view-forest-washi-lg.jpg', 
         caption: 'Wild Equation', 
         year: "2026",
         tech: "Pigment inkjet print, handmade Japanese washi paper",
@@ -194,7 +194,7 @@ const CONTENT = {
       },
       { 
         id: 'img-4-en', 
-        url: 'https://i.ibb.co/QjqdyMNY/serie2-1.jpg', 
+        url: '/images/dubontemps-art-of-silence-2025-idf-mysterious-windows-matte-lg.jpg', 
         caption: 'The Art of Silence', 
         year: "2025",
         tech: "Pigment inkjet print, matte fine art paper",
@@ -204,7 +204,7 @@ const CONTENT = {
       },
       { 
         id: 'img-5-en', 
-        url: 'https://i.ibb.co/wZ7s9cYL/serie2-2.jpg', 
+        url: '/images/dubontemps-art-of-silence-2025-brittany-tree-shadow-matte-lg.jpg', 
         caption: 'The Art of Silence', 
         year: "2025",
         tech: "Pigment inkjet print, matte fine art paper",
