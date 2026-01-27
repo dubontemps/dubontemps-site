@@ -807,11 +807,11 @@ export default function App() {
           </div>
 
           {/* AJUSTEMENT : pb-[25vh] pour créer la respiration sous le manifeste */}
-          <div className="pt-[50vh] pb-[25vh] px-6 md:px-[10%]">
+          <div className="pt-[40vh] pb-[25vh] px-6 md:px-[10%]">
             <div className="md:max-w-3xl mr-auto text-left md:text-left">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.5 }} viewport={{ once: true }} className="text-manifesto space-y-1"
+                transition={{ duration: 1.5 }} viewport={{ once: true }} className="text-manifesto space-y-4"
               >
                 {CONTENT[lang].manifesto.map((line, i) => (
                   <div key={i} className="manifesto-line h-auto min-h-[1.7em]">
@@ -824,7 +824,7 @@ export default function App() {
         </section>
 
         {/* Section Galerie d'Images */}
-        <section className="bg-white pt-0 space-y-[40vh] md:space-y-[60vh] relative" aria-labelledby="section-gallery">
+        <section className="bg-white pt-0 space-y-[40vh] md:space-y-[40vh] relative" aria-labelledby="section-gallery">
           {/* AJUSTEMENT : L'ancre est absolue pour ne pas pousser le premier enfant (image 1) du space-y */}
           <div id="works-anchor" className="absolute top-[-100px] left-0" aria-hidden="true" />
           <h2 id="section-gallery" className="sr-only">{sectionTitles.gallery}</h2>
