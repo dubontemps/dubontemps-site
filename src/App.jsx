@@ -31,12 +31,12 @@ const CONTENT = {
       "La distance et la hauteur révèlent", 
       "le signal ou l'absence qui déplace le regard.",
       "",
-      "L’image ne capture pas :", 
+      "Mais l’image ne capture pas :", 
       "elle naît de la [[relation]] et de la [[mémoire]].",
     ],
     stream: [
       { 
-        id: 'img-1', 
+        id: 'wandering-souls-dubontemps', 
         url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
         caption: "Équation sauvage", 
         year: "2026",
@@ -45,7 +45,7 @@ const CONTENT = {
         note: "Les technologies prédictives cherchent à effacer l’inconnu. L’imaginaire cultive [[l’imprévu]]." 
       },
       { 
-        id: 'img-2', 
+        id: 'vertigo-dubontemps', 
         url: '/images/dubontemps-wild-equation-2026-pacific-aerial-view-sandbank-washi-lg.jpg', 
         caption: "Équation sauvage", 
         year: "2026",
@@ -55,7 +55,7 @@ const CONTENT = {
         side: 'right'
       },
       { 
-        id: 'img-3', 
+        id: 'echoes-of-the-woods-dubontemps', 
         url: '/images/dubontemps-wild-equation-2026-clayoquot-sound-aerial-view-forest-washi-lg.jpg', 
         caption: "Équation sauvage", 
         year: "2026",
@@ -64,7 +64,7 @@ const CONTENT = {
         note: "La nature n’est pas un décor, c'est un [[langage]]." 
       },
       { 
-        id: 'img-4', 
+        id: 'between-realms-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-idf-mysterious-windows-matte-lg.jpg', 
         caption: "L’art du silence", 
         year: "2025",
@@ -74,7 +74,7 @@ const CONTENT = {
         side: 'right'
       },
       { 
-        id: 'img-5', 
+        id: 'roots-of-time-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-brittany-tree-shadow-matte-lg.jpg', 
         caption: "L’art du silence", 
         year: "2025",
@@ -99,7 +99,6 @@ const CONTENT = {
         label: "Distinctions",
         num: "02",
         items: [
-          { label: "Smithsonian", subtitle: "" },
           { label: "Lensculture Art", subtitle: "Editors' Pick, 2025" },
           { label: "ND Awards", subtitle: "Honorable Mention, 2025", url: "https://ndawards.net/winners-gallery/nd-awards-2025/professional/landscape/hm/22577/" },
           { label: "World Food Awards", subtitle: "Shortlist Crop, 2022" }
@@ -117,7 +116,6 @@ const CONTENT = {
         label: "Parutions",
         num: "04",
         items: [
-          { name: "Smithsonian" },
           { name: "Dodho", url: "https://www.dodho.com/the-art-of-silence-by-dubontemps-photography-between-shadow-and-light/" },
           { name: "Duel Magazine", url: "https://www.duelmagazine.com/louis-wallecan/" },
           { name: "National Geographic", url: "https://www.facebook.com/NatGeoHistory/posts/rosy-faced-lovebirds-are-a-species-of-parrot-known-for-typically-monogamou/10156100536768336/" },
@@ -161,12 +159,12 @@ const CONTENT = {
       "Distance and height reveal",
       "the signal or the absence that shifts the gaze.",
       "",
-      "The image does not capture:",
-      "it arises from [[relation]], from [[memory]].",
+      "But the image does not capture:",
+      "it arises from [[relation]] and from [[memory]].",
     ],
     stream: [
       { 
-        id: 'img-1-en', 
+        id: 'wandering-souls-dubontemps', 
         url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
         caption: 'Wild Equation', 
         year: "2026",
@@ -175,7 +173,7 @@ const CONTENT = {
         note: "Predictive technologies seek to erase the unknown. Imagination nurtures the [[unforeseen]]." 
       },
       { 
-        id: 'img-2-en', 
+        id: 'vertigo-dubontemps', 
         url: '/images/dubontemps-wild-equation-2026-pacific-aerial-view-sandbank-washi-lg.jpg', 
         caption: 'Wild Equation', 
         year: "2026",
@@ -185,7 +183,7 @@ const CONTENT = {
         side: 'right'
       },
       { 
-        id: 'img-3-en', 
+        id: 'echoes-of-the-woods-dubontemps', 
         url: '/images/dubontemps-wild-equation-2026-clayoquot-sound-aerial-view-forest-washi-lg.jpg', 
         caption: 'Wild Equation', 
         year: "2026",
@@ -194,7 +192,7 @@ const CONTENT = {
         note: "Nature is not a backdrop, it is a [[language]]." 
       },
       { 
-        id: 'img-4-en', 
+        id: 'between-realms-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-idf-mysterious-windows-matte-lg.jpg', 
         caption: 'The Art of Silence', 
         year: "2025",
@@ -204,7 +202,7 @@ const CONTENT = {
         side: 'right'
       },
       { 
-        id: 'img-5-en', 
+        id: 'roots-of-time-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-brittany-tree-shadow-matte-lg.jpg', 
         caption: 'The Art of Silence', 
         year: "2025",
@@ -229,7 +227,6 @@ const CONTENT = {
         label: "Awards", 
         num: "02", 
         items: [
-            { label: "Smithsonian", subtitle: "" },
             { label: "Lensculture Art", subtitle: "Editors' Pick, 2025" },
             { label: "ND Awards", subtitle: "Honorable Mention, 2025", url: "https://ndawards.net/winners-gallery/nd-awards-2025/professional/landscape/hm/22577/" },
             { label: "World Food Awards", subtitle: "Shortlist Crop, 2022" }
@@ -247,7 +244,6 @@ const CONTENT = {
         label: "Publications", 
         num: "04", 
         items: [
-          { name: "Smithsonian" },
           { name: "Dodho", url: "https://www.dodho.com/the-art-of-silence-by-dubontemps-photography-between-shadow-and-light/" },
           { name: "Duel Magazine", url: "https://www.duelmagazine.com/louis-wallecan/" },
           { name: "National Geographic", url: "https://www.facebook.com/NatGeoHistory/posts/rosy-faced-lovebirds-are-a-species-of-parrot-known-for-their-typically-monogamou/10156100536768336/" },
@@ -544,13 +540,13 @@ const TypographyStyles = () => (
     }
 
     .footer-mention {
-      font-size: 18px; 
+      font-size: 14px; 
       font-weight: 400; 
-      letter-spacing: -0.04em;
+      letter-spacing: -0.02em;
       color: var(--ink);
       line-height: 1.2;
       text-transform: lowercase;
-      opacity: 0.4;
+      opacity: 0.3;
     }
 
     /* SEO Helper - Masqué visuellement mais accessible aux robots */
@@ -936,7 +932,7 @@ export default function App() {
     <div className="flex flex-col">
       <span className="index-num" aria-hidden="true">{indexData.publications.num}</span>
       <h3 className="index-label">{indexData.publications.label}</h3>
-      <ul className="list-none p-0 m-0 flex flex-wrap gap-x-6 gap-y-2 max-w-3xl"> {/* Gap réduit ici aussi */}
+      <ul className="list-none p-0 m-0 flex flex-wrap gap-x-8 gap-y-2 max-w-lg"> 
         {indexData.publications.items.map((p, i) => (
           <li key={i}>
             {p.url ? (
