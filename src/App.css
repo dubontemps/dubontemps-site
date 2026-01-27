@@ -40,3 +40,31 @@
 .read-the-docs {
   color: #888;
 }
+.menu-close-button {
+  /* Safari iOS only */
+  -webkit-tap-highlight-color: transparent;
+
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  outline: none;
+  box-shadow: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-close-button:focus,
+.menu-close-button:active,
+.menu-close-button:focus-visible {
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.menu-close-button svg {
+  pointer-events: none;
+}

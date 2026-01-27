@@ -342,9 +342,6 @@ const TypographyStyles = () => (
       font-weight: 400;
       text-transform: lowercase;
       letter-spacing: -0.02em;
-      display: flex;         
-      align-items: center;    
-      height: 100%;           
       line-height: 1;
       transition: color 0.4s ease;
       margin-top: 0; 
@@ -725,11 +722,10 @@ export default function App() {
               <button onClick={() => {setMobileMenuOpen(false); window.scrollTo({top:0, behavior:'smooth'})}} className="logo-style">
                 {CONTENT[lang].brand}
               </button>
-                <button onClick={() => setMobileMenuOpen(false)} 
-                className="p-2 -mr-2 flex items-center justify-center text-black bg-transparent border-none outline-none appearance-none" 
-                style={{ WebkitAppearance: 'none' }}
+              <button onClick={() => setMobileMenuOpen(false)} 
+                className="menu-close-button"
                 aria-label="Fermer le menu">
-                <X size={28} strokeWidth={1.2} />
+                <X size={24} strokeWidth={1.5} />
               </button>
             </div>
             <ul className="flex flex-col gap-10 list-none p-0 m-0">
