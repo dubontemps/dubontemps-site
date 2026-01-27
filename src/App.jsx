@@ -312,7 +312,7 @@ const TypographyStyles = () => (
       line-height: 1; 
       display: inline-flex;
       align-items: center;
-      transform: translateY(-1.5px);
+      transform: translateY(-2.5px);
       text-transform: lowercase; 
       transition: color 0.4s ease;
       margin-top: 0;
@@ -571,7 +571,7 @@ const TypographyStyles = () => (
       }
       /* Correction optique du logo sur mobile */
       .logo-style {
-        transform: translateY(-1px) !important;
+        transform: translateY(-2px) !important;
       }
       .logo-style { font-size: 24px; }
       .mobile-nav-btn { font-size: 18px; }
@@ -760,7 +760,7 @@ export default function App() {
         {headerVisible && (
           <motion.header 
             initial={{ y: -84, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -84, opacity: 0 }}
-            className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-14 h-[var(--header-h)] flex justify-between items-baseline nav-blur pt-5 pb-7 md:pt-7 md:pb-5"
+            className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-14 h-[var(--header-h)] flex justify-between items-baseline nav-blur pt-4 pb-4 md:pt-6 md:pb-6"
           >
             <h1 className="m-0 p-0 leading-none md:ml-8">
               <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
