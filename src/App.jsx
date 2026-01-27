@@ -309,11 +309,13 @@ const TypographyStyles = () => (
       border: none;
       color: var(--ink);
       padding: 0; 
-      line-height: 1;
+      line-height: 1; 
+      display: inline-flex;
+      align-items: center;
+      transform: translateY(-1.5px);
       text-transform: lowercase; 
       transition: color 0.4s ease;
       margin-top: 0;
-      display: inline-block;
     }
     .logo-style:hover { color: var(--carmine); }
 
@@ -497,7 +499,7 @@ const TypographyStyles = () => (
     .accident-signal {
       font-family: var(--serif);
       font-style: italic;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 300; 
       color: var(--ink);
       position: relative;
@@ -567,7 +569,10 @@ const TypographyStyles = () => (
         --feed-margin-v: 24px;
         --header-h: 64px;
       }
-      header { padding-top: 0 !important; }
+      /* Correction optique du logo sur mobile */
+      .logo-style {
+        transform: translateY(-1px) !important;
+      }
       .logo-style { font-size: 24px; }
       .mobile-nav-btn { font-size: 18px; }
       header, footer {
@@ -755,7 +760,7 @@ export default function App() {
         {headerVisible && (
           <motion.header 
             initial={{ y: -84, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -84, opacity: 0 }}
-            className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-14 h-[var(--header-h)] flex justify-between items-center md:items-baseline nav-blur"
+            className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-14 h-[var(--header-h)] flex justify-between items-baseline nav-blur pt-5 pb-7 md:pt-7 md:pb-5"
           >
             <h1 className="m-0 p-0 leading-none md:ml-8">
               <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
