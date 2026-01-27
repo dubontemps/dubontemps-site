@@ -41,30 +41,34 @@
   color: #888;
 }
 .menu-close-button {
-  /* Safari iOS only */
-  -webkit-tap-highlight-color: transparent;
+  /* Safari iOS only, ignore VSCode warning */
 
-  background: transparent;
+  position: relative;                 /* évite overlay iOS */
+  background-color: rgba(0,0,0,0);    /* fond réel mais transparent */
   border: none;
-  padding: 0;
+  padding: 0.5rem;                    /* surface tactile minimale pour iOS */
   margin: 0;
-
-  outline: none;
-  box-shadow: none;
+  border-radius: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
+
+  outline: none;
+  box-shadow: none;
+
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent; 
 }
 
 .menu-close-button:focus,
 .menu-close-button:active,
 .menu-close-button:focus-visible {
   outline: none;
-  background: transparent;
+  background-color: rgba(0,0,0,0);
   box-shadow: none;
 }
 
 .menu-close-button svg {
-  pointer-events: none;
+  pointer-events: none;  /* le SVG ne reçoit plus d’événement */
 }
