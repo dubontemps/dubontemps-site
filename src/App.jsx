@@ -467,7 +467,7 @@ const TypographyStyles = () => (
     
     .index-item-static { 
       font-size: 14px; 
-      font-weight: 500; 
+      font-weight: 400; 
       line-height: 1.2; 
       text-transform: uppercase;
       letter-spacing: 0.03em;
@@ -476,7 +476,7 @@ const TypographyStyles = () => (
 
     .index-item-link { 
       font-size: 14px; 
-      font-weight: 500; 
+      font-weight: 400; 
       line-height: 1.2; 
       text-transform: uppercase;
       letter-spacing: 0.03em;
@@ -807,8 +807,8 @@ export default function App() {
           </div>
 
           {/* AJUSTEMENT : pb-[25vh] pour créer la respiration sous le manifeste */}
-          <div className="pt-[40vh] pb-[25vh] px-6 md:px-[15%]">
-            <div className="md:max-w-3xl ml-auto text-left md:text-right">
+          <div className="pt-[50vh] pb-[25vh] px-6 md:px-[10%]">
+            <div className="md:max-w-3xl mr-auto text-left md:text-left">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.5 }} viewport={{ once: true }} className="text-manifesto space-y-1"
@@ -824,7 +824,6 @@ export default function App() {
         </section>
 
         {/* Section Galerie d'Images */}
-        {/* AJUSTEMENT : pt-0 pour supprimer le vide en haut de la section works */}
         <section className="bg-white pt-0 space-y-[40vh] md:space-y-[60vh] relative" aria-labelledby="section-gallery">
           {/* AJUSTEMENT : L'ancre est absolue pour ne pas pousser le premier enfant (image 1) du space-y */}
           <div id="works-anchor" className="absolute top-[-100px] left-0" aria-hidden="true" />
@@ -878,81 +877,84 @@ export default function App() {
         </section>
 
         {/* Section Index & Collabs */}
-        <section id="index-anchor" className="relative mt-[25vh] py-24 px-6 md:px-[8%] bg-[#FAFAFA] border-t border-zinc-100 z-[100]" aria-labelledby="section-index">
-          <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
-          
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-             <p className="index-intro-text">{indexData.intro}</p>
-             <span className="selection-label-style" aria-hidden="true">{indexData.selectionLabel}</span>
-          </motion.div>
+         <section id="index-anchor" className="relative mt-[15vh] py-20 px-6 md:px-[10%] bg-[#FAFAFA] border-t border-zinc-100 z-[100]" aria-labelledby="section-index">
+        <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
+  
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mb-12">
+            <p className="index-intro-text m-0">{indexData.intro}</p>
+            <span className="selection-label-style !my-14" aria-hidden="true">{indexData.selectionLabel}</span>
+        </motion.div>
 
-          <div className="grid grid-cols-2 gap-x-10 gap-y-16 md:gap-x-24 md:gap-y-20">
-            {/* Collaborations */}
-            <div className="flex flex-col col-span-2 md:col-span-1">
-              <span className="index-num" aria-hidden="true">{indexData.collabs.num}</span>
-              <h3 className="index-label">{indexData.collabs.label}</h3>
-              <ul className="list-none p-0 m-0 space-y-6 md:space-y-10">
-                {indexData.collabs.items.map((c, i) => (
-                  <li key={i} className="max-w-[420px]">
-                    <p className="index-item-static m-0">{c.client}</p>
-                    <p className="index-item-sub m-0">{c.role} <span className="opacity-50 ml-1">{c.date}</span></p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+    {/* Conteneur vertical unique */}
+    <div className="flex flex-col gap-y-12">
+    
+    {/* 01 - Collaborations */}
+    <div className="flex flex-col">
+      <span className="index-num" aria-hidden="true">{indexData.collabs.num}</span>
+      <h3 className="index-label">{indexData.collabs.label}</h3>
+      <ul className="list-none p-0 m-0 space-y-4"> {/* Espacement réduit */}
+        {indexData.collabs.items.map((c, i) => (
+          <li key={i} className="max-w-[500px]">
+            <p className="index-item-static m-0">{c.client}</p>
+            <p className="index-item-sub m-0">{c.role} <span className="opacity-50 ml-1">{c.date}</span></p>
+          </li>
+        ))}
+      </ul>
+    </div>
 
-            {/* Awards */}
-            <div className="flex flex-col">
-              <span className="index-num" aria-hidden="true">{indexData.awards.num}</span>
-              <h3 className="index-label">{indexData.awards.label}</h3>
-              <ul className="list-none p-0 m-0 space-y-6 md:space-y-10">
-                {indexData.awards.items.map((a, i) => (
-                  <li key={i}>
-                    {a.url ? (
-                      <a href={a.url} target="_blank" rel="noopener noreferrer" className="index-item-link">{a.label}</a>
-                    ) : <p className="index-item-static m-0">{a.label}</p>}
-                    <p className="index-item-sub m-0">{a.subtitle}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+    {/* 02 - Distinctions */}
+    <div className="flex flex-col">
+      <span className="index-num" aria-hidden="true">{indexData.awards.num}</span>
+      <h3 className="index-label">{indexData.awards.label}</h3>
+      <ul className="list-none p-0 m-0 space-y-3">
+        {indexData.awards.items.map((a, i) => (
+          <li key={i}>
+            {a.url ? (
+              <a href={a.url} target="_blank" rel="noopener noreferrer" className="index-item-link">{a.label}</a>
+            ) : <p className="index-item-static m-0">{a.label}</p>}
+            <p className="index-item-sub m-0">{a.subtitle}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
 
-            {/* Exhibitions */}
-            <div className="flex flex-col">
-              <span className="index-num" aria-hidden="true">{indexData.exhibitions.num}</span>
-              <h3 className="index-label">{indexData.exhibitions.label}</h3>
-              <ul className="list-none p-0 m-0 space-y-6 md:space-y-10">
-                {indexData.exhibitions.items.map((e, i) => (
-                  <li key={i}>
-                    <p className="index-item-static m-0">{e.label}</p>
-                    <p className="index-item-sub m-0">{e.subtitle}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+    {/* 03 - Expositions */}
+    <div className="flex flex-col">
+      <span className="index-num" aria-hidden="true">{indexData.exhibitions.num}</span>
+      <h3 className="index-label">{indexData.exhibitions.label}</h3>
+      <ul className="list-none p-0 m-0 space-y-3">
+        {indexData.exhibitions.items.map((e, i) => (
+          <li key={i}>
+            <p className="index-item-static m-0">{e.label}</p>
+            <p className="index-item-sub m-0">{e.subtitle}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
 
-            {/* Publications */}
-            <div className="flex flex-col col-span-2 md:col-span-1">
-              <span className="index-num" aria-hidden="true">{indexData.publications.num}</span>
-              <h3 className="index-label">{indexData.publications.label}</h3>
-              <ul className="list-none p-0 m-0 flex flex-wrap gap-x-6 gap-y-3 md:gap-x-8 md:gap-y-4">
-                {indexData.publications.items.map((p, i) => (
-                  <li key={i}>
-                    {p.url ? (
-                      <a href={p.url} target="_blank" rel="noopener noreferrer" className="index-item-link">
-                        {p.name}
-                      </a>
-                    ) : (
-                      <span className="index-item-static">
-                        {p.name}
-                      </span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
+    {/* 04 - Parutions */}
+    <div className="flex flex-col">
+      <span className="index-num" aria-hidden="true">{indexData.publications.num}</span>
+      <h3 className="index-label">{indexData.publications.label}</h3>
+      <ul className="list-none p-0 m-0 flex flex-wrap gap-x-6 gap-y-2 max-w-3xl"> {/* Gap réduit ici aussi */}
+        {indexData.publications.items.map((p, i) => (
+          <li key={i}>
+            {p.url ? (
+              <a href={p.url} target="_blank" rel="noopener noreferrer" className="index-item-link">
+                {p.name}
+              </a>
+            ) : (
+              <span className="index-item-static">
+                {p.name}
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+    
+  </div>
+</section>
 
         {/* Footer & Contact */}
         <footer id="contact-anchor" className="relative px-6 md:px-14 py-20 md:py-0 md:h-[var(--header-h)] bg-white flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0 border-t border-zinc-100 z-[100]" aria-labelledby="section-contact">
