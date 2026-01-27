@@ -295,11 +295,7 @@ const TypographyStyles = () => (
       -webkit-tap-highlight-color: transparent;
       cursor: pointer;
     }
-
-    header {
-      padding-top: 20px;
-    }
-
+      
     .logo-style {
       font-family: var(--serif);
       font-size: 24px; 
@@ -312,7 +308,7 @@ const TypographyStyles = () => (
       line-height: 1; 
       display: inline-flex;
       align-items: center;
-      transform: translateY(-2.5px);
+      transform: translateY(-1.5px);
       text-transform: lowercase; 
       transition: color 0.4s ease;
       margin-top: 0;
@@ -760,7 +756,7 @@ export default function App() {
         {headerVisible && (
           <motion.header 
             initial={{ y: -84, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -84, opacity: 0 }}
-            className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-14 h-[var(--header-h)] flex justify-between items-baseline nav-blur pt-4 pb-4 md:pt-6 md:pb-6"
+            className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-14 h-[var(--header-h)] flex justify-between items-baseline nav-blur pt-4 pb-4 md:pt-8 md:pb-5"
           >
             <h1 className="m-0 p-0 leading-none md:ml-8">
               <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
