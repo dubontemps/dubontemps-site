@@ -302,7 +302,7 @@ const TypographyStyles = () => (
 
     .logo-style {
       font-family: var(--serif);
-      font-size: 22px; 
+      font-size: 24px; 
       font-weight: 600; 
       letter-spacing: -0.02em;
       background: none;
@@ -319,7 +319,7 @@ const TypographyStyles = () => (
 
     .brand-style { 
       font-family: var(--sans);
-      font-size: 18px; 
+      font-size: 20px; 
       font-weight: 400; 
       letter-spacing: -0.04em;
       background: none;
@@ -415,7 +415,7 @@ const TypographyStyles = () => (
     }
 
     .text-note, .text-manifesto { 
-      font-size: 16px; 
+      font-size: 18px; 
       line-height: 1.7; 
       font-weight: 300; 
       color: var(--ink-soft); 
@@ -423,7 +423,7 @@ const TypographyStyles = () => (
     }
 
     .index-intro-text {
-      font-size: 16px; 
+      font-size: 18px; 
       line-height: 1.6;
       font-weight: 300; 
       color: var(--ink-soft); 
@@ -757,13 +757,13 @@ export default function App() {
             initial={{ y: -84, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -84, opacity: 0 }}
             className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-14 h-[var(--header-h)] flex justify-between items-center md:items-baseline nav-blur"
           >
-            <h1 className="m-0 p-0 leading-none">
+            <h1 className="m-0 p-0 leading-none md:ml-8">
               <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
                 {CONTENT[lang].brand}
               </button>
             </h1>
             
-            <nav className="hidden md:flex gap-14 items-baseline" aria-label="Menu principal">
+            <nav className="hidden md:flex gap-14 items-baseline md:mr-18" aria-label="Menu principal">
               <ul className="flex gap-14 list-none p-0 m-0 items-baseline">
                 <li><button onClick={() => scrollTo('works-anchor')} className="brand-style">{navData.works}</button></li>
                 <li><button onClick={() => scrollTo('index-anchor')} className="brand-style">{navData.index}</button></li>
@@ -957,7 +957,7 @@ export default function App() {
           <h2 id="section-contact" className="sr-only">{sectionTitles.contact}</h2>
           
           <nav aria-label="Contact links and social media">
-            <ul className="list-none p-0 m-0 flex flex-wrap justify-center gap-8 md:gap-16 items-center">
+            <ul className="list-none p-0 m-0 flex flex-wrap justify-center gap-8 md:gap-16 items-center md:ml-8">
               {footerData.links.map((link, i) => (
                 <li key={i}>
                   <a href={link.url} target="_blank" rel="noopener noreferrer" className="brand-style">
@@ -968,7 +968,7 @@ export default function App() {
             </ul>
           </nav>
           
-          <address className="footer-mention not-italic">
+          <address className="footer-mention not-italic md:mr-18">
             © {new Date().getFullYear()} {CONTENT[lang].brand} . {footerData.location}
           </address>
         </footer>
