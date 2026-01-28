@@ -304,11 +304,12 @@ const TypographyStyles = () => (
       color: var(--ink);
       padding: 0; 
       line-height: 1; 
-      display: inline-flex;
-      align-items: center;
+      display: inline-block;
+      vertical-align: baseline;
       text-transform: lowercase; 
       transition: color 0.4s ease;
       margin-top: 0;
+      transform: translateY(-0.05em) !important;
     }
     .logo-style:hover { color: var(--carmine); }
 
@@ -324,7 +325,7 @@ const TypographyStyles = () => (
       line-height: 1; 
       text-transform: lowercase;
       transition: color 0.4s ease, transform 0.3s ease;
-      margin-top: -4px; 
+      margin-top: 0; 
     }
     .brand-style:hover { color: var(--carmine); }
 
@@ -742,16 +743,16 @@ export default function App() {
         {headerVisible && (
           <motion.header 
             initial={{ y: -84, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -84, opacity: 0 }}
-            className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-14 h-[var(--header-h)] flex justify-between items-center nav-blur py-0"
+            className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-14 h-[var(--header-h)] flex justify-between items-baseline nav-blur py-0"
           >
-            <h1 className="m-0 p-0 leading-none">
+            <h1 className="m-0 p-0" style={{ display: 'contents' }}>
               <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
                 {CONTENT[lang].brand}
               </button>
             </h1>
             
-            <nav className="hidden md:flex gap-14 items-center md:mr-18" aria-label="Menu principal">
-              <ul className="flex gap-14 list-none p-0 m-0 items-center">
+            <nav className="hidden md:flex gap-14 items-baseline md:mr-18" aria-label="Menu principal">
+              <ul className="flex gap-14 list-none p-0 m-0 items-baseline">
                 <li><button onClick={() => scrollTo('works-anchor')} className="brand-style">{navData.works}</button></li>
                 <li><button onClick={() => scrollTo('index-anchor')} className="brand-style">{navData.index}</button></li>
                 <li><button onClick={() => scrollTo('contact-anchor')} className="brand-style">{navData.contact}</button></li>
