@@ -306,7 +306,6 @@ const TypographyStyles = () => (
       line-height: 1; 
       display: inline-flex;
       align-items: center;
-      transform: translateY(-1.5px);
       text-transform: lowercase; 
       transition: color 0.4s ease;
       margin-top: 0;
@@ -746,7 +745,7 @@ export default function App() {
         {headerVisible && (
           <motion.header 
             initial={{ y: -84, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -84, opacity: 0 }}
-            className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-14 h-[var(--header-h)] flex justify-between items-baseline nav-blur pt-4 pb-4 md:pt-8 md:pb-5"
+            className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-14 h-[var(--header-h)] flex justify-between items-center nav-blur py-0"
           >
             <h1 className="m-0 p-0 leading-none">
               <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
@@ -754,8 +753,8 @@ export default function App() {
               </button>
             </h1>
             
-            <nav className="hidden md:flex gap-14 items-baseline md:mr-18" aria-label="Menu principal">
-              <ul className="flex gap-14 list-none p-0 m-0 items-baseline">
+            <nav className="hidden md:flex gap-14 items-center md:mr-18" aria-label="Menu principal">
+              <ul className="flex gap-14 list-none p-0 m-0 items-center">
                 <li><button onClick={() => scrollTo('works-anchor')} className="brand-style">{navData.works}</button></li>
                 <li><button onClick={() => scrollTo('index-anchor')} className="brand-style">{navData.index}</button></li>
                 <li><button onClick={() => scrollTo('contact-anchor')} className="brand-style">{navData.contact}</button></li>
@@ -822,7 +821,7 @@ export default function App() {
               transition={{ duration: 1.2, ease: "easeOut" }} viewport={{ once: true, margin: "-10%" }}
               className={`flex flex-col px-6 md:px-0 ${item.side === 'right' ? 'md:items-end md:pr-[10%]' : 'md:items-start md:pl-[10%]'}`}
             >
-              <figure className="w-full md:w-[64vw] m-0 p-0">
+              <figure className="w-full md:w-[55vw] m-0 p-0">
                 <div className="flex justify-between items-end mb-6">
                   <div className="text-meta-label">
                     <span className="sr-only">Project</span> {`${String(idx + 1).padStart(2, '0')} / ${String(stream.length).padStart(2, '0')}`}
