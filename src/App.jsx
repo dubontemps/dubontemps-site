@@ -304,12 +304,12 @@ const TypographyStyles = () => (
       color: var(--ink);
       padding: 0; 
       line-height: 1; 
-      display: inline-block;
-      vertical-align: baseline;
+      display: inline-flex;
+      align-items: baseline;
       text-transform: lowercase; 
       transition: color 0.4s ease;
       margin-top: 0;
-      transform: translateY(-0.05em) !important;
+      transform: translateY(-0.04em) /* Correction optique pour Shippori */
     }
     .logo-style:hover { color: var(--carmine); }
 
@@ -558,9 +558,6 @@ const TypographyStyles = () => (
       }
       .logo-style { font-size: 24px; }
       .mobile-nav-btn { font-size: 18px; }
-      header, footer {
-        padding-left: 1.25rem !important;
-        padding-right: 1.25rem !important;
       }
     }
   `}</style>
@@ -743,15 +740,17 @@ export default function App() {
         {headerVisible && (
           <motion.header 
             initial={{ y: -84, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -84, opacity: 0 }}
-            className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-14 h-[var(--header-h)] flex justify-between items-baseline nav-blur py-0"
+            className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-[40px] h-[var(--header-h)] flex justify-between items-baseline nav-blur py-6 md:py-8"
           >
+           <div className="flex items-baseline">
             <h1 className="m-0 p-0" style={{ display: 'contents' }}>
               <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
                 {CONTENT[lang].brand}
               </button>
             </h1>
+          </div>
             
-            <nav className="hidden md:flex gap-14 items-baseline md:mr-18" aria-label="Menu principal">
+            <nav className="hidden md:flex gap-14 items-baseline md:mr-0" aria-label="Menu principal">
               <ul className="flex gap-14 list-none p-0 m-0 items-baseline">
                 <li><button onClick={() => scrollTo('works-anchor')} className="brand-style">{navData.works}</button></li>
                 <li><button onClick={() => scrollTo('index-anchor')} className="brand-style">{navData.index}</button></li>
@@ -940,12 +939,15 @@ export default function App() {
   </div>
 </section>
 
-        {/* Footer & Contact */}
-        <footer id="contact-anchor" className="relative px-6 md:px-14 py-20 md:py-0 md:h-[var(--header-h)] bg-white flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0 z-[100]" aria-labelledby="section-contact">
-          <h2 id="section-contact" className="sr-only">{sectionTitles.contact}</h2>
+   {/* Footer & Contact */}
+      <footer 
+        id="contact-anchor" 
+        className="relative px-6 md:px-[40px] py-20 md:py-8 md:h-[var(--header-h)] bg-white flex flex-col md:flex-row justify-between items-baseline gap-10 md:gap-0 z-[100]" 
+        aria-labelledby="section-contact">
+      <h2 id="section-contact" className="sr-only">{sectionTitles.contact}</h2>
           
-          <nav aria-label="Contact links and social media">
-            <ul className="list-none p-0 m-0 flex flex-wrap justify-center gap-8 md:gap-16 items-center md:ml-2">
+      <nav aria-label="Contact links and social media">
+        <ul className="list-none p-0 m-0 flex flex-wrap justify-center gap-8 md:gap-16 items-center">
               {footerData.links.map((link, i) => (
                 <li key={i}>
                   <a href={link.url} target="_blank" rel="noopener noreferrer" className="brand-style">
