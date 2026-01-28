@@ -84,8 +84,7 @@ const CONTENT = {
       }
     ],
     index: {
-      intro: "Je collabore avec des artisans, des artistes et des institutions culturelles. Ma pratique explore l'intersection entre nature, présence et mémoire. En France et à l'international.",
-      selectionLabel: "Sélection de références",
+      intro: "Nature . Présence . Mémoire . Sélection de Travaux 2018—2026",
       collabs: {
         label: "Collaborations",
         num: "01",
@@ -194,7 +193,7 @@ const CONTENT = {
       { 
         id: 'between-realms-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-idf-mysterious-windows-matte-lg.jpg', 
-        caption: 'The Art of Silence', 
+        caption: 'Art of Silence', 
         year: "2025",
         tech: "Pigment inkjet print, matte fine art paper",
         alt: "Windows over river in the misty forest, Île-de-France, L’Art of Silence series 2025, pigment print on fine art matte paper, Dubontemps",
@@ -204,7 +203,7 @@ const CONTENT = {
       { 
         id: 'roots-of-time-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-brittany-tree-shadow-matte-lg.jpg', 
-        caption: 'The Art of Silence', 
+        caption: 'Art of Silence', 
         year: "2025",
         tech: "Pigment inkjet print, matte fine art paper",
         alt: "Large tree's shadows from above, daisies, chair in the distance, Finistère North Brittany, L’Art of Silence series 2025, pigment print on fine art matte paper, Dubontemps",
@@ -212,8 +211,7 @@ const CONTENT = {
       }
     ],
     index: {
-      intro: "I collaborate with craftsmen, artists and cultural institutions. My work explores landscape, human presence and memory. In France and abroad.",
-      selectionLabel: "Selected references",
+      intro: "Nature . Presence . Memory . Selected Work 2018—2026",
       collabs: { 
         label: "Collaborations", 
         num: "01", 
@@ -295,12 +293,12 @@ const TypographyStyles = () => (
       -webkit-tap-highlight-color: transparent;
       cursor: pointer;
     }
-      
+
     .logo-style {
       font-family: var(--serif);
       font-size: 24px; 
-      font-weight: 600; 
-      letter-spacing: -0.02em;
+      font-weight: 500; 
+      letter-spacing: -0.05em;
       background: none;
       border: none;
       color: var(--ink);
@@ -317,9 +315,9 @@ const TypographyStyles = () => (
 
     .brand-style { 
       font-family: var(--sans);
-      font-size: 20px; 
+      font-size: 18px; 
       font-weight: 400; 
-      letter-spacing: -0.04em;
+      letter-spacing: -0.05em;
       background: none;
       border: none;
       color: var(--ink);
@@ -413,30 +411,22 @@ const TypographyStyles = () => (
     }
 
     .text-note, .text-manifesto { 
-      font-size: 18px; 
-      line-height: 1.7; 
+      font-size: 16px; 
+      letter-spacing: 0.01em;
+      line-height: 1.8; 
       font-weight: 300; 
       color: var(--ink-soft); 
       max-width: 44ch; 
     }
 
     .index-intro-text {
-      font-size: 18px; 
-      line-height: 1.6;
-      font-weight: 300; 
-      color: var(--ink-soft); 
-      max-width: 44ch; 
-    }
-
-    .selection-label-style {
       font-size: 12px; 
       letter-spacing: 0.25em; 
       text-transform: uppercase; 
       font-weight: 600; 
       opacity: 0.25;
+      margin-bottom: 20px; 
       display: block;
-      margin-top: 32px;
-      margin-bottom: 40px;
     }
 
     .index-num { 
@@ -445,7 +435,7 @@ const TypographyStyles = () => (
       font-weight: 500;
       font-style: italic;
       color: var(--carmine);
-      margin-bottom: 6px; 
+      margin-bottom: 12px; 
       display: block; 
     }
     
@@ -455,12 +445,12 @@ const TypographyStyles = () => (
       text-transform: uppercase; 
       font-weight: 600; 
       opacity: 0.25;
-      margin-bottom: 16px; 
+      margin-bottom: 20px; 
       display: block;
     }
     
     .index-item-static { 
-      font-size: 14px; 
+      font-size: 16px; 
       font-weight: 400; 
       line-height: 1.2; 
       text-transform: uppercase;
@@ -469,7 +459,7 @@ const TypographyStyles = () => (
     }
 
     .index-item-link { 
-      font-size: 14px; 
+      font-size: 16px; 
       font-weight: 400; 
       line-height: 1.2; 
       text-transform: uppercase;
@@ -485,7 +475,7 @@ const TypographyStyles = () => (
     }
 
     .index-item-sub { 
-      font-size: 14px; 
+      font-size: 12px; 
       font-weight: 300; 
       opacity: 0.5; 
       margin-top: 2px; 
@@ -495,7 +485,7 @@ const TypographyStyles = () => (
     .accident-signal {
       font-family: var(--serif);
       font-style: italic;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 300; 
       color: var(--ink);
       position: relative;
@@ -540,7 +530,7 @@ const TypographyStyles = () => (
     .footer-mention {
       font-size: 14px; 
       font-weight: 400; 
-      letter-spacing: -0.02em;
+      letter-spacing: -0.05em;
       color: var(--ink);
       line-height: 1.2;
       text-transform: lowercase;
@@ -758,7 +748,7 @@ export default function App() {
             initial={{ y: -84, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -84, opacity: 0 }}
             className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-14 h-[var(--header-h)] flex justify-between items-baseline nav-blur pt-4 pb-4 md:pt-8 md:pb-5"
           >
-            <h1 className="m-0 p-0 leading-none md:ml-8">
+            <h1 className="m-0 p-0 leading-none">
               <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
                 {CONTENT[lang].brand}
               </button>
@@ -793,7 +783,7 @@ export default function App() {
         <section className="w-full flex flex-col bg-white" aria-labelledby="section-manifesto">
           <h2 id="section-manifesto" className="sr-only">{sectionTitles.manifesto}</h2>
           
-          <div className="w-full h-[85vh] overflow-hidden">
+          <div className="w-full h-[100vh] overflow-hidden">
             <motion.img 
               initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 2.5 }} 
@@ -874,7 +864,7 @@ export default function App() {
         </section>
 
         {/* Section Index & Collabs */}
-         <section id="index-anchor" className="relative mt-[15vh] py-20 px-6 md:px-[10%] bg-[#FAFAFA] border-t border-zinc-100 z-[100]" aria-labelledby="section-index">
+         <section id="index-anchor" className="relative mt-[40vh] py-20 px-6 md:px-[10%] bg-[#FDFDFD] z-[100]" aria-labelledby="section-index">
         <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
   
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mb-12">
@@ -891,7 +881,7 @@ export default function App() {
       <h3 className="index-label">{indexData.collabs.label}</h3>
       <ul className="list-none p-0 m-0 space-y-4"> {/* Espacement réduit */}
         {indexData.collabs.items.map((c, i) => (
-          <li key={i} className="max-w-[500px]">
+          <li key={i} className="max-w-[350px]">
             <p className="index-item-static m-0">{c.client}</p>
             <p className="index-item-sub m-0">{c.role} <span className="opacity-50 ml-1">{c.date}</span></p>
           </li>
@@ -933,7 +923,7 @@ export default function App() {
     <div className="flex flex-col">
       <span className="index-num" aria-hidden="true">{indexData.publications.num}</span>
       <h3 className="index-label">{indexData.publications.label}</h3>
-      <ul className="list-none p-0 m-0 flex flex-wrap gap-x-8 gap-y-2 max-w-lg"> 
+      <ul className="list-none p-0 m-0 flex flex-col gap-y-3 max-w-lg"> 
         {indexData.publications.items.map((p, i) => (
           <li key={i}>
             {p.url ? (
@@ -954,11 +944,11 @@ export default function App() {
 </section>
 
         {/* Footer & Contact */}
-        <footer id="contact-anchor" className="relative px-6 md:px-14 py-20 md:py-0 md:h-[var(--header-h)] bg-white flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0 border-t border-zinc-100 z-[100]" aria-labelledby="section-contact">
+        <footer id="contact-anchor" className="relative px-6 md:px-14 py-20 md:py-0 md:h-[var(--header-h)] bg-white flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0 z-[100]" aria-labelledby="section-contact">
           <h2 id="section-contact" className="sr-only">{sectionTitles.contact}</h2>
           
           <nav aria-label="Contact links and social media">
-            <ul className="list-none p-0 m-0 flex flex-wrap justify-center gap-8 md:gap-16 items-center md:ml-8">
+            <ul className="list-none p-0 m-0 flex flex-wrap justify-center gap-8 md:gap-16 items-center md:ml-2">
               {footerData.links.map((link, i) => (
                 <li key={i}>
                   <a href={link.url} target="_blank" rel="noopener noreferrer" className="brand-style">
