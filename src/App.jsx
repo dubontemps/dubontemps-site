@@ -324,7 +324,7 @@ const TypographyStyles = () => (
       line-height: 1; 
       text-transform: lowercase;
       transition: color 0.4s ease, transform 0.3s ease;
-      margin-top: 0; 
+      margin-top: -4px; 
     }
     .brand-style:hover { color: var(--carmine); }
 
