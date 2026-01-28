@@ -406,7 +406,7 @@ const TypographyStyles = () => (
       font-weight: 400;
       opacity: 0.25;
       display: block;
-      margin-top: 4px;
+      margin-top: 4px; !important;
     }
 
     .text-note, .text-manifesto { 
@@ -554,9 +554,6 @@ const TypographyStyles = () => (
         --feed-margin-v: 24px;
         --header-h: 64px;
       }
-      /* Correction optique du logo sur mobile */
-      .logo-style {
-        transform: translateY(-2px) !important;
       }
       .logo-style { font-size: 24px; }
       .mobile-nav-btn { font-size: 18px; }
