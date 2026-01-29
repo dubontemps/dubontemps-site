@@ -42,7 +42,7 @@ const CONTENT = {
         year: "2026",
         tech: "Tirage pigmentaire, papier baryté",
         alt: "Ombres de palmier et marcheurs, Palma de Majorque, série Équation Sauvage 2026, tirage pigmentaire papier baryté, Dubontemps",
-        note: "Les technologies prédictives cherchent à effacer l’inconnu. L’imaginaire cultive [[l’imprévu]]." 
+        note: "Les technologies prédictives cherchent à effacer l’inconnu. L’imaginaire cultive l’imprévu." 
       },
       { 
         id: 'vertigo-dubontemps', 
@@ -51,7 +51,7 @@ const CONTENT = {
         year: "2026",
         tech: "Tirage pigmentaire, papier washi japonais",
         alt: "Vue aérienne d'un banc de sable dans l’océan Pacifique, Vancouver Island, série Équation Sauvage 2026, tirage pigmentaire papier washi japonais, Dubontemps",
-        note: "Voir ce qui est prêt de [[disparaître]].", 
+        note: "Voir ce qui est prêt de disparaître.", 
         side: 'right'
       },
       { 
@@ -61,7 +61,7 @@ const CONTENT = {
         year: "2026",
         tech: "Tirage pigmentaire, papier washi japonais",
         alt: "Forêt primitive dans la brume, Clayoquot Sound, Vancouver Island, série Équation Sauvage 2026, tirage pigmentaire papier washi japonais, Dubontemps",
-        note: "La nature n’est pas un décor, c'est un [[langage]]." 
+        note: "La nature n’est pas un décor, c'est un langage." 
       },
       { 
         id: 'between-realms-dubontemps', 
@@ -70,7 +70,7 @@ const CONTENT = {
         year: "2025",
         tech: "Tirage pigmentaire, papier fine art mat",
         alt: "Fenêtres sur la rivière dans une forêt brumeuse, Île-de-France, série L’Art du Silence 2025, tirage pigmentaire papier fine art mat, Dubontemps",
-        note: "Un [[chemin]] s'esquisse entre le visible et l'invisible.",
+        note: "Un chemin s'esquisse entre le visible et l'invisible.",
         side: 'right'
       },
       { 
@@ -80,7 +80,7 @@ const CONTENT = {
         year: "2025",
         tech: "Tirage pigmentaire, papier fine art mat",
         alt: "Grand arbre et ombres vues de haut, pâquerettes, chaise en retrait, Finistère Nord Bretagne, série L’Art du Silence 2025, tirage pigmentaire papier fine art mat, Dubontemps",
-        note: "[[Rêver]] c'est résister." 
+        note: "Rêver c'est résister." 
       }
     ],
     index: {
@@ -159,7 +159,7 @@ const CONTENT = {
       "the signal or the absence that shifts the gaze.",
       "",
       "But the image does not capture:",
-      "it arises from [[relation]] and from [[memory]].",
+      "it arises from relation and from memory.",
     ],
     stream: [
       { 
@@ -169,7 +169,7 @@ const CONTENT = {
         year: "2026",
         tech: "Pigment inkjet print, baryta paper",
         alt: "Palm shadows and walkers, Palma de Mallorca, Équation Sauvage series 2026, pigment print on baryta paper, Dubontemps",
-        note: "Predictive technologies seek to erase the unknown. Imagination nurtures the [[unforeseen]]." 
+        note: "Predictive technologies seek to erase the unknown. Imagination nurtures the unforeseen." 
       },
       { 
         id: 'vertigo-dubontemps', 
@@ -178,7 +178,7 @@ const CONTENT = {
         year: "2026",
         tech: "Pigment inkjet print, handmade Japanese washi paper",
         alt: "Aerial view of a sandbank in the Pacific Ocean, Vancouver Island, Équation Sauvage series 2026, pigment print on Japanese washi paper, Dubontemps",
-        note: "Witnessing what is about to [[disappear]].", 
+        note: "Witnessing what is about to disappear.", 
         side: 'right'
       },
       { 
@@ -188,7 +188,7 @@ const CONTENT = {
         year: "2026",
         tech: "Pigment inkjet print, handmade Japanese washi paper",
         alt: "Primitive forest in the mist, Clayoquot Sound, Vancouver Island, Équation Sauvage series 2026, pigment print on Japanese washi paper, Dubontemps",
-        note: "Nature is not a backdrop, it is a [[language]]." 
+        note: "Nature is not a backdrop, it is a language." 
       },
       { 
         id: 'between-realms-dubontemps', 
@@ -197,7 +197,7 @@ const CONTENT = {
         year: "2025",
         tech: "Pigment inkjet print, matte fine art paper",
         alt: "Windows over river in the misty forest, Île-de-France, L’Art of Silence series 2025, pigment print on fine art matte paper, Dubontemps",
-        note: "A [[path]] is traced between visible and invisible.",
+        note: "A path is traced between visible and invisible.",
         side: 'right'
       },
       { 
@@ -207,7 +207,7 @@ const CONTENT = {
         year: "2025",
         tech: "Pigment inkjet print, matte fine art paper",
         alt: "Large tree's shadows from above, daisies, chair in the distance, Finistère North Brittany, L’Art of Silence series 2025, pigment print on fine art matte paper, Dubontemps",
-        note: "To [[dream]] is to resist." 
+        note: "To dream is to resist." 
       }
     ],
     index: {
@@ -296,7 +296,7 @@ const TypographyStyles = () => (
 
     .logo-style {
       font-family: var(--serif);
-      font-size: 24px; 
+      font-size: 22px; 
       font-weight: 500; 
       letter-spacing: -0.05em;
       background: none;
@@ -309,7 +309,7 @@ const TypographyStyles = () => (
       text-transform: lowercase; 
       transition: color 0.4s ease;
       margin-top: 0;
-      transform: translateY(-0.04em) /* Correction optique pour Shippori */
+      transform: none;
     }
     .logo-style:hover { color: var(--carmine); }
 
@@ -482,18 +482,6 @@ const TypographyStyles = () => (
       line-height: 1.3;
     }
 
-    .accident-signal {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 18px;
-      font-weight: 300; 
-      color: var(--ink);
-      position: relative;
-      line-height: 0; 
-      vertical-align: baseline;
-      display: inline-block;
-    }
-
     .lightbox-overlay {
       position: fixed;
       top: 0;
@@ -555,27 +543,32 @@ const TypographyStyles = () => (
         --feed-margin-v: 24px;
         --header-h: 64px;
       }
-      }
-      .logo-style { font-size: 24px; }
-      .mobile-nav-btn { font-size: 18px; }
+  }
+      .mobile-nav-btn {
+        font-family: var(--sans); 
+        font-size: 18px;
+        font-weight: 400;
+        text-transform: lowercase;
+        letter-spacing: -0.02em;
+        line-height: 1;
+        -webkit-appearance: none;
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        transition: color 0.4s ease;
+        cursor: pointer;
+} }
       }
     }
   `}</style>
 );
 
 const MixedText = ({ text }) => {
-  if (text === "") return null; 
-  const parts = text.split(/(\[\[.*?\]\])/g);
-  return (
-    <>
-      {parts.map((part, i) => {
-        if (part.startsWith('[[') && part.endsWith(']]')) {
-          return <span key={i} className="accident-signal">{part.slice(2, -2)}</span>;
-        }
-        return <span key={i}>{part}</span>;
-      })}
-    </>
-  );
+  return text || null;
 };
 
 export default function App() {
