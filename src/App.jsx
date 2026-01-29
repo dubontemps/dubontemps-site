@@ -26,13 +26,14 @@ const CONTENT = {
     },
     manifesto: [
       "Un paysage est une scène active.",
-      "Un champ d’interactions imprévisibles.", 
+      "Un champ d’interactions imprévisibles.",
       "",
-      "La distance et la hauteur révèlent", 
-      "le signal ou l'absence qui déplace le regard.",
+      "La distance révèle le signal ou l'absence",
+      "qui déplace le regard.",
       "",
-      "Mais l’image ne capture pas :", 
-      "elle naît de la [[relation]] et de la [[mémoire]].",
+      "L’image ne capture pas.",
+      "Elle naît de la relation",
+      "et de la mémoire.",
     ],
     stream: [
       { 
@@ -42,7 +43,7 @@ const CONTENT = {
         year: "2026",
         tech: "Tirage pigmentaire, papier baryté",
         alt: "Ombres de palmier et marcheurs, Palma de Majorque, série Équation Sauvage 2026, tirage pigmentaire papier baryté, Dubontemps",
-        note: "Les technologies prédictives cherchent à effacer l’inconnu. L’imaginaire cultive l’imprévu." 
+        note: "" 
       },
       { 
         id: 'vertigo-dubontemps', 
@@ -51,7 +52,7 @@ const CONTENT = {
         year: "2026",
         tech: "Tirage pigmentaire, papier washi japonais",
         alt: "Vue aérienne d'un banc de sable dans l’océan Pacifique, Vancouver Island, série Équation Sauvage 2026, tirage pigmentaire papier washi japonais, Dubontemps",
-        note: "Voir ce qui est prêt de disparaître.", 
+        note: "", 
         side: 'right'
       },
       { 
@@ -61,7 +62,7 @@ const CONTENT = {
         year: "2026",
         tech: "Tirage pigmentaire, papier washi japonais",
         alt: "Forêt primitive dans la brume, Clayoquot Sound, Vancouver Island, série Équation Sauvage 2026, tirage pigmentaire papier washi japonais, Dubontemps",
-        note: "La nature n’est pas un décor, c'est un langage." 
+        note: "La nature n’est pas un décor. C'est un langage." 
       },
       { 
         id: 'between-realms-dubontemps', 
@@ -70,7 +71,7 @@ const CONTENT = {
         year: "2025",
         tech: "Tirage pigmentaire, papier fine art mat",
         alt: "Fenêtres sur la rivière dans une forêt brumeuse, Île-de-France, série L’Art du Silence 2025, tirage pigmentaire papier fine art mat, Dubontemps",
-        note: "Un chemin s'esquisse entre le visible et l'invisible.",
+        note: "",
         side: 'right'
       },
       { 
@@ -80,11 +81,11 @@ const CONTENT = {
         year: "2025",
         tech: "Tirage pigmentaire, papier fine art mat",
         alt: "Grand arbre et ombres vues de haut, pâquerettes, chaise en retrait, Finistère Nord Bretagne, série L’Art du Silence 2025, tirage pigmentaire papier fine art mat, Dubontemps",
-        note: "Rêver c'est résister." 
+        note: "L’imaginaire cultive l’imprévu.\nJ’explore la subjectivité de la perception à une époque où la technologie façonne ce que nous voyons.\n\nRêver est une forme de résistance." 
       }
     ],
     index: {
-      intro: "Nature . Présence . Mémoire . Sélection de Travaux 2018—2026",
+      intro: "Nature . Présence . Mémoire . Sélection de Travaux",
       collabs: {
         label: "Collaborations",
         num: "01",
@@ -155,11 +156,12 @@ const CONTENT = {
       "A landscape is an active stage.",
       "A field of unpredictable interactions.",
       "",
-      "Distance and height reveal",
-      "the signal or the absence that shifts the gaze.",
+      "Distance reveals the signal or the absence",
+      "that shifts the gaze.",
       "",
-      "But the image does not capture:",
-      "it arises from relation and from memory.",
+      "The image does not capture.",
+      "it arises from relation" 
+      "and from memory.",
     ],
     stream: [
       { 
@@ -169,7 +171,7 @@ const CONTENT = {
         year: "2026",
         tech: "Pigment inkjet print, baryta paper",
         alt: "Palm shadows and walkers, Palma de Mallorca, Équation Sauvage series 2026, pigment print on baryta paper, Dubontemps",
-        note: "Predictive technologies seek to erase the unknown. Imagination nurtures the unforeseen." 
+        note: "" 
       },
       { 
         id: 'vertigo-dubontemps', 
@@ -178,7 +180,7 @@ const CONTENT = {
         year: "2026",
         tech: "Pigment inkjet print, handmade Japanese washi paper",
         alt: "Aerial view of a sandbank in the Pacific Ocean, Vancouver Island, Équation Sauvage series 2026, pigment print on Japanese washi paper, Dubontemps",
-        note: "Witnessing what is about to disappear.", 
+        note: "", 
         side: 'right'
       },
       { 
@@ -188,7 +190,7 @@ const CONTENT = {
         year: "2026",
         tech: "Pigment inkjet print, handmade Japanese washi paper",
         alt: "Primitive forest in the mist, Clayoquot Sound, Vancouver Island, Équation Sauvage series 2026, pigment print on Japanese washi paper, Dubontemps",
-        note: "Nature is not a backdrop, it is a language." 
+        note: "Nature is not a backdrop. It is a language." 
       },
       { 
         id: 'between-realms-dubontemps', 
@@ -197,7 +199,7 @@ const CONTENT = {
         year: "2025",
         tech: "Pigment inkjet print, matte fine art paper",
         alt: "Windows over river in the misty forest, Île-de-France, L’Art of Silence series 2025, pigment print on fine art matte paper, Dubontemps",
-        note: "A path is traced between visible and invisible.",
+        note: "",
         side: 'right'
       },
       { 
@@ -207,7 +209,7 @@ const CONTENT = {
         year: "2025",
         tech: "Pigment inkjet print, matte fine art paper",
         alt: "Large tree's shadows from above, daisies, chair in the distance, Finistère North Brittany, L’Art of Silence series 2025, pigment print on fine art matte paper, Dubontemps",
-        note: "To dream is to resist." 
+        note: "Imagination cultivates the unexpected.\nI explore the subjectivity of perception at a time when technology shapes what we see.\n\nDreaming is a form of resistance." 
       }
     ],
     index: {
@@ -417,6 +419,7 @@ const TypographyStyles = () => (
       font-weight: 300; 
       color: var(--ink-soft); 
       max-width: 44ch; 
+      white-space: pre-line;
     }
 
     .index-intro-text {
@@ -425,7 +428,7 @@ const TypographyStyles = () => (
       text-transform: uppercase; 
       font-weight: 600; 
       opacity: 0.25;
-      margin-bottom: 20px; 
+      margin-bottom: 16px; 
       display: block;
     }
 
@@ -435,7 +438,7 @@ const TypographyStyles = () => (
       font-weight: 500;
       font-style: italic;
       color: var(--carmine);
-      margin-bottom: 12px; 
+      margin-bottom: 10px; 
       display: block; 
     }
     
@@ -450,7 +453,7 @@ const TypographyStyles = () => (
     }
     
     .index-item-static { 
-      font-size: 16px; 
+      font-size: 14px; 
       font-weight: 400; 
       line-height: 1.2; 
       text-transform: uppercase;
@@ -459,7 +462,7 @@ const TypographyStyles = () => (
     }
 
     .index-item-link { 
-      font-size: 16px; 
+      font-size: 14px; 
       font-weight: 400; 
       line-height: 1.2; 
       text-transform: uppercase;
@@ -852,7 +855,7 @@ export default function App() {
         </section>
 
         {/* Section Index & Collabs */}
-         <section id="index-anchor" className="relative mt-[40vh] py-20 px-6 md:px-[10%] bg-[#FDFDFD] z-[100]" aria-labelledby="section-index">
+         <section id="index-anchor" className="relative mt-[40vh] py-20 px-6 md:px-[10%] bg-[#F7F7F7] z-[100]" aria-labelledby="section-index">
         <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
   
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mb-12">
@@ -860,16 +863,16 @@ export default function App() {
             <span className="selection-label-style !my-14" aria-hidden="true">{indexData.selectionLabel}</span>
         </motion.div>
 
-    {/* Conteneur vertical unique */}
-    <div className="flex flex-col gap-y-12">
+    {/* Grille de 4 colonnes sur desktop, empilée sur mobile */}
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-y-12 md:gap-x-12">
     
     {/* 01 - Collaborations */}
     <div className="flex flex-col">
       <span className="index-num" aria-hidden="true">{indexData.collabs.num}</span>
       <h3 className="index-label">{indexData.collabs.label}</h3>
-      <ul className="list-none p-0 m-0 space-y-4"> {/* Espacement réduit */}
+      <ul className="list-none p-0 m-0 space-y-3"> {/* Espacement réduit */}
         {indexData.collabs.items.map((c, i) => (
-          <li key={i} className="max-w-[350px]">
+          <li key={i} className="max-w-[w-full]">
             <p className="index-item-static m-0">{c.client}</p>
             <p className="index-item-sub m-0">{c.role} <span className="opacity-50 ml-1">{c.date}</span></p>
           </li>
