@@ -152,16 +152,15 @@ const CONTENT = {
       index: "Index, collaborations and awards",
       contact: "Contact details and social media"
     },
-    manifesto: [
-      "A landscape is an active stage.",
-      "A field of unpredictable interactions.",
-      "",
-      "Distance reveals the signal or the absence",
-      "that shifts the gaze.",
-      "",
-      "The image does not capture.",
-      "it arises from relation" 
-      "and from memory.",
+    manifesto: ["A landscape is an active stage.",
+  "A field of unpredictable interactions.",
+  "",
+  "Distance reveals the signal or the absence",
+  "that shifts the gaze.",
+  "",
+  "The image does not capture.",
+  "It arises from relation",
+  "and from memory.",
     ],
     stream: [
       { 
