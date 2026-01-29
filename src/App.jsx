@@ -384,9 +384,9 @@ const TypographyStyles = () => (
       font-size: 12px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--ink);
-      opacity: 0.5;
+      opacity: 0.25;
       display: block;
       line-height: 1.2;
     }
@@ -535,6 +535,9 @@ const TypographyStyles = () => (
         --feed-margin-v: 24px;
         --header-h: 64px;
       }
+      .logo-style {
+       transform: translateY(-4px);
+      }
       .mobile-nav-btn {
       -webkit-appearance: none;
       background: transparent;
@@ -546,7 +549,7 @@ const TypographyStyles = () => (
       flex-direction: column;
       align-items: flex-end; /* Aligne les traits à droite */
       gap: 5px;              /* Espace entre les deux traits */
-      transform: translateY(-8px);
+      transform: translateY(-12px);
       transition: color 0.3s ease;
       cursor: pointer;
       }
