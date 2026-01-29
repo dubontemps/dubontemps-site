@@ -543,7 +543,6 @@ const TypographyStyles = () => (
         --feed-margin-v: 24px;
         --header-h: 64px;
       }
-  }
       .mobile-nav-btn {
         font-family: var(--sans); 
         font-size: 18px;
@@ -561,7 +560,7 @@ const TypographyStyles = () => (
         align-items: center;
         transition: color 0.4s ease;
         cursor: pointer;
-} }
+} }}
       }
     }
   `}</style>
