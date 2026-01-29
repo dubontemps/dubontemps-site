@@ -91,7 +91,8 @@ const CONTENT = {
         num: "01",
         items: [
           { client: 'Musée national de Cluny', role: "Végétalisation de 4000m2 dans Paris. Campagne patrimoniale, reportages, inauguration ministérielle.", date: '2025' },
-          { client: 'Louis Wallecan', role: "Portrait documentaire pour Duel Magazine. Art shooting et DA d'exposition pour French Theory.", date: '2025' },
+          { client: 'Louis Wallecan', role: "Portrait pour Duel Magazine.", date: '2025' },
+          { client: 'French Theory', role: "Portraits presse artistes, art shooting et DA d'exposition.", date: '23-25' },
           { client: 'Communauté Écotable', role: "Portraits sur l'alimentation durable (Ground Control, François Hollande pour La France s'engage, Isana, Refugee Food, etc.).", date: '21—24' }
         ]
       },
@@ -118,11 +119,12 @@ const CONTENT = {
         items: [
           { name: "Dodho", url: "https://www.dodho.com/the-art-of-silence-by-dubontemps-photography-between-shadow-and-light/" },
           { name: "Duel Magazine", url: "https://www.duelmagazine.com/louis-wallecan/" },
-          { name: "National Geographic", url: "https://www.facebook.com/NatGeoHistory/posts/rosy-faced-lovebirds-are-a-species-of-parrot-known-for-typically-monogamou/10156100536768336/" },
+          { name: "National Geographic" },
+          { name: "M Le Monde" },
+          { name: "Corriere della Sera" },
           { name: "Le Parisien", url: "https://www.leparisien.fr/paris-75/paris-les-restaurateurs-s-associent-pour-offrir-des-repas-aux-etudiants-09-03-2021-8427762.php" },
           { name: "Le Bonbon", url: "https://www.lebonbon.fr/paris/loisirs/ce-jardin-medieval-4000m2-ressucite-plein-paris/" },
-          { name: "M Le Monde" },
-          { name: "Corriere della Sera" }
+          { name: "Epok Formidable", url: "https://www.1-epok-formidable.fr/archives/18498" },
         ]
       }
     },
@@ -212,13 +214,14 @@ const CONTENT = {
       }
     ],
     index: {
-      intro: "Nature . Presence . Memory . Selected Work 2018—2026",
+      intro: "Nature . Presence . Memory . Selected Work",
       collabs: { 
         label: "Collaborations", 
         num: "01", 
         items: [
             { client: 'Musée national de Cluny', role: "Re-wilding of 4000m2 in Paris. Heritage campaign, documentary, ministerial inauguration.", date: '2025' },
-            { client: 'Louis Wallecan', role: "Documentary portrait for Duel Magazine. Art shooting, exhibition AD for French Theory", date: '2025' },
+            { client: 'Louis Wallecan', role: "Documentary portrait for Duel Magazine.", date: '2025' },
+            { client: 'French Theory', role: "Artists' press portraits, art shooting, exhibition AD.", date: '23-25' },
             { client: 'Communauté Écotable', role: "Portraits on sustainable food (Ground Control, François Hollande pour La France s'engage, Isana, Refugee Food, etc.).", date: '21—24' }
         ] 
       },
@@ -245,11 +248,12 @@ const CONTENT = {
         items: [
           { name: "Dodho", url: "https://www.dodho.com/the-art-of-silence-by-dubontemps-photography-between-shadow-and-light/" },
           { name: "Duel Magazine", url: "https://www.duelmagazine.com/louis-wallecan/" },
-          { name: "National Geographic", url: "https://www.facebook.com/NatGeoHistory/posts/rosy-faced-lovebirds-are-a-species-of-parrot-known-for-their-typically-monogamou/10156100536768336/" },
+          { name: "National Geographic" },
+          { name: "M Le Monde" },
+          { name: "Corriere della Sera" },
           { name: "Le Parisien", url: "https://www.leparisien.fr/paris-75/paris-les-restaurateurs-s-associent-pour-offrir-des-repas-aux-etudiants-09-03-2021-8427762.php" },
           { name: "Le Bonbon", url: "https://www.lebonbon.fr/paris/loisirs/ce-jardin-medieval-4000m2-ressucite-plein-paris/" },
-          { name: "M Le Monde" },
-          { name: "Corriere della Sera" }
+          { name: "Epok Formidable", url: "https://www.1-epok-formidable.fr/archives/18498" },
         ] 
       }
     },
@@ -329,20 +333,6 @@ const TypographyStyles = () => (
       margin-top: 0; 
     }
     .brand-style:hover { color: var(--carmine); }
-
-    .mobile-nav-btn {
-      font-family: var(--sans);
-      font-size: 18px;
-      font-weight: 400;
-      text-transform: lowercase;
-      letter-spacing: -0.02em;
-      line-height: 1;
-      transition: color 0.4s ease;
-      margin-top: 0; 
-      -webkit-appearance: none;
-      background: transparent;
-      border: none;
-    }
 
     .nav-blur {
       backdrop-filter: blur(20px);
@@ -546,23 +536,25 @@ const TypographyStyles = () => (
         --header-h: 64px;
       }
       .mobile-nav-btn {
-        font-family: var(--sans); 
-        font-size: 18px;
-        font-weight: 400;
-        text-transform: lowercase;
-        letter-spacing: -0.02em;
-        line-height: 1;
-        -webkit-appearance: none;
-        background: transparent;
-        border: none;
-        padding: 0;
-        margin: 0;
-        color: var(--ink);
-        display: flex;
-        align-items: center;
-        transition: color 0.4s ease;
-        cursor: pointer;
-} }}
+      -webkit-appearance: none;
+      background: transparent;
+      border: none;
+      padding: 0;
+      margin: 0;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end; /* Aligne les traits à droite */
+      gap: 6px;              /* Espace entre les deux traits */
+      cursor: pointer;
+      }
+    
+    .btn-line {
+      height: 1.5px;         /* Épaisseur légèrement accentuée pour le mobile */
+      background-color: currentColor;
+      transition: width 0.3s ease;
+    }
+} 
       }
     }
   `}</style>
@@ -762,14 +754,15 @@ export default function App() {
             </nav>
 
             <button onClick={() => setMobileMenuOpen(true)} className="md:hidden mobile-nav-btn" aria-label="Ouvrir le menu">
-              {navData.menu}
+              <div className="btn-line w-[22px]" /> 
+              <div className="btn-line w-[14px]" />
             </button>
           </motion.header>
         )}
       </AnimatePresence>
 
       <main className="relative z-[5]">
-        {/* Section Hero & Manifeste */}
+      {/* Section Hero & Manifeste */}
         <section className="w-full flex flex-col bg-white" aria-labelledby="section-manifesto">
           <h2 id="section-manifesto" className="sr-only">{sectionTitles.manifesto}</h2>
           
@@ -783,7 +776,7 @@ export default function App() {
             />
           </div>
 
-          {/* AJUSTEMENT : pb-[25vh] pour créer la respiration sous le manifeste */}
+      {/* AJUSTEMENT : pb-[25vh] pour créer la respiration sous le manifeste */}
           <div className="pt-[40vh] pb-[25vh] px-6 md:px-[10%]">
             <div className="md:max-w-3xl mr-auto text-left md:text-left">
               <motion.div 
@@ -800,7 +793,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* Section Galerie d'Images */}
+    {/* Section Galerie d'Images */}
         <section className="bg-white pt-0 space-y-[40vh] md:space-y-[40vh] relative" aria-labelledby="section-gallery">
           {/* AJUSTEMENT : L'ancre est absolue pour ne pas pousser le premier enfant (image 1) du space-y */}
           <div id="works-anchor" className="absolute top-[-100px] left-0" aria-hidden="true" />
@@ -853,7 +846,7 @@ export default function App() {
           ))}
         </section>
 
-        {/* Section Index & Collabs */}
+    {/* Section Index & Collabs */}
          <section id="index-anchor" className="relative mt-[40vh] py-20 px-6 md:px-[10%] bg-[#F7F7F7] z-[100]" aria-labelledby="section-index">
         <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
   
