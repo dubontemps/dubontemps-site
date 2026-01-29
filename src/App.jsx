@@ -545,14 +545,20 @@ const TypographyStyles = () => (
       display: flex;
       flex-direction: column;
       align-items: flex-end; /* Aligne les traits à droite */
-      gap: 6px;              /* Espace entre les deux traits */
+      gap: 5px;              /* Espace entre les deux traits */
+      transform: translateY(-8px);
+      transition: color 0.3s ease;
       cursor: pointer;
       }
     
+    .mobile-nav-btn:active .btn-line {
+      background-color: var(--carmine);
+    }
+
     .btn-line {
       height: 1.5px;         /* Épaisseur légèrement accentuée pour le mobile */
       background-color: currentColor;
-      transition: width 0.3s ease;
+      transition: width 0.3s ease, background-color 0.3s ease;
     }
 } 
       }
