@@ -131,7 +131,7 @@ const CONTENT = {
     footer: {
       location: "rue lamarck, paris",
       links: [
-        { label: "email", url: "mailto:alexandra@dubontemps.org" },
+        { label: "email", action: "openContact" },
         { label: "instagram", url: "https://www.instagram.com/_dubontemps_/" },
         { label: "portfolio", url: "https://drive.google.com" }
       ]
@@ -260,7 +260,7 @@ const CONTENT = {
     footer: {
       location: "rue lamarck, paris",
       links: [
-        { label: "email", url: "mailto:alexandra@dubontemps.org" },
+        { label: "email", action: "openContact" },
         { label: "instagram", url: "https://www.instagram.com/_dubontemps_/" },
         { label: "portfolio", url: "https://drive.google.com" }
       ]
@@ -440,7 +440,12 @@ const TypographyStyles = () => (
       margin-bottom: 20px; 
       display: block;
     }
-    
+    .index-section-col {
+      opacity: 1;
+      transition: opacity 0.8s ease;
+      display: flex;
+      flex-direction: column;
+    }
     .index-item-static { 
       font-size: 14px; 
       font-weight: 400; 
@@ -563,6 +568,13 @@ const TypographyStyles = () => (
       background-color: currentColor;
       transition: width 0.3s ease, background-color 0.3s ease;
     }
+    .index-section-col {
+    opacity: 0.3;
+  }
+    .index-section-col:active, 
+    .index-section-col:focus-within {
+    opacity: 1;
+  }
 } 
       }
     }
@@ -868,7 +880,7 @@ export default function App() {
     <div className="grid grid-cols-1 md:grid-cols-4 gap-y-12 md:gap-x-12">
     
     {/* 01 - Collaborations */}
-    <div className="flex flex-col">
+    <div className="index-section-col" tabIndex="0">
       <span className="index-num" aria-hidden="true">{indexData.collabs.num}</span>
       <h3 className="index-label">{indexData.collabs.label}</h3>
       <ul className="list-none p-0 m-0 space-y-3"> {/* Espacement réduit */}
@@ -882,7 +894,7 @@ export default function App() {
     </div>
 
     {/* 02 - Distinctions */}
-    <div className="flex flex-col">
+    <div className="index-section-col" tabIndex="0">
       <span className="index-num" aria-hidden="true">{indexData.awards.num}</span>
       <h3 className="index-label">{indexData.awards.label}</h3>
       <ul className="list-none p-0 m-0 space-y-3">
@@ -898,7 +910,7 @@ export default function App() {
     </div>
 
     {/* 03 - Expositions */}
-    <div className="flex flex-col">
+    <div className="index-section-col" tabIndex="0">
       <span className="index-num" aria-hidden="true">{indexData.exhibitions.num}</span>
       <h3 className="index-label">{indexData.exhibitions.label}</h3>
       <ul className="list-none p-0 m-0 space-y-3">
@@ -912,7 +924,7 @@ export default function App() {
     </div>
 
     {/* 04 - Parutions */}
-    <div className="flex flex-col">
+    <div className="index-section-col" tabIndex="0">
       <span className="index-num" aria-hidden="true">{indexData.publications.num}</span>
       <h3 className="index-label">{indexData.publications.label}</h3>
       <ul className="list-none p-0 m-0 flex flex-col gap-y-3 max-w-lg"> 
@@ -944,15 +956,21 @@ export default function App() {
           
       <nav aria-label="Contact links and social media">
         <ul className="list-none p-0 m-0 flex flex-wrap justify-center gap-8 md:gap-16 items-center">
-              {footerData.links.map((link, i) => (
-                <li key={i}>
-                  <a href={link.url} target="_blank" rel="noopener noreferrer" className="brand-style">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          {CONTENT[lang].footer.links.map((link, i) => (
+          <li key={i}>
+            {link.action === "openContact" ? (
+              <button onClick={() => setIsContactOpen(true)} className="brand-style">
+              {link.label}
+              </button>
+              ) : (
+            <a href={link.url} target="_blank" rel="noopener noreferrer" className="brand-style">
+            {link.label}
+            </a>
+            )}
+          </li>
+          ))}
+        </ul>
+      </nav>
           
           <address className="footer-mention not-italic md:mr-18">
             © {new Date().getFullYear()} {CONTENT[lang].brand} . {footerData.location}
