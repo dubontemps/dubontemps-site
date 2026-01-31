@@ -541,6 +541,7 @@ const TypographyStyles = () => (
     .contact-input {
       width: 100%; 
       max-width: 100%;
+      font-size: 18px !important; /* Minimum pour éviter le décalage/zoom iOS */
       box-sizing: border-box;
       background: transparent;
       border: none;
@@ -623,12 +624,17 @@ const TypographyStyles = () => (
     }
     .index-section-col {
     opacity: 0.3;
-  }
+    }
     .index-section-col:active, 
     .index-section-col:focus-within {
     opacity: 1;
-  }
-  .asymmetric-close-btn {
+    }
+    #contact-anchor, #contact-anchor form {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow: hidden;
+    }
+    .asymmetric-close-btn {
     background: none;
     border: none;
     padding: 0;
@@ -1065,7 +1071,7 @@ export default function App() {
           >
       {/* Formulaire */}
             <form onSubmit={handleFormSubmit} className="flex flex-col w-full mb-32">
-                <div className="w-full md:max-w-[44ch] flex flex-col items-stretch">
+                <div className="w-full max-w-full md:max-w-[44ch] flex flex-col items-stretch">
                   <input type="text" name="_gotcha" style={{ display: "none" }} />
                   <textarea 
                     name="message" 
