@@ -548,6 +548,7 @@ const TypographyStyles = () => (
       padding: 16px 0;
       outline: none;
       transition: border-bottom 0.4s ease;
+      display: block;
     }
     .contact-input::placeholder {
       color: currentColor;
@@ -1064,7 +1065,7 @@ export default function App() {
           >
       {/* Formulaire */}
             <form onSubmit={handleFormSubmit} className="flex flex-col w-full mb-32">
-                <div className="w-full md:max-w-[44ch] flex flex-col items-start">
+                <div className="w-full md:max-w-[44ch] flex flex-col items-stretch">
                   <input type="text" name="_gotcha" style={{ display: "none" }} />
                   <textarea 
                     name="message" 
