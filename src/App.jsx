@@ -629,10 +629,16 @@ const TypographyStyles = () => (
     .index-section-col:focus-within {
     opacity: 1;
     }
-    #contact-anchor, #contact-anchor form {
-    width: 100% !important;
-    max-width: 100vw !important;
-    overflow: hidden;
+    #contact-anchor {
+   width: 100%;
+    overflow-x: hidden; /* bloque le scroll horizontal */
+    }
+    #contact-anchor form {
+    width: 100%;
+    max-width: 44ch; /* même largeur que l'index sur desktop */
+    box-sizing: border-box; /* inclut padding dans la largeur */
+    padding-left: 0; /* alignement à gauche */
+    padding-right: 0;
     }
     .asymmetric-close-btn {
     background: none;
@@ -1064,14 +1070,14 @@ export default function App() {
 </section> 
 
    {/* SECTION CONTACT ET FOOTER MIROIR */}
-        <section id="contact-anchor" className="relative w-full min-h-[100vh] bg-white pt-[20vh] pb-12 z-[100]">
+        <section id="contact-anchor" className="relative w-full min-h-[100vh] bg-white pt-[20vh] pb-12 z-[100] overflow-x-hidden">
           <motion.div 
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.5 }} viewport={{ once: true }}
-            className="w-full flex flex-col px-[var(--page-gutter)] md:px-[10%]"
+            className="w-full flex flex-col px-6 md:px-[10%] max-w-full"
           >
       {/* Formulaire */}
             <form onSubmit={handleFormSubmit} className="flex flex-col w-full mb-32">
-                <div className="w-full max-w-full md:max-w-[44ch] flex flex-col items-stretch">
+                <div className="w-full md:max-w-[44ch] flex flex-col items-stretch">
                   <input type="text" name="_gotcha" style={{ display: "none" }} />
                   <textarea 
                     name="message" 
