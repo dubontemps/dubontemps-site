@@ -539,7 +539,9 @@ const TypographyStyles = () => (
     
     /* FORMSPREE */
     .contact-input {
-      width: 100%;
+      width: 100%; 
+      max-width: 100%;
+      box-sizing: border-box;
       background: transparent;
       border: none;
       border-bottom: 0.5px solid rgba(0,0,0,0.1);
