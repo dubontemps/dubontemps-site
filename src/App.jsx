@@ -329,6 +329,7 @@ const TypographyStyles = () => (
       margin-top: 0;
       transform: none;
     }
+   
     .logo-style:hover { color: var(--carmine); }
 
     .brand-style { 
@@ -345,6 +346,7 @@ const TypographyStyles = () => (
       transition: color 0.4s ease, transform 0.3s ease;
       margin-top: 0; 
     }
+
     .brand-style:hover { color: var(--carmine); }
 
     .nav-blur {
@@ -534,6 +536,7 @@ const TypographyStyles = () => (
       text-transform: lowercase;
       opacity: 0.3;
     }
+    
     /* FORMSPREE */
     .contact-input {
       width: 100%;
@@ -607,11 +610,9 @@ const TypographyStyles = () => (
       transition: color 0.3s ease;
       cursor: pointer;
       }
-    
     .mobile-nav-btn:active .btn-line {
       background-color: var(--carmine);
     }
-
     .btn-line {
       height: 1.5px;         /* Épaisseur légèrement accentuée pour le mobile */
       background-color: currentColor;
@@ -638,10 +639,9 @@ const TypographyStyles = () => (
     color: var(--carmine); 
   } 
 } 
-      }
-    }
   `}</style>
 );
+
   const AsymmetricClose = ({ size = 22 }) => (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <line x1="4" y1="6" x2="18" y2="20" stroke="currentColor" strokeWidth="0.75" />
@@ -649,15 +649,16 @@ const TypographyStyles = () => (
     </svg>
 );
 
-const MixedText = ({ text }) => {
-  return text || null;
-};
+const MixedText = ({ text }) => text || null;
 
 export default function App() {
   const [lang, setLang] = useState('EN');
   const [headerVisible, setHeaderVisible] = useState(false); 
   const [zoomImage, setZoomImage] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // SÉCURITÉ : Si les données n'existent pas, on affiche un message d'erreur plutôt qu'une page blanche
+  if (!CONTENT || !CONTENT[lang]) return <div>Loading data...</div>;
 
     // Scrollbar
   const { scrollYProgress, scrollY } = useScroll();
@@ -775,9 +776,10 @@ export default function App() {
     <div className="relative w-full bg-white">
       <TypographyStyles />
       
-      <script type="application/ld+json">
-        {JSON.stringify(structuredData)}
-      </script>
+      <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
 
       <AnimatePresence>
         {zoomImage && (
@@ -979,7 +981,6 @@ export default function App() {
   
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mb-12">
             <p className="index-intro-text m-0">{indexData.intro}</p>
-            <span className="selection-label-style !my-14" aria-hidden="true">{indexData.selectionLabel}</span>
         </motion.div>
 
     {/* Grille de 4 colonnes sur desktop, empilée sur mobile */}
@@ -1057,7 +1058,7 @@ export default function App() {
         <section id="contact-anchor" className="relative w-full min-h-[100vh] bg-white pt-[20vh] pb-12 z-[100]">
           <motion.div 
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.5 }} viewport={{ once: true }}
-            className="w-full flex flex-col px-6 md:px-[10%]"
+            className="w-full flex flex-col px-[var(--page-gutter)] md:px-[10%]"
           >
       {/* Formulaire */}
             <form onSubmit={handleFormSubmit} className="flex flex-col w-full mb-32">
