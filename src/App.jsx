@@ -128,14 +128,21 @@ const CONTENT = {
         ]
       }
     },
+     contact: {
+      title: "",
+      placeholderMsg: "votre message",
+      placeholderEmail: "votre email",
+      submit: "envoyer",
+      sending: "...",
+      success: "merci",
+      error: "erreur. réessayez",
+      instagram: "instagram",
+      portfolio: "portfolio"
+    },
     footer: {
       location: "rue lamarck, paris",
-      links: [
-        { label: "email", action: "openContact" },
-        { label: "instagram", url: "https://www.instagram.com/_dubontemps_/" },
-        { label: "portfolio", url: "https://drive.google.com" }
-      ]
     }
+
   },
   EN: {
     brand: "dubontemps",
@@ -257,13 +264,19 @@ const CONTENT = {
         ] 
       }
     },
+    contact: {
+      title: "",
+      placeholderMsg: "your message",
+      placeholderEmail: "your email",
+      submit: "send",
+      sending: "...",
+      success: "thank you",
+      error: "error. try again",
+      instagram: "instagram",
+      portfolio: "portfolio"
+    },
     footer: {
       location: "rue lamarck, paris",
-      links: [
-        { label: "email", action: "openContact" },
-        { label: "instagram", url: "https://www.instagram.com/_dubontemps_/" },
-        { label: "portfolio", url: "https://drive.google.com" }
-      ]
     }
   }
 };
@@ -521,6 +534,42 @@ const TypographyStyles = () => (
       text-transform: lowercase;
       opacity: 0.3;
     }
+    /* FORMSPREE */
+    .contact-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 0.5px solid rgba(0,0,0,0.1);
+      padding: 16px 0;
+      outline: none;
+      transition: border-bottom 0.4s ease;
+    }
+    .contact-input::placeholder {
+      color: currentColor;
+      opacity: 0.4;
+    }
+    .contact-input:focus {
+      border-bottom: 0.5px solid var(--ink);
+    }
+    .contact-textarea {
+      min-height: 120px;
+      resize: none;
+    }
+    .contact-submit {
+      margin-top: 32px;
+      align-self: flex-start;
+      border: none;
+      background: transparent;
+      padding: 0;
+      transition: color 0.4s ease;
+    }
+    .contact-submit:hover {
+      color: var(--carmine);
+    }
+    .contact-submit:disabled {
+      opacity: 0.3;
+      cursor: wait;
+    }
 
     /* SEO Helper - Masqué visuellement mais accessible aux robots */
     .sr-only {
@@ -547,8 +596,8 @@ const TypographyStyles = () => (
       -webkit-appearance: none;
       background: transparent;
       border: none;
-      padding: 0;
-      margin: 0;
+      padding: 15px;
+      margin: -15px;
       color: var(--ink);
       display: flex;
       flex-direction: column;
@@ -575,10 +624,29 @@ const TypographyStyles = () => (
     .index-section-col:focus-within {
     opacity: 1;
   }
+  .asymmetric-close-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--ink);
+    opacity: 0.3;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .asymmetric-close-btn:hover, .asymmetric-close-btn:active {
+    opacity: 1;
+    color: var(--carmine); 
+  } 
 } 
       }
     }
   `}</style>
+);
+  const AsymmetricClose = ({ size = 22 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="4" y1="6" x2="18" y2="20" stroke="currentColor" strokeWidth="0.75" />
+      <line x1="6" y1="20" x2="20" y2="4" stroke="currentColor" strokeWidth="0.75" />
+    </svg>
 );
 
 const MixedText = ({ text }) => {
@@ -591,12 +659,49 @@ export default function App() {
   const [zoomImage, setZoomImage] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+    // Scrollbar
   const { scrollYProgress, scrollY } = useScroll();
   const scale = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
   });
+
+  // Formulaire etats et envoi
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState(null); // 'success' | 'error'
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setFormStatus(null);
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("https://formspree.io/f/mvzrbjyd", {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        e.target.reset();
+      } else {
+        setFormStatus('error');
+      }
+    } catch (error) {
+      setFormStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setFormStatus(null), 5000);
+    }
+ };
 
   // SEO & Head Management
   useEffect(() => {
@@ -617,7 +722,7 @@ export default function App() {
     return {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "Dubontemps",
+      "name": "dubontemps",
       "url": typeof window !== 'undefined' ? window.location.href : '',
       "jobTitle": "Photographer",
       "description": CONTENT[lang].meta.description,
@@ -945,37 +1050,72 @@ export default function App() {
     </div>
     
   </div>
-</section>
+</section> 
 
-   {/* Footer & Contact */}
-      <footer 
-        id="contact-anchor" 
-        className="relative px-6 md:px-[40px] py-20 md:py-8 md:h-[var(--header-h)] bg-white flex flex-col md:flex-row justify-between items-baseline gap-10 md:gap-0 z-[100]" 
-        aria-labelledby="section-contact">
-      <h2 id="section-contact" className="sr-only">{sectionTitles.contact}</h2>
-          
-      <nav aria-label="Contact links and social media">
-        <ul className="list-none p-0 m-0 flex flex-wrap justify-center gap-8 md:gap-16 items-center">
-          {CONTENT[lang].footer.links.map((link, i) => (
-          <li key={i}>
-            {link.action === "openContact" ? (
-              <button onClick={() => setIsContactOpen(true)} className="brand-style">
-              {link.label}
-              </button>
-              ) : (
-            <a href={link.url} target="_blank" rel="noopener noreferrer" className="brand-style">
-            {link.label}
-            </a>
-            )}
-          </li>
-          ))}
-        </ul>
-      </nav>
-          
-          <address className="footer-mention not-italic md:mr-18">
-            © {new Date().getFullYear()} {CONTENT[lang].brand} . {footerData.location}
-          </address>
-        </footer>
+   {/* SECTION CONTACT ET FOOTER MIROIR */}
+        <section id="contact-anchor" className="relative w-full min-h-[100vh] bg-white pt-[20vh] pb-12 z-[100]">
+          <motion.div 
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.5 }} viewport={{ once: true }}
+            className="w-full flex flex-col px-[var(--page-gutter)] md:px-[10%]"
+          >
+      {/* Formulaire */}
+            <form onSubmit={handleFormSubmit} className="flex flex-col w-full mb-32">
+                <div className="w-full md:max-w-[44ch] flex flex-col items-start">
+                  <input type="text" name="_gotcha" style={{ display: "none" }} />
+                  <textarea 
+                    name="message" 
+                    required 
+                    placeholder={contactData.placeholderMsg} 
+                    className="contact-input contact-textarea brand-style mb-8"
+                    disabled={isSubmitting}
+                  />
+                  <input 
+                    type="email" 
+                    name="email" 
+                    required 
+                    placeholder={contactData.placeholderEmail} 
+                    className="contact-input brand-style" 
+                    disabled={isSubmitting}
+                  />
+
+      {/* Bouton envoyer */}
+                  {!formStatus ? (
+                    <button type="submit" className="contact-submit brand-style" disabled={isSubmitting}>
+                      {isSubmitting ? contactData.sending : contactData.submit}
+                    </button>
+                  ) : (
+                    <div className="mt-8">
+                      <AnimatePresence>
+                        <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="brand-style opacity-40 italic">
+                          {formStatus === 'success' ? contactData.success : contactData.error}
+                        </motion.span>
+                      </AnimatePresence>
+                    </div>
+                  )}
+                </div>
+            </form>
+
+       {/* BARRE DE PIED DE PAGE : INSTA / PORTFOLIO */}
+            <div className="w-full flex justify-between items-baseline min-h-[40px] border-t border-zinc-50 pt-12">
+                <div className="text-left">
+                    <a href="https://www.instagram.com/_dubontemps_/" target="_blank" rel="noopener noreferrer" className="brand-style">
+                        {contactData.instagram}
+                    </a>
+                </div>
+
+                <div className="text-right">
+                    <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" className="brand-style">
+                        {contactData.portfolio}
+                    </a>
+                </div>
+            </div>
+
+      {/* Mention copyright */}
+            <div className="mt-12 text-center md:text-left">
+                 <p className="footer-mention m-0">© {new Date().getFullYear()} {CONTENT[lang].brand} . {footerData.location}</p>
+            </div>
+          </motion.div>
+        </section>
       </main>
     </div>
   );
