@@ -769,6 +769,7 @@ export default function App() {
   const footerData = CONTENT[lang].footer;
   const navData = CONTENT[lang].nav;
   const sectionTitles = CONTENT[lang].sections;
+  const contactData = CONTENT[lang].contact;
 
   return (
     <div className="relative w-full bg-white">
@@ -1056,7 +1057,7 @@ export default function App() {
         <section id="contact-anchor" className="relative w-full min-h-[100vh] bg-white pt-[20vh] pb-12 z-[100]">
           <motion.div 
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.5 }} viewport={{ once: true }}
-            className="w-full flex flex-col px-[var(--page-gutter)] md:px-[10%]"
+            className="w-full flex flex-col px-6 md:px-[10%]"
           >
       {/* Formulaire */}
             <form onSubmit={handleFormSubmit} className="flex flex-col w-full mb-32">
