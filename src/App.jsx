@@ -603,13 +603,13 @@ const TypographyStyles = () => (
       -webkit-appearance: none;
       background: transparent;
       border: none;
-      padding: 15px;
-      margin: -15px;
+      padding: 20px;
+      margin: -20px;
       color: var(--ink);
       display: flex;
       flex-direction: column;
       align-items: flex-end; /* Aligne les traits à droite */
-      gap: 5px;              /* Espace entre les deux traits */
+      gap: 6px;              /* Espace entre les deux traits */
       transform: translateY(-12px);
       transition: color 0.3s ease;
       cursor: pointer;
@@ -1121,9 +1121,13 @@ export default function App() {
                 </div>
 
                 <div className="text-right">
-                    <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" className="brand-style">
-                        {contactData.portfolio}
-                    </a>
+                    <span 
+                      className="brand-style" 
+                      title="soon" 
+                      style={{ cursor: 'wait', opacity: 0.6 }}
+                    >
+                    {contactData.portfolio}
+                    </span>
                 </div>
             </div>
 
