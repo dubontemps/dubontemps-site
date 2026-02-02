@@ -137,7 +137,7 @@ const CONTENT = {
       success: "merci",
       error: "erreur. réessayez",
       instagram: "instagram",
-      portfolio: "portfolio"
+      portfolio: "catalogue & portfolio (à venir)"
     },
     footer: {
       location: "rue lamarck, paris",
@@ -273,7 +273,7 @@ const CONTENT = {
       success: "thank you",
       error: "error. try again",
       instagram: "instagram",
-      portfolio: "portfolio"
+      portfolio: "catalogue & portfolio (soon)"
     },
     footer: {
       location: "rue lamarck, paris",
