@@ -719,11 +719,12 @@ export default function App() {
     }
  };
 
-  // SEO & Head Management
+// SEO & Head Management (Open Graph Integration)
   useEffect(() => {
     document.title = CONTENT[lang].meta.title;
     document.documentElement.lang = lang.toLowerCase();
     
+    // Description Meta
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
       metaDesc = document.createElement('meta');
@@ -731,15 +732,38 @@ export default function App() {
       document.head.appendChild(metaDesc);
     }
     metaDesc.content = CONTENT[lang].meta.description;
+
+    // Open Graph Management
+    const setMetaProperty = (property, content) => {
+      let element = document.querySelector(`meta[property="${property}"]`);
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute('property', property);
+        document.head.appendChild(element);
+      }
+      element.setAttribute('content', content);
+    };
+
+    // On utilise l'image du Hero pour le partage
+    const ogImage = `https://dubontemps.org${CONTENT[lang].hero.url}`;
+    const siteUrl = "https://dubontemps.org";
+
+    setMetaProperty('og:title', CONTENT[lang].meta.title);
+    setMetaProperty('og:description', CONTENT[lang].meta.description);
+    setMetaProperty('og:image', ogImage);
+    setMetaProperty('og:url', siteUrl);
+    setMetaProperty('og:type', 'website');
+    setMetaProperty('og:site_name', 'dubontemps');
+
   }, [lang]);
 
-  // JSON-LD Structured Data
+// JSON-LD Structured Data
   const structuredData = useMemo(() => {
     return {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "dubontemps",
-      "url": typeof window !== 'undefined' ? window.location.href : '',
+      "url": "https://dubontemps.org", // URL fixe pour le SEO
       "jobTitle": "Photographer",
       "description": CONTENT[lang].meta.description,
       "address": {
