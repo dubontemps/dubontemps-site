@@ -37,8 +37,8 @@ const CONTENT = {
     ],
     bio: {
       label: "Approche & Parcours",
-      lead: "Un paysage a le pouvoir de réveiller des histoires oubliées.",
-      text: "J’explore nos relations invisibles au monde vivant. Formée à l’image au Lee Strasberg Institute, New York, je travaille sur la mémoire sensorielle pour créer des images qui ne sont pas de simples décors mais des présences, capables de réactiver des sensations intérieures. Mon parcours initial en prospective nourrit mon regard, l’attention aux systèmes, aux équilibres, aux signaux faibles et ma pratique entre structure et instinct, entre écoute et action. Chaque image propose un espace pour ralentir, ressentir : un souffle, une tension, un horizon."
+      lead: "Un paysage peut réveiller des histoires oubliées.",
+      text: "J’explore nos relations invisibles au monde vivant. Formée à l’image au Lee Strasberg Institute, New York, je m'appuie sur la mémoire sensorielle pour créer des images qui ne sont pas de simples décors mais des présences, capables de réactiver des sensations intérieures. Mon parcours initial en prospective nourrit mon regard : il m’a appris à lire les systèmes, les signaux faibles, entre rigueur et instinct. Mon travail propose un espace pour ralentir, écouter, ressentir. Je porte une attention particulière aux tirages, réalisés par procédé pigmentaire d’archivage, sur des papiers Fine Art, du washi japonais fait main au baryté."
     },
     stream: [
       { 
@@ -134,7 +134,7 @@ const CONTENT = {
       }
     },
      contact: {
-      title: "Pour toute demande de collaboration ou de catalogue",
+      title: "Pour toute demande de collaboration ou de catalogue, hello dubontemps",
       placeholderMsg: "votre message",
       placeholderEmail: "votre email",
       submit: "envoyer",
@@ -178,8 +178,8 @@ const CONTENT = {
     ],
     bio: {
       label: "Approach & Background",
-      lead: "A landscape has the power to awaken untold stories.",
-      text: "I explore our invisible threads with the living world. Trained in image at the Lee Strasberg Institute, New York, I work with sensory memory to create images that are not mere decors, but presences, capable of reactivating inner sensations. My previous career in strategic foresight informs my gaze, an attention to systems, balances, weak signals and my practice between structure and instinct, listening and action. Each image offers a space to slow down, feel : a breath, a tension, an horizon."
+      lead: "A landscape can awaken untold stories.",
+      text: "I explore our invisible threads with the living world. Trained in image at the Lee Strasberg Institute, New York, I work with sensory memory to create images that are not mere decors, but presences, capable of reactivating inner sensations. My previous career in strategic foresight informs my practice, the attention to systems, balances, weak signals, between structure and instinct. My work offers a space to slow down, listen and feel. I give particular care to the prints, produced using archival pigment processes on fine art papers, from handmade Japanese washi to baryta."
     },
     stream: [
       { 
@@ -275,7 +275,7 @@ const CONTENT = {
       }
     },
     contact: {
-      title: "For an inquiry about collaboration or catalogue",
+      title: "For an inquiry about collaboration or catalogue, hello dubontemps",
       placeholderMsg: "your message",
       placeholderEmail: "your email",
       submit: "send",
@@ -325,8 +325,8 @@ const TypographyStyles = () => (
     .logo-style {
       font-family: var(--serif);
       font-size: 22px; 
-      font-weight: 500; 
-      letter-spacing: -0.05em;
+      font-weight: 600; 
+      letter-spacing: -0.03em;
       background: none;
       border: none;
       color: var(--ink);
@@ -428,10 +428,10 @@ const TypographyStyles = () => (
 
     .text-note, .text-manifesto { 
       font-family: var(--serif);
-      font-size: 16px; 
+      font-size: 18px; 
       letter-spacing: 0.01em;
       line-height: 1.8; 
-      font-weight: 300; 
+      font-weight: 400; 
       color: var(--ink-soft); 
       max-width: 44ch; 
       white-space: pre-line;
@@ -652,10 +652,6 @@ const TypographyStyles = () => (
       transition: width 0.3s ease, background-color 0.3s ease;
     }
     .index-section-col {
-    opacity: 0.3;
-    }
-    .index-section-col:active, 
-    .index-section-col:focus-within {
     opacity: 1;
     }
     #contact-anchor {
@@ -1069,7 +1065,7 @@ export default function App() {
     <div className="grid grid-cols-1 md:grid-cols-4 gap-y-12 md:gap-x-12">
     
     {/* 01 - Collaborations */}
-    <div className="index-section-col" tabIndex="0">
+    <div className="index-section-col">
       <span className="index-num" aria-hidden="true">{indexData.collabs.num}</span>
       <h3 className="index-label">{indexData.collabs.label}</h3>
       <ul className="list-none p-0 m-0 space-y-3"> {/* Espacement réduit */}
@@ -1083,7 +1079,7 @@ export default function App() {
     </div>
 
     {/* 02 - Distinctions */}
-    <div className="index-section-col" tabIndex="0">
+    <div className="index-section-col">
       <span className="index-num" aria-hidden="true">{indexData.awards.num}</span>
       <h3 className="index-label">{indexData.awards.label}</h3>
       <ul className="list-none p-0 m-0 space-y-3">
@@ -1099,7 +1095,7 @@ export default function App() {
     </div>
 
     {/* 03 - Expositions */}
-    <div className="index-section-col" tabIndex="0">
+    <div className="index-section-col">
       <span className="index-num" aria-hidden="true">{indexData.exhibitions.num}</span>
       <h3 className="index-label">{indexData.exhibitions.label}</h3>
       <ul className="list-none p-0 m-0 space-y-3">
@@ -1113,7 +1109,7 @@ export default function App() {
     </div>
 
     {/* 04 - Parutions */}
-    <div className="index-section-col" tabIndex="0">
+    <div className="index-section-col">
       <span className="index-num" aria-hidden="true">{indexData.publications.num}</span>
       <h3 className="index-label">{indexData.publications.label}</h3>
       <ul className="list-none p-0 m-0 flex flex-col gap-y-3 max-w-lg"> 
