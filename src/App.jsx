@@ -37,8 +37,10 @@ const CONTENT = {
     ],
     bio: {
       label: "Approche & Parcours",
+      lead: "Un paysage a le pouvoir de réveiller des histoires oubliées.",
       text: "J’explore nos relations invisibles au monde vivant. Formée à l’image au Lee Strasberg Institute, New York, je travaille sur la mémoire sensorielle pour créer des images qui ne sont pas de simples décors mais des présences, capables de réactiver des sensations intérieures. Mon parcours initial en prospective nourrit mon regard, l’attention aux systèmes, aux équilibres, aux signaux faibles et ma pratique entre structure et instinct, entre écoute et action. Chaque image propose un espace pour ralentir, ressentir : un souffle, une tension, un horizon."
-    },    stream: [
+    },
+    stream: [
       { 
         id: 'wandering-souls-dubontemps', 
         url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
@@ -132,7 +134,7 @@ const CONTENT = {
       }
     },
      contact: {
-      title: "",
+      title: "Pour toute demande de collaboration ou de catalogue",
       placeholderMsg: "votre message",
       placeholderEmail: "votre email",
       submit: "envoyer",
@@ -176,6 +178,7 @@ const CONTENT = {
     ],
     bio: {
       label: "Approach & Background",
+      lead: "A landscape has the power to awaken untold stories.",
       text: "I explore our invisible threads with the living world. Trained in image at the Lee Strasberg Institute, New York, I work with sensory memory to create images that are not mere decors, but presences, capable of reactivating inner sensations. My previous career in strategic foresight informs my gaze, an attention to systems, balances, weak signals and my practice between structure and instinct, listening and action. Each image offers a space to slow down, feel : a breath, a tension, an horizon."
     },
     stream: [
@@ -272,11 +275,11 @@ const CONTENT = {
       }
     },
     contact: {
-      title: "",
+      title: "For an inquiry about collaboration or catalogue",
       placeholderMsg: "your message",
       placeholderEmail: "your email",
       submit: "send",
-      sending: "...",
+      sending: "...", 
       success: "thank you",
       error: "error. try again",
       instagram: "instagram",
@@ -433,13 +436,23 @@ const TypographyStyles = () => (
       white-space: pre-line;
     }
 
-    .bio-text {
-      font-size: 15px;
+    .bio-lead {
+      font-family: var(--serif);
+      font-weight: 400; 
+      letter-spacing: -0.05em;
+      font-size: 20px;
       line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 2rem;
+      max-width: 48ch;
+    }
+    .bio-text {
+      font-size: 16px;
+      line-height: 2;
       font-weight: 300;
       color: var(--ink);
       max-width: 55ch;
-      opacity: 0.8;
+      opacity: 0.7;
     }
     .index-intro-text {
       font-size: 12px; 
@@ -467,7 +480,7 @@ const TypographyStyles = () => (
       text-transform: uppercase; 
       font-weight: 600; 
       opacity: 0.25;
-      margin-bottom: 20px; 
+      margin-bottom: 20px;  
       display: block;
     }
     .index-section-col {
@@ -1031,17 +1044,25 @@ export default function App() {
         </section>
 
     {/* Section Index & Collabs */}
-         <section id="index-anchor" className="relative mt-[40vh] py-32 px-6 md:px-[10%] bg-[#F7F7F7] z-[100]" 
+         <section id="index-anchor" className="relative mt-[40vh] py-32 px-6 md:px-[10%] bg-[#F7F7F7] z-[100] border-t border-zinc-200/50" 
          aria-labelledby="section-index">
         <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
   
         <motion.div 
-        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-32">
-         <div className="flex flex-col md:flex-row gap-8 md:gap-20 items-start">
-              <span className="index-label opacity-40 m-0 pt-1 whitespace-nowrap">{bioData.label}</span>
-              <p className="bio-text m-0 italic">{bioData.text}</p>
+        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-32 md:grid md:grid-cols-4 md:gap-x-12">
+         <div className="col-span-1 mb-8 md:mb-0">
+              <span className="index-label opacity-40 m-0 pt-1 block">{bioData.label}</span>
+              </div>
+            <div className="col-span-1 hidden md:block" /> {/* Espace vide pour l'asymétrie */}
+            <div className="col-span-2">
+              <h3 className="bio-lead">{bioData.lead}</h3>
+              <p className="bio-text m-0">{bioData.text}</p>
             </div>
         </motion.div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mb-16">
+            <p className="index-intro-text m-0">{indexData.intro}</p>
+          </motion.div> 
 
     {/* Grille de 4 colonnes sur desktop, empilée sur mobile */}
     <div className="grid grid-cols-1 md:grid-cols-4 gap-y-12 md:gap-x-12">
