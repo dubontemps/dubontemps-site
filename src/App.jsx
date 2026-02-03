@@ -11,7 +11,7 @@ const CONTENT = {
     brand: "dubontemps",
     meta: {
       title: "Dubontemps | Photographe paysage & documentaire | Paris",
-      description: "Dubontemps développe une écriture photographique entre paysage, présence et mémoire. Explorez ses séries et tirages d'art, distinctions (ND Awards MH, Lensculture Editors' Pick) et collaborations (Musée de Cluny)."
+      description: "Dubontemps développe une écriture photographique entre nature, présence et mémoire. Explorez ses séries et tirages d'art, distinctions (ND Awards MH, Lensculture Editors' Pick) et collaborations (Musée de Cluny)."
     },
     nav: { works: 'images', index: 'index', contact: 'contact', menu: 'menu' },
     hero: { 
@@ -35,7 +35,10 @@ const CONTENT = {
       "Elle naît de la relation",
       "et de la mémoire.",
     ],
-    stream: [
+    bio: {
+      label: "Approche & Parcours",
+      text: "J’explore nos relations invisibles au monde vivant. Formée à l’image au Lee Strasberg Institute, New York, je travaille sur la mémoire sensorielle pour créer des images qui ne sont pas de simples décors mais des présences, capables de réactiver des sensations intérieures. Mon parcours initial en prospective nourrit mon regard, l’attention aux systèmes, aux équilibres, aux signaux faibles et ma pratique entre structure et instinct, entre écoute et action. Chaque image propose un espace pour ralentir, ressentir : un souffle, une tension, un horizon."
+    },    stream: [
       { 
         id: 'wandering-souls-dubontemps', 
         url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
@@ -81,7 +84,7 @@ const CONTENT = {
         year: "2025",
         tech: "Tirage pigmentaire, papier fine art mat",
         alt: "Grand arbre et ombres vues de haut, pâquerettes, chaise en retrait, Finistère Nord Bretagne, série L’Art du Silence 2025, tirage pigmentaire papier fine art mat, Dubontemps",
-        note: "L’imaginaire cultive l’imprévu.\nJ’explore la subjectivité de la perception à une époque où la technologie façonne ce que nous voyons.\n\nRêver est une forme de résistance." 
+        note: "L’imaginaire cultive l’imprévu.\nRêver est une forme de résistance." 
       }
     ],
     index: {
@@ -148,7 +151,7 @@ const CONTENT = {
     brand: "dubontemps",
     meta: {
       title: "Dubontemps | Landscape & Documentary Photographer | Paris",
-      description: "Dubontemps develops a photographic language between landscape, presence, and memory. Explore her series and fine art prints, her awards ((ND Awards MH, Lensculture Editors' Pick) and collaborations (Musée de Cluny)."
+      description: "Dubontemps develops a photographic language between nature, presence, and memory. Explore her series and fine art prints, her awards ((ND Awards MH, Lensculture Editors' Pick) and collaborations (Musée de Cluny)."
     },
     nav: { works: 'images', index: 'index', contact: 'contact', menu: 'menu' },
     hero: { 
@@ -171,6 +174,10 @@ const CONTENT = {
   "It arises from relation",
   "and from memory.",
     ],
+    bio: {
+      label: "Approach & Background",
+      text: "I explore our invisible threads with the living world. Trained in image at the Lee Strasberg Institute, New York, I work with sensory memory to create images that are not mere decors, but presences, capable of reactivating inner sensations. My previous career in strategic foresight informs my gaze, an attention to systems, balances, weak signals and my practice between structure and instinct, listening and action. Each image offers a space to slow down, feel : a breath, a tension, an horizon."
+    },
     stream: [
       { 
         id: 'wandering-souls-dubontemps', 
@@ -217,7 +224,7 @@ const CONTENT = {
         year: "2025",
         tech: "Pigment inkjet print, matte fine art paper",
         alt: "Large tree's shadows from above, daisies, chair in the distance, Finistère North Brittany, L’Art of Silence series 2025, pigment print on fine art matte paper, Dubontemps",
-        note: "Imagination cultivates the unexpected.\nI explore the subjectivity of perception at a time when technology shapes what we see.\n\nDreaming is a form of resistance." 
+        note: "Imagination cultivates the unexpected.\nDreaming is a form of resistance." 
       }
     ],
     index: {
@@ -426,6 +433,14 @@ const TypographyStyles = () => (
       white-space: pre-line;
     }
 
+    .bio-text {
+      font-size: 15px;
+      line-height: 1.8;
+      font-weight: 300;
+      color: var(--ink);
+      max-width: 55ch;
+      opacity: 0.8;
+    }
     .index-intro-text {
       font-size: 12px; 
       letter-spacing: 0.25em; 
@@ -810,6 +825,7 @@ export default function App() {
   const navData = CONTENT[lang].nav;
   const sectionTitles = CONTENT[lang].sections;
   const contactData = CONTENT[lang].contact;
+  const bioData = CONTENT[lang].bio;
 
   return (
     <div className="relative w-full bg-white">
@@ -1015,11 +1031,16 @@ export default function App() {
         </section>
 
     {/* Section Index & Collabs */}
-         <section id="index-anchor" className="relative mt-[40vh] py-20 px-6 md:px-[10%] bg-[#F7F7F7] z-[100]" aria-labelledby="section-index">
+         <section id="index-anchor" className="relative mt-[40vh] py-32 px-6 md:px-[10%] bg-[#F7F7F7] z-[100]" 
+         aria-labelledby="section-index">
         <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
   
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mb-12">
-            <p className="index-intro-text m-0">{indexData.intro}</p>
+        <motion.div 
+        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-32">
+         <div className="flex flex-col md:flex-row gap-8 md:gap-20 items-start">
+              <span className="index-label opacity-40 m-0 pt-1 whitespace-nowrap">{bioData.label}</span>
+              <p className="bio-text m-0 italic">{bioData.text}</p>
+            </div>
         </motion.div>
 
     {/* Grille de 4 colonnes sur desktop, empilée sur mobile */}
