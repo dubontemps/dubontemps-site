@@ -427,6 +427,7 @@ const TypographyStyles = () => (
     }
 
     .text-note, .text-manifesto { 
+      font-family: var(--serif);
       font-size: 16px; 
       letter-spacing: 0.01em;
       line-height: 1.8; 
