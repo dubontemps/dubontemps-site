@@ -37,8 +37,8 @@ const CONTENT = {
     ],
     bio: {
       label: "Approche & Parcours",
-      lead: "Un paysage peut réveiller des histoires oubliées.",
-      text: "J’explore nos relations invisibles au monde vivant. Formée à l’image au Lee Strasberg Institute, New York, je m'appuie sur la mémoire sensorielle pour créer des images qui ne sont pas de simples décors mais des présences, capables de réactiver des sensations intérieures. Mon parcours initial en prospective nourrit mon regard : il m’a appris à lire les systèmes, les signaux faibles, entre rigueur et instinct. Mon travail propose un espace pour ralentir, écouter, ressentir. Je porte une attention particulière aux tirages, réalisés par procédé pigmentaire d’archivage, sur des papiers Fine Art, du washi japonais fait main au baryté."
+      lead: "J’explore nos relations complexes à la nature et leur influence sur notre imaginaire.",
+      text: "Formée à l’image à New York, au Lee Strasberg Institute, je collabore aujourd’hui avec des artisans, des artistes et des institutions culturelles. Nourri de mon parcours antérieur en prospective, ma pratique est une sythèse de plusieurs mondes, entre rigueur technique et instinct, écoute et action. Je porte une attention particulière aux tirages, réalisés par procédé pigmentaire d’archivage, sur des papiers Fine Art, du washi japonais fait main au baryté."
     },
     stream: [
       { 
@@ -178,8 +178,8 @@ const CONTENT = {
     ],
     bio: {
       label: "Approach & Background",
-      lead: "A landscape can awaken untold stories.",
-      text: "I explore our invisible threads with the living world. Trained in image at the Lee Strasberg Institute, New York, I work with sensory memory to create images that are not mere decors, but presences, capable of reactivating inner sensations. My previous career in strategic foresight informs my practice, the attention to systems, balances, weak signals, between structure and instinct. My work offers a space to slow down, listen and feel. I give particular care to the prints, produced using archival pigment processes on fine art papers, from handmade Japanese washi to baryta."
+      lead: "I explore our complex relationships to nature and their influence on our imagination.",
+      text: "Trained in image at the Lee Strasberg Institute, New York, I work today with artisans, artists and cultural institutions. Fed by my orevious career in foresight, my practice allies different worlds, between tehcnical rigor and instinct, listening and action. I give particular care to the prints, produced using archival pigment processes on fine art papers, from handmade Japanese washi to baryta."
     },
     stream: [
       { 
@@ -509,10 +509,13 @@ const TypographyStyles = () => (
       color: var(--ink);
       display: inline-block;
       position: relative;
+      border-bottom: 0.5px solid rgba(17, 17, 17, 0.15); 
+      padding-bottom: 1px;
     }
     .index-item-link:hover { 
       color: var(--carmine);
       transform: translateX(6px); 
+      border-bottom: 0.5px solid var(--accent);
     }
 
     .index-item-sub { 
