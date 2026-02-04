@@ -107,7 +107,7 @@ const CONTENT = {
         items: [
           { label: "Lensculture Art", subtitle: "Editors' Pick, 2025" },
           { label: "ND Awards", subtitle: "Honorable Mention, 2025", url: "https://ndawards.net/winners-gallery/nd-awards-2025/professional/landscape/hm/22577/" },
-          { label: "World Food Awards", subtitle: "Shortlist Crop, 2022" }
+          { label: "World Food Awards", subtitle: "Shortlist Récolte, 2023" }
         ]
       },
       exhibitions: {
@@ -179,7 +179,7 @@ const CONTENT = {
     bio: {
       label: "Approach & Background",
       lead: "dubontemps explores the relationship with landscape and its influence on the imagination",
-      text: "Trained in image at the Lee Strasberg Institute, New York and Sciences Po Paris, she collaborates with artisans, artists and cultural institutions, following a consulting career.\n\nHer work observes the living world across several continents, between reality and mystery, precision and instinct, structure and simplicity. Prints are produced using archival pigment processes on Fine Art, handmade Japanese washi or baryta papers."
+      text: "Trained in image at the Lee Strasberg Institute, New York and at Sciences Po Paris, she collaborates with artisans, artists and cultural institutions, following a consulting career.\n\nHer work observes the living world across several continents, between reality and mystery, precision and instinct, structure and simplicity. Prints are produced using archival pigment processes on Fine Art, handmade Japanese washi or baryta papers."
      },
     stream: [
       { 
@@ -248,7 +248,7 @@ const CONTENT = {
         items: [
             { label: "Lensculture Art", subtitle: "Editors' Pick, 2025" },
             { label: "ND Awards", subtitle: "Honorable Mention, 2025", url: "https://ndawards.net/winners-gallery/nd-awards-2025/professional/landscape/hm/22577/" },
-            { label: "World Food Awards", subtitle: "Shortlist Crop, 2022" }
+            { label: "World Food Awards", subtitle: "Shortlist Crop, 2023" }
         ] 
       },
       exhibitions: { 
@@ -321,7 +321,13 @@ const TypographyStyles = () => (
       -webkit-tap-highlight-color: transparent;
       cursor: pointer;
     }
-
+    button:focus {
+      outline: none;
+    }
+    button:focus-visible {
+      outline: 1px solid var(--accent);
+      outline-offset: 2px;
+    }
     .logo-style {
       font-family: var(--serif);
       font-size: 22px; 
@@ -399,9 +405,10 @@ const TypographyStyles = () => (
     .text-note, .text-manifesto { 
       font-size: 16px; 
       letter-spacing: 0.02em;
-      line-height: 1.8; 
-      font-weight: 400; 
+      line-height: 1.7; 
+      font-weight: 300; 
       color: var(--ink-soft); 
+      opacity: 1; 
       max-width: 44ch; 
       white-space: pre-line;
     }
@@ -500,7 +507,7 @@ const TypographyStyles = () => (
       color: var(--ink);
       display: inline-block;
       position: relative;
-      border-bottom: 0.5px solid rgba(17, 17, 17, 0.15); 
+      border-bottom: 1px solid rgba(17, 17, 17, 0.15); 
       padding-bottom: 1px;
     }
     .index-item-link:hover { 
@@ -1038,7 +1045,7 @@ export default function App() {
         </section>
 
     {/* Section Index & Collabs */}
-         <section id="index-anchor" className="relative mt-[30vh] py-28 px-6 md:px-[10%] bg-[#F7F7F7] z-[100] border-t border-zinc-200/50" 
+         <section id="index-anchor" className="relative mt-[30vh] py-28 px-6 md:px-[10%] bg-[#F7F7F7] z-[100]" 
          aria-labelledby="section-index">
         <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
   
