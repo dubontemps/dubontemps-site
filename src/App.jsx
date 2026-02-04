@@ -36,7 +36,7 @@ const CONTENT = {
       "et de la mémoire.",
     ],
     bio: {
-      label: "Approche & Parcours",
+      label: "Parcours & Travaux",
       lead: "dubontemps explore la relation au paysage et son influence sur l’imaginaire",
       text: "Formée à l’image au Lee Strasberg Institute, New York et à Sciences Po Paris, elle collabore avec artisans, artistes et institutions culturelles, après une carrière en conseil.\n\nSon travail observe le vivant, sur plusieurs continents, entre réel et mystère, précision et instinct, structure et simplicité. Les tirages sont réalisés en procédé pigmentaire d’archivage sur papiers Fine Art, washi japonais fait main ou baryté."
     },
@@ -90,7 +90,6 @@ const CONTENT = {
       }
     ],
     index: {
-      intro: "Nature . Présence . Mémoire . Sélection de Travaux",
       collabs: {
         label: "Collaborations",
         num: "01",
@@ -177,7 +176,7 @@ const CONTENT = {
   "and from memory.",
     ],
     bio: {
-      label: "Approach & Background",
+      label: "Background & Work",
       lead: "dubontemps explores the relationship with landscape and its influence on the imagination",
       text: "Trained in image at the Lee Strasberg Institute, New York and at Sciences Po Paris, she collaborates with artisans, artists and cultural institutions, following a consulting career.\n\nHer work observes the living world across several continents, between reality and mystery, precision and instinct, structure and simplicity. Prints are produced using archival pigment processes on Fine Art, handmade Japanese washi or baryta papers."
      },
@@ -231,7 +230,6 @@ const CONTENT = {
       }
     ],
     index: {
-      intro: "Nature . Presence . Memory . Selected Work",
       collabs: { 
         label: "Collaborations", 
         num: "01", 
@@ -1059,7 +1057,7 @@ export default function App() {
         </motion.div>
 
     {/* Grille de 4 colonnes sur desktop, empilée sur mobile */}
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-y-12 md:gap-x-12">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-y-8 md:gap-x-12">
     
     {/* 01 - Collaborations */}
     <div className="index-section-col">
@@ -1076,7 +1074,7 @@ export default function App() {
     </div>
 
     {/* 02 - Distinctions */}
-    <div className="index-section-col pl-12 md:pl-0 md:mt-12">
+    <div className="index-section-col md:mt-12">
       <span className="index-num" aria-hidden="true">{indexData.awards.num}</span>
       <h3 className="index-label">{indexData.awards.label}</h3>
       <ul className="list-none p-0 m-0 space-y-6">
@@ -1106,7 +1104,7 @@ export default function App() {
     </div>
 
     {/* 04 - Parutions */}
-    <div className="index-section-col pl-12 md:pl-0 md:mt-12">
+    <div className="index-section-col md:mt-12">
       <span className="index-num" aria-hidden="true">{indexData.publications.num}</span>
       <h3 className="index-label">{indexData.publications.label}</h3>
       <ul className="list-none p-0 m-0 flex flex-col gap-y-3 max-w-lg"> 
