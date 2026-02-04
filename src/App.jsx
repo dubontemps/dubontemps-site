@@ -37,8 +37,8 @@ const CONTENT = {
     ],
     bio: {
       label: "Approche & Parcours",
-      lead: "J’explore nos relations complexes à la nature et leur influence sur notre imaginaire.",
-      text: "Formée à l’image à New York, au Lee Strasberg Institute, je collabore aujourd’hui avec des artisans, des artistes et des institutions culturelles. Nourri de mon parcours antérieur en prospective, ma pratique est une sythèse de plusieurs mondes, entre rigueur technique et instinct, écoute et action. Je porte une attention particulière aux tirages, réalisés par procédé pigmentaire d’archivage, sur des papiers Fine Art, du washi japonais fait main au baryté."
+      lead: "dubontemps explore la relation au paysage et son influence sur l’imaginaire",
+      text: "Formée à l’image au Lee Strasberg Institute, New York et à Sciences Po Paris, elle collabore avec artisans, artistes et institutions culturelles, après une carrière en conseil.\n\nSon travail observe le vivant, sur plusieurs continents, entre réel et mystère, précision et instinct, structure et simplicité. Les tirages sont réalisés en procédé pigmentaire d’archivage sur papiers Fine Art, washi japonais fait main ou baryté."
     },
     stream: [
       { 
@@ -134,7 +134,7 @@ const CONTENT = {
       }
     },
      contact: {
-      title: "Pour toute demande de collaboration ou de catalogue, hello dubontemps",
+      title: "hello dubontemps",
       placeholderMsg: "votre message",
       placeholderEmail: "votre email",
       submit: "envoyer",
@@ -178,9 +178,9 @@ const CONTENT = {
     ],
     bio: {
       label: "Approach & Background",
-      lead: "I explore our complex relationships to nature and their influence on our imagination.",
-      text: "Trained in image at the Lee Strasberg Institute, New York, I work today with artisans, artists and cultural institutions. Fed by my orevious career in foresight, my practice allies different worlds, between tehcnical rigor and instinct, listening and action. I give particular care to the prints, produced using archival pigment processes on fine art papers, from handmade Japanese washi to baryta."
-    },
+      lead: "dubontemps explores the relationship with landscape and its influence on the imagination",
+      text: "Trained in image at the Lee Strasberg Institute, New York and Sciences Po Paris, she collaborates with artisans, artists and cultural institutions, following a consulting career.\n\nHer work observes the living world across several continents, between reality and mystery, precision and instinct, structure and simplicity. Prints are produced using archival pigment processes on Fine Art, handmade Japanese washi or baryta papers."
+     },
     stream: [
       { 
         id: 'wandering-souls-dubontemps', 
@@ -275,7 +275,7 @@ const CONTENT = {
       }
     },
     contact: {
-      title: "For an inquiry about collaboration or catalogue, hello dubontemps",
+      title: "hello dubontemps",
       placeholderMsg: "your message",
       placeholderEmail: "your email",
       submit: "send",
@@ -396,50 +396,44 @@ const TypographyStyles = () => (
       background: var(--carmine);
       transform-origin: left;
     }
-
-    .text-meta-label { 
-      font-size: 12px; 
-      letter-spacing: 0.18em; 
-      text-transform: uppercase; 
-      opacity: 0.25; 
-      font-weight: 600; 
-    }
-    
-    .text-meta-title {
-      font-size: 12px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--ink);
-      opacity: 0.25;
-      display: block;
-      line-height: 1.2;
-    }
-    
-    .text-meta-date {
-      font-size: 12px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-weight: 400;
-      opacity: 0.25;
-      display: block;
-      margin-top: 4px; !important;
-    }
-
     .text-note, .text-manifesto { 
-      font-family: var(--serif);
-      font-size: 18px; 
-      letter-spacing: 0.01em;
+      font-size: 16px; 
+      letter-spacing: 0.02em;
       line-height: 1.8; 
       font-weight: 400; 
       color: var(--ink-soft); 
       max-width: 44ch; 
       white-space: pre-line;
     }
-
+    .text-meta-label { 
+      font-size: 12px; 
+      letter-spacing: 0.2em; 
+      text-transform: uppercase; 
+      opacity: 0.3; 
+      font-weight: 600; 
+    }
+    .text-meta-title {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ink);
+      opacity: 0.3;
+      display: block;
+      line-height: 1.2;
+    }
+    .text-meta-date {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 400;
+      opacity: 0.3;
+      display: block;
+      margin-top: 4px; !important;
+    }
     .bio-lead {
       font-family: var(--serif);
-      font-weight: 400; 
+      font-weight: 500; 
       letter-spacing: -0.05em;
       font-size: 20px;
       line-height: 1.8;
@@ -460,11 +454,10 @@ const TypographyStyles = () => (
       letter-spacing: 0.25em; 
       text-transform: uppercase; 
       font-weight: 600; 
-      opacity: 0.25;
+      opacity: 0.3;
       margin-bottom: 16px; 
       display: block;
     }
-
     .index-num { 
       font-family: var(--serif);
       font-size: 12px; 
@@ -474,13 +467,12 @@ const TypographyStyles = () => (
       margin-bottom: 10px; 
       display: block; 
     }
-    
     .index-label { 
       font-size: 12px; 
       letter-spacing: 0.25em; 
       text-transform: uppercase; 
       font-weight: 600; 
-      opacity: 0.25;
+      opacity: 0.3;
       margin-bottom: 20px;  
       display: block;
     }
@@ -498,7 +490,6 @@ const TypographyStyles = () => (
       letter-spacing: 0.03em;
       color: var(--ink);
     }
-
     .index-item-link { 
       font-size: 14px; 
       font-weight: 400; 
@@ -517,7 +508,6 @@ const TypographyStyles = () => (
       transform: translateX(6px); 
       border-bottom: 0.5px solid var(--accent);
     }
-
     .index-item-sub { 
       font-size: 12px; 
       font-weight: 300; 
@@ -525,7 +515,6 @@ const TypographyStyles = () => (
       margin-top: 2px; 
       line-height: 1.3;
     }
-
     .lightbox-overlay {
       position: fixed;
       top: 0;
@@ -539,14 +528,12 @@ const TypographyStyles = () => (
       justify-content: center;
       cursor: zoom-out;
     }
-
     .lightbox-img {
       width: 100%;
       height: 100%;
       object-fit: contain; 
       padding: 0; 
     }
-
     .mobile-menu-overlay {
       position: fixed;
       top: 0;
@@ -558,7 +545,6 @@ const TypographyStyles = () => (
       display: flex; flex-direction: column;
       padding: 24px;
     }
-
     .footer-mention {
       font-size: 14px; 
       font-weight: 400; 
@@ -568,8 +554,16 @@ const TypographyStyles = () => (
       text-transform: lowercase;
       opacity: 0.3;
     }
-    
     /* FORMSPREE */
+    .contact-title {
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 3rem;
+      text-transform: lowercase;
+    }
     .contact-input {
       width: 100%; 
       max-width: 100%;
@@ -974,7 +968,7 @@ export default function App() {
           </div>
 
       {/* AJUSTEMENT : pb-[25vh] pour créer la respiration sous le manifeste */}
-          <div className="pt-[40vh] pb-[25vh] px-6 md:px-[10%]">
+          <div className="pt-[30vh] pb-[20vh] px-6 md:px-[10%]">
             <div className="md:max-w-3xl mr-auto text-left md:text-left">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
@@ -991,7 +985,7 @@ export default function App() {
         </section>
 
     {/* Section Galerie d'Images */}
-        <section className="bg-white pt-0 space-y-[40vh] md:space-y-[40vh] relative" aria-labelledby="section-gallery">
+        <section className="bg-white pt-0 space-y-[30vh] md:space-y-[30vh] relative" aria-labelledby="section-gallery">
           {/* AJUSTEMENT : L'ancre est absolue pour ne pas pousser le premier enfant (image 1) du space-y */}
           <div id="works-anchor" className="absolute top-[-100px] left-0" aria-hidden="true" />
           <h2 id="section-gallery" className="sr-only">{sectionTitles.gallery}</h2>
@@ -1044,7 +1038,7 @@ export default function App() {
         </section>
 
     {/* Section Index & Collabs */}
-         <section id="index-anchor" className="relative mt-[40vh] py-32 px-6 md:px-[10%] bg-[#F7F7F7] z-[100] border-t border-zinc-200/50" 
+         <section id="index-anchor" className="relative mt-[30vh] py-28 px-6 md:px-[10%] bg-[#F7F7F7] z-[100] border-t border-zinc-200/50" 
          aria-labelledby="section-index">
         <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
   
@@ -1141,6 +1135,8 @@ export default function App() {
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.5 }} viewport={{ once: true }}
             className="w-full flex flex-col px-6 md:px-[10%] max-w-full"
           >
+      {/* Titre de la section contact */}
+          <h3 className="contact-title">{contactData.title}</h3>
       {/* Formulaire */}
             <form onSubmit={handleFormSubmit} className="flex flex-col w-full mb-32">
                 <div className="w-full md:max-w-[44ch] flex flex-col items-stretch">
@@ -1207,3 +1203,4 @@ export default function App() {
     </div>
   );
 }
+
