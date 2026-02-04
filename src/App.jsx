@@ -564,7 +564,7 @@ const TypographyStyles = () => (
     /* FORMSPREE */
     .contact-title {
       font-family: var(--serif);
-      font-size: 24px;
+      font-size: 20px;
       line-height: 1;
       font-weight: 500;
       color: var(--ink);
