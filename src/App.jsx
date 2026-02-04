@@ -299,7 +299,7 @@ const TypographyStyles = () => (
       --bg-white: #FFFFFF;
       --ink: #111111;
       --ink-soft: #555555; 
-      --carmine: #E60026;
+      --carmine: #E32555;
       --sans: 'Inter', sans-serif;
       --serif: 'Shippori Mincho', serif;
       --header-h: 84px;
