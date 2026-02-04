@@ -330,7 +330,7 @@ const TypographyStyles = () => (
     }
     .logo-style {
       font-family: var(--serif);
-      font-size: 22px; 
+      font-size: 24px; 
       font-weight: 600; 
       letter-spacing: -0.03em;
       background: none;
@@ -350,7 +350,7 @@ const TypographyStyles = () => (
 
     .brand-style { 
       font-family: var(--sans);
-      font-size: 18px; 
+      font-size: 20px; 
       font-weight: 400; 
       letter-spacing: -0.05em;
       background: none;
@@ -413,14 +413,14 @@ const TypographyStyles = () => (
       white-space: pre-line;
     }
     .text-meta-label { 
-      font-size: 12px; 
+      font-size: 13px; 
       letter-spacing: 0.2em; 
       text-transform: uppercase; 
       opacity: 0.3; 
       font-weight: 600; 
     }
     .text-meta-title {
-      font-size: 12px;
+      font-size: 13px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       font-weight: 600;
@@ -430,19 +430,19 @@ const TypographyStyles = () => (
       line-height: 1.2;
     }
     .text-meta-date {
-      font-size: 12px;
+      font-size: 13px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       font-weight: 400;
       opacity: 0.3;
       display: block;
-      margin-top: 4px; !important;
+      margin-top: 4px !important;
     }
     .bio-lead {
       font-family: var(--serif);
       font-weight: 500; 
       letter-spacing: -0.05em;
-      font-size: 20px;
+      font-size: 24px;
       line-height: 1.8;
       color: var(--ink);
       margin-bottom: 2rem;
@@ -457,7 +457,7 @@ const TypographyStyles = () => (
       opacity: 0.7;
     }
     .index-intro-text {
-      font-size: 12px; 
+      font-size: 14px; 
       letter-spacing: 0.25em; 
       text-transform: uppercase; 
       font-weight: 600; 
@@ -467,7 +467,7 @@ const TypographyStyles = () => (
     }
     .index-num { 
       font-family: var(--serif);
-      font-size: 12px; 
+      font-size: 14px; 
       font-weight: 500;
       font-style: italic;
       color: var(--carmine);
@@ -475,7 +475,7 @@ const TypographyStyles = () => (
       display: block; 
     }
     .index-label { 
-      font-size: 12px; 
+      font-size: 14px; 
       letter-spacing: 0.25em; 
       text-transform: uppercase; 
       font-weight: 600; 
@@ -516,7 +516,7 @@ const TypographyStyles = () => (
       border-bottom: 0.5px solid var(--accent);
     }
     .index-item-sub { 
-      font-size: 12px; 
+      font-size: 13px; 
       font-weight: 300; 
       opacity: 0.5; 
       margin-top: 2px; 
@@ -564,17 +564,26 @@ const TypographyStyles = () => (
     /* FORMSPREE */
     .contact-title {
       font-family: var(--serif);
-      font-size: 18px;
+      font-size: 24px;
       line-height: 1;
       font-weight: 500;
       color: var(--ink);
       margin-bottom: 3rem;
       text-transform: lowercase;
     }
-    .contact-input {
+      @media (min-width: 768px) {
+      .contact-title { 
+        margin-bottom: 0; 
+        padding-top: 4px; 
+      } 
+      #contact-anchor form {
+      max-width: 100%; /* Permet au formulaire d'occuper ses 2 colonnes sur desktop */
+      }
+    }
+      .contact-input {
       width: 100%; 
       max-width: 100%;
-      font-size: 18px !important; /* Minimum pour éviter le décalage/zoom iOS */
+      font-size: 20px !important; /* Minimum pour éviter le décalage/zoom iOS */
       box-sizing: border-box;
       background: transparent;
       border: none;
@@ -1136,17 +1145,26 @@ export default function App() {
   </div>
 </section> 
 
-   {/* SECTION CONTACT ET FOOTER MIROIR */}
+        {/* SECTION CONTACT ET FOOTER MIROIR */}
         <section id="contact-anchor" className="relative w-full min-h-[100vh] bg-white pt-[20vh] pb-12 z-[100] overflow-x-hidden">
           <motion.div 
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.5 }} viewport={{ once: true }}
             className="w-full flex flex-col px-6 md:px-[10%] max-w-full"
           >
-      {/* Titre de la section contact */}
-          <h3 className="contact-title">{contactData.title}</h3>
-      {/* Formulaire */}
-            <form onSubmit={handleFormSubmit} className="flex flex-col w-full mb-32">
-                <div className="w-full md:max-w-[44ch] flex flex-col items-stretch">
+            {/* Grille section contact */}
+            <div className="grid grid-cols-1 md:grid-cols-4 md:gap-x-12">
+              
+              {/* Colonne 1 : Titre */}
+              <div className="col-span-1">
+                <h3 className="contact-title">{contactData.title}</h3>
+              </div>    
+
+              {/* Colonne 2 : Vide (Le "trou" asymétrique) */}
+              <div className="col-span-1 hidden md:block" />
+
+              {/* Colonne 3 & 4 : Formulaire */}
+              <div className="col-span-2">
+                <form onSubmit={handleFormSubmit} className="flex flex-col w-full mb-32">
                   <input type="text" name="_gotcha" style={{ display: "none" }} />
                   <textarea 
                     name="message" 
@@ -1164,7 +1182,7 @@ export default function App() {
                     disabled={isSubmitting}
                   />
 
-      {/* Bouton envoyer */}
+                  {/* Bouton envoyer */}
                   {!formStatus ? (
                     <button type="submit" className="contact-submit brand-style" disabled={isSubmitting}>
                       {isSubmitting ? contactData.sending : contactData.submit}
@@ -1178,8 +1196,9 @@ export default function App() {
                       </AnimatePresence>
                     </div>
                   )}
-                </div>
-            </form>
+                </form>
+              </div>
+            </div>
 
        {/* BARRE DE PIED DE PAGE : INSTA / PORTFOLIO */}
             <div className="w-full flex justify-between items-baseline min-h-[40px] border-t border-zinc-50 pt-12">
