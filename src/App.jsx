@@ -350,7 +350,7 @@ const TypographyStyles = () => (
 
     .brand-style { 
       font-family: var(--sans);
-      font-size: 20px; 
+      font-size: 18px; 
       font-weight: 400; 
       letter-spacing: -0.05em;
       background: none;
@@ -369,7 +369,6 @@ const TypographyStyles = () => (
       backdrop-filter: blur(20px);
       background-color: rgba(255, 255, 255, 0.85);
     }
-
     .scroll-progress-container-desktop {
       position: fixed;
       left: 40px; 
@@ -386,7 +385,6 @@ const TypographyStyles = () => (
       background: var(--carmine);
       transform-origin: top;
     }
-
     .scroll-progress-container-mobile {
       position: fixed;
       top: var(--header-h);
@@ -413,28 +411,28 @@ const TypographyStyles = () => (
       white-space: pre-line;
     }
     .text-meta-label { 
-      font-size: 13px; 
+      font-size: 12px; 
       letter-spacing: 0.2em; 
       text-transform: uppercase; 
-      opacity: 0.3; 
+      opacity: 0.4; 
       font-weight: 600; 
     }
     .text-meta-title {
-      font-size: 13px;
+      font-size: 12px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       font-weight: 600;
       color: var(--ink);
-      opacity: 0.3;
+      opacity: 0.4;
       display: block;
       line-height: 1.2;
     }
     .text-meta-date {
-      font-size: 13px;
+      font-size: 12px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       font-weight: 400;
-      opacity: 0.3;
+      opacity: 0.4;
       display: block;
       margin-top: 4px !important;
     }
@@ -442,7 +440,7 @@ const TypographyStyles = () => (
       font-family: var(--serif);
       font-weight: 500; 
       letter-spacing: -0.05em;
-      font-size: 24px;
+      font-size: 20px;
       line-height: 1.8;
       color: var(--ink);
       margin-bottom: 2rem;
@@ -456,18 +454,9 @@ const TypographyStyles = () => (
       max-width: 55ch;
       opacity: 0.7;
     }
-    .index-intro-text {
-      font-size: 14px; 
-      letter-spacing: 0.25em; 
-      text-transform: uppercase; 
-      font-weight: 600; 
-      opacity: 0.3;
-      margin-bottom: 16px; 
-      display: block;
-    }
     .index-num { 
       font-family: var(--serif);
-      font-size: 14px; 
+      font-size: 12px; 
       font-weight: 500;
       font-style: italic;
       color: var(--carmine);
@@ -475,7 +464,7 @@ const TypographyStyles = () => (
       display: block; 
     }
     .index-label { 
-      font-size: 14px; 
+      font-size: 12px; 
       letter-spacing: 0.25em; 
       text-transform: uppercase; 
       font-weight: 600; 
@@ -490,19 +479,17 @@ const TypographyStyles = () => (
       flex-direction: column;
     }
     .index-item-static { 
-      font-size: 14px; 
-      font-weight: 400; 
+      font-family: var(--serif); 
+      font-size: 18px; 
+      font-weight: 500; 
       line-height: 1.2; 
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
       color: var(--ink);
     }
     .index-item-link { 
-      font-size: 14px; 
-      font-weight: 400; 
+      font-family: var(--serif); 
+      font-size: 18px; 
+      font-weight: 500; 
       line-height: 1.2; 
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
       transition: all 0.3s ease;
       color: var(--ink);
       display: inline-block;
@@ -516,10 +503,10 @@ const TypographyStyles = () => (
       border-bottom: 0.5px solid var(--accent);
     }
     .index-item-sub { 
-      font-size: 13px; 
+      font-size: 12px; 
       font-weight: 300; 
       opacity: 0.5; 
-      margin-top: 2px; 
+      margin-top: 4px; 
       line-height: 1.3;
     }
     .lightbox-overlay {
@@ -650,8 +637,8 @@ const TypographyStyles = () => (
       color: var(--ink);
       display: flex;
       flex-direction: column;
-      align-items: flex-end; /* Aligne les traits à droite */
-      gap: 6px;              /* Espace entre les deux traits */
+      align-items: flex-end; 
+      gap: 6px;             
       transform: translateY(-12px);
       transition: color 0.3s ease;
       cursor: pointer;
@@ -660,7 +647,7 @@ const TypographyStyles = () => (
       background-color: var(--carmine);
     }
     .btn-line {
-      height: 1.5px;         /* Épaisseur légèrement accentuée pour le mobile */
+      height: 1.5px;         
       background-color: currentColor;
       transition: width 0.3s ease, background-color 0.3s ease;
     }
@@ -1059,7 +1046,8 @@ export default function App() {
         <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
   
         <motion.div 
-        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-32 md:grid md:grid-cols-4 md:gap-x-12">
+        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} 
+        className="mb-20 md:grid md:grid-cols-4 md:gap-x-12">
          <div className="col-span-1 mb-8 md:mb-0">
               <span className="index-label opacity-40 m-0 pt-1 block">{bioData.label}</span>
               </div>
@@ -1070,10 +1058,6 @@ export default function App() {
             </div>
         </motion.div>
 
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mb-16">
-            <p className="index-intro-text m-0">{indexData.intro}</p>
-          </motion.div> 
-
     {/* Grille de 4 colonnes sur desktop, empilée sur mobile */}
     <div className="grid grid-cols-1 md:grid-cols-4 gap-y-12 md:gap-x-12">
     
@@ -1081,7 +1065,7 @@ export default function App() {
     <div className="index-section-col">
       <span className="index-num" aria-hidden="true">{indexData.collabs.num}</span>
       <h3 className="index-label">{indexData.collabs.label}</h3>
-      <ul className="list-none p-0 m-0 space-y-3"> {/* Espacement réduit */}
+      <ul className="list-none p-0 m-0 space-y-6"> {/* Espacement réduit */}
         {indexData.collabs.items.map((c, i) => (
           <li key={i} className="max-w-[w-full]">
             <p className="index-item-static m-0">{c.client}</p>
@@ -1092,10 +1076,10 @@ export default function App() {
     </div>
 
     {/* 02 - Distinctions */}
-    <div className="index-section-col">
+    <div className="index-section-col pl-12 md:pl-0 md:mt-12">
       <span className="index-num" aria-hidden="true">{indexData.awards.num}</span>
       <h3 className="index-label">{indexData.awards.label}</h3>
-      <ul className="list-none p-0 m-0 space-y-3">
+      <ul className="list-none p-0 m-0 space-y-6">
         {indexData.awards.items.map((a, i) => (
           <li key={i}>
             {a.url ? (
@@ -1111,7 +1095,7 @@ export default function App() {
     <div className="index-section-col">
       <span className="index-num" aria-hidden="true">{indexData.exhibitions.num}</span>
       <h3 className="index-label">{indexData.exhibitions.label}</h3>
-      <ul className="list-none p-0 m-0 space-y-3">
+      <ul className="list-none p-0 m-0 space-y-6">
         {indexData.exhibitions.items.map((e, i) => (
           <li key={i}>
             <p className="index-item-static m-0">{e.label}</p>
@@ -1122,7 +1106,7 @@ export default function App() {
     </div>
 
     {/* 04 - Parutions */}
-    <div className="index-section-col">
+    <div className="index-section-col pl-12 md:pl-0 md:mt-12">
       <span className="index-num" aria-hidden="true">{indexData.publications.num}</span>
       <h3 className="index-label">{indexData.publications.label}</h3>
       <ul className="list-none p-0 m-0 flex flex-col gap-y-3 max-w-lg"> 
