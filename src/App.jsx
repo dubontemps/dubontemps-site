@@ -37,8 +37,8 @@ const CONTENT = {
     ],
     bio: {
       label: "",
-      lead: "J'explore notre relation au paysage et à l’imaginaire.",
-      text: "Formée à l’image à Lee Strasberg New York et à Sciences Po Paris, je collabore avec artisans, artistes et institutions culturelles, après une carrière en conseil.\n\nMon travail observe le vivant, sur plusieurs continents, entre réel et mystère, structure et simplicité. Chaque tirage est réalisé par procédé pigmentaire d’archivage sur papier Fine Art, washi japonais fait main ou baryté."
+      lead: "dubontemps explore notre relation au paysage et à l’imaginaire",
+      text: "Photographe française, elle a été formée aux arts visuels à New York et aux relations internationales à Paris. Elle collabore avec artisans, artistes et institutions culturelles, après une carrière en conseil.\n\nSon travail observe le vivant, sur plusieurs continents, entre réel et mystère, rigueur technique et instinct. Chaque tirage est réalisé par procédé pigmentaire d’archivage sur papier Fine Art, washi japonais fait main ou baryté."
     },
     stream: [
       { 
@@ -136,12 +136,12 @@ const CONTENT = {
       title: "hello.",
       placeholderMsg: "votre message",
       placeholderEmail: "votre email",
-      submit: "envoyer",
+      submit: "demande d'information",
       sending: "...",
       success: "merci",
       error: "erreur. réessayez",
       instagram: "instagram",
-      portfolio: "catalogue sur demande (à venir)"
+      portfolio: "catalogue sur demande"
     },
     footer: {
       location: "paris x:48°52'0.01''y:2°19'59.99''"
@@ -178,8 +178,8 @@ const CONTENT = {
                ],
     bio: {
       label: "",
-      lead: "I explore our relationship to landscape and imagination",
-      text: "Trained in image at Lee Strasberg New York and at Sciences Po Paris, I collaborate with artisans, artists and cultural institutions, following a consulting career.\n\nMy work observes the living world across several continents, between reality and mystery, technical rigor and instinct. Each print is produced with archival pigment processes on Fine Art paper, handmade Japanese washi or baryta."
+      lead: "dubontemps explores our relationship to landscape and imagination",
+      text: "French photographer, dubontemps was trained in visual arts in New York and in international relations in Paris. She collaborates with artisans, artists and cultural institutions, following a consulting career.\n\nHer work observes the living world across several continents, between reality and mystery, technical rigor and instinct. Each print is produced with archival pigment processes on Fine Art paper, handmade Japanese washi or baryta."
      },
     stream: [
       { 
@@ -277,12 +277,12 @@ const CONTENT = {
       title: "hello.",
       placeholderMsg: "your message",
       placeholderEmail: "your email",
-      submit: "send",
+      submit: "inquire about works",
       sending: "...", 
       success: "thank you",
       error: "error. try again",
       instagram: "instagram",
-      portfolio: "catalogue on demand (soon)"
+      portfolio: "catalogue on demand"
     },
     footer: {
       location: "paris x:48°52'0.01''y:2°19'59.99''",
@@ -329,7 +329,7 @@ const TypographyStyles = () => (
     }
     .logo-style {
       font-family: var(--serif);
-      font-size: 24px; 
+      font-size: 20px; 
       font-weight: 600; 
       letter-spacing: -0.03em;
       background: none;
@@ -405,7 +405,6 @@ const TypographyStyles = () => (
       line-height: 1.7; 
       font-weight: 300; 
       color: var(--ink-soft); 
-      opacity: 1; 
       max-width: 44ch; 
       white-space: pre-line;
     }
@@ -417,6 +416,7 @@ const TypographyStyles = () => (
       font-weight: 600; 
     }
     .text-meta-title {
+      font-family: var(--serif);
       font-size: 12px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -479,14 +479,14 @@ const TypographyStyles = () => (
     }
     .index-item-static { 
       font-family: var(--serif); 
-      font-size: 18px; 
+      font-size: 16px; 
       font-weight: 500; 
       line-height: 1.2; 
       color: var(--ink);
     }
     .index-item-link { 
       font-family: var(--serif); 
-      font-size: 18px; 
+      font-size: 16px; 
       font-weight: 500; 
       line-height: 1.2; 
       transition: all 0.3s ease;
@@ -551,7 +551,7 @@ const TypographyStyles = () => (
     .contact-title {
       font-size: 18px;
       line-height: 1;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--ink);
       margin: 0;
       text-transform: lowercase;
@@ -575,7 +575,7 @@ const TypographyStyles = () => (
       background: transparent;
       border: none;
       border-bottom: 0.5px solid rgba(0,0,0,0.1);
-      padding: 12 px 0;
+      padding: 12px 0;
       outline: none;
       transition: border-bottom 0.4s ease;
       display: block;
@@ -640,9 +640,41 @@ const TypographyStyles = () => (
       background-color: currentColor;
       transition: width 0.3s ease, background-color 0.3s ease;
     }
-    .index-section-col {
-    opacity: 1;
+    .index-container-mobile {
+        display: flex;                 /* Force le mode ligne pour le slider */
+         overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 6vw;      /* LA règle clé : aligne le snap sur le logo */
+        padding-right: 20vw;           /* Laisse respirer après la dernière colonne */
+        gap: 0;                        /* On gère l'espace via le padding des colonnes */
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
     }
+    .index-container-mobile::-webkit-scrollbar {
+        display: none;
+      }
+    .index-section-col {
+        flex-shrink: 0;                /* Empêche les colonnes de s'écraser */
+        scroll-snap-align: start;      /* S'aimante à gauche sur la ligne des 6vw */
+        padding-right: 10vw;           /* Espace entre les colonnes */
+        box-sizing: border-box;
+        }
+        /* Colonne 1 : Large (65% de l'écran + 6% de marge = 71%) Laisse voir ~25-30% de la colonne suivante */
+    .index-section-col:first-child {
+        flex: 0 0 65vw; 
+        max-width: 65vw;
+        margin-left: 6vw;              /* Aligne la 1ère colonne au démarrage */
+        }
+    .index-section-col p {
+        white-space: normal; /* Force le retour à la ligne */
+        overflow-wrap: break-word; /* Coupe les mots trop longs si besoin */
+        }
+        /* Colonnes 2, 3 et 4 : Plus étroites */
+    .index-section-col:not(:first-child) {
+        min-width: 45vw;
+        }
+
     #contact-anchor {
    width: 100%;
     overflow-x: hidden; /* bloque le scroll horizontal */
@@ -1022,7 +1054,7 @@ export default function App() {
         </section>
 
     {/* Section Index & Collabs */}
-         <section id="index-anchor" className="relative mt-[10vh] py-28 px-6 md:px-[10%] bg-white z-[100]" 
+         <section id="index-anchor" className="relative mt-[10vh] py-28 bg-white z-[100]" 
          aria-labelledby="section-index">
         <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
   
@@ -1039,8 +1071,8 @@ export default function App() {
             </div>
         </motion.div>
 
-    {/* Grille de 4 colonnes sur desktop, empilée sur mobile */}
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-y-8 md:gap-x-12">
+    {/* Grille de 4 colonnes sur desktop, Mobile "Peek-a-boo*/}
+    <div className="index-container-mobile md:grid md:grid-cols-4 md:gap-x-12 md:px-[10%]">
     
     {/* 01 - Collaborations */}
     <div className="index-section-col">
@@ -1048,7 +1080,7 @@ export default function App() {
       <h3 className="index-label">{indexData.collabs.label}</h3>
       <ul className="list-none p-0 m-0 space-y-6"> {/* Espacement réduit */}
         {indexData.collabs.items.map((c, i) => (
-          <li key={i} className="max-w-[w-full]">
+          <li key={i} className="w-full">
             <p className="index-item-static m-0">{c.client}</p>
             <p className="index-item-sub m-0">{c.role} <span className="opacity-50 ml-1">{c.date}</span></p>
           </li>
