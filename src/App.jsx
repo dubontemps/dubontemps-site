@@ -642,8 +642,11 @@ const TypographyStyles = () => (
     }
     .index-container-mobile {
         display: flex;                 /* Force le mode ligne pour le slider */
-         overflow-x: auto;
+        overflow-x: auto;
         overflow-y: hidden;
+        width: 100vw;
+        position: relative;
+        left: 0;
         scroll-snap-type: x mandatory;
         scroll-padding-left: 6vw;      /* LA règle clé : aligne le snap sur le logo */
         padding-right: 20vw;           /* Laisse respirer après la dernière colonne */
@@ -1054,7 +1057,7 @@ export default function App() {
         </section>
 
     {/* Section Index & Collabs */}
-         <section id="index-anchor" className="relative mt-[10vh] py-28 bg-white z-[100]" 
+         <section id="index-anchor" className="relative mt-[10vh] py-28 bg-white z-[100] overflow-hidden" 
          aria-labelledby="section-index">
         <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
   
