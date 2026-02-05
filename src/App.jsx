@@ -420,7 +420,6 @@ const TypographyStyles = () => (
       text-transform: lowercase; 
       font-size: 12px;
       letter-spacing: 0.2em;
-      text-transform: uppercase;
       font-weight: 600;
       color: var(--ink);
       opacity: 0.4;
@@ -440,14 +439,14 @@ const TypographyStyles = () => (
       font-family: var(--serif);
       font-weight: 500; 
       letter-spacing: -0.05em;
-      font-size: 20px;
+      font-size: 21px;
       line-height: 1.8;
       color: var(--ink);
       margin-bottom: 2rem;
       max-width: 48ch;
     }
     .bio-text {
-      font-size: 14px;
+      font-size: 13px;
       line-height: 2;
       font-weight: 300;
       color: var(--ink);
@@ -550,20 +549,17 @@ const TypographyStyles = () => (
     }
     /* FORMSPREE */
     .contact-title {
-      font-size: 18px;
-      line-height: 1;
-      font-weight: 400;
+      font-family: var(--serif);
+      font-size: 28px;
+      line-height: 0.8;
+      font-weight: 300;
       color: var(--ink);
-      margin: 0;
+      opacity: 0.8;
+      margin-bottom: 4rem;
       text-transform: lowercase;
-      font-family: var(--sans);
-      letter-spacing: -0.05em;
-    }
+      letter-spacing: -0.06em;
+}
       @media (min-width: 768px) {
-      .contact-title { 
-        margin-bottom: 0; 
-        padding-top: 0; 
-      } 
       #contact-anchor form {
       max-width: 100%; /* Permet au formulaire d'occuper toutes ses colonnes sur desktop */
       }
@@ -680,9 +676,9 @@ const TypographyStyles = () => (
         }
 
     #contact-anchor {
-   width: 100%;
-    overflow-x: hidden; /* bloque le scroll horizontal */
-    }
+      width: 100%;
+      overflow-x: hidden; /* bloque le scroll horizontal */
+      }
     #contact-anchor form {
     width: 100%;
     max-width: 44ch; /* même largeur que l'index sur desktop */
@@ -1062,18 +1058,24 @@ export default function App() {
          aria-labelledby="section-index">
         <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
   
-        <motion.div 
-        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} 
-        className="mb-20 md:mb-40 px-6 md:px-[10%] md:grid md:grid-cols-4 md:gap-x-12">
-         <div className="col-span-1 mb-8 md:mb-0">
-              <span className="index-label opacity-40 m-0 pt-1 block">{bioData.label}</span>
-              </div>
-            <div className="col-span-1 hidden md:block" /> {/* Espace vide pour l'asymétrie */}
-            <div className="col-span-2">
-              <h3 className="bio-lead">{bioData.lead}</h3>
-              <p className="bio-text m-0">{bioData.text}</p>
-            </div>
-        </motion.div>
+         {/* Bio alignée sur la grille */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} 
+            className="mb-8 md:mb-8 px-6 md:px-[10%] md:grid md:grid-cols-4 md:gap-x-12"
+          >
+            <div className="col-span-1">
+        <h3 className="bio-lead m-0">{bioData.lead}</h3>
+        </div>
+
+        {/* Colonne 2 et 3 */}
+        <div className="col-span-2 mt-8 md:mt-0">
+        <p className="bio-text m-0">{bioData.text}</p>
+
+        {/* Colonnes 4 */}
+        <div className="col-span-1 hidden md:block" />
+
+        </div>
+          </motion.div>
 
     {/* Grille de 4 colonnes sur desktop, Mobile "Peek-a-boo*/}
     <div className="index-container-mobile md:grid md:grid-cols-4 md:gap-x-12 md:px-[10%]">
@@ -1151,9 +1153,10 @@ export default function App() {
             
             <div className="px-6 md:px-[10%] grid grid-cols-1 md:grid-cols-4 md:gap-x-12">
               <div className="col-span-1 md:col-span-3">
-                <div className="mb-2">
-                  <h3 className="contact-title h-[18px] flex items-center">{contactData.title}</h3>
-                </div>
+
+                
+                  <h3 className="contact-title">{contactData.title}</h3>
+             
 
                 <form onSubmit={handleFormSubmit} className="flex flex-col w-full m-0 p-0">
                   <input type="text" name="_gotcha" style={{ display: "none" }} />
@@ -1166,7 +1169,7 @@ export default function App() {
                     className="contact-input m-0" 
                   />
                   
-                  <div className="mt-4"> 
+                  <div className="mt-4 flex justify-end"> 
                     {!formStatus ? (
                       <button type="submit" className="contact-submit brand-style h-[18px] flex items-center" disabled={isSubmitting}>
                         {isSubmitting ? contactData.sending : contactData.submit}
@@ -1181,25 +1184,23 @@ export default function App() {
               </div>
             </div>
 
-            <div className="mt-20 pt-6 px-6 md:px-[40px] flex flex-col md:flex-row justify-between items-end md:items-center gap-4">
-              <p className="footer-mention m-0">
-                © {new Date().getFullYear()} {CONTENT[lang].brand} . {footerData.location}
-              </p>
-              
+           <div className="mt-20 pt-6 px-6 md:px-[40px] flex flex-col md:flex-row justify-between items-end md:items-center gap-4">
               <div className="flex gap-8 items-center">
+               <a href="https://www.instagram.com/_dubontemps_/" target="_blank" className="brand-style leading-none">
+                  {contactData.instagram}
+                </a> 
                 <span className="brand-style opacity-60 text-[14px] md:text-base cursor-wait leading-none">
                   {contactData.portfolio}
                 </span>
-                <a href="https://www.instagram.com/_dubontemps_/" target="_blank" className="brand-style leading-none">
-                  {contactData.instagram}
-                </a>
               </div>
+                <p className="footer-mention m-0">
+                © {new Date().getFullYear()} {CONTENT[lang].brand} . {footerData.location}
+                </p>
             </div>
-
-          </motion.div>
-        </section>
-      </main>
-    </div>
-  );
+    </motion.div>
+   </section>
+ </main>
+</div>
+);
 }
 
