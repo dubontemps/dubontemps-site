@@ -37,8 +37,8 @@ const CONTENT = {
     ],
     bio: {
       label: "",
-      lead: "dubontemps explore notre relation au paysage et à l’imaginaire",
-      text: "Photographe française, elle a été formée aux arts visuels à New York et aux relations internationales à Paris. Elle collabore avec artisans, artistes et institutions culturelles, après une carrière en conseil.\n\nSon travail observe le vivant, sur plusieurs continents, entre réel et mystère, rigueur technique et instinct. Chaque tirage est réalisé par procédé pigmentaire d’archivage sur papier Fine Art, washi japonais fait main ou baryté."
+      lead: "J'explore notre relation au paysage et à l’imaginaire.",
+      text: "Photographe française, j'ai été formée aux arts visuels à New York et aux relations internationales à Paris. Je collabore avec artisans, artistes et institutions culturelles, après une carrière en conseil.\n\nMon travail observe le vivant, sur plusieurs continents, entre réel et mystère, structure et simplicité. Chaque tirage est réalisé par procédé pigmentaire d’archivage sur papier Fine Art, washi japonais fait main ou baryté."
     },
     stream: [
       { 
@@ -133,10 +133,10 @@ const CONTENT = {
       }
     },
      contact: {
-      title: "hello.",
+      title: "hello",
       placeholderMsg: "votre message",
       placeholderEmail: "votre email",
-      submit: "demande d'information",
+      submit: "envoyer",
       sending: "...",
       success: "merci",
       error: "erreur. réessayez",
@@ -178,8 +178,8 @@ const CONTENT = {
                ],
     bio: {
       label: "",
-      lead: "dubontemps explores our relationship to landscape and imagination",
-      text: "French photographer, dubontemps was trained in visual arts in New York and in international relations in Paris. She collaborates with artisans, artists and cultural institutions, following a consulting career.\n\nHer work observes the living world across several continents, between reality and mystery, technical rigor and instinct. Each print is produced with archival pigment processes on Fine Art paper, handmade Japanese washi or baryta."
+      lead: "I explore our relationship to landscape and imagination.",
+      text: "French photographer, I was trained in visual arts in New York and in international relations in Paris. I collaborate with artisans, artists and cultural institutions, following a consulting career.\n\nMy work observes the living world across several continents, between reality and mystery, structure and simplicity. Each print is produced with archival pigment processes on Fine Art paper, handmade Japanese washi or baryta."
      },
     stream: [
       { 
@@ -274,10 +274,10 @@ const CONTENT = {
       }
     },
     contact: {
-      title: "hello.",
+      title: "hello",
       placeholderMsg: "your message",
       placeholderEmail: "your email",
-      submit: "inquire about works",
+      submit: "send",
       sending: "...", 
       success: "thank you",
       error: "error. try again",
@@ -417,6 +417,7 @@ const TypographyStyles = () => (
     }
     .text-meta-title {
       font-family: var(--serif);
+      text-transform: lowercase; 
       font-size: 12px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -1063,7 +1064,7 @@ export default function App() {
   
         <motion.div 
         initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} 
-        className="mb-20 md:grid md:grid-cols-4 md:gap-x-12">
+        className="mb-20 md:mb-40 px-6 md:px-[10%] md:grid md:grid-cols-4 md:gap-x-12">
          <div className="col-span-1 mb-8 md:mb-0">
               <span className="index-label opacity-40 m-0 pt-1 block">{bioData.label}</span>
               </div>
