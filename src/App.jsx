@@ -36,7 +36,7 @@ const CONTENT = {
       "Puis l’imaginaire cultive l’imprévu.",
     ],
     bio: {
-      label: "À propos",
+      label: "",
       lead: "J'explore notre relation au paysage et à l’imaginaire.",
       text: "Formée à l’image à Lee Strasberg New York et à Sciences Po Paris, je collabore avec artisans, artistes et institutions culturelles, après une carrière en conseil.\n\nMon travail observe le vivant, sur plusieurs continents, entre réel et mystère, structure et simplicité. Chaque tirage est réalisé par procédé pigmentaire d’archivage sur papier Fine Art, washi japonais fait main ou baryté."
     },
@@ -141,7 +141,7 @@ const CONTENT = {
       success: "merci",
       error: "erreur. réessayez",
       instagram: "instagram",
-      portfolio: "catalogue & portfolio sur demande (à venir)"
+      portfolio: "catalogue sur demande (à venir)"
     },
     footer: {
       location: "paris x:48°52'0.01''y:2°19'59.99''"
@@ -177,7 +177,7 @@ const CONTENT = {
   "Then, imagination cultivates the unexpected.",
                ],
     bio: {
-      label: "About",
+      label: "",
       lead: "I explore our relationship to landscape and imagination",
       text: "Trained in image at Lee Strasberg New York and at Sciences Po Paris, I collaborate with artisans, artists and cultural institutions, following a consulting career.\n\nMy work observes the living world across several continents, between reality and mystery, technical rigor and instinct. Each print is produced with archival pigment processes on Fine Art paper, handmade Japanese washi or baryta."
      },
@@ -282,7 +282,7 @@ const CONTENT = {
       success: "thank you",
       error: "error. try again",
       instagram: "instagram",
-      portfolio: "catalogue & portfolio on demand (soon)"
+      portfolio: "catalogue on demand (soon)"
     },
     footer: {
       location: "paris x:48°52'0.01''y:2°19'59.99''",
@@ -549,9 +549,9 @@ const TypographyStyles = () => (
     }
     /* FORMSPREE */
     .contact-title {
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1;
-      font-weight: 400;
+      font-weight: 300;
       color: var(--ink);
       margin: 0;
       text-transform: lowercase;
@@ -579,6 +579,7 @@ const TypographyStyles = () => (
       outline: none;
       transition: border-bottom 0.4s ease;
       display: block;
+      color: var(--ink); /* Force l'écriture en noir */
     }
     .contact-input::placeholder {
       color: currentColor;
@@ -653,19 +654,7 @@ const TypographyStyles = () => (
     padding-left: 0; /* alignement à gauche */
     padding-right: 0;
     }
-    .asymmetric-close-btn {
-    background: none;
-    border: none;
-    padding: 0;
-    color: var(--ink);
-    opacity: 0.3;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  .asymmetric-close-btn:hover, .asymmetric-close-btn:active {
-    opacity: 1;
-    color: var(--carmine); 
-  } 
+
 /* SEO Helper - Masqué visuellement mais accessible aux robots */
   .sr-only {
     position: absolute;
@@ -680,13 +669,6 @@ const TypographyStyles = () => (
     }
 } 
   `}</style>
-);
-
-  const AsymmetricClose = ({ size = 22 }) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="4" y1="6" x2="18" y2="20" stroke="currentColor" strokeWidth="0.75" />
-      <line x1="6" y1="20" x2="20" y2="4" stroke="currentColor" strokeWidth="0.75" />
-    </svg>
 );
 
 const MixedText = ({ text }) => text || null;
@@ -1040,7 +1022,7 @@ export default function App() {
         </section>
 
     {/* Section Index & Collabs */}
-         <section id="index-anchor" className="relative mt-[30vh] py-28 px-6 md:px-[10%] bg-white z-[100]" 
+         <section id="index-anchor" className="relative mt-[10vh] py-28 px-6 md:px-[10%] bg-white z-[100]" 
          aria-labelledby="section-index">
         <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
   
@@ -1127,15 +1109,13 @@ export default function App() {
     
   </div>
 </section> 
-
-        {/* CONTACT */}
-        <section id="contact-anchor" className="relative w-full bg-white pt-16 pb-8">
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="px-6 md:px-[10%]">
-            <div className="grid grid-cols-1 md:grid-cols-4 md:gap-x-12">
-              
-              {/* Colonne Formulaire (3/4 sur Desktop) */}
+     {/* CONTACT & FOOTER */}
+        <section id="contact-anchor" className="relative w-full bg-white mt-[30vh] pt-8 pb-10">
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+            
+            <div className="px-6 md:px-[10%] grid grid-cols-1 md:grid-cols-4 md:gap-x-12">
               <div className="col-span-1 md:col-span-3">
-                <div className="mb-4">
+                <div className="mb-2">
                   <h3 className="contact-title h-[18px] flex items-center">{contactData.title}</h3>
                 </div>
 
@@ -1143,14 +1123,14 @@ export default function App() {
                   <input type="text" name="_gotcha" style={{ display: "none" }} />
                   <textarea 
                     name="message" required placeholder={contactData.placeholderMsg} 
-                    className="contact-input contact-textarea brand-style mb-4"
+                    className="contact-input contact-textarea mb-2"
                   />
                   <input 
                     type="email" name="email" required placeholder={contactData.placeholderEmail} 
-                    className="contact-input brand-style m-0" 
+                    className="contact-input m-0" 
                   />
                   
-                  <div className="mt-6"> 
+                  <div className="mt-4"> 
                     {!formStatus ? (
                       <button type="submit" className="contact-submit brand-style h-[18px] flex items-center" disabled={isSubmitting}>
                         {isSubmitting ? contactData.sending : contactData.submit}
@@ -1163,32 +1143,25 @@ export default function App() {
                   </div>
                 </form>
               </div>
+            </div>
 
-              {/* Colonne Latérale (1/4 sur Desktop) */}
-              <div className="col-span-1 mt-8 md:mt-0 flex flex-col justify-between">
-                {/* Aligné sur la baseline du titre 'hello.' */}
-                <div className="h-[18px] flex items-center">
-                   <span className="brand-style opacity-60 text-[14px] md:text-base cursor-wait leading-none">
-                    {contactData.portfolio}
-                  </span>
-                </div>
-
-                {/* Aligné sur la baseline du bouton 'envoyer' */}
-                <div className="h-[18px] flex items-center mt-auto pb-[1px]">
-                  <a href="https://www.instagram.com/_dubontemps_/" target="_blank" className="brand-style leading-none">
-                    {contactData.instagram}
-                  </a>
-                </div>
+            <div className="mt-20 pt-6 px-6 md:px-[40px] flex flex-col md:flex-row justify-between items-end md:items-center gap-4">
+              <p className="footer-mention m-0">
+                © {new Date().getFullYear()} {CONTENT[lang].brand} . {footerData.location}
+              </p>
+              
+              <div className="flex gap-8 items-center">
+                <span className="brand-style opacity-60 text-[14px] md:text-base cursor-wait leading-none">
+                  {contactData.portfolio}
+                </span>
+                <a href="https://www.instagram.com/_dubontemps_/" target="_blank" className="brand-style leading-none">
+                  {contactData.instagram}
+                </a>
               </div>
-
             </div>
 
-            <div className="mt-16">
-              <p className="footer-mention m-0">© {new Date().getFullYear()} {CONTENT[lang].brand} . {footerData.location}</p>
-            </div>
           </motion.div>
         </section>
-
       </main>
     </div>
   );
