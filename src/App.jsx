@@ -25,20 +25,20 @@ const CONTENT = {
       contact: "Coordonnées et réseaux sociaux"
     },
     manifesto: [
-      "Un paysage est une scène active.",
-      "Un champ d’interactions imprévisibles.",
+      "Un paysage est une scène active, un champ d’interactions.",
+      "La nature n'est pas un décor.",
       "",
       "La distance révèle le signal ou l'absence",
-      "qui déplace le regard.",
+      "qui ouvre le regard.",
       "",
       "L’image ne capture pas.",
-      "Elle naît de la relation",
-      "et de la mémoire.",
+      "Elle naît de la relation et de la mémoire.",
+      "Puis l’imaginaire cultive l’imprévu.",
     ],
     bio: {
-      label: "Parcours & Travaux",
-      lead: "dubontemps explore la relation au paysage et son influence sur l’imaginaire",
-      text: "Formée à l’image au Lee Strasberg Institute, New York et à Sciences Po Paris, elle collabore avec artisans, artistes et institutions culturelles, après une carrière en conseil.\n\nSon travail observe le vivant, sur plusieurs continents, entre réel et mystère, précision et instinct, structure et simplicité. Les tirages sont réalisés en procédé pigmentaire d’archivage sur papiers Fine Art, washi japonais fait main ou baryté."
+      label: "À propos",
+      lead: "J'explore notre relation au paysage et à l’imaginaire.",
+      text: "Formée à l’image à Lee Strasberg New York et à Sciences Po Paris, je collabore avec artisans, artistes et institutions culturelles, après une carrière en conseil.\n\nMon travail observe le vivant, sur plusieurs continents, entre réel et mystère, structure et simplicité. Chaque tirage est réalisé par procédé pigmentaire d’archivage sur papier Fine Art, washi japonais fait main ou baryté."
     },
     stream: [
       { 
@@ -67,7 +67,7 @@ const CONTENT = {
         year: "2026",
         tech: "Tirage pigmentaire, papier washi japonais",
         alt: "Forêt primitive dans la brume, Clayoquot Sound, Vancouver Island, série Équation Sauvage 2026, tirage pigmentaire papier washi japonais, Dubontemps",
-        note: "La nature n’est pas un décor. C'est un langage." 
+        note: "" 
       },
       { 
         id: 'between-realms-dubontemps', 
@@ -86,7 +86,7 @@ const CONTENT = {
         year: "2025",
         tech: "Tirage pigmentaire, papier fine art mat",
         alt: "Grand arbre et ombres vues de haut, pâquerettes, chaise en retrait, Finistère Nord Bretagne, série L’Art du Silence 2025, tirage pigmentaire papier fine art mat, Dubontemps",
-        note: "L’imaginaire cultive l’imprévu.\nRêver est une forme de résistance." 
+        note: "" 
       }
     ],
     index: {
@@ -133,7 +133,7 @@ const CONTENT = {
       }
     },
      contact: {
-      title: "hello dubontemps",
+      title: "hello.",
       placeholderMsg: "votre message",
       placeholderEmail: "votre email",
       submit: "envoyer",
@@ -141,13 +141,13 @@ const CONTENT = {
       success: "merci",
       error: "erreur. réessayez",
       instagram: "instagram",
-      portfolio: "catalogue & portfolio (à venir)"
+      portfolio: "catalogue & portfolio sur demande (à venir)"
     },
     footer: {
-      location: "rue lamarck, paris",
+      location: "paris x:48°52'0.01''y:2°19'59.99''"
     }
 
-  },
+  },  
   EN: {
     brand: "dubontemps",
     meta: {
@@ -165,20 +165,21 @@ const CONTENT = {
       index: "Index, collaborations and awards",
       contact: "Contact details and social media"
     },
-    manifesto: ["A landscape is an active stage.",
-  "A field of unpredictable interactions.",
+    manifesto: [
+  "A landscape is an active stage, a field of interactions.",
+  "Nature is not a backdrop.",
   "",
   "Distance reveals the signal or the absence",
   "that shifts the gaze.",
   "",
   "The image does not capture.",
-  "It arises from relation",
-  "and from memory.",
-    ],
+  "It arises from relation and from memory.",
+  "Then, imagination cultivates the unexpected.",
+               ],
     bio: {
-      label: "Background & Work",
-      lead: "dubontemps explores the relationship with landscape and its influence on the imagination",
-      text: "Trained in image at the Lee Strasberg Institute, New York and at Sciences Po Paris, she collaborates with artisans, artists and cultural institutions, following a consulting career.\n\nHer work observes the living world across several continents, between reality and mystery, precision and instinct, structure and simplicity. Prints are produced using archival pigment processes on Fine Art, handmade Japanese washi or baryta papers."
+      label: "About",
+      lead: "I explore our relationship to landscape and imagination",
+      text: "Trained in image at Lee Strasberg New York and at Sciences Po Paris, I collaborate with artisans, artists and cultural institutions, following a consulting career.\n\nMy work observes the living world across several continents, between reality and mystery, technical rigor and instinct. Each print is produced with archival pigment processes on Fine Art paper, handmade Japanese washi or baryta."
      },
     stream: [
       { 
@@ -207,7 +208,7 @@ const CONTENT = {
         year: "2026",
         tech: "Pigment inkjet print, handmade Japanese washi paper",
         alt: "Primitive forest in the mist, Clayoquot Sound, Vancouver Island, Équation Sauvage series 2026, pigment print on Japanese washi paper, Dubontemps",
-        note: "Nature is not a backdrop. It is a language." 
+        note: "" 
       },
       { 
         id: 'between-realms-dubontemps', 
@@ -226,7 +227,7 @@ const CONTENT = {
         year: "2025",
         tech: "Pigment inkjet print, matte fine art paper",
         alt: "Large tree's shadows from above, daisies, chair in the distance, Finistère North Brittany, L’Art of Silence series 2025, pigment print on fine art matte paper, Dubontemps",
-        note: "Imagination cultivates the unexpected.\nDreaming is a form of resistance." 
+        note: "" 
       }
     ],
     index: {
@@ -273,7 +274,7 @@ const CONTENT = {
       }
     },
     contact: {
-      title: "hello dubontemps",
+      title: "hello.",
       placeholderMsg: "your message",
       placeholderEmail: "your email",
       submit: "send",
@@ -281,10 +282,10 @@ const CONTENT = {
       success: "thank you",
       error: "error. try again",
       instagram: "instagram",
-      portfolio: "catalogue & portfolio (soon)"
+      portfolio: "catalogue & portfolio on demand (soon)"
     },
     footer: {
-      location: "rue lamarck, paris",
+      location: "paris x:48°52'0.01''y:2°19'59.99''",
     }
   }
 };
@@ -445,7 +446,7 @@ const TypographyStyles = () => (
       max-width: 48ch;
     }
     .bio-text {
-      font-size: 16px;
+      font-size: 14px;
       line-height: 2;
       font-weight: 300;
       color: var(--ink);
@@ -538,7 +539,7 @@ const TypographyStyles = () => (
       padding: 24px;
     }
     .footer-mention {
-      font-size: 14px; 
+      font-size: 12px; 
       font-weight: 400; 
       letter-spacing: -0.05em;
       color: var(--ink);
@@ -548,32 +549,33 @@ const TypographyStyles = () => (
     }
     /* FORMSPREE */
     .contact-title {
-      font-family: var(--serif);
-      font-size: 20px;
+      font-size: 16px;
       line-height: 1;
-      font-weight: 500;
+      font-weight: 400;
       color: var(--ink);
-      margin-bottom: 3rem;
+      margin: 0;
       text-transform: lowercase;
+      font-family: var(--sans);
+      letter-spacing: -0.05em;
     }
       @media (min-width: 768px) {
       .contact-title { 
         margin-bottom: 0; 
-        padding-top: 4px; 
+        padding-top: 0; 
       } 
       #contact-anchor form {
-      max-width: 100%; /* Permet au formulaire d'occuper ses 2 colonnes sur desktop */
+      max-width: 100%; /* Permet au formulaire d'occuper toutes ses colonnes sur desktop */
       }
     }
       .contact-input {
       width: 100%; 
       max-width: 100%;
-      font-size: 20px !important; /* Minimum pour éviter le décalage/zoom iOS */
+      font-size: 16px !important; /* Minimum pour éviter le décalage/zoom iOS */
       box-sizing: border-box;
       background: transparent;
       border: none;
       border-bottom: 0.5px solid rgba(0,0,0,0.1);
-      padding: 16px 0;
+      padding: 12 px 0;
       outline: none;
       transition: border-bottom 0.4s ease;
       display: block;
@@ -586,16 +588,18 @@ const TypographyStyles = () => (
       border-bottom: 0.5px solid var(--ink);
     }
     .contact-textarea {
-      min-height: 120px;
+      min-height: 80px;
       resize: none;
     }
     .contact-submit {
-      margin-top: 32px;
-      align-self: flex-start;
       border: none;
       background: transparent;
       padding: 0;
+      margin: 0;
+      line-height: 1;
       transition: color 0.4s ease;
+      display: inline-flex;
+      align-items: baseline;
     }
     .contact-submit:hover {
       color: var(--carmine);
@@ -604,20 +608,6 @@ const TypographyStyles = () => (
       opacity: 0.3;
       cursor: wait;
     }
-
-    /* SEO Helper - Masqué visuellement mais accessible aux robots */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border-width: 0;
-    }
-
     @media (max-width: 768px) {
       :root {
         --feed-margin-v: 24px;
@@ -676,6 +666,18 @@ const TypographyStyles = () => (
     opacity: 1;
     color: var(--carmine); 
   } 
+/* SEO Helper - Masqué visuellement mais accessible aux robots */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+    }
 } 
   `}</style>
 );
@@ -714,7 +716,6 @@ export default function App() {
     e.preventDefault();
     setIsSubmitting(true);
     setFormStatus(null);
-
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
 
@@ -1039,7 +1040,7 @@ export default function App() {
         </section>
 
     {/* Section Index & Collabs */}
-         <section id="index-anchor" className="relative mt-[30vh] py-28 px-6 md:px-[10%] bg-[#F7F7F7] z-[100]" 
+         <section id="index-anchor" className="relative mt-[30vh] py-28 px-6 md:px-[10%] bg-white z-[100]" 
          aria-labelledby="section-index">
         <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
   
@@ -1127,86 +1128,67 @@ export default function App() {
   </div>
 </section> 
 
-        {/* SECTION CONTACT ET FOOTER MIROIR */}
-        <section id="contact-anchor" className="relative w-full min-h-[100vh] bg-white pt-[20vh] pb-12 z-[100] overflow-x-hidden">
-          <motion.div 
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.5 }} viewport={{ once: true }}
-            className="w-full flex flex-col px-6 md:px-[10%] max-w-full"
-          >
-            {/* Grille section contact */}
+        {/* CONTACT */}
+        <section id="contact-anchor" className="relative w-full bg-white pt-16 pb-8">
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="px-6 md:px-[10%]">
             <div className="grid grid-cols-1 md:grid-cols-4 md:gap-x-12">
               
-              {/* Colonne 1 : Titre */}
-              <div className="col-span-1">
-                <h3 className="contact-title">{contactData.title}</h3>
-              </div>    
+              {/* Colonne Formulaire (3/4 sur Desktop) */}
+              <div className="col-span-1 md:col-span-3">
+                <div className="mb-4">
+                  <h3 className="contact-title h-[18px] flex items-center">{contactData.title}</h3>
+                </div>
 
-              {/* Colonne 2 : Vide (Le "trou" asymétrique) */}
-              <div className="col-span-1 hidden md:block" />
-
-              {/* Colonne 3 & 4 : Formulaire */}
-              <div className="col-span-2">
-                <form onSubmit={handleFormSubmit} className="flex flex-col w-full mb-32">
+                <form onSubmit={handleFormSubmit} className="flex flex-col w-full m-0 p-0">
                   <input type="text" name="_gotcha" style={{ display: "none" }} />
                   <textarea 
-                    name="message" 
-                    required 
-                    placeholder={contactData.placeholderMsg} 
-                    className="contact-input contact-textarea brand-style mb-8"
-                    disabled={isSubmitting}
+                    name="message" required placeholder={contactData.placeholderMsg} 
+                    className="contact-input contact-textarea brand-style mb-4"
                   />
                   <input 
-                    type="email" 
-                    name="email" 
-                    required 
-                    placeholder={contactData.placeholderEmail} 
-                    className="contact-input brand-style" 
-                    disabled={isSubmitting}
+                    type="email" name="email" required placeholder={contactData.placeholderEmail} 
+                    className="contact-input brand-style m-0" 
                   />
-
-                  {/* Bouton envoyer */}
-                  {!formStatus ? (
-                    <button type="submit" className="contact-submit brand-style" disabled={isSubmitting}>
-                      {isSubmitting ? contactData.sending : contactData.submit}
-                    </button>
-                  ) : (
-                    <div className="mt-8">
-                      <AnimatePresence>
-                        <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="brand-style opacity-40 italic">
-                          {formStatus === 'success' ? contactData.success : contactData.error}
-                        </motion.span>
-                      </AnimatePresence>
-                    </div>
-                  )}
+                  
+                  <div className="mt-6"> 
+                    {!formStatus ? (
+                      <button type="submit" className="contact-submit brand-style h-[18px] flex items-center" disabled={isSubmitting}>
+                        {isSubmitting ? contactData.sending : contactData.submit}
+                      </button>
+                    ) : (
+                      <span className="brand-style opacity-40 italic h-[18px] flex items-center">
+                        {formStatus === 'success' ? contactData.success : contactData.error}
+                      </span>
+                    )}
+                  </div>
                 </form>
               </div>
-            </div>
 
-       {/* BARRE DE PIED DE PAGE : INSTA / PORTFOLIO */}
-            <div className="w-full flex justify-between items-baseline min-h-[40px] border-t border-zinc-50 pt-12">
-                <div className="text-left">
-                    <a href="https://www.instagram.com/_dubontemps_/" target="_blank" rel="noopener noreferrer" className="brand-style">
-                        {contactData.instagram}
-                    </a>
-                </div>
-
-                <div className="text-right">
-                    <span 
-                      className="brand-style" 
-                      title="soon" 
-                      style={{ cursor: 'wait', opacity: 0.6 }}
-                    >
+              {/* Colonne Latérale (1/4 sur Desktop) */}
+              <div className="col-span-1 mt-8 md:mt-0 flex flex-col justify-between">
+                {/* Aligné sur la baseline du titre 'hello.' */}
+                <div className="h-[18px] flex items-center">
+                   <span className="brand-style opacity-60 text-[14px] md:text-base cursor-wait leading-none">
                     {contactData.portfolio}
-                    </span>
+                  </span>
                 </div>
+
+                {/* Aligné sur la baseline du bouton 'envoyer' */}
+                <div className="h-[18px] flex items-center mt-auto pb-[1px]">
+                  <a href="https://www.instagram.com/_dubontemps_/" target="_blank" className="brand-style leading-none">
+                    {contactData.instagram}
+                  </a>
+                </div>
+              </div>
+
             </div>
 
-      {/* Mention copyright */}
-            <div className="mt-12 text-center md:text-left">
-                 <p className="footer-mention m-0">© {new Date().getFullYear()} {CONTENT[lang].brand} . {footerData.location}</p>
+            <div className="mt-16">
+              <p className="footer-mention m-0">© {new Date().getFullYear()} {CONTENT[lang].brand} . {footerData.location}</p>
             </div>
           </motion.div>
         </section>
+
       </main>
     </div>
   );
