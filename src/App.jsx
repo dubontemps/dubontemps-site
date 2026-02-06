@@ -298,7 +298,8 @@ const TypographyStyles = () => (
       --bg-white: #FFFFFF;
       --ink: #111111;
       --ink-soft: #555555; 
-      --carmine: #E32555;
+      --accent: #97A9B4;
+      --accent-soft : rgba(151, 169, 180, 0.08);
       --sans: 'Inter', sans-serif;
       --serif: 'Shippori Mincho', serif;
       --header-h: 84px;
@@ -329,9 +330,9 @@ const TypographyStyles = () => (
     }
     .logo-style {
       font-family: var(--serif);
-      font-size: 20px; 
-      font-weight: 600; 
-      letter-spacing: -0.03em;
+      font-size: 28px; 
+      font-weight: 500; 
+      letter-spacing: 0.12em; /* On enlève le "-" pour aérer les lettres */
       background: none;
       border: none;
       color: var(--ink);
@@ -340,18 +341,16 @@ const TypographyStyles = () => (
       display: inline-flex;
       align-items: baseline;
       text-transform: lowercase; 
-      transition: color 0.4s ease;
-      margin-top: 0;
-      transform: none;
-    }
-   
-    .logo-style:hover { color: var(--carmine); }
+      /* Transition ultra-fluide pour le changement de taille au scroll */
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }   
+    .logo-style:hover { color: var(--accent); }
 
     .brand-style { 
       font-family: var(--sans);
       font-size: 18px; 
-      font-weight: 400; 
-      letter-spacing: -0.05em;
+      font-weight: 300; 
+      letter-spacing: -0.02em;
       background: none;
       border: none;
       color: var(--ink);
@@ -362,7 +361,7 @@ const TypographyStyles = () => (
       margin-top: 0; 
     }
 
-    .brand-style:hover { color: var(--carmine); }
+    .brand-style:hover { color: var(--accent); }
 
     .nav-blur {
       backdrop-filter: blur(20px);
@@ -381,14 +380,14 @@ const TypographyStyles = () => (
     }
     .scroll-progress-bar-desktop {
       width: 100%;
-      background: var(--carmine);
+      background: var(--accent);
       transform-origin: top;
     }
     .scroll-progress-container-mobile {
       position: fixed;
       top: var(--header-h);
-      left: 0;
-      width: 100%;
+      left: 24px;
+      right: 24px;
       height: 1px;
       background: rgba(0,0,0,0.05);
       z-index: 1001;
@@ -396,7 +395,7 @@ const TypographyStyles = () => (
     }
     .scroll-progress-bar-mobile {
       height: 100%;
-      background: var(--carmine);
+      background: var(--accent);
       transform-origin: left;
     }
     .text-note, .text-manifesto { 
@@ -418,11 +417,11 @@ const TypographyStyles = () => (
     .text-meta-title {
       font-family: var(--serif);
       text-transform: lowercase; 
-      font-size: 12px;
-      letter-spacing: 0.2em;
-      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: -0.03em;
+      font-weight: 400;
       color: var(--ink);
-      opacity: 0.4;
+      opacity: 0.7;
       display: block;
       line-height: 1.2;
     }
@@ -458,7 +457,7 @@ const TypographyStyles = () => (
       font-size: 12px; 
       font-weight: 500;
       font-style: italic;
-      color: var(--carmine);
+      color: var(--accent);
       margin-bottom: 10px; 
       display: block; 
     }
@@ -497,7 +496,7 @@ const TypographyStyles = () => (
       padding-bottom: 1px;
     }
     .index-item-link:hover { 
-      color: var(--carmine);
+      color: var(--accent);
       transform: translateX(6px); 
       border-bottom: 0.5px solid var(--accent);
     }
@@ -600,7 +599,7 @@ const TypographyStyles = () => (
       align-items: baseline;
     }
     .contact-submit:hover {
-      color: var(--carmine);
+      color: var(--accent);
     }
     .contact-submit:disabled {
       opacity: 0.3;
@@ -615,27 +614,39 @@ const TypographyStyles = () => (
        transform: translateY(-4px);
       }
       .mobile-nav-btn {
-      -webkit-appearance: none;
+        -webkit-appearance: none;
+        background: transparent;
+        border: none;
+        padding: 0;
+        color: var(--ink);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; 
+        gap: 6px;             
+        /* Suppression du translateY car le parent flex-1 center s'en occupe */
+        transition: opacity 0.3s ease;
+        cursor: pointer;
+      }
+      .btn-line {
+        height: 1px; /* Plus élégant et raccord avec les icônes Lucide */
+        background-color: currentColor;
+        transition: all 0.3s ease;
+      }
+    .menu-close-button {
       background: transparent;
       border: none;
-      padding: 20px;
-      margin: -20px;
-      color: var(--ink);
+      padding: 12px;           
+      margin-right: -12px;     
       display: flex;
-      flex-direction: column;
-      align-items: flex-end; 
-      gap: 6px;             
-      transform: translateY(-12px);
-      transition: color 0.3s ease;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
-      }
-    .mobile-nav-btn:active .btn-line {
-      background-color: var(--carmine);
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: opacity 0.3s ease;
     }
-    .btn-line {
-      height: 1.5px;         
-      background-color: currentColor;
-      transition: width 0.3s ease, background-color 0.3s ease;
+    .menu-close-button svg {
+      pointer-events: none; 
     }
     .index-container-mobile {
         display: flex;                 /* Force le mode ligne pour le slider */
@@ -674,17 +685,16 @@ const TypographyStyles = () => (
     .index-section-col:not(:first-child) {
         min-width: 45vw;
         }
-
     #contact-anchor {
       width: 100%;
       overflow-x: hidden; /* bloque le scroll horizontal */
       }
     #contact-anchor form {
-    width: 100%;
-    max-width: 44ch; /* même largeur que l'index sur desktop */
-    box-sizing: border-box; /* inclut padding dans la largeur */
-    padding-left: 0; /* alignement à gauche */
-    padding-right: 0;
+      width: 100%;
+      max-width: 44ch; /* même largeur que l'index sur desktop */
+      box-sizing: border-box; /* inclut padding dans la largeur */
+      padding-left: 0; /* alignement à gauche */
+      padding-right: 0;
     }
 
 /* SEO Helper - Masqué visuellement mais accessible aux robots */
@@ -894,23 +904,26 @@ export default function App() {
             aria-label="Menu principal mobile"
           >
             <div className="flex justify-between items-center h-[var(--header-h)] mb-12">
-              <button onClick={() => {setMobileMenuOpen(false); window.scrollTo({top:0, behavior:'smooth'})}} className="logo-style">
+              <button onClick={() => {setMobileMenuOpen(false); window.scrollTo({top:0, behavior:'smooth'})}} 
+              className="logo-style">
                 {CONTENT[lang].brand}
               </button>
               <button onClick={() => setMobileMenuOpen(false)} 
-                className="menu-close-button"
+                className="menu-close-button opacity-40 hover:opacity-100 transition-opacity"
                 aria-label="Fermer le menu">
                 <X size={24} strokeWidth={1.5} />
               </button>
             </div>
             <ul className="flex flex-col gap-10 list-none p-0 m-0">
-              <li><button onClick={() => scrollTo('works-anchor')} className="brand-style text-left text-2xl">{navData.works}</button></li>
-              <li><button onClick={() => scrollTo('index-anchor')} className="brand-style text-left text-2xl">{navData.index}</button></li>
-              <li><button onClick={() => scrollTo('contact-anchor')} className="brand-style text-left text-2xl">{navData.contact}</button></li>
+              <li><button onClick={() => scrollTo('works-anchor')} className="brand-style text-left text-2xl opacity-40 hover:opacity-100 transition-opacity">{navData.works}</button></li>
+              <li><button onClick={() => scrollTo('index-anchor')} className="brand-style text-left text-2xl opacity-40 hover:opacity-100 transition-opacity">{navData.index}</button></li>
+              <li><button onClick={() => scrollTo('contact-anchor')} className="brand-style text-left text-2xl opacity-40 hover:opacity-100 transition-opacity">{navData.contact}</button></li>
               <li className="flex gap-4 mt-8 pt-8 border-t border-zinc-100">
-                <button onClick={() => setLang('FR')} className={`brand-style ${lang === 'FR' ? 'opacity-100' : 'opacity-30'}`} aria-label="Passer en français">fr</button>
+                <button onClick={() => setLang('FR')} className={`brand-style transition-opacity duration-300 ${lang === 'FR' ? 'opacity-100' : 'opacity-40 hover:opacity-100'}`} 
+                aria-label="Passer en français">fr</button>
                 <span className="opacity-10 brand-style" aria-hidden="true">/</span>
-                <button onClick={() => setLang('EN')} className={`brand-style ${lang === 'EN' ? 'opacity-100' : 'opacity-30'}`} aria-label="Switch to english">en</button>
+                <button onClick={() => setLang('EN')} className={`brand-style transition-opacity duration-300 ${lang === 'EN' ? 'opacity-100' : 'opacity-40 hover:opacity-100'}`} 
+                aria-label="Switch to english">en</button>
               </li>
             </ul>
           </motion.div>
@@ -931,40 +944,48 @@ export default function App() {
 
       <AnimatePresence>
         {headerVisible && (
-          <motion.header 
-            initial={{ y: -84, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -84, opacity: 0 }}
-            className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-[40px] h-[var(--header-h)] flex justify-between items-baseline nav-blur py-6 md:py-8"
-          >
-           <div className="flex items-baseline">
-            <h1 className="m-0 p-0" style={{ display: 'contents' }}>
-              <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
-                {CONTENT[lang].brand}
-              </button>
-            </h1>
-          </div>
-            
-            <nav className="hidden md:flex gap-14 items-baseline md:mr-0" aria-label="Menu principal">
-              <ul className="flex gap-14 list-none p-0 m-0 items-baseline">
-                <li><button onClick={() => scrollTo('works-anchor')} className="brand-style">{navData.works}</button></li>
-                <li><button onClick={() => scrollTo('index-anchor')} className="brand-style">{navData.index}</button></li>
-                <li><button onClick={() => scrollTo('contact-anchor')} className="brand-style">{navData.contact}</button></li>
-                <li>
-                  <button 
-                    onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} 
-                    className="brand-style"
-                    aria-label={lang === 'FR' ? 'Switch to English' : 'Passer en Français'}
-                  >
+        <motion.header 
+          initial={{ y: -84, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -84, opacity: 0 }}
+          className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-[40px] h-[var(--header-h)] flex items-center nav-blur py-6 md:py-8"
+>
+        {/* GAUCHE : Menu Desktop ou Langue Mobile */}
+           <div className="flex-1 flex items-baseline gap-10">
+            {/* Desktop gauche */}
+            <nav className="hidden md:flex gap-10 items-baseline">
+            <button onClick={() => scrollTo('works-anchor')} className="brand-style opacity-40 hover:opacity-100 transition-opacity">{navData.works}</button>
+            <button onClick={() => scrollTo('index-anchor')} className="brand-style opacity-40 hover:opacity-100 transition-opacity">{navData.index}</button>
+            </nav>
+            {/* Mobile gauche */}
+            <button onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} className="md:hidden brand-style opacity-40">
+              {lang === 'FR' ? 'en' : 'fr'}
+            </button>
+            </div>
+
+            {/* CENTRE : Logo */}
+            <div className="flex-shrink-0 text-center">
+              <h1 className="m-0 p-0" style={{ display: 'contents' }}>
+                <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
+                  {CONTENT[lang].brand}
+                </button>
+              </h1>
+            </div>
+
+              {/* DROITE : Contact/Langue Desktop ou Burger Mobile */}
+              <div className="flex-1 flex justify-end items-baseline gap-10">
+                {/* Desktop droite */}
+                <nav className="hidden md:flex gap-10 items-baseline">
+                  <button onClick={() => scrollTo('contact-anchor')} className="brand-style opacity-40 hover:opacity-100 transition-opacity">{navData.contact}</button>
+                  <button onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} className="brand-style opacity-40 hover:opacity-100 transition-opacity">
                     {lang === 'FR' ? 'en' : 'fr'}
                   </button>
-                </li>
-              </ul>
-            </nav>
-
-            <button onClick={() => setMobileMenuOpen(true)} className="md:hidden mobile-nav-btn" aria-label="Ouvrir le menu">
-              <div className="btn-line w-[22px]" /> 
-              <div className="btn-line w-[14px]" />
-            </button>
-          </motion.header>
+                </nav>
+                {/* Mobile droite (Burger) */}
+                <button onClick={() => setMobileMenuOpen(true)} className="md:hidden mobile-nav-btn opacity-40" aria-label="Ouvrir le menu">
+                  <div className="btn-line w-[22px]" /> 
+                  <div className="btn-line w-[14px]" />
+                </button>
+              </div>
+            </motion.header>
         )}
       </AnimatePresence>
 
@@ -1061,7 +1082,7 @@ export default function App() {
          {/* Bio alignée sur la grille */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} 
-            className="mb-8 md:mb-8 px-6 md:px-[10%] md:grid md:grid-cols-4 md:gap-x-12"
+            className="mb-12 md:mb-20 px-6 md:px-[10%] md:grid md:grid-cols-4 md:gap-x-12"
           >
             <div className="col-span-1">
         <h3 className="bio-lead m-0">{bioData.lead}</h3>
@@ -1189,7 +1210,7 @@ export default function App() {
                <a href="https://www.instagram.com/_dubontemps_/" target="_blank" className="brand-style leading-none">
                   {contactData.instagram}
                 </a> 
-                <span className="brand-style opacity-60 text-[14px] md:text-base cursor-wait leading-none">
+                <span className="brand-style cursor-wait leading-none">
                   {contactData.portfolio}
                 </span>
               </div>
