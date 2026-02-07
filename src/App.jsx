@@ -330,9 +330,9 @@ const TypographyStyles = () => (
     }
     .logo-style {
       font-family: var(--serif);
-      font-size: 28px; 
-      font-weight: 500; 
-      letter-spacing: 0.12em; /* On enlève le "-" pour aérer les lettres */
+      font-size: 18px; 
+      font-weight: 600; 
+      letter-spacing: 0.03em; 
       background: none;
       border: none;
       color: var(--ink);
@@ -341,16 +341,15 @@ const TypographyStyles = () => (
       display: inline-flex;
       align-items: baseline;
       text-transform: lowercase; 
-      /* Transition ultra-fluide pour le changement de taille au scroll */
       transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }   
     .logo-style:hover { color: var(--accent); }
 
     .brand-style { 
       font-family: var(--sans);
-      font-size: 18px; 
+      font-size: 16px; 
       font-weight: 300; 
-      letter-spacing: -0.02em;
+      letter-spacing: 0.02em;
       background: none;
       border: none;
       color: var(--ink);
@@ -364,9 +363,10 @@ const TypographyStyles = () => (
     .brand-style:hover { color: var(--accent); }
 
     .nav-blur {
-      backdrop-filter: blur(20px);
-      background-color: rgba(255, 255, 255, 0.85);
-    }
+    backdrop-filter: none !important;      
+    -webkit-backdrop-filter: none !important; 
+    background-color: #FFFFFF;
+}
     .scroll-progress-container-desktop {
       position: fixed;
       left: 40px; 
@@ -718,6 +718,7 @@ const MixedText = ({ text }) => text || null;
 export default function App() {
   const [lang, setLang] = useState('EN');
   const [headerVisible, setHeaderVisible] = useState(false); 
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [zoomImage, setZoomImage] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -825,12 +826,21 @@ export default function App() {
     };
   }, [lang]);
 
-  useEffect(() => {
+useEffect(() => {
     const unsubscribe = scrollY.on("change", (latest) => {
-      setHeaderVisible(latest >= 100);
+      const heroHeight = window.innerHeight * 0.8; // Apparaît après 80% de la hauteur Hero
+
+      if (latest < heroHeight) {
+        setHeaderVisible(false); // Cache sur l'image Hero
+      } else if (latest > lastScrollY) {
+        setHeaderVisible(false); // Cache au scroll down
+      } else {
+        setHeaderVisible(true);  // Apparaît au scroll up
+      }
+      setLastScrollY(latest);
     });
     return () => unsubscribe();
-  }, [scrollY]);
+  }, [scrollY, lastScrollY]);
 
   const scrollTo = (id) => {
     setMobileMenuOpen(false);
@@ -942,27 +952,17 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      <AnimatePresence>
+<AnimatePresence>
         {headerVisible && (
-        <motion.header 
-          initial={{ y: -84, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -84, opacity: 0 }}
-          className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-[40px] h-[var(--header-h)] flex items-center nav-blur py-6 md:py-8"
->
-        {/* GAUCHE : Menu Desktop ou Langue Mobile */}
-           <div className="flex-1 flex items-baseline gap-10">
-            {/* Desktop gauche */}
-            <nav className="hidden md:flex gap-10 items-baseline">
-            <button onClick={() => scrollTo('works-anchor')} className="brand-style opacity-40 hover:opacity-100 transition-opacity">{navData.works}</button>
-            <button onClick={() => scrollTo('index-anchor')} className="brand-style opacity-40 hover:opacity-100 transition-opacity">{navData.index}</button>
-            </nav>
-            {/* Mobile gauche */}
-            <button onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} className="md:hidden brand-style opacity-40">
-              {lang === 'FR' ? 'en' : 'fr'}
-            </button>
-            </div>
-
-            {/* CENTRE : Logo */}
-            <div className="flex-shrink-0 text-center">
+          <motion.header 
+            initial={{ y: -20, opacity: 0 }} 
+            animate={{ y: 0, opacity: 1 }} 
+            exit={{ y: -20, opacity: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-[40px] h-[var(--header-h)] flex items-center justify-between nav-blur py-6 md:py-8"
+          >
+            {/* LOGO À GAUCHE */}
+            <div className="flex-shrink-0">
               <h1 className="m-0 p-0" style={{ display: 'contents' }}>
                 <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
                   {CONTENT[lang].brand}
@@ -970,24 +970,30 @@ export default function App() {
               </h1>
             </div>
 
-              {/* DROITE : Contact/Langue Desktop ou Burger Mobile */}
-              <div className="flex-1 flex justify-end items-baseline gap-10">
-                {/* Desktop droite */}
-                <nav className="hidden md:flex gap-10 items-baseline">
-                  <button onClick={() => scrollTo('contact-anchor')} className="brand-style opacity-40 hover:opacity-100 transition-opacity">{navData.contact}</button>
-                  <button onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} className="brand-style opacity-40 hover:opacity-100 transition-opacity">
-                    {lang === 'FR' ? 'en' : 'fr'}
-                  </button>
-                </nav>
-                {/* Mobile droite (Burger) */}
-                <button onClick={() => setMobileMenuOpen(true)} className="md:hidden mobile-nav-btn opacity-40" aria-label="Ouvrir le menu">
+            {/* NAVIGATION À DROITE */}
+            <div className="flex items-baseline gap-10">
+              <nav className="hidden md:flex gap-10 items-baseline">
+                <button onClick={() => scrollTo('works-anchor')} className="brand-style opacity-40 hover:opacity-100 transition-opacity">{navData.works}</button>
+                <button onClick={() => scrollTo('index-anchor')} className="brand-style opacity-40 hover:opacity-100 transition-opacity">{navData.index}</button>
+                <button onClick={() => scrollTo('contact-anchor')} className="brand-style opacity-40 hover:opacity-100 transition-opacity">{navData.contact}</button>
+                <button onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} className="brand-style opacity-40 hover:opacity-100 transition-opacity">
+                  {lang === 'FR' ? 'en' : 'fr'}
+                </button>
+              </nav>
+              
+              <div className="md:hidden flex items-center gap-6">
+                <button onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} className="brand-style opacity-40">
+                  {lang === 'FR' ? 'en' : 'fr'}
+                </button>
+                <button onClick={() => setMobileMenuOpen(true)} className="mobile-nav-btn opacity-40">
                   <div className="btn-line w-[22px]" /> 
                   <div className="btn-line w-[14px]" />
                 </button>
               </div>
-            </motion.header>
+            </div>
+          </motion.header>
         )}
-      </AnimatePresence>
+  </AnimatePresence>
 
       <main className="relative z-[5]">
       {/* Section Hero & Manifeste */}
