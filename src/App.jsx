@@ -24,17 +24,11 @@ const CONTENT = {
       index: "Index, collaborations et distinctions",
       contact: "Coordonnées et réseaux sociaux"
     },
-    manifesto: [
-      "Un paysage est une scène active, un champ d’interactions.",
-      "La nature n'est pas un décor.",
-      "",
-      "La distance révèle le signal ou l'absence",
-      "qui ouvre le regard.",
-      "",
-      "L’image ne capture pas.",
-      "Elle naît de la relation et de la mémoire.",
-      "Puis l’imaginaire cultive l’imprévu.",
-    ],
+     manifesto: [
+  "Le paysage n’est pas un décor mais un champ d’interactions. La distance de mes cadrages peut évoquer la neutralité d’un satellite, mais elle souligne en réalité la subjectivité de la perception humaine.",
+  "À mesure que la technologie transforme nos manières de voir, mon travail interroge la persistance du regard : comment un signal discret, ou une absence, peut éveiller l’imagination et la sensation, et faire naître une relation.",
+  "L’image que l’on retient ne capture rien. Elle révèle la rencontre entre un lieu et une mémoire individuelle.",
+               ],
     bio: {
       label: "",
       lead: "J'explore notre relation au paysage et à l’imaginaire.",
@@ -166,15 +160,9 @@ const CONTENT = {
       contact: "Contact details and social media"
     },
     manifesto: [
-  "A landscape is an active stage, a field of interactions.",
-  "Nature is not a backdrop.",
-  "",
-  "Distance reveals the signal or the absence",
-  "that shifts the gaze.",
-  "",
-  "The image does not capture.",
-  "It arises from relation and from memory.",
-  "Then, imagination cultivates the unexpected.",
+  "The landscape is not a backdrop but a field of interactions. The distance in my framing may evoke the neutrality of a satellite, yet it ultimately underscores the subjectivity of human perception.",
+  "As technology reshapes the way we see, my work questions the persistence of looking: how a subtle signal, or an absence, can stir imagination and sensation, and give rise to a relationship.",
+  "The image we retain captures nothing. It reveals the encounter between a place and an individual memory.",
                ],
     bio: {
       label: "",
@@ -408,32 +396,38 @@ const TypographyStyles = () => (
       white-space: pre-line;
     }
     .text-meta-label { 
-      font-size: 12px; 
+      font-size: 11px; 
       letter-spacing: 0.2em; 
       text-transform: uppercase; 
-      opacity: 0.4; 
-      font-weight: 600; 
+      opacity: 0.3; 
+      font-weight: 500; 
     }
     .text-meta-title {
-      font-family: var(--serif);
-      text-transform: lowercase; 
-      font-size: 13px;
-      letter-spacing: -0.03em;
-      font-weight: 400;
-      color: var(--ink);
-      opacity: 0.7;
-      display: block;
-      line-height: 1.2;
+      font-size: 11px; 
+      letter-spacing: 0.2em; 
+      text-transform: uppercase; 
+      opacity: 0.3; 
+      font-weight: 500; 
     }
     .text-meta-date {
-      font-size: 12px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      font-weight: 400;
-      opacity: 0.4;
-      display: block;
+      font-size: 11px; 
+      letter-spacing: 0.2em; 
+      text-transform: uppercase; 
+      opacity: 0.3; 
+      font-weight: 500; 
       margin-top: 4px !important;
     }
+    .manifesto-large {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.5vw, 28px); 
+    line-height: 2;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: center; 
+    max-width: 90%; 
+    margin: 0 auto;
+    letter-spacing: -0.03em;
+}
     .bio-lead {
       font-family: var(--serif);
       font-weight: 500; 
@@ -996,44 +990,42 @@ useEffect(() => {
   </AnimatePresence>
 
       <main className="relative z-[5]">
-      {/* Section Hero & Manifeste */}
-        <section className="w-full flex flex-col bg-white" aria-labelledby="section-manifesto">
-          <h2 id="section-manifesto" className="sr-only">{sectionTitles.manifesto}</h2>
-          
-          <div className="w-full h-[100vh] overflow-hidden">
-            <motion.img 
-              initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 2.5 }} 
-              src={CONTENT[lang].hero.url} 
-              alt={CONTENT[lang].hero.alt}
-              className="w-full h-full object-cover object-bottom" 
-            />
-          </div>
 
-      {/* AJUSTEMENT : pb-[25vh] pour créer la respiration sous le manifeste */}
-          <div className="pt-[30vh] pb-[20vh] px-6 md:px-[10%]">
-            <div className="md:max-w-3xl mr-auto text-left md:text-left">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.5 }} viewport={{ once: true }} className="text-manifesto space-y-4"
-              >
-                {CONTENT[lang].manifesto.map((line, i) => (
-                  <div key={i} className="manifesto-line h-auto min-h-[1.7em]">
-                    <MixedText text={line} />
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-          </div>
+        <section className="sticky top-0 h-screen w-full z-0 overflow-hidden bg-white">
+          <motion.img 
+            initial={{ opacity: 0, scale: 1.05 }} 
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 2.5 }} 
+            src={CONTENT[lang].hero.url} 
+            alt={CONTENT[lang].hero.alt}
+            className="w-full h-full object-cover object-bottom" 
+          />
         </section>
-
-    {/* Section Galerie d'Images */}
-        <section className="bg-white pt-0 space-y-[30vh] md:space-y-[30vh] relative" aria-labelledby="section-gallery">
-          {/* AJUSTEMENT : L'ancre est absolue pour ne pas pousser le premier enfant (image 1) du space-y */}
+<div className="relative z-10 bg-white">
+{/* LA GALERIE UNIQUE */}
+        <section className="bg-white pt-[15vh] space-y-[30vh] md:space-y-[30vh] relative" aria-labelledby="section-gallery">
           <div id="works-anchor" className="absolute top-[-100px] left-0" aria-hidden="true" />
           <h2 id="section-gallery" className="sr-only">{sectionTitles.gallery}</h2>
           
           {stream.map((item, idx) => (
+            <React.Fragment key={item.id}>
+
+  {/* Nouveau Manifeste en grand avant l'image 4 */}
+          {idx === 3 && (
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5 }}
+              viewport={{ once: true }}
+              className="w-full py-[8vh] px-6 text-center"
+            >
+              <p className="manifesto-large">
+                {CONTENT[lang].manifesto.join(' ')}
+              </p>
+            </motion.div>
+          )}
+
+{/* L'ARTICLE IMAGE (Commun à toutes les photos) */}
             <motion.article 
               key={item.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }} viewport={{ once: true, margin: "-10%" }}
@@ -1071,12 +1063,10 @@ useEffect(() => {
                     <h2 className="text-meta-title m-0">{item.caption}</h2>
                     <span className="text-meta-date">{item.year}</span>
                   </div>
-                  <div className="mt-8 md:mt-12 max-w-lg">
-                    <p className="text-note"><MixedText text={item.note} /></p>
-                  </div>
                 </figcaption>
               </figure>
             </motion.article>
+            </React.Fragment>
           ))}
         </section>
 
@@ -1226,6 +1216,7 @@ useEffect(() => {
             </div>
     </motion.div>
    </section>
+   </div>
  </main>
 </div>
 );
