@@ -303,6 +303,7 @@ const TypographyStyles = () => (
       -webkit-font-smoothing: antialiased;
       margin: 0;
       overflow-x: hidden;
+      position: relative; width: 100%;
     }
 
     a, button {
@@ -681,13 +682,13 @@ const TypographyStyles = () => (
         flex-shrink: 0; 
         box-sizing: border-box;   
         scroll-snap-align: start;  
-        margin-right: 16px;  
+        margin-right: 0;  padding-right: 16px;
         flex: 0 0 80%; 
     }
     .bento-col-mobile:nth-child(1) { flex: 0 0 80%; } 
     .bento-col-mobile:nth-child(2) { flex: 0 0 70%; } 
     .bento-col-mobile:nth-child(3) { flex: 0 0 70%; } 
-    .bento-col-mobile:nth-child(4) { flex: 0 0 70%; } 
+    .bento-col-mobile:nth-child(4) { flex: 0 0 70%; margin-right: 0; } 
 
     .bento-col-mobile p {
         white-space: normal; /* retour à la ligne */
@@ -1007,8 +1008,7 @@ const TypographyStyles = () => (
 
         <main className="relative z-[5]">
 
-          <section className="sticky top-0 h-screen w-[100%] z-0 overflow-hidden bg-white">
-            <motion.img 
+          <section className="sticky top-0 h-screen w-screen max-w-full z-0 overflow-hidden bg-white">                <motion.img 
               initial={{ opacity: 0, scale: 1.05 }} 
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 2.5 }} 
