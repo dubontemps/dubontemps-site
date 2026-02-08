@@ -1010,7 +1010,7 @@ const TypographyStyles = () => (
           )}
     </AnimatePresence>
 
-        <main className="relative z-[5] w-full overflow-x-hidden">
+        <main className="relative z-[5] w-full">
 
             <section className="sticky top-0 h-screen w-full max-w-full z-0 bg-white pointer-events-none">              
            <motion.img 
