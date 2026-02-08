@@ -303,9 +303,13 @@ const TypographyStyles = () => (
       -webkit-font-smoothing: antialiased;
       margin: 0;
       overflow-x: hidden;
-      position: relative; width: 100%;
+      position: relative; 
     }
-
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      position: relative;
+    }
     a, button {
       text-decoration: none;
       color: inherit;
@@ -665,16 +669,17 @@ const TypographyStyles = () => (
     .index-slider-mobile {
         display: flex;                 
         overflow-x: auto;
+       -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
+        width: 100%; max-width: 100vw; 
+        box-sizing: border-box;   
         padding-bottom: 2rem;
-        scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
-        overflow-y: hidden;
         padding-right: 24px;    
         padding-left: 24px; 
         scroll-padding-left: 24px;
-        width: 100%;
-        box-sizing: border-box;                           
+        overflow-y: hidden;
+        scrollbar-width: none;
+                                
       }
     .index-slider-mobile::-webkit-scrollbar { display: none; 
       }
@@ -682,7 +687,8 @@ const TypographyStyles = () => (
         flex-shrink: 0; 
         box-sizing: border-box;   
         scroll-snap-align: start;  
-        margin-right: 0;  padding-right: 16px;
+        margin-right: 0;  
+        padding-right: 16px;
         flex: 0 0 80%; 
     }
     .bento-col-mobile:nth-child(1) { flex: 0 0 80%; } 
@@ -1006,9 +1012,9 @@ const TypographyStyles = () => (
           )}
     </AnimatePresence>
 
-        <main className="relative z-[5]">
+        <main className="relative z-[5] w-full overflow-x-hidden">
 
-          <section className="sticky top-0 h-screen w-screen max-w-full z-0 overflow-hidden bg-white">                <motion.img 
+            <section className="sticky top-0 h-screen w-full max-w-full z-0 overflow-hidden bg-white">                <motion.img 
               initial={{ opacity: 0, scale: 1.05 }} 
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 2.5 }} 
