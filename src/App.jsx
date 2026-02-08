@@ -31,8 +31,8 @@ const CONTENT = {
                ],
     bio: {
       label: "",
-      lead: "J'explore notre relation au paysage et à l’imaginaire.",
-      text: "Photographe française, j'ai été formée aux arts visuels à New York et aux relations internationales à Paris. Je collabore avec artisans, artistes et institutions culturelles, après une carrière en conseil.\n\nMon travail observe le vivant, sur plusieurs continents, entre réel et mystère, structure et simplicité. Chaque tirage est réalisé par procédé pigmentaire d’archivage sur papier Fine Art, washi japonais fait main ou baryté."
+      lead: "dubontemps explore notre relation au paysage et à l’imaginaire",
+      text: "Photographe française, elle a été formée aux arts visuels à New York et aux relations internationales à Paris. Elle collabore avec artisans, artistes et institutions culturelles, après une carrière en conseil.\n\nSon travail observe le vivant, sur plusieurs continents, entre réel et mystère, rigueur et instinct. Chaque tirage est réalisé par procédé pigmentaire d’archivage sur papier Fine Art, washi japonais fait main ou baryté."
     },
     stream: [
       { 
@@ -166,8 +166,8 @@ const CONTENT = {
                ],
     bio: {
       label: "",
-      lead: "I explore our relationship to landscape and imagination.",
-      text: "French photographer, I was trained in visual arts in New York and in international relations in Paris. I collaborate with artisans, artists and cultural institutions, following a consulting career.\n\nMy work observes the living world across several continents, between reality and mystery, structure and simplicity. Each print is produced with archival pigment processes on Fine Art paper, handmade Japanese washi or baryta."
+      lead: "dubontemps explores our relationship to landscape and imagination",
+      text: "French photographer, she was trained in visual arts in New York and in international relations in Paris. She collaborate with artisans, artists and cultural institutions, following a consulting career.\n\nHer work observes the living world across several continents, between reality and mystery, rigor and instinct. Each print is produced with archival pigment processes on Fine Art paper, handmade Japanese washi or baryta."
      },
     stream: [
       { 
@@ -330,12 +330,12 @@ const TypographyStyles = () => (
       align-items: baseline;
       text-transform: lowercase; 
       transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }   
+      }   
     .logo-style:hover { color: var(--accent); }
 
     .brand-style { 
       font-family: var(--sans);
-      font-size: 16px; 
+      font-size: 14px; 
       font-weight: 300; 
       letter-spacing: 0.02em;
       background: none;
@@ -346,7 +346,7 @@ const TypographyStyles = () => (
       text-transform: lowercase;
       transition: color 0.4s ease, transform 0.3s ease;
       margin-top: 0; 
-    }
+      }
 
     .brand-style:hover { color: var(--accent); }
 
@@ -354,7 +354,7 @@ const TypographyStyles = () => (
     backdrop-filter: none !important;      
     -webkit-backdrop-filter: none !important; 
     background-color: #FFFFFF;
-}
+    }
     .scroll-progress-container-desktop {
       position: fixed;
       left: 40px; 
@@ -419,20 +419,20 @@ const TypographyStyles = () => (
     }
     .manifesto-large {
     font-family: var(--serif);
-    font-size: clamp(20px, 2.5vw, 28px); 
-    line-height: 2;
+    font-size: 16px; 
+    line-height: 1.7;
     font-weight: 500;
     color: var(--ink);
     text-align: center; 
     max-width: 90%; 
-    margin: 0 auto;
-    letter-spacing: -0.03em;
-}
+    margin: 0;
+    letter-spacing: -0.02em;
+    }
     .bio-lead {
       font-family: var(--serif);
       font-weight: 500; 
       letter-spacing: -0.05em;
-      font-size: 21px;
+      font-size: 20px;
       line-height: 1.8;
       color: var(--ink);
       margin-bottom: 2rem;
@@ -540,7 +540,6 @@ const TypographyStyles = () => (
       text-transform: lowercase;
       opacity: 0.3;
     }
-    /* FORMSPREE */
     .contact-title {
       font-family: var(--serif);
       font-size: 28px;
@@ -553,10 +552,13 @@ const TypographyStyles = () => (
       letter-spacing: -0.06em;
 }
       @media (min-width: 768px) {
-      #contact-anchor form {
-      max-width: 100%; /* Permet au formulaire d'occuper toutes ses colonnes sur desktop */
+      .manifesto-large {
+        font-size: 20px; line-height: 1.8;
+        font-weight: 500; color: var(--ink); text-align: center; 
+        max-width: 60%; letter-spacing: -0.02em;
+        }
+        #contact-anchor form { max-width: 100%; }
       }
-    }
       .contact-input {
       width: 100%; 
       max-width: 100%;
@@ -679,9 +681,7 @@ const TypographyStyles = () => (
     .index-section-col:not(:first-child) {
         min-width: 45vw;
         }
-    #contact-anchor {
-      width: 100%;
-      overflow-x: hidden; /* bloque le scroll horizontal */
+    #contact-anchor { width: 100%; overflow-x: hidden; 
       }
     #contact-anchor form {
       width: 100%;
@@ -707,518 +707,518 @@ const TypographyStyles = () => (
   `}</style>
 );
 
-const MixedText = ({ text }) => text || null;
+  const MixedText = ({ text }) => text || null;
 
-export default function App() {
-  const [lang, setLang] = useState('EN');
-  const [headerVisible, setHeaderVisible] = useState(false); 
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [zoomImage, setZoomImage] = useState(null);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  export default function App() {
+    const [lang, setLang] = useState('EN');
+    const [headerVisible, setHeaderVisible] = useState(false); 
+    const [lastScrollY, setLastScrollY] = useState(0);
+    const [zoomImage, setZoomImage] = useState(null);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // SÉCURITÉ : Si les données n'existent pas, on affiche un message d'erreur plutôt qu'une page blanche
-  if (!CONTENT || !CONTENT[lang]) return <div>Loading data...</div>;
+    // SÉCURITÉ : Si les données n'existent pas, on affiche un message d'erreur plutôt qu'une page blanche
+    if (!CONTENT || !CONTENT[lang]) return <div>Loading data...</div>;
 
-    // Scrollbar
-  const { scrollYProgress, scrollY } = useScroll();
-  const scale = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+      // Scrollbar
+    const { scrollYProgress, scrollY } = useScroll();
+    const scale = useSpring(scrollYProgress, {
+      stiffness: 100,
+      damping: 30,
+      restDelta: 0.001
+    });
 
-  // Formulaire etats et envoi
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formStatus, setFormStatus] = useState(null); // 'success' | 'error'
+    // Formulaire etats et envoi
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [formStatus, setFormStatus] = useState(null); // 'success' | 'error'
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setFormStatus(null);
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
+    const handleFormSubmit = async (e) => {
+      e.preventDefault();
+      setIsSubmitting(true);
+      setFormStatus(null);
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData.entries());
 
-    try {
-      const response = await fetch("https://formspree.io/f/mvzrbjyd", {
-        method: "POST",
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data),
-      });
+      try {
+        const response = await fetch("https://formspree.io/f/mvzrbjyd", {
+          method: "POST",
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data),
+        });
 
-      if (response.ok) {
-        setFormStatus('success');
-        e.target.reset();
-      } else {
+        if (response.ok) {
+          setFormStatus('success');
+          e.target.reset();
+        } else {
+          setFormStatus('error');
+        }
+      } catch (error) {
         setFormStatus('error');
+      } finally {
+        setIsSubmitting(false);
+        setTimeout(() => setFormStatus(null), 5000);
       }
-    } catch (error) {
-      setFormStatus('error');
-    } finally {
-      setIsSubmitting(false);
-      setTimeout(() => setFormStatus(null), 5000);
-    }
- };
-
-// SEO & Head Management (Open Graph Integration)
-  useEffect(() => {
-    document.title = CONTENT[lang].meta.title;
-    document.documentElement.lang = lang.toLowerCase();
-    
-    // Description Meta
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement('meta');
-      metaDesc.name = "description";
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.content = CONTENT[lang].meta.description;
-
-    // Open Graph Management
-    const setMetaProperty = (property, content) => {
-      let element = document.querySelector(`meta[property="${property}"]`);
-      if (!element) {
-        element = document.createElement('meta');
-        element.setAttribute('property', property);
-        document.head.appendChild(element);
-      }
-      element.setAttribute('content', content);
-    };
-
-    // On utilise l'image du Hero pour le partage
-    const ogImage = `https://dubontemps.org${CONTENT[lang].hero.url}`;
-    const siteUrl = "https://dubontemps.org";
-
-    setMetaProperty('og:title', CONTENT[lang].meta.title);
-    setMetaProperty('og:description', CONTENT[lang].meta.description);
-    setMetaProperty('og:image', ogImage);
-    setMetaProperty('og:url', siteUrl);
-    setMetaProperty('og:type', 'website');
-    setMetaProperty('og:site_name', 'dubontemps');
-
-  }, [lang]);
-
-// JSON-LD Structured Data
-  const structuredData = useMemo(() => {
-    return {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "dubontemps",
-      "url": "https://dubontemps.org", // URL fixe pour le SEO
-      "jobTitle": "Photographer",
-      "description": CONTENT[lang].meta.description,
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Paris",
-        "addressCountry": "FR"
-      },
-      "sameAs": [
-        "https://www.instagram.com/_dubontemps_/"
-      ]
-    };
-  }, [lang]);
-
-useEffect(() => {
-    const unsubscribe = scrollY.on("change", (latest) => {
-      const heroHeight = window.innerHeight * 0.8; // Apparaît après 80% de la hauteur Hero
-
-      if (latest < heroHeight) {
-        setHeaderVisible(false); // Cache sur l'image Hero
-      } else if (latest > lastScrollY) {
-        setHeaderVisible(false); // Cache au scroll down
-      } else {
-        setHeaderVisible(true);  // Apparaît au scroll up
-      }
-      setLastScrollY(latest);
-    });
-    return () => unsubscribe();
-  }, [scrollY, lastScrollY]);
-
-  const scrollTo = (id) => {
-    setMobileMenuOpen(false);
-    const target = document.getElementById(id);
-    if (!target) return;
-
-    const header = document.querySelector('header');
-    const headerHeight = header ? header.offsetHeight : (window.innerWidth < 768 ? 64 : 84);
-    
-    const bodyRect = document.body.getBoundingClientRect().top;
-    const targetRect = target.getBoundingClientRect().top;
-    const targetPosition = targetRect - bodyRect;
-    
-    const offsetPosition = targetPosition - headerHeight;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
   };
 
-  const stream = CONTENT[lang].stream;
-  const indexData = CONTENT[lang].index;
-  const footerData = CONTENT[lang].footer;
-  const navData = CONTENT[lang].nav;
-  const sectionTitles = CONTENT[lang].sections;
-  const contactData = CONTENT[lang].contact;
-  const bioData = CONTENT[lang].bio;
-
-  return (
-    <div className="relative w-full bg-white">
-      <TypographyStyles />
+  // SEO & Head Management (Open Graph Integration)
+    useEffect(() => {
+      document.title = CONTENT[lang].meta.title;
+      document.documentElement.lang = lang.toLowerCase();
       
-      <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+      // Description Meta
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.name = "description";
+        document.head.appendChild(metaDesc);
+      }
+      metaDesc.content = CONTENT[lang].meta.description;
 
-      <AnimatePresence>
-        {zoomImage && (
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            exit={{ opacity: 0 }}
-            onClick={() => setZoomImage(null)}
-            className="lightbox-overlay"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Aperçu image agrandie"
-          >
-            <motion.img 
-              initial={{ scale: 0.9, opacity: 0 }} 
-              animate={{ scale: 1, opacity: 1 }} 
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              src={zoomImage} 
-              className="lightbox-img" 
-              alt="Image en plein écran"
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      // Open Graph Management
+      const setMetaProperty = (property, content) => {
+        let element = document.querySelector(`meta[property="${property}"]`);
+        if (!element) {
+          element = document.createElement('meta');
+          element.setAttribute('property', property);
+          document.head.appendChild(element);
+        }
+        element.setAttribute('content', content);
+      };
 
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div 
-            initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="mobile-menu-overlay"
-            role="navigation"
-            aria-label="Menu principal mobile"
-          >
-            <div className="flex justify-between items-center h-[var(--header-h)] mb-12">
-              <button onClick={() => {setMobileMenuOpen(false); window.scrollTo({top:0, behavior:'smooth'})}} 
-              className="logo-style">
-                {CONTENT[lang].brand}
-              </button>
-              <button onClick={() => setMobileMenuOpen(false)} 
-                className="menu-close-button opacity-40 hover:opacity-100 transition-opacity"
-                aria-label="Fermer le menu">
-                <X size={24} strokeWidth={1.5} />
-              </button>
-            </div>
-            <ul className="flex flex-col gap-10 list-none p-0 m-0">
-              <li><button onClick={() => scrollTo('works-anchor')} className="brand-style text-left text-2xl opacity-40 hover:opacity-100 transition-opacity">{navData.works}</button></li>
-              <li><button onClick={() => scrollTo('index-anchor')} className="brand-style text-left text-2xl opacity-40 hover:opacity-100 transition-opacity">{navData.index}</button></li>
-              <li><button onClick={() => scrollTo('contact-anchor')} className="brand-style text-left text-2xl opacity-40 hover:opacity-100 transition-opacity">{navData.contact}</button></li>
-              <li className="flex gap-4 mt-8 pt-8 border-t border-zinc-100">
-                <button onClick={() => setLang('FR')} className={`brand-style transition-opacity duration-300 ${lang === 'FR' ? 'opacity-100' : 'opacity-40 hover:opacity-100'}`} 
-                aria-label="Passer en français">fr</button>
-                <span className="opacity-10 brand-style" aria-hidden="true">/</span>
-                <button onClick={() => setLang('EN')} className={`brand-style transition-opacity duration-300 ${lang === 'EN' ? 'opacity-100' : 'opacity-40 hover:opacity-100'}`} 
-                aria-label="Switch to english">en</button>
-              </li>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      // On utilise l'image du Hero pour le partage
+      const ogImage = `https://dubontemps.org${CONTENT[lang].hero.url}`;
+      const siteUrl = "https://dubontemps.org";
 
-      <div className="scroll-progress-container-desktop hidden md:block" aria-hidden="true">
-        <motion.div className="scroll-progress-bar-desktop" style={{ height: '100%', scaleY: scale }} />
-      </div>
+      setMetaProperty('og:title', CONTENT[lang].meta.title);
+      setMetaProperty('og:description', CONTENT[lang].meta.description);
+      setMetaProperty('og:image', ogImage);
+      setMetaProperty('og:url', siteUrl);
+      setMetaProperty('og:type', 'website');
+      setMetaProperty('og:site_name', 'dubontemps');
 
-      <AnimatePresence>
-        {headerVisible && (
-          <div className="scroll-progress-container-mobile md:hidden" aria-hidden="true">
-            <motion.div className="scroll-progress-bar-mobile" style={{ width: '100%', scaleX: scale }} />
-          </div>
-        )}
-      </AnimatePresence>
+    }, [lang]);
 
-<AnimatePresence>
-        {headerVisible && (
-          <motion.header 
-            initial={{ y: -20, opacity: 0 }} 
-            animate={{ y: 0, opacity: 1 }} 
-            exit={{ y: -20, opacity: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-[40px] h-[var(--header-h)] flex items-center justify-between nav-blur py-6 md:py-8"
-          >
-            {/* LOGO À GAUCHE */}
-            <div className="flex-shrink-0">
-              <h1 className="m-0 p-0" style={{ display: 'contents' }}>
-                <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
-                  {CONTENT[lang].brand}
-                </button>
-              </h1>
-            </div>
+  // JSON-LD Structured Data
+    const structuredData = useMemo(() => {
+      return {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "dubontemps",
+        "url": "https://dubontemps.org", // URL fixe pour le SEO
+        "jobTitle": "Photographer",
+        "description": CONTENT[lang].meta.description,
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Paris",
+          "addressCountry": "FR"
+        },
+        "sameAs": [
+          "https://www.instagram.com/_dubontemps_/"
+        ]
+      };
+    }, [lang]);
 
-            {/* NAVIGATION À DROITE */}
-            <div className="flex items-baseline gap-10">
-              <nav className="hidden md:flex gap-10 items-baseline">
-                <button onClick={() => scrollTo('works-anchor')} className="brand-style opacity-40 hover:opacity-100 transition-opacity">{navData.works}</button>
-                <button onClick={() => scrollTo('index-anchor')} className="brand-style opacity-40 hover:opacity-100 transition-opacity">{navData.index}</button>
-                <button onClick={() => scrollTo('contact-anchor')} className="brand-style opacity-40 hover:opacity-100 transition-opacity">{navData.contact}</button>
-                <button onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} className="brand-style opacity-40 hover:opacity-100 transition-opacity">
-                  {lang === 'FR' ? 'en' : 'fr'}
-                </button>
-              </nav>
-              
-              <div className="md:hidden flex items-center gap-6">
-                <button onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} className="brand-style opacity-40">
-                  {lang === 'FR' ? 'en' : 'fr'}
-                </button>
-                <button onClick={() => setMobileMenuOpen(true)} className="mobile-nav-btn opacity-40">
-                  <div className="btn-line w-[22px]" /> 
-                  <div className="btn-line w-[14px]" />
-                </button>
-              </div>
-            </div>
-          </motion.header>
-        )}
-  </AnimatePresence>
+  useEffect(() => {
+      const unsubscribe = scrollY.on("change", (latest) => {
+        const heroHeight = window.innerHeight * 0.8; // Apparaît après 80% de la hauteur Hero
 
-      <main className="relative z-[5]">
+        if (latest < heroHeight) {
+          setHeaderVisible(false); // Cache sur l'image Hero
+        } else if (latest > lastScrollY) {
+          setHeaderVisible(false); // Cache au scroll down
+        } else {
+          setHeaderVisible(true);  // Apparaît au scroll up
+        }
+        setLastScrollY(latest);
+      });
+      return () => unsubscribe();
+    }, [scrollY, lastScrollY]);
 
-        <section className="sticky top-0 h-screen w-full z-0 overflow-hidden bg-white">
-          <motion.img 
-            initial={{ opacity: 0, scale: 1.05 }} 
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 2.5 }} 
-            src={CONTENT[lang].hero.url} 
-            alt={CONTENT[lang].hero.alt}
-            className="w-full h-full object-cover object-bottom" 
+    const scrollTo = (id) => {
+      setMobileMenuOpen(false);
+      const target = document.getElementById(id);
+      if (!target) return;
+
+      const header = document.querySelector('header');
+      const headerHeight = header ? header.offsetHeight : (window.innerWidth < 768 ? 64 : 84);
+      
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const targetRect = target.getBoundingClientRect().top;
+      const targetPosition = targetRect - bodyRect;
+      
+      const offsetPosition = targetPosition - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    };
+
+    const stream = CONTENT[lang].stream;
+    const indexData = CONTENT[lang].index;
+    const footerData = CONTENT[lang].footer;
+    const navData = CONTENT[lang].nav;
+    const sectionTitles = CONTENT[lang].sections;
+    const contactData = CONTENT[lang].contact;
+    const bioData = CONTENT[lang].bio;
+
+    return (
+      <div className="relative w-full bg-white">
+        <TypographyStyles />
+        
+        <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
           />
-        </section>
-<div className="relative z-10 bg-white">
-{/* LA GALERIE UNIQUE */}
-        <section className="bg-white pt-[15vh] space-y-[30vh] md:space-y-[30vh] relative" aria-labelledby="section-gallery">
-          <div id="works-anchor" className="absolute top-[-100px] left-0" aria-hidden="true" />
-          <h2 id="section-gallery" className="sr-only">{sectionTitles.gallery}</h2>
-          
-          {stream.map((item, idx) => (
-            <React.Fragment key={item.id}>
 
-  {/* Nouveau Manifeste en grand avant l'image 4 */}
-          {idx === 3 && (
+        <AnimatePresence>
+          {zoomImage && (
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.5 }}
-              viewport={{ once: true }}
-              className="w-full py-[8vh] px-6 text-center"
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              exit={{ opacity: 0 }}
+              onClick={() => setZoomImage(null)}
+              className="lightbox-overlay"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Aperçu image agrandie"
             >
-              <p className="manifesto-large">
-                {CONTENT[lang].manifesto.join(' ')}
-              </p>
+              <motion.img 
+                initial={{ scale: 0.9, opacity: 0 }} 
+                animate={{ scale: 1, opacity: 1 }} 
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                src={zoomImage} 
+                className="lightbox-img" 
+                alt="Image en plein écran"
+              />
             </motion.div>
           )}
+        </AnimatePresence>
 
-{/* L'ARTICLE IMAGE (Commun à toutes les photos) */}
-            <motion.article 
-              key={item.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, ease: "easeOut" }} viewport={{ once: true, margin: "-10%" }}
-              className={`flex flex-col px-6 md:px-0 ${item.side === 'right' ? 'md:items-end md:pr-[10%]' : 'md:items-start md:pl-[10%]'}`}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div 
+              initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="mobile-menu-overlay"
+              role="navigation"
+              aria-label="Menu principal mobile"
             >
-              <figure className="w-full md:w-[55vw] m-0 p-0">
-                <div className="flex justify-between items-end mb-6">
-                  <div className="text-meta-label">
-                    <span className="sr-only">Project</span> {`${String(idx + 1).padStart(2, '0')} / ${String(stream.length).padStart(2, '0')}`}
-                  </div>
-                  <div className="text-meta-label text-right opacity-40 uppercase tracking-widest text-[10px] md:text-[12px]">
-                    {item.tech}
-                  </div>
-                </div>
+              <div className="flex justify-between items-center h-[var(--header-h)] mb-12">
+                <button onClick={() => {setMobileMenuOpen(false); window.scrollTo({top:0, behavior:'smooth'})}} 
+                className="logo-style">
+                  {CONTENT[lang].brand}
+                </button>
+                <button onClick={() => setMobileMenuOpen(false)} 
+                  className="menu-close-button opacity-40 hover:opacity-100 transition-opacity"
+                  aria-label="Fermer le menu">
+                  <X size={24} strokeWidth={1.5} />
+                </button>
+              </div>
+              <ul className="flex flex-col gap-10 list-none p-0 m-0">
+                <li><button onClick={() => scrollTo('works-anchor')} className="brand-style text-left text-2xl opacity-40 hover:opacity-100 transition-opacity">{navData.works}</button></li>
+                <li><button onClick={() => scrollTo('index-anchor')} className="brand-style text-left text-2xl opacity-40 hover:opacity-100 transition-opacity">{navData.index}</button></li>
+                <li><button onClick={() => scrollTo('contact-anchor')} className="brand-style text-left text-2xl opacity-40 hover:opacity-100 transition-opacity">{navData.contact}</button></li>
+                <li className="flex gap-4 mt-8 pt-8 border-t border-zinc-100">
+                  <button onClick={() => setLang('FR')} className={`brand-style transition-opacity duration-300 ${lang === 'FR' ? 'opacity-100' : 'opacity-40 hover:opacity-100'}`} 
+                  aria-label="Passer en français">fr</button>
+                  <span className="opacity-10 brand-style" aria-hidden="true">/</span>
+                  <button onClick={() => setLang('EN')} className={`brand-style transition-opacity duration-300 ${lang === 'EN' ? 'opacity-100' : 'opacity-40 hover:opacity-100'}`} 
+                  aria-label="Switch to english">en</button>
+                </li>
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-                <div 
-                  className="overflow-hidden bg-zinc-50 cursor-zoom-in" 
-                  onClick={() => setZoomImage(item.url)}
-                  role="button"
-                  aria-label={`Enlarge image: ${item.caption}`}
-                  tabIndex="0"
-                  onKeyDown={(e) => e.key === 'Enter' && setZoomImage(item.url)}
-                >
-                  <motion.img 
-                    whileHover={{ scale: 1.01 }} 
-                    src={item.url} 
-                    alt={item.alt}
-                    loading="lazy"
-                    className="w-full h-auto transition-transform duration-[1500ms]" 
-                  />
-                </div>
-
-                <figcaption className="mt-8 flex flex-col">
-                  <div className="flex flex-col items-end text-right">
-                    <h2 className="text-meta-title m-0">{item.caption}</h2>
-                    <span className="text-meta-date">{item.year}</span>
-                  </div>
-                </figcaption>
-              </figure>
-            </motion.article>
-            </React.Fragment>
-          ))}
-        </section>
-
-    {/* Section Index & Collabs */}
-         <section id="index-anchor" className="relative mt-[10vh] py-28 bg-white z-[100] overflow-hidden" 
-         aria-labelledby="section-index">
-        <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
-  
-         {/* Bio alignée sur la grille */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} 
-            className="mb-12 md:mb-20 px-6 md:px-[10%] md:grid md:grid-cols-4 md:gap-x-12"
-          >
-            <div className="col-span-1">
-        <h3 className="bio-lead m-0">{bioData.lead}</h3>
+        <div className="scroll-progress-container-desktop hidden md:block" aria-hidden="true">
+          <motion.div className="scroll-progress-bar-desktop" style={{ height: '100%', scaleY: scale }} />
         </div>
 
-        {/* Colonne 2 et 3 */}
-        <div className="col-span-2 mt-8 md:mt-0">
-        <p className="bio-text m-0">{bioData.text}</p>
+        <AnimatePresence>
+          {headerVisible && (
+            <div className="scroll-progress-container-mobile md:hidden" aria-hidden="true">
+              <motion.div className="scroll-progress-bar-mobile" style={{ width: '100%', scaleX: scale }} />
+            </div>
+          )}
+        </AnimatePresence>
 
-        {/* Colonnes 4 */}
-        <div className="col-span-1 hidden md:block" />
+  <AnimatePresence>
+          {headerVisible && (
+            <motion.header 
+              initial={{ y: -20, opacity: 0 }} 
+              animate={{ y: 0, opacity: 1 }} 
+              exit={{ y: -20, opacity: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-[40px] h-[var(--header-h)] flex items-center justify-between nav-blur py-6 md:py-8"
+            >
+              {/* LOGO À GAUCHE */}
+              <div className="flex-shrink-0">
+                <h1 className="m-0 p-0" style={{ display: 'contents' }}>
+                  <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
+                    {CONTENT[lang].brand}
+                  </button>
+                </h1>
+              </div>
 
-        </div>
-          </motion.div>
-
-    {/* Grille de 4 colonnes sur desktop, Mobile "Peek-a-boo*/}
-    <div className="index-container-mobile md:grid md:grid-cols-4 md:gap-x-12 md:px-[10%]">
-    
-    {/* 01 - Collaborations */}
-    <div className="index-section-col">
-      <span className="index-num" aria-hidden="true">{indexData.collabs.num}</span>
-      <h3 className="index-label">{indexData.collabs.label}</h3>
-      <ul className="list-none p-0 m-0 space-y-6"> {/* Espacement réduit */}
-        {indexData.collabs.items.map((c, i) => (
-          <li key={i} className="w-full">
-            <p className="index-item-static m-0">{c.client}</p>
-            <p className="index-item-sub m-0">{c.role} <span className="opacity-50 ml-1">{c.date}</span></p>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    {/* 02 - Distinctions */}
-    <div className="index-section-col md:mt-12">
-      <span className="index-num" aria-hidden="true">{indexData.awards.num}</span>
-      <h3 className="index-label">{indexData.awards.label}</h3>
-      <ul className="list-none p-0 m-0 space-y-6">
-        {indexData.awards.items.map((a, i) => (
-          <li key={i}>
-            {a.url ? (
-              <a href={a.url} target="_blank" rel="noopener noreferrer" className="index-item-link">{a.label}</a>
-            ) : <p className="index-item-static m-0">{a.label}</p>}
-            <p className="index-item-sub m-0">{a.subtitle}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    {/* 03 - Expositions */}
-    <div className="index-section-col">
-      <span className="index-num" aria-hidden="true">{indexData.exhibitions.num}</span>
-      <h3 className="index-label">{indexData.exhibitions.label}</h3>
-      <ul className="list-none p-0 m-0 space-y-6">
-        {indexData.exhibitions.items.map((e, i) => (
-          <li key={i}>
-            <p className="index-item-static m-0">{e.label}</p>
-            <p className="index-item-sub m-0">{e.subtitle}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    {/* 04 - Parutions */}
-    <div className="index-section-col md:mt-12">
-      <span className="index-num" aria-hidden="true">{indexData.publications.num}</span>
-      <h3 className="index-label">{indexData.publications.label}</h3>
-      <ul className="list-none p-0 m-0 flex flex-col gap-y-3 max-w-lg"> 
-        {indexData.publications.items.map((p, i) => (
-          <li key={i}>
-            {p.url ? (
-              <a href={p.url} target="_blank" rel="noopener noreferrer" className="index-item-link">
-                {p.name}
-              </a>
-            ) : (
-              <span className="index-item-static">
-                {p.name}
-              </span>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
-    
-  </div>
-</section> 
-     {/* CONTACT & FOOTER */}
-        <section id="contact-anchor" className="relative w-full bg-white mt-[30vh] pt-8 pb-10">
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-            
-            <div className="px-6 md:px-[10%] grid grid-cols-1 md:grid-cols-4 md:gap-x-12">
-              <div className="col-span-1 md:col-span-3">
-
+              {/* NAVIGATION À DROITE */}
+              <div className="flex items-baseline gap-10">
+                <nav className="hidden md:flex gap-10 items-baseline">
+                  <button onClick={() => scrollTo('works-anchor')} className="brand-style ">{navData.works}</button>
+                  <button onClick={() => scrollTo('index-anchor')} className="brand-style ">{navData.index}</button>
+                  <button onClick={() => scrollTo('contact-anchor')} className="brand-style">{navData.contact}</button>
+                  <button onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} className="brand-style">
+                    {lang === 'FR' ? 'en' : 'fr'}
+                  </button>
+                </nav>
                 
-                  <h3 className="contact-title">{contactData.title}</h3>
-             
-
-                <form onSubmit={handleFormSubmit} className="flex flex-col w-full m-0 p-0">
-                  <input type="text" name="_gotcha" style={{ display: "none" }} />
-                  <textarea 
-                    name="message" required placeholder={contactData.placeholderMsg} 
-                    className="contact-input contact-textarea mb-2"
-                  />
-                  <input 
-                    type="email" name="email" required placeholder={contactData.placeholderEmail} 
-                    className="contact-input m-0" 
-                  />
-                  
-                  <div className="mt-4 flex justify-end"> 
-                    {!formStatus ? (
-                      <button type="submit" className="contact-submit brand-style h-[18px] flex items-center" disabled={isSubmitting}>
-                        {isSubmitting ? contactData.sending : contactData.submit}
-                      </button>
-                    ) : (
-                      <span className="brand-style opacity-40 italic h-[18px] flex items-center">
-                        {formStatus === 'success' ? contactData.success : contactData.error}
-                      </span>
-                    )}
-                  </div>
-                </form>
+                <div className="md:hidden flex items-center gap-6">
+                  <button onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} className="brand-style">
+                    {lang === 'FR' ? 'en' : 'fr'}
+                  </button>
+                  <button onClick={() => setMobileMenuOpen(true)} className="mobile-nav-btn">
+                    <div className="btn-line w-[22px]" /> 
+                    <div className="btn-line w-[14px]" />
+                  </button>
+                </div>
               </div>
-            </div>
+            </motion.header>
+          )}
+    </AnimatePresence>
 
-           <div className="mt-20 pt-6 px-6 md:px-[40px] flex flex-col md:flex-row justify-between items-end md:items-center gap-4">
-              <div className="flex gap-8 items-center">
-               <a href="https://www.instagram.com/_dubontemps_/" target="_blank" className="brand-style leading-none">
-                  {contactData.instagram}
-                </a> 
-                <span className="brand-style cursor-wait leading-none">
-                  {contactData.portfolio}
-                </span>
-              </div>
-                <p className="footer-mention m-0">
-                © {new Date().getFullYear()} {CONTENT[lang].brand} . {footerData.location}
+        <main className="relative z-[5]">
+
+          <section className="sticky top-0 h-screen w-full z-0 overflow-hidden bg-white">
+            <motion.img 
+              initial={{ opacity: 0, scale: 1.05 }} 
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2.5 }} 
+              src={CONTENT[lang].hero.url} 
+              alt={CONTENT[lang].hero.alt}
+              className="w-full h-full object-cover object-bottom" 
+            />
+          </section>
+  <div className="relative z-10 bg-white">
+  {/* LA GALERIE UNIQUE */}
+          <section className="bg-white pt-[15vh] space-y-[30vh] md:space-y-[30vh] relative" aria-labelledby="section-gallery">
+            <div id="works-anchor" className="absolute top-[-100px] left-0" aria-hidden="true" />
+            <h2 id="section-gallery" className="sr-only">{sectionTitles.gallery}</h2>
+            
+            {stream.map((item, idx) => (
+              <React.Fragment key={item.id}>
+
+    {/* Nouveau Manifeste en grand avant l'image 4 */}
+            {idx === 3 && (
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.5 }}
+                viewport={{ once: true }}
+                className="w-full py-0 px-6 text-center"
+              >
+                <p className="manifesto-large">
+                  {CONTENT[lang].manifesto.join(' ')}
                 </p>
-            </div>
-    </motion.div>
-   </section>
-   </div>
- </main>
-</div>
-);
-}
+              </motion.div>
+            )}
+
+  {/* L'ARTICLE IMAGE (Commun à toutes les photos) */}
+              <motion.article 
+                key={item.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: "easeOut" }} viewport={{ once: true, margin: "-10%" }}
+                className={`flex flex-col px-6 md:px-0 ${item.side === 'right' ? 'md:items-end md:pr-[10%]' : 'md:items-start md:pl-[10%]'}`}
+              >
+                <figure className="w-full md:w-[55vw] m-0 p-0">
+                  <div className="flex justify-between items-end mb-6">
+                    <div className="text-meta-label">
+                      <span className="sr-only">Project</span> {`${String(idx + 1).padStart(2, '0')} / ${String(stream.length).padStart(2, '0')}`}
+                    </div>
+                    <div className="text-meta-label text-right opacity-40 uppercase tracking-widest text-[10px] md:text-[12px]">
+                      {item.tech}
+                    </div>
+                  </div>
+
+                  <div 
+                    className="overflow-hidden bg-zinc-50 cursor-zoom-in" 
+                    onClick={() => setZoomImage(item.url)}
+                    role="button"
+                    aria-label={`Enlarge image: ${item.caption}`}
+                    tabIndex="0"
+                    onKeyDown={(e) => e.key === 'Enter' && setZoomImage(item.url)}
+                  >
+                    <motion.img 
+                      whileHover={{ scale: 1.01 }} 
+                      src={item.url} 
+                      alt={item.alt}
+                      loading="lazy"
+                      className="w-full h-auto transition-transform duration-[1500ms]" 
+                    />
+                  </div>
+
+                  <figcaption className="mt-8 flex flex-col">
+                    <div className="flex flex-col items-end text-right">
+                      <h2 className="text-meta-title m-0">{item.caption}</h2>
+                      <span className="text-meta-date">{item.year}</span>
+                    </div>
+                  </figcaption>
+                </figure>
+              </motion.article>
+              </React.Fragment>
+            ))}
+          </section>
+
+      {/* Section Index & Collabs */}
+          <section id="index-anchor" className="relative mt-[10vh] py-28 bg-white z-[100] overflow-hidden" 
+          aria-labelledby="section-index">
+          <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
+    
+          {/* Bio alignée sur la grille */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} 
+              className="mb-12 md:mb-20 px-6 md:px-[10%] md:grid md:grid-cols-4 md:gap-x-12"
+            >
+              <div className="col-span-1">
+          <h3 className="bio-lead m-0">{bioData.lead}</h3>
+          </div>
+
+          {/* Colonne 2 et 3 */}
+          <div className="col-span-2 mt-8 md:mt-0">
+          <p className="bio-text m-0">{bioData.text}</p>
+
+          {/* Colonnes 4 */}
+          <div className="col-span-1 hidden md:block" />
+
+          </div>
+            </motion.div>
+
+      {/* Grille 4 colonnes Desktop, Mobile Slider */}
+      <div className="index-container-mobile md:grid md:grid-cols-4 md:gap-x-12 md:px-[10%]">
+      
+      {/* 01 - Collaborations */}
+      <div className="index-section-col">
+        <span className="index-num" aria-hidden="true">{indexData.collabs.num}</span>
+        <h3 className="index-label">{indexData.collabs.label}</h3>
+        <ul className="list-none p-0 m-0 space-y-6"> {/* Espacement réduit */}
+          {indexData.collabs.items.map((c, i) => (
+            <li key={i} className="w-full">
+              <p className="index-item-static m-0">{c.client}</p>
+              <p className="index-item-sub m-0">{c.role} <span className="opacity-50 ml-1">{c.date}</span></p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* 02 - Distinctions */}
+      <div className="index-section-col md:mt-12">
+        <span className="index-num" aria-hidden="true">{indexData.awards.num}</span>
+        <h3 className="index-label">{indexData.awards.label}</h3>
+        <ul className="list-none p-0 m-0 space-y-6">
+          {indexData.awards.items.map((a, i) => (
+            <li key={i}>
+              {a.url ? (
+                <a href={a.url} target="_blank" rel="noopener noreferrer" className="index-item-link">{a.label}</a>
+              ) : <p className="index-item-static m-0">{a.label}</p>}
+              <p className="index-item-sub m-0">{a.subtitle}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* 03 - Expositions */}
+      <div className="index-section-col">
+        <span className="index-num" aria-hidden="true">{indexData.exhibitions.num}</span>
+        <h3 className="index-label">{indexData.exhibitions.label}</h3>
+        <ul className="list-none p-0 m-0 space-y-6">
+          {indexData.exhibitions.items.map((e, i) => (
+            <li key={i}>
+              <p className="index-item-static m-0">{e.label}</p>
+              <p className="index-item-sub m-0">{e.subtitle}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* 04 - Parutions */}
+      <div className="index-section-col md:mt-12">
+        <span className="index-num" aria-hidden="true">{indexData.publications.num}</span>
+        <h3 className="index-label">{indexData.publications.label}</h3>
+        <ul className="list-none p-0 m-0 flex flex-col gap-y-3 max-w-lg"> 
+          {indexData.publications.items.map((p, i) => (
+            <li key={i}>
+              {p.url ? (
+                <a href={p.url} target="_blank" rel="noopener noreferrer" className="index-item-link">
+                  {p.name}
+                </a>
+              ) : (
+                <span className="index-item-static">
+                  {p.name}
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+    </div>
+  </section> 
+      {/* CONTACT & FOOTER */}
+          <section id="contact-anchor" className="relative w-full bg-white mt-[30vh] pt-8 pb-10">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+              
+              <div className="px-6 md:px-[10%] grid grid-cols-1 md:grid-cols-4 md:gap-x-12">
+                <div className="col-span-1 md:col-span-3">
+
+                  
+                    <h3 className="contact-title">{contactData.title}</h3>
+              
+
+                  <form onSubmit={handleFormSubmit} className="flex flex-col w-full m-0 p-0">
+                    <input type="text" name="_gotcha" style={{ display: "none" }} />
+                    <textarea 
+                      name="message" required placeholder={contactData.placeholderMsg} 
+                      className="contact-input contact-textarea mb-2"
+                    />
+                    <input 
+                      type="email" name="email" required placeholder={contactData.placeholderEmail} 
+                      className="contact-input m-0" 
+                    />
+                    
+                    <div className="mt-4 flex justify-end"> 
+                      {!formStatus ? (
+                        <button type="submit" className="contact-submit brand-style h-[18px] flex items-center" disabled={isSubmitting}>
+                          {isSubmitting ? contactData.sending : contactData.submit}
+                        </button>
+                      ) : (
+                        <span className="brand-style opacity-40 italic h-[18px] flex items-center">
+                          {formStatus === 'success' ? contactData.success : contactData.error}
+                        </span>
+                      )}
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+            <div className="mt-20 pt-6 px-6 md:px-[40px] flex flex-col md:flex-row justify-between items-end md:items-center gap-4">
+                <div className="flex gap-8 items-center">
+                <a href="https://www.instagram.com/_dubontemps_/" target="_blank" className="brand-style leading-none">
+                    {contactData.instagram}
+                  </a> 
+                  <span className="brand-style cursor-wait leading-none">
+                    {contactData.portfolio}
+                  </span>
+                </div>
+                  <p className="footer-mention m-0">
+                  © {new Date().getFullYear()} {CONTENT[lang].brand} . {footerData.location}
+                  </p>
+              </div>
+      </motion.div>
+    </section>
+    </div>
+  </main>
+  </div>
+  );
+  }
 
