@@ -307,7 +307,7 @@ const TypographyStyles = () => (
     }
     html, body {
       max-width: 100%;
-      overflow-x: hidden;
+      overflow-x: clip;
       position: relative;
     }
     a, button {
@@ -350,7 +350,7 @@ const TypographyStyles = () => (
       color: var(--ink);
       padding: 0;
       line-height: 1; 
-      text-transform: lowercase;
+      text-transform: uppercase;
       transition: color 0.4s ease, transform 0.3s ease;
       margin-top: 0; 
       }
@@ -432,7 +432,7 @@ const TypographyStyles = () => (
     color: var(--ink);
     text-align: center; 
     max-width: 90%; 
-    margin: 0;
+    margin: 0 auto;
     letter-spacing: -0.02em;
     }
     .bio-lead {
@@ -443,14 +443,12 @@ const TypographyStyles = () => (
       line-height: 1.8;
       color: var(--ink);
       margin-bottom: 2rem;
-      max-width: 48ch;
     }
     .bio-text {
       font-size: 13px;
       line-height: 2;
       font-weight: 300;
       color: var(--ink);
-      max-width: 55ch;
       opacity: 0.7;
     }
     .index-num { 
@@ -1026,7 +1024,7 @@ const TypographyStyles = () => (
           </section>
   <div className="relative z-10 bg-white">
   {/* LA GALERIE UNIQUE */}
-          <section className="bg-white pt-[15vh] space-y-[30vh] md:space-y-[30vh] relative" aria-labelledby="section-gallery">
+          <section className="bg-white pt-[30vh] space-y-[30vh] md:space-y-[30vh] relative" aria-labelledby="section-gallery">
             <div id="works-anchor" className="absolute top-[-100px] left-0" aria-hidden="true" />
             <h2 id="section-gallery" className="sr-only">{sectionTitles.gallery}</h2>
             
