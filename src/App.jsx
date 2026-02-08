@@ -302,7 +302,7 @@ const TypographyStyles = () => (
       font-family: var(--sans);
       -webkit-font-smoothing: antialiased;
       margin: 0;
-      overflow-x: hidden;
+      overflow-x: clip;
       position: relative; 
     }
     html, body {
@@ -1014,7 +1014,8 @@ const TypographyStyles = () => (
 
         <main className="relative z-[5] w-full overflow-x-hidden">
 
-            <section className="sticky top-0 h-screen w-full max-w-full z-0 overflow-hidden bg-white">                <motion.img 
+            <section className="sticky top-0 h-screen w-full max-w-full z-0 bg-white pointer-events-none">              
+           <motion.img 
               initial={{ opacity: 0, scale: 1.05 }} 
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 2.5 }} 
