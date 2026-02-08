@@ -284,6 +284,8 @@ const TypographyStyles = () => (
 
     :root {
       --bg-white: #FFFFFF;
+      --bg-off-white: #F9F9F9;
+      --border-light: #F0F0F0;
       --ink: #111111;
       --ink-soft: #555555; 
       --accent: #97A9B4;
@@ -501,6 +503,23 @@ const TypographyStyles = () => (
       margin-top: 4px; 
       line-height: 1.3;
     }
+   .bento-tile {
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.6s ease;
+      height: 100%;
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .bento-tile:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.03);
+      }
+    .bg-index-gradient {
+      background: linear-gradient(to bottom, var(--bg-white) 0%, var(--bg-off-white) 100%);
+    }
     .lightbox-overlay {
       position: fixed;
       top: 0;
@@ -550,15 +569,7 @@ const TypographyStyles = () => (
       margin-bottom: 4rem;
       text-transform: lowercase;
       letter-spacing: -0.06em;
-}
-      @media (min-width: 768px) {
-      .manifesto-large {
-        font-size: 20px; line-height: 1.8;
-        font-weight: 500; color: var(--ink); text-align: center; 
-        max-width: 60%; letter-spacing: -0.02em;
-        }
-        #contact-anchor form { max-width: 100%; }
-      }
+    }
       .contact-input {
       width: 100%; 
       max-width: 100%;
@@ -601,6 +612,10 @@ const TypographyStyles = () => (
       opacity: 0.3;
       cursor: wait;
     }
+    @media (min-width: 768px) {
+      .manifesto-large { font-size: 20px; line-height: 1.8; max-width: 60%; letter-spacing: -0.02em; text-align: center; font-weight: 500; color: var(--ink);  }
+      #contact-anchor form { max-width: 100%; }
+       }
     @media (max-width: 768px) {
       :root {
         --feed-margin-v: 24px;
@@ -644,43 +659,41 @@ const TypographyStyles = () => (
     .menu-close-button svg {
       pointer-events: none; 
     }
-    .index-container-mobile {
-        display: flex;                 /* Force le mode ligne pour le slider */
+    .bento-tile { padding: 32px 24px; 
+    }
+    .index-slider-mobile {
+        display: flex;                 
         overflow-x: auto;
-        overflow-y: hidden;
-        width: 100vw;
-        position: relative;
-        left: 0;
         scroll-snap-type: x mandatory;
-        scroll-padding-left: 6vw;      /* LA règle clé : aligne le snap sur le logo */
-        padding-right: 20vw;           /* Laisse respirer après la dernière colonne */
-        gap: 0;                        /* On gère l'espace via le padding des colonnes */
+        padding-bottom: 2rem;
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
-    }
-    .index-container-mobile::-webkit-scrollbar {
-        display: none;
+        overflow-y: hidden;
+        padding-right: 24px;                               
       }
-    .index-section-col {
-        flex-shrink: 0;                /* Empêche les colonnes de s'écraser */
-        scroll-snap-align: start;      /* S'aimante à gauche sur la ligne des 6vw */
-        padding-right: 10vw;           /* Espace entre les colonnes */
-        box-sizing: border-box;
-        }
-        /* Colonne 1 : Large (65% de l'écran + 6% de marge = 71%) Laisse voir ~25-30% de la colonne suivante */
-    .index-section-col:first-child {
+    .index-slider-mobile::-webkit-scrollbar { display: none; 
+      }
+    .index-slider-mobile::before { content: "";
+    flex: 0 0 24px; /* Aligné sur ton padding px-6 */
+      }
+    .bento-col-mobile {
+        flex-shrink: 0; 
+        box-sizing: border-box;   
+        scroll-snap-align: center;  
+        margin-right: 16px;  
         flex: 0 0 65vw; 
-        max-width: 65vw;
-        margin-left: 6vw;              /* Aligne la 1ère colonne au démarrage */
-        }
-    .index-section-col p {
-        white-space: normal; /* Force le retour à la ligne */
+    }
+    .bento-col-mobile:first-child { flex: 0 0 70vw; 
+      }
+    .bento-col-mobile:last-child {flex: 0 0 60vw;
+      }
+    .bento-col-mobile p {
+        white-space: normal; /* retour à la ligne */
         overflow-wrap: break-word; /* Coupe les mots trop longs si besoin */
-        }
-        /* Colonnes 2, 3 et 4 : Plus étroites */
-    .index-section-col:not(:first-child) {
-        min-width: 45vw;
-        }
+     }
+    .bg-index-gradient {
+     background: linear-gradient(to bottom, var(--bg-white) 0%, var(--bg-off-white) 100%);
+     }   
     #contact-anchor { width: 100%; overflow-x: hidden; 
       }
     #contact-anchor form {
@@ -1070,102 +1083,103 @@ const TypographyStyles = () => (
             ))}
           </section>
 
-      {/* Section Index & Collabs */}
-          <section id="index-anchor" className="relative mt-[10vh] py-28 bg-white z-[100] overflow-hidden" 
-          aria-labelledby="section-index">
-          <h2 id="section-index" className="sr-only">{sectionTitles.index}</h2>
-    
-          {/* Bio alignée sur la grille */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} 
-              className="mb-12 md:mb-20 px-6 md:px-[10%] md:grid md:grid-cols-4 md:gap-x-12"
-            >
-              <div className="col-span-1">
-          <h3 className="bio-lead m-0">{bioData.lead}</h3>
-          </div>
+          {/* Index & Contact Combined */}
+          <div className="bg-index-gradient pt-[20vh]">
+            
+            {/* Bento Index */}
+            <section id="index-anchor" className="px-0 md:px-[10%] mb-[20vh]">
+              <div className="hidden md:grid grid-cols-4 gap-6 grid-rows-[auto_auto_auto]">
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="col-span-3">
+                  <div className="bento-tile">
+                    <h3 className="bio-lead">{bioData.lead}</h3>
+                    <p className="bio-text">{bioData.text}</p>
+                  </div>
+                </motion.div>
 
-          {/* Colonne 2 et 3 */}
-          <div className="col-span-2 mt-8 md:mt-0">
-          <p className="bio-text m-0">{bioData.text}</p>
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="col-start-4 row-span-2">
+                  <div className="bento-tile">
+                    <span className="index-num">01</span><h4 className="index-label">{indexData.collabs.label}</h4>
+                    <ul className="list-none p-0 space-y-8">
+                      {indexData.collabs.items.map((c, i) => (
+                        <li key={i}><p className="index-item-static m-0">{c.client}</p><p className="index-item-sub m-0">{c.role} — {c.date}</p></li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
 
-          {/* Colonnes 4 */}
-          <div className="col-span-1 hidden md:block" />
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="col-span-2">
+                  <div className="bento-tile">
+                    <span className="index-num">02</span><h4 className="index-label">{indexData.awards.label}</h4>
+                    <div className="grid grid-cols-2 gap-x-8 gap-y-12">
+                      <div className="flex flex-col gap-12">
+                        {indexData.awards.items.slice(0, 2).map((a, i) => (
+                          <div key={i}><p className="index-item-static m-0">{a.label}</p><p className="index-item-sub m-0">{a.subtitle}</p></div>
+                        ))}
+                      </div>
+                      <div className="flex flex-col gap-12">
+                        <div><p className="index-item-static m-0">{indexData.awards.items[2].label}</p><p className="index-item-sub m-0">{indexData.awards.items[2].subtitle}</p></div>
+                        <div className="opacity-10 border-t border-dashed border-black mt-2 pt-2"><p className="text-xs uppercase tracking-widest font-semibold">Award imminent</p></div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
 
-          </div>
-            </motion.div>
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="col-span-1">
+                  <div className="bento-tile">
+                    <span className="index-num">03</span><h4 className="index-label">{indexData.exhibitions.label}</h4>
+                    <ul className="list-none p-0 space-y-8">
+                      {indexData.exhibitions.items.map((e, i) => (
+                        <li key={i}><p className="index-item-static m-0">{e.label}</p><p className="index-item-sub m-0">{e.subtitle}</p></li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
 
-      {/* Grille 4 colonnes Desktop, Mobile Slider */}
-      <div className="index-container-mobile md:grid md:grid-cols-4 md:gap-x-12 md:px-[10%]">
-      
-      {/* 01 - Collaborations */}
-      <div className="index-section-col">
-        <span className="index-num" aria-hidden="true">{indexData.collabs.num}</span>
-        <h3 className="index-label">{indexData.collabs.label}</h3>
-        <ul className="list-none p-0 m-0 space-y-6"> {/* Espacement réduit */}
-          {indexData.collabs.items.map((c, i) => (
-            <li key={i} className="w-full">
-              <p className="index-item-static m-0">{c.client}</p>
-              <p className="index-item-sub m-0">{c.role} <span className="opacity-50 ml-1">{c.date}</span></p>
-            </li>
-          ))}
-        </ul>
-      </div>
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="col-span-4">
+                  <div className="bento-tile">
+                    <span className="index-num">04</span><h4 className="index-label">{indexData.publications.label}</h4>
+                    <ul className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-4 list-none p-0">
+                      {indexData.publications.items.map((p, i) => (
+                        <li key={i}>
+                          {p.url ? <a href={p.url} target="_blank" rel="noreferrer" className="index-item-link">{p.name}</a> : <span className="index-item-static">{p.name}</span>}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              </div>
 
-      {/* 02 - Distinctions */}
-      <div className="index-section-col md:mt-12">
-        <span className="index-num" aria-hidden="true">{indexData.awards.num}</span>
-        <h3 className="index-label">{indexData.awards.label}</h3>
-        <ul className="list-none p-0 m-0 space-y-6">
-          {indexData.awards.items.map((a, i) => (
-            <li key={i}>
-              {a.url ? (
-                <a href={a.url} target="_blank" rel="noopener noreferrer" className="index-item-link">{a.label}</a>
-              ) : <p className="index-item-static m-0">{a.label}</p>}
-              <p className="index-item-sub m-0">{a.subtitle}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+              {/* Mobile Layout */}
+              <div className="md:hidden">
+                <div className="px-6 mb-4">
+                   <div className="bento-tile">
+                      <h3 className="bio-lead">{bioData.lead}</h3>
+                      <p className="bio-text">{bioData.text}</p>
+                   </div>
+                </div>
+                <div className="index-slider-mobile">
+                   {['collabs', 'awards', 'exhibitions', 'publications'].map((key, idx) => (
+                     <div className="bento-col-mobile" key={key}>
+                        <div className="bento-tile">
+                          <span className="index-num">0{idx + 1}</span>
+                          <h4 className="index-label">{indexData[key].label}</h4>
+                          <ul className={`list-none p-0 ${key === 'publications' ? 'space-y-4' : 'space-y-8'}`}>
+                            {indexData[key].items.map((item, i) => (
+                              <li key={i}>
+                                <p className="index-item-static m-0">{item.client || item.label || item.name}</p>
+                                <p className="index-item-sub m-0 text-xs">{item.role || item.subtitle}</p>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                     </div>
+                   ))}
+                </div>
+              </div>
+            </section>
 
-      {/* 03 - Expositions */}
-      <div className="index-section-col">
-        <span className="index-num" aria-hidden="true">{indexData.exhibitions.num}</span>
-        <h3 className="index-label">{indexData.exhibitions.label}</h3>
-        <ul className="list-none p-0 m-0 space-y-6">
-          {indexData.exhibitions.items.map((e, i) => (
-            <li key={i}>
-              <p className="index-item-static m-0">{e.label}</p>
-              <p className="index-item-sub m-0">{e.subtitle}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* 04 - Parutions */}
-      <div className="index-section-col md:mt-12">
-        <span className="index-num" aria-hidden="true">{indexData.publications.num}</span>
-        <h3 className="index-label">{indexData.publications.label}</h3>
-        <ul className="list-none p-0 m-0 flex flex-col gap-y-3 max-w-lg"> 
-          {indexData.publications.items.map((p, i) => (
-            <li key={i}>
-              {p.url ? (
-                <a href={p.url} target="_blank" rel="noopener noreferrer" className="index-item-link">
-                  {p.name}
-                </a>
-              ) : (
-                <span className="index-item-static">
-                  {p.name}
-                </span>
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
-      
-    </div>
-  </section> 
       {/* CONTACT & FOOTER */}
-          <section id="contact-anchor" className="relative w-full bg-white mt-[30vh] pt-8 pb-10">
+          <section id="contact-anchor" className="relative w-full mt-[20vh] pt-8 pb-10">
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
               
               <div className="px-6 md:px-[10%] grid grid-cols-1 md:grid-cols-4 md:gap-x-12">
@@ -1216,6 +1230,7 @@ const TypographyStyles = () => (
               </div>
       </motion.div>
     </section>
+    </div>
     </div>
   </main>
   </div>
