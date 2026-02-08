@@ -669,30 +669,33 @@ const TypographyStyles = () => (
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
         overflow-y: hidden;
-        padding-right: 24px;                               
+        padding-right: 24px;    
+        padding-left: 24px; 
+        scroll-padding-left: 24px;
+        width: 100%;
+        box-sizing: border-box;                           
       }
     .index-slider-mobile::-webkit-scrollbar { display: none; 
-      }
-    .index-slider-mobile::before { content: "";
-    flex: 0 0 24px; /* Aligné sur ton padding px-6 */
       }
     .bento-col-mobile {
         flex-shrink: 0; 
         box-sizing: border-box;   
-        scroll-snap-align: center;  
+        scroll-snap-align: start;  
         margin-right: 16px;  
-        flex: 0 0 65vw; 
+        flex: 0 0 80%; 
     }
-    .bento-col-mobile:first-child { flex: 0 0 70vw; 
-      }
-    .bento-col-mobile:last-child {flex: 0 0 60vw;
-      }
+    .bento-col-mobile:nth-child(1) { flex: 0 0 80%; } 
+    .bento-col-mobile:nth-child(2) { flex: 0 0 70%; } 
+    .bento-col-mobile:nth-child(3) { flex: 0 0 70%; } 
+    .bento-col-mobile:nth-child(4) { flex: 0 0 70%; } 
+
     .bento-col-mobile p {
         white-space: normal; /* retour à la ligne */
         overflow-wrap: break-word; /* Coupe les mots trop longs si besoin */
      }
     .bg-index-gradient {
      background: linear-gradient(to bottom, var(--bg-white) 0%, var(--bg-off-white) 100%);
+     overflow: hidden;
      }   
     #contact-anchor { width: 100%; overflow-x: hidden; 
       }
@@ -1004,7 +1007,7 @@ const TypographyStyles = () => (
 
         <main className="relative z-[5]">
 
-          <section className="sticky top-0 h-screen w-full z-0 overflow-hidden bg-white">
+          <section className="sticky top-0 h-screen w-[100%] z-0 overflow-hidden bg-white">
             <motion.img 
               initial={{ opacity: 0, scale: 1.05 }} 
               animate={{ opacity: 1, scale: 1 }}
