@@ -370,19 +370,20 @@ body::-webkit-scrollbar { display: none;
 
     .brand-style:hover { color: var(--accent); }
 
-    .nav-title {
-      font-family: var(--serif);
-      font-size: clamp(24px, 4vw, 42px); 
-      font-weight: 400; 
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      background: none;
-      border: none;
-      color: var(--ink);
-      padding: 0;
-      transition: color 0.5s ease;
-      text-transform: lowercase; 
-    }
+      .nav-title {
+        font-family: var(--sans);
+        font-size: 18px;
+        font-weight: 300; 
+        text-transform: uppercase;
+        line-height: 1;
+        letter-spacing: 0.1em;
+        transition: color 0.4s ease;
+        background: none; /* Sécurité pour éviter le fond noir */
+        border: none;
+        padding: 0;
+        color: var(--ink);
+        transition: color 0.5s ease;
+      }
     .nav-title:hover { color: var(--accent); }
 
     .menu-btn-plus {
@@ -615,7 +616,7 @@ body::-webkit-scrollbar { display: none;
     @media (max-width: 768px) {
       :root {
         --feed-margin-v: 24px;
-        --header-h: 64px;
+        --header-h: 80px;
       }
     .logo-style { font-size: 24px; }
 
@@ -869,7 +870,7 @@ body::-webkit-scrollbar { display: none;
         </AnimatePresence>
 
   {/* 1. BOUTON + (Fixe en haut à droite) */}
-    <div className="fixed top-0 left-0 w-full z-[5100] px-6 md:px-[10%] h-[var(--header-h)] flex items-center justify-end pointer-events-none">
+    <div className="fixed top-0 inset-x-0 z-[5100] px-6 md:px-[10%] h-[var(--header-h)] flex items-center justify-end pointer-events-none">
     <motion.button 
       onClick={() => setIsMenuOpen(!isMenuOpen)} 
       animate={{ 
@@ -906,42 +907,37 @@ body::-webkit-scrollbar { display: none;
 {/* 3. LE NOUVEAU MENU OVERLAY (Navigation Typographique) */}
 <AnimatePresence>
   {isMenuOpen && (
-    <div className="fixed inset-0 z-[5050]">
-       {/* Fond blanc léger pour focus sur le texte */}
-       <motion.div 
-         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-         onClick={() => setIsMenuOpen(false)} 
-         className="absolute inset-0 bg-white/95 backdrop-blur-sm" 
-       />
+    <div className="fixed inset-0 z-[4040]">
+       {/* Fond avec léger flou */}
+       <div onClick={() => setIsMenuOpen(false)} className="absolute inset-0 bg-white/20 backdrop-blur-[2px]" />
        
-       <div className="absolute inset-0 flex flex-col items-center justify-center gap-8 md:gap-12 pointer-events-auto">
+       {/* Liste des liens alignés à droite */}
+       <div className="absolute top-[calc(var(--header-h)*1.2)] right-6 md:right-[10%] flex flex-col items-end gap-10 md:gap-14 pointer-events-auto">
           {[
-            { id: 'works-anchor', text: navData.works.title || navData.works },
-            { id: 'index-anchor', text: navData.index.title || navData.index },
-            { id: 'contact-anchor', text: navData.contact.title || navData.contact },
+            { id: 'works-anchor', text: navData.works },
+            { id: 'index-anchor', text: navData.index },
+            { id: 'contact-anchor', text: navData.contact },
+            { id: 'lang-switch', text: navData.lang, isLang: true }
           ].map((item, i) => (
             <motion.button
-              key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              transition={{ delay: i * 0.1, ...smoothSpring }}
-              onClick={() => scrollTo(item.id)}
-              className="nav-title"
+              key={i}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 10 }}
+              transition={{ duration: 0.8, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              onClick={() => {
+                if (item.isLang) {
+                  setLang(l => l === 'FR' ? 'EN' : 'FR');
+                } else {
+                  scrollTo(item.id);
+                }
+                setIsMenuOpen(false);
+              }}
+              className={`nav-title ${item.isLang ? 'mt-8 opacity-30 tracking-normal normal-case text-sm' : ''}`}
             >
               {item.text}
             </motion.button>
           ))}
-
-          {/* Switch de langue séparé en bas */}
-          <motion.button
-            initial={{ opacity: 0 }} animate={{ opacity: 0.4 }} exit={{ opacity: 0 }}
-            transition={{ delay: 0.4 }}
-            onClick={() => { setLang(l => l === 'FR' ? 'EN' : 'FR'); setIsMenuOpen(false); }}
-            className="mt-12 font-sans text-sm italic tracking-widest hover:opacity-100 transition-opacity"
-          >
-            {lang === 'FR' ? 'english' : 'français'}
-          </motion.button>
        </div>
     </div>
   )}
