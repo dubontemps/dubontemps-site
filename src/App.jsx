@@ -930,7 +930,7 @@ body::-webkit-scrollbar { display: none;
               animate={{ y: 0, opacity: 1 }} 
               exit={{ y: -20, opacity: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-[40px] h-[var(--header-h)] flex items-center justify-between nav-blur py-6 md:py-8"
+              className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-[10%] h-[var(--header-h)] flex items-center justify-between nav-blur py-6 md:py-8"
             >
               {/* LOGO À GAUCHE */}
               <div className="flex-shrink-0">
@@ -1065,7 +1065,12 @@ body::-webkit-scrollbar { display: none;
                     <span className="index-num">01</span><h4 className="index-label">{indexData.collabs.label}</h4>
                     <ul className="list-none p-0 space-y-8">
                       {indexData.collabs.items.map((c, i) => (
-                        <li key={i}><p className="index-item-static m-0">{c.client}</p><p className="index-item-sub m-0">{c.role} — {c.date}</p></li>
+                        <li key={i}>
+                          {c.url ? (
+                            <a href={c.url} target="_blank" rel="noreferrer" className="index-item-link m-0">{c.client}</a> ) : (
+                            <p className="index-item-static m-0">{c.client}</p> )}
+                          <p className="index-item-sub m-0">{c.role} — {c.date}</p>
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -1077,7 +1082,12 @@ body::-webkit-scrollbar { display: none;
                     <div className="grid grid-cols-2 gap-x-8 gap-y-12">
                       <div className="flex flex-col gap-12">
                         {indexData.awards.items.slice(0, 2).map((a, i) => (
-                          <div key={i}><p className="index-item-static m-0">{a.label}</p><p className="index-item-sub m-0">{a.subtitle}</p></div>
+                          <div key={i}>
+                            {a.url ? (
+                              <a href={a.url} target="_blank" rel="noreferrer" className="index-item-link m-0">{a.label}</a> ) : (
+                              <p className="index-item-static m-0">{a.label}</p>  )}
+                            <p className="index-item-sub m-0">{a.subtitle}</p>
+                          </div>
                         ))}
                       </div>
                       <div className="flex flex-col gap-12">
@@ -1093,7 +1103,12 @@ body::-webkit-scrollbar { display: none;
                     <span className="index-num">03</span><h4 className="index-label">{indexData.exhibitions.label}</h4>
                     <ul className="list-none p-0 space-y-8">
                       {indexData.exhibitions.items.map((e, i) => (
-                        <li key={i}><p className="index-item-static m-0">{e.label}</p><p className="index-item-sub m-0">{e.subtitle}</p></li>
+                        <li key={i}>
+                          {e.url ? (
+                            <a href={e.url} target="_blank" rel="noreferrer" className="index-item-link m-0">{e.label}</a>   ) : (
+                            <p className="index-item-static m-0">{e.label}</p>  )}
+                          <p className="index-item-sub m-0">{e.subtitle}</p>
+                        </li>
                       ))}
                     </ul>
                   </div>
