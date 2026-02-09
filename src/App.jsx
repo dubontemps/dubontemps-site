@@ -372,12 +372,16 @@ body::-webkit-scrollbar { display: none;
 
     .nav-title {
       font-family: var(--serif);
-      font-size: clamp(24px, 4vw, 42px); /* Plus grand et élégant */
+      font-size: clamp(24px, 4vw, 42px); 
       font-weight: 400; 
       line-height: 1.1;
       letter-spacing: -0.03em;
+      background: none;
+      border: none;
+      color: var(--ink);
+      padding: 0;
       transition: color 0.5s ease;
-      text-transform: lowercase; /* Style plus organique */
+      text-transform: lowercase; 
     }
     .nav-title:hover { color: var(--accent); }
 
@@ -437,7 +441,7 @@ body::-webkit-scrollbar { display: none;
       font-family: var(--serif);
       font-weight: 500; 
       letter-spacing: -0.02em;
-      font-size: 20px;
+      font-size: 24px;
       line-height: 1.8;
       color: var(--ink);
       margin-bottom: 2rem;
@@ -865,20 +869,20 @@ body::-webkit-scrollbar { display: none;
         </AnimatePresence>
 
   {/* 1. BOUTON + (Fixe en haut à droite) */}
-    <div className="fixed top-0 right-0 z-[5100] px-6 md:px-[10%] h-[var(--header-h)] flex items-center justify-end">
-      <motion.button 
-        onClick={() => setIsMenuOpen(!isMenuOpen)} 
-        animate={{ 
-          rotate: isMenuOpen ? 45 : 0,
-          color: isMenuOpen ? "var(--ink)" : (headerVisible ? "var(--ink)" : "transparent")
-        }}
-        transition={smoothSpring}
-        className="menu-btn-plus"
-        style={{ pointerEvents: headerVisible || isMenuOpen ? 'auto' : 'none' }}
-      >
-        +
-      </motion.button>
-    </div>
+    <div className="fixed top-0 left-0 w-full z-[5100] px-6 md:px-[10%] h-[var(--header-h)] flex items-center justify-end pointer-events-none">
+    <motion.button 
+      onClick={() => setIsMenuOpen(!isMenuOpen)} 
+      animate={{ 
+        rotate: isMenuOpen ? 45 : 0,
+        color: isMenuOpen ? "var(--ink)" : (headerVisible ? "var(--ink)" : "transparent")
+      }}
+      transition={smoothSpring}
+      className="menu-btn-plus pointer-events-auto"
+      style={{ pointerEvents: headerVisible || isMenuOpen ? 'auto' : 'none' }}
+    >
+      +
+    </motion.button>
+  </div>
 
 {/* 2. LOGO CENTRAL (Apparaît au scroll ou quand menu ouvert) */}
 <AnimatePresence>
