@@ -38,6 +38,7 @@ const CONTENT = {
         id: 'wandering-souls-dubontemps', 
         url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
         caption: "Équation sauvage", 
+        coords: "39°34'11\"N 2°38'56\"E",
         year: "2026",
         tech: "Tirage pigmentaire, papier baryté",
         alt: "Ombres de palmier et marcheurs, Palma de Majorque, série Équation Sauvage 2026, tirage pigmentaire papier baryté, Dubontemps",
@@ -47,6 +48,7 @@ const CONTENT = {
         id: 'vertigo-dubontemps', 
         url: '/images/dubontemps-wild-equation-2026-pacific-aerial-view-sandbank-washi-lg.jpg', 
         caption: "Équation sauvage", 
+        coords: "49°09'07\"N 125°54'25\"W",
         year: "2026",
         tech: "Tirage pigmentaire, papier washi japonais",
         alt: "Vue aérienne d'un banc de sable dans l’océan Pacifique, Vancouver Island, série Équation Sauvage 2026, tirage pigmentaire papier washi japonais, Dubontemps",
@@ -57,6 +59,7 @@ const CONTENT = {
         id: 'echoes-of-the-woods-dubontemps', 
         url: '/images/dubontemps-wild-equation-2026-clayoquot-sound-aerial-view-forest-washi-lg.jpg', 
         caption: "Équation sauvage", 
+        coords: "49°09'07\"N 125°54'25\"W",
         year: "2026",
         tech: "Tirage pigmentaire, papier washi japonais",
         alt: "Forêt primitive dans la brume, Clayoquot Sound, Vancouver Island, série Équation Sauvage 2026, tirage pigmentaire papier washi japonais, Dubontemps",
@@ -66,6 +69,7 @@ const CONTENT = {
         id: 'between-realms-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-idf-mysterious-windows-matte-lg.jpg', 
         caption: "L’art du silence", 
+        coords: "48°51'24\"N 2°21'08\"E",
         year: "2025",
         tech: "Tirage pigmentaire, papier fine art mat",
         alt: "Fenêtres sur la rivière dans une forêt brumeuse, Île-de-France, série L’Art du Silence 2025, tirage pigmentaire papier fine art mat, Dubontemps",
@@ -76,6 +80,7 @@ const CONTENT = {
         id: 'roots-of-time-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-brittany-tree-shadow-matte-lg.jpg', 
         caption: "L’art du silence", 
+        coords: "48°34'42\"N 4°32'43\"W",
         year: "2025",
         tech: "Tirage pigmentaire, papier fine art mat",
         alt: "Grand arbre et ombres vues de haut, pâquerettes, chaise en retrait, Finistère Nord Bretagne, série L’Art du Silence 2025, tirage pigmentaire papier fine art mat, Dubontemps",
@@ -137,7 +142,7 @@ const CONTENT = {
       portfolio: "catalogue sur demande"
     },
     footer: {
-      location: "paris x:48°52'0.01''y:2°19'59.99''"
+      location: "48° 53' 10.115\" N 2° 20' 35.246\" E"
     }
 
   },  
@@ -172,6 +177,7 @@ const CONTENT = {
         id: 'wandering-souls-dubontemps', 
         url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
         caption: 'Wild Equation', 
+        coords: "39°34'11\"N 2°38'56\"E",
         year: "2026",
         tech: "Pigment inkjet print, baryta paper",
         alt: "Palm shadows and walkers, Palma de Mallorca, Équation Sauvage series 2026, pigment print on baryta paper, Dubontemps",
@@ -181,6 +187,7 @@ const CONTENT = {
         id: 'vertigo-dubontemps', 
         url: '/images/dubontemps-wild-equation-2026-pacific-aerial-view-sandbank-washi-lg.jpg', 
         caption: 'Wild Equation', 
+        coords: "49°09'07\"N 125°54'25\"W",
         year: "2026",
         tech: "Pigment inkjet print, handmade Japanese washi paper",
         alt: "Aerial view of a sandbank in the Pacific Ocean, Vancouver Island, Équation Sauvage series 2026, pigment print on Japanese washi paper, Dubontemps",
@@ -191,6 +198,7 @@ const CONTENT = {
         id: 'echoes-of-the-woods-dubontemps', 
         url: '/images/dubontemps-wild-equation-2026-clayoquot-sound-aerial-view-forest-washi-lg.jpg', 
         caption: 'Wild Equation', 
+        coords: "49°09'07\"N 125°54'25\"W",
         year: "2026",
         tech: "Pigment inkjet print, handmade Japanese washi paper",
         alt: "Primitive forest in the mist, Clayoquot Sound, Vancouver Island, Équation Sauvage series 2026, pigment print on Japanese washi paper, Dubontemps",
@@ -200,6 +208,7 @@ const CONTENT = {
         id: 'between-realms-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-idf-mysterious-windows-matte-lg.jpg', 
         caption: 'Art of Silence', 
+        coords: "48°51'24\"N 2°21'08\"E",
         year: "2025",
         tech: "Pigment inkjet print, matte fine art paper",
         alt: "Windows over river in the misty forest, Île-de-France, L’Art of Silence series 2025, pigment print on fine art matte paper, Dubontemps",
@@ -210,6 +219,7 @@ const CONTENT = {
         id: 'roots-of-time-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-brittany-tree-shadow-matte-lg.jpg', 
         caption: 'Art of Silence', 
+        coords: "48°34'42\"N 4°32'43\"W",
         year: "2025",
         tech: "Pigment inkjet print, matte fine art paper",
         alt: "Large tree's shadows from above, daisies, chair in the distance, Finistère North Brittany, L’Art of Silence series 2025, pigment print on fine art matte paper, Dubontemps",
@@ -271,7 +281,7 @@ const CONTENT = {
       portfolio: "catalogue on demand"
     },
     footer: {
-      location: "paris x:48°52'0.01''y:2°19'59.99''",
+      location: "48° 53' 10.115\" N 2° 20' 35.246\" E"
     }
   }
 };
@@ -290,7 +300,7 @@ const TypographyStyles = () => (
       --accent-soft : rgba(151, 169, 180, 0.08);
       --sans: 'Inter', sans-serif;
       --serif: 'Shippori Mincho', serif;
-      --header-h: 84px;
+      --header-h: 120px;
       --feed-margin-v: 32px;
     }
 
@@ -328,9 +338,9 @@ body::-webkit-scrollbar { display: none;
     }
     .logo-style {
       font-family: var(--serif);
-      font-size: 18px; 
+      font-size: 32px; 
       font-weight: 500; 
-      letter-spacing: -0.02em; 
+      letter-spacing: -0.03em; 
       background: none;
       border: none;
       color: var(--ink);
@@ -345,27 +355,42 @@ body::-webkit-scrollbar { display: none;
 
     .brand-style { 
       font-family: var(--sans);
-      font-size: 14px; 
-      font-weight: 300; 
+      font-size: 16px; 
+      font-weight: 400; 
       letter-spacing: 0.02em;
       background: none;
       border: none;
       color: var(--ink);
       padding: 0;
       line-height: 1; 
-      text-transform: uppercase;
+      text-transform: lowercase;
       transition: color 0.4s ease, transform 0.3s ease;
       margin-top: 0; 
       }
 
     .brand-style:hover { color: var(--accent); }
 
-    .nav-blur {
-    backdrop-filter: none !important;      
-    -webkit-backdrop-filter: none !important; 
-    background-color: #FFFFFF;
+    .nav-title {
+      font-family: var(--serif);
+      font-size: clamp(24px, 4vw, 42px); /* Plus grand et élégant */
+      font-weight: 400; 
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      transition: color 0.5s ease;
+      text-transform: lowercase; /* Style plus organique */
     }
-    .text-note, .text-manifesto { 
+    .nav-title:hover { color: var(--accent); }
+
+    .menu-btn-plus {
+      font-family: var(--sans);
+      font-size: 48px; 
+      font-weight: 100;
+      line-height: 1;
+      background: transparent;
+      border: none;
+      outline: none !important;
+    }
+    .text-note { 
       font-size: 16px; 
       letter-spacing: 0.02em;
       line-height: 1.7; 
@@ -517,17 +542,6 @@ body::-webkit-scrollbar { display: none;
       object-fit: contain; 
       padding: 0; 
     }
-    .mobile-menu-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: white;
-      z-index: 3000;
-      display: flex; flex-direction: column;
-      padding: 24px;
-    }
     .footer-mention {
       font-size: 12px; 
       font-weight: 400; 
@@ -539,14 +553,14 @@ body::-webkit-scrollbar { display: none;
     }
     .contact-title {
       font-family: var(--serif);
-      font-size: 18px;
+      font-size: 20px;
       line-height: 0.8;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--ink);
       opacity: 0.8;
       margin-bottom: 4rem;
       text-transform: lowercase;
-      letter-spacing: -0.06em;
+      letter-spacing: -0.02em;
     }
       .contact-input {
       width: 100%; 
@@ -599,44 +613,8 @@ body::-webkit-scrollbar { display: none;
         --feed-margin-v: 24px;
         --header-h: 64px;
       }
-      .logo-style {
-       transform: translateY(-4px);
-      }
-      .mobile-nav-btn {
-        -webkit-appearance: none;
-        background: transparent;
-        border: none;
-        padding: 0;
-        color: var(--ink);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end; 
-        gap: 6px;             
-        /* Suppression du translateY car le parent flex-1 center s'en occupe */
-        transition: opacity 0.3s ease;
-        cursor: pointer;
-      }
-      .btn-line {
-        height: 1px; /* Plus élégant et raccord avec les icônes Lucide */
-        background-color: currentColor;
-        transition: all 0.3s ease;
-      }
-    .menu-close-button {
-      background: transparent;
-      border: none;
-      padding: 12px;           
-      margin-right: -12px;     
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      outline: none;
-      -webkit-tap-highlight-color: transparent;
-      transition: opacity 0.3s ease;
-    }
-    .menu-close-button svg {
-      pointer-events: none; 
-    }
+    .logo-style { font-size: 24px; }
+
     .bento-tile { padding: 32px 24px; 
     }
     .index-slider-mobile {
@@ -651,8 +629,7 @@ body::-webkit-scrollbar { display: none;
         padding-left: 24px; 
         scroll-padding-left: 24px;
         overflow-y: hidden;
-        scrollbar-width: none;
-                                
+        scrollbar-width: none;                      
       }
     .index-slider-mobile::-webkit-scrollbar { display: none; 
       }
@@ -710,8 +687,8 @@ body::-webkit-scrollbar { display: none;
     const [headerVisible, setHeaderVisible] = useState(false); 
     const [lastScrollY, setLastScrollY] = useState(0);
     const [zoomImage, setZoomImage] = useState(null);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-     const { scrollY } = useScroll();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { scrollY } = useScroll();
 
     // SÉCURITÉ : Si les données n'existent pas, on affiche un message d'erreur plutôt qu'une page blanche
     if (!CONTENT || !CONTENT[lang]) return <div>Loading data...</div>;
@@ -826,18 +803,16 @@ body::-webkit-scrollbar { display: none;
     }, [scrollY, lastScrollY]);
 
     const scrollTo = (id) => {
-      setMobileMenuOpen(false);
+      setIsMenuOpen(false); // Sécurité : on ferme toujours le menu avant de scroller
       const target = document.getElementById(id);
-      if (!target) return;
+      if (!target) return; // Sécurité : évite l'erreur si l'ID n'existe pas
 
-      const header = document.querySelector('header');
-      const headerHeight = header ? header.offsetHeight : (window.innerWidth < 768 ? 64 : 84);
+      // Valeurs sûres pour ne pas couvrir le titre de la section
+      const offset = window.innerWidth < 768 ? 80 : 120;
       
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const targetRect = target.getBoundingClientRect().top;
-      const targetPosition = targetRect - bodyRect;
-      
-      const offsetPosition = targetPosition - headerHeight;
+      // Calcul de position absolue (plus fiable que le calcul relatif)
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = targetPosition - offset;
 
       window.scrollTo({
         top: offsetPosition,
@@ -852,6 +827,8 @@ body::-webkit-scrollbar { display: none;
     const sectionTitles = CONTENT[lang].sections;
     const contactData = CONTENT[lang].contact;
     const bioData = CONTENT[lang].bio;
+
+    const smoothSpring = { type: 'spring', stiffness: 50, damping: 20, mass: 1 };
 
     return (
       <div className="relative w-full bg-white">
@@ -887,86 +864,86 @@ body::-webkit-scrollbar { display: none;
           )}
         </AnimatePresence>
 
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div 
-              initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="mobile-menu-overlay"
-              role="navigation"
-              aria-label="Menu principal mobile"
+  {/* 1. BOUTON + (Fixe en haut à droite) */}
+    <div className="fixed top-0 right-0 z-[5100] px-6 md:px-[10%] h-[var(--header-h)] flex items-center justify-end">
+      <motion.button 
+        onClick={() => setIsMenuOpen(!isMenuOpen)} 
+        animate={{ 
+          rotate: isMenuOpen ? 45 : 0,
+          color: isMenuOpen ? "var(--ink)" : (headerVisible ? "var(--ink)" : "transparent")
+        }}
+        transition={smoothSpring}
+        className="menu-btn-plus"
+        style={{ pointerEvents: headerVisible || isMenuOpen ? 'auto' : 'none' }}
+      >
+        +
+      </motion.button>
+    </div>
+
+{/* 2. LOGO CENTRAL (Apparaît au scroll ou quand menu ouvert) */}
+<AnimatePresence>
+  {(headerVisible || isMenuOpen) && (
+    <motion.header 
+      initial={{ y: -40, opacity: 0 }} 
+      animate={{ y: 0, opacity: 1 }} 
+      exit={{ y: -40, opacity: 0 }}
+      transition={smoothSpring}
+      className="fixed top-0 left-0 w-full z-[5090] h-[var(--header-h)] flex items-center justify-center pointer-events-none"
+    >   
+      <button 
+        onClick={() => { if(!isMenuOpen) window.scrollTo({top: 0, behavior: 'smooth'}); }} 
+        className="logo-style pointer-events-auto" >
+        {CONTENT[lang].brand}
+      </button>
+    </motion.header>
+  )}
+</AnimatePresence>
+
+{/* 3. LE NOUVEAU MENU OVERLAY (Navigation Typographique) */}
+<AnimatePresence>
+  {isMenuOpen && (
+    <div className="fixed inset-0 z-[5050]">
+       {/* Fond blanc léger pour focus sur le texte */}
+       <motion.div 
+         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+         onClick={() => setIsMenuOpen(false)} 
+         className="absolute inset-0 bg-white/95 backdrop-blur-sm" 
+       />
+       
+       <div className="absolute inset-0 flex flex-col items-center justify-center gap-8 md:gap-12 pointer-events-auto">
+          {[
+            { id: 'works-anchor', text: navData.works.title || navData.works },
+            { id: 'index-anchor', text: navData.index.title || navData.index },
+            { id: 'contact-anchor', text: navData.contact.title || navData.contact },
+          ].map((item, i) => (
+            <motion.button
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ delay: i * 0.1, ...smoothSpring }}
+              onClick={() => scrollTo(item.id)}
+              className="nav-title"
             >
-              <div className="flex justify-between items-center h-[var(--header-h)] mb-12">
-                <button onClick={() => {setMobileMenuOpen(false); window.scrollTo({top:0, behavior:'smooth'})}} 
-                className="logo-style">
-                  {CONTENT[lang].brand}
-                </button>
-                <button onClick={() => setMobileMenuOpen(false)} 
-                  className="menu-close-button opacity-40 hover:opacity-100 transition-opacity"
-                  aria-label="Fermer le menu">
-                  <X size={24} strokeWidth={1.5} />
-                </button>
-              </div>
-              <ul className="flex flex-col gap-10 list-none p-0 m-0">
-                <li><button onClick={() => scrollTo('works-anchor')} className="brand-style text-left text-2xl opacity-40 hover:opacity-100 transition-opacity">{navData.works}</button></li>
-                <li><button onClick={() => scrollTo('index-anchor')} className="brand-style text-left text-2xl opacity-40 hover:opacity-100 transition-opacity">{navData.index}</button></li>
-                <li><button onClick={() => scrollTo('contact-anchor')} className="brand-style text-left text-2xl opacity-40 hover:opacity-100 transition-opacity">{navData.contact}</button></li>
-                <li className="flex gap-4 mt-8 pt-8 border-t border-zinc-100">
-                  <button onClick={() => setLang('FR')} className={`brand-style transition-opacity duration-300 ${lang === 'FR' ? 'opacity-100' : 'opacity-40 hover:opacity-100'}`} 
-                  aria-label="Passer en français">fr</button>
-                  <span className="opacity-10 brand-style" aria-hidden="true">/</span>
-                  <button onClick={() => setLang('EN')} className={`brand-style transition-opacity duration-300 ${lang === 'EN' ? 'opacity-100' : 'opacity-40 hover:opacity-100'}`} 
-                  aria-label="Switch to english">en</button>
-                </li>
-              </ul>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              {item.text}
+            </motion.button>
+          ))}
 
-  <AnimatePresence>
-          {headerVisible && (
-            <motion.header 
-              initial={{ y: -20, opacity: 0 }} 
-              animate={{ y: 0, opacity: 1 }} 
-              exit={{ y: -20, opacity: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-0 left-0 w-full z-[1000] px-6 md:px-[10%] h-[var(--header-h)] flex items-center justify-between nav-blur py-6 md:py-8"
-            >
-              {/* LOGO À GAUCHE */}
-              <div className="flex-shrink-0">
-                <h1 className="m-0 p-0" style={{ display: 'contents' }}>
-                  <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="logo-style">
-                    {CONTENT[lang].brand}
-                  </button>
-                </h1>
-              </div>
+          {/* Switch de langue séparé en bas */}
+          <motion.button
+            initial={{ opacity: 0 }} animate={{ opacity: 0.4 }} exit={{ opacity: 0 }}
+            transition={{ delay: 0.4 }}
+            onClick={() => { setLang(l => l === 'FR' ? 'EN' : 'FR'); setIsMenuOpen(false); }}
+            className="mt-12 font-sans text-sm italic tracking-widest hover:opacity-100 transition-opacity"
+          >
+            {lang === 'FR' ? 'english' : 'français'}
+          </motion.button>
+       </div>
+    </div>
+  )}
+</AnimatePresence>
 
-              {/* NAVIGATION À DROITE */}
-              <div className="flex items-baseline gap-10">
-                <nav className="hidden md:flex gap-10 items-baseline">
-                  <button onClick={() => scrollTo('works-anchor')} className="brand-style ">{navData.works}</button>
-                  <button onClick={() => scrollTo('index-anchor')} className="brand-style ">{navData.index}</button>
-                  <button onClick={() => scrollTo('contact-anchor')} className="brand-style">{navData.contact}</button>
-                  <button onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} className="brand-style">
-                    {lang === 'FR' ? 'en' : 'fr'}
-                  </button>
-                </nav>
-                
-                <div className="md:hidden flex items-center gap-6">
-                  <button onClick={() => setLang(l => l === 'FR' ? 'EN' : 'FR')} className="brand-style">
-                    {lang === 'FR' ? 'en' : 'fr'}
-                  </button>
-                  <button onClick={() => setMobileMenuOpen(true)} className="mobile-nav-btn">
-                    <div className="btn-line w-[22px]" /> 
-                    <div className="btn-line w-[14px]" />
-                  </button>
-                </div>
-              </div>
-            </motion.header>
-          )}
-    </AnimatePresence>
-
-        <main className="relative z-[5] w-full">
+ <main className="relative z-[5] w-full">
 
             <section className="sticky top-0 h-screen w-full max-w-full z-0 bg-white pointer-events-none">              
            <motion.img 
@@ -979,6 +956,7 @@ body::-webkit-scrollbar { display: none;
             />
           </section>
   <div className="relative z-10 bg-white">
+
   {/* LA GALERIE UNIQUE */}
           <section className="bg-white pt-[30vh] space-y-[30vh] md:space-y-[30vh] relative" aria-labelledby="section-gallery">
             <div id="works-anchor" className="absolute top-[-100px] left-0" aria-hidden="true" />
@@ -1035,12 +1013,11 @@ body::-webkit-scrollbar { display: none;
                     />
                   </div>
 
-                  <figcaption className="mt-8 flex flex-col">
-                    <div className="flex flex-col items-end text-right">
-                      <h2 className="text-meta-title m-0">{item.caption}</h2>
-                      <span className="text-meta-date">{item.year}</span>
-                    </div>
-                  </figcaption>
+                  <figcaption className="mt-6 text-right flex flex-col items-end gap-1">                
+                  <h2 className="text-meta-title m-0">{item.caption}</h2>
+                  {item.coords && ( <span className="text-meta-date opacity-20 italic lowercase" style={{ fontSize: '9px' }}> {item.coords} </span>  )}
+                  <span className="text-meta-date m-0">{item.year}</span>
+                </figcaption>
                 </figure>
               </motion.article>
               </React.Fragment>
