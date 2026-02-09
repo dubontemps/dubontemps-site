@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import './App.css';
 
@@ -25,8 +25,7 @@ const CONTENT = {
       contact: "Coordonnées et réseaux sociaux"
     },
      manifesto: [
-  "Le paysage n’est pas un décor mais un champ d’interactions. La distance de mes cadrages peut évoquer la neutralité d’un satellite, mais elle souligne en réalité la subjectivité de la perception humaine.",
-  "À mesure que la technologie transforme nos manières de voir, mon travail interroge la persistance du regard : comment un signal discret, ou une absence, peut éveiller l’imagination et la sensation, et faire naître une relation.",
+  "Le paysage n’est pas un décor mais un champ d’interactions. La distance des cadrages évoque la neutralité d’un satellite, pour en souligner l'angle mort, la subjectivité de la perception humaine. À mesure que la technologie transforme nos manières de voir, ce travail interroge la persistance du regard : comment un signal discret, ou une absence, éveille l’imagination et la sensation, fait naître une relation.",
   "L’image que l’on retient ne capture rien. Elle révèle la rencontre entre un lieu et une mémoire individuelle.",
                ],
     bio: {
@@ -127,7 +126,7 @@ const CONTENT = {
       }
     },
      contact: {
-      title: "hello",
+      title: "hello.",
       placeholderMsg: "votre message",
       placeholderEmail: "votre email",
       submit: "envoyer",
@@ -160,8 +159,7 @@ const CONTENT = {
       contact: "Contact details and social media"
     },
     manifesto: [
-  "The landscape is not a backdrop but a field of interactions. The distance in my framing may evoke the neutrality of a satellite, yet it ultimately underscores the subjectivity of human perception.",
-  "As technology reshapes the way we see, my work questions the persistence of looking: how a subtle signal, or an absence, can stir imagination and sensation, and give rise to a relationship.",
+  "The landscape is not a backdrop but a field of interactions. The distance in the framing evokes the neutrality of a satellite, to underscore the subjectivity of human perception. As technology reshapes the way we see, this work questions the persistence of looking: how a subtle signal, or an absence, stirs imagination and sensation, gives rise to a relationship.",
   "The image we retain captures nothing. It reveals the encounter between a place and an individual memory.",
                ],
     bio: {
@@ -262,7 +260,7 @@ const CONTENT = {
       }
     },
     contact: {
-      title: "hello",
+      title: "hello.",
       placeholderMsg: "your message",
       placeholderEmail: "your email",
       submit: "send",
@@ -304,6 +302,11 @@ const TypographyStyles = () => (
       margin: 0;
       overflow-x: clip;
       position: relative; 
+      scrollbar-width: none; /* Pour Firefox */
+      -ms-overflow-style: none; /* Pour Edge/IE */
+}
+/* Pour Chrome, Safari et Opera */
+body::-webkit-scrollbar { display: none;
     }
     html, body {
       max-width: 100%;
@@ -326,8 +329,8 @@ const TypographyStyles = () => (
     .logo-style {
       font-family: var(--serif);
       font-size: 18px; 
-      font-weight: 600; 
-      letter-spacing: 0.03em; 
+      font-weight: 500; 
+      letter-spacing: -0.02em; 
       background: none;
       border: none;
       color: var(--ink);
@@ -362,37 +365,6 @@ const TypographyStyles = () => (
     -webkit-backdrop-filter: none !important; 
     background-color: #FFFFFF;
     }
-    .scroll-progress-container-desktop {
-      position: fixed;
-      left: 40px; 
-      top: 50%;
-      transform: translateY(-50%);
-      height: 18vh; 
-      width: 1px;
-      background: rgba(0,0,0,0.05);
-      z-index: 1000;
-      pointer-events: none;
-    }
-    .scroll-progress-bar-desktop {
-      width: 100%;
-      background: var(--accent);
-      transform-origin: top;
-    }
-    .scroll-progress-container-mobile {
-      position: fixed;
-      top: var(--header-h);
-      left: 24px;
-      right: 24px;
-      height: 1px;
-      background: rgba(0,0,0,0.05);
-      z-index: 1001;
-      pointer-events: none;
-    }
-    .scroll-progress-bar-mobile {
-      height: 100%;
-      background: var(--accent);
-      transform-origin: left;
-    }
     .text-note, .text-manifesto { 
       font-size: 16px; 
       letter-spacing: 0.02em;
@@ -426,7 +398,7 @@ const TypographyStyles = () => (
     }
     .manifesto-large {
     font-family: var(--serif);
-    font-size: 16px; 
+    font-size: 17px; 
     line-height: 1.7;
     font-weight: 500;
     color: var(--ink);
@@ -434,11 +406,12 @@ const TypographyStyles = () => (
     max-width: 90%; 
     margin: 0 auto;
     letter-spacing: -0.02em;
+    white-space: pre-line;
     }
     .bio-lead {
       font-family: var(--serif);
       font-weight: 500; 
-      letter-spacing: -0.05em;
+      letter-spacing: -0.02em;
       font-size: 20px;
       line-height: 1.8;
       color: var(--ink);
@@ -479,6 +452,7 @@ const TypographyStyles = () => (
       font-family: var(--serif); 
       font-size: 16px; 
       font-weight: 500; 
+      letter-spacing: -0.02em;
       line-height: 1.2; 
       color: var(--ink);
     }
@@ -486,6 +460,7 @@ const TypographyStyles = () => (
       font-family: var(--serif); 
       font-size: 16px; 
       font-weight: 500; 
+      letter-spacing: -0.02em;
       line-height: 1.2; 
       transition: all 0.3s ease;
       color: var(--ink);
@@ -508,7 +483,7 @@ const TypographyStyles = () => (
     }
    .bento-tile {
       background: var(--bg-white);
-      border: 1px solid var(--border-light);
+      border-top: 1px solid var(--border-light);
       padding: 40px;
       display: flex;
       flex-direction: column;
@@ -564,7 +539,7 @@ const TypographyStyles = () => (
     }
     .contact-title {
       font-family: var(--serif);
-      font-size: 28px;
+      font-size: 18px;
       line-height: 0.8;
       font-weight: 300;
       color: var(--ink);
@@ -616,7 +591,7 @@ const TypographyStyles = () => (
       cursor: wait;
     }
     @media (min-width: 768px) {
-      .manifesto-large { font-size: 20px; line-height: 1.8; max-width: 60%; letter-spacing: -0.02em; text-align: center; font-weight: 500; color: var(--ink);  }
+      .manifesto-large { font-size: 18px; line-height: 1.8; max-width: 60%; letter-spacing: -0.02em; text-align: center; font-weight: 500; color: var(--ink);  }
       #contact-anchor form { max-width: 100%; }
        }
     @media (max-width: 768px) {
@@ -736,17 +711,10 @@ const TypographyStyles = () => (
     const [lastScrollY, setLastScrollY] = useState(0);
     const [zoomImage, setZoomImage] = useState(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+     const { scrollY } = useScroll();
 
     // SÉCURITÉ : Si les données n'existent pas, on affiche un message d'erreur plutôt qu'une page blanche
     if (!CONTENT || !CONTENT[lang]) return <div>Loading data...</div>;
-
-      // Scrollbar
-    const { scrollYProgress, scrollY } = useScroll();
-    const scale = useSpring(scrollYProgress, {
-      stiffness: 100,
-      damping: 30,
-      restDelta: 0.001
-    });
 
     // Formulaire etats et envoi
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -955,18 +923,6 @@ const TypographyStyles = () => (
           )}
         </AnimatePresence>
 
-        <div className="scroll-progress-container-desktop hidden md:block" aria-hidden="true">
-          <motion.div className="scroll-progress-bar-desktop" style={{ height: '100%', scaleY: scale }} />
-        </div>
-
-        <AnimatePresence>
-          {headerVisible && (
-            <div className="scroll-progress-container-mobile md:hidden" aria-hidden="true">
-              <motion.div className="scroll-progress-bar-mobile" style={{ width: '100%', scaleX: scale }} />
-            </div>
-          )}
-        </AnimatePresence>
-
   <AnimatePresence>
           {headerVisible && (
             <motion.header 
@@ -1092,7 +1048,7 @@ const TypographyStyles = () => (
           </section>
 
           {/* Index & Contact Combined */}
-          <div className="bg-index-gradient pt-[20vh]">
+          <div className="bg-index-gradient pt-[40vh]">
             
             {/* Bento Index */}
             <section id="index-anchor" className="px-0 md:px-[10%] mb-[20vh]">
@@ -1173,9 +1129,10 @@ const TypographyStyles = () => (
                           <h4 className="index-label">{indexData[key].label}</h4>
                           <ul className={`list-none p-0 ${key === 'publications' ? 'space-y-4' : 'space-y-8'}`}>
                             {indexData[key].items.map((item, i) => (
-                              <li key={i}>
-                                <p className="index-item-static m-0">{item.client || item.label || item.name}</p>
-                                <p className="index-item-sub m-0 text-xs">{item.role || item.subtitle}</p>
+                              <li key={i}> {item.url ? ( <a href={item.url} target="_blank" rel="noreferrer" 
+                              className="index-item-link m-0"> {item.client || item.label || item.name} </a> ) : ( <p 
+                              className="index-item-static m-0">{item.client || item.label || item.name} </p> )} <p 
+                              className="index-item-sub m-0 text-xs">{item.role || item.subtitle}</p> 
                               </li>
                             ))}
                           </ul>
