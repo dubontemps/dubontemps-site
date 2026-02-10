@@ -13,7 +13,7 @@ const CONTENT = {
       title: "Dubontemps | Photographe paysage & documentaire | Paris",
       description: "Dubontemps développe une écriture photographique entre nature, présence et mémoire. Explorez ses séries et tirages d'art, distinctions (ND Awards MH, Lensculture Editors' Pick) et collaborations (Musée de Cluny)."
     },
-    nav: { works: 'images', index: 'index', contact: 'contact', menu: 'menu' },
+    nav: { works: 'images', index: 'index', contact: 'contact', lang: 'français' },
     hero: { 
       url: '/images/dubontemps-smithsonian-2026-biarritz--surfers-mist-washi-lg.jpg',
       alt: 'Surfeurs dans la brume, Biarritz, collines espagnoles, 2026, tirage d’art papier washi japonais, Dubontemps'
@@ -152,7 +152,7 @@ const CONTENT = {
       title: "Dubontemps | Landscape & Documentary Photographer | Paris",
       description: "Dubontemps develops a photographic language between nature, presence, and memory. Explore her series and fine art prints, her awards ((ND Awards MH, Lensculture Editors' Pick) and collaborations (Musée de Cluny)."
     },
-    nav: { works: 'images', index: 'index', contact: 'contact', menu: 'menu' },
+    nav: { works: 'images', index: 'index', contact: 'contact', lang: 'english' },
     hero: { 
       url: '/images/dubontemps-smithsonian-2026-biarritz--surfers-mist-washi-lg.jpg',
       alt: 'Surfers in the mist facing Spanish hills, Biarritz, 2026, art print on Japanese washi paper, Dubontemps'
