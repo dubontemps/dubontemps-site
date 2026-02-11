@@ -13,7 +13,7 @@ const CONTENT = {
       title: "Dubontemps | Photographe paysage & documentaire | Paris",
       description: "Dubontemps développe une écriture photographique entre nature, présence et mémoire. Explorez ses séries et tirages d'art, distinctions (ND Awards MH, Lensculture Editors' Pick) et collaborations (Musée de Cluny)."
     },
-    nav: { works: 'images', index: 'index', contact: 'contact', lang: 'français' },
+    nav: { works: 'images', index: 'index', contact: 'contact', lang: 'english' },
     hero: { 
       url: '/images/dubontemps-smithsonian-2026-biarritz--surfers-mist-washi-lg.jpg',
       alt: 'Surfeurs dans la brume, Biarritz, collines espagnoles, 2026, tirage d’art papier washi japonais, Dubontemps'
@@ -139,7 +139,8 @@ const CONTENT = {
       success: "merci",
       error: "erreur. réessayez",
       instagram: "instagram",
-      portfolio: "catalogue sur demande"
+      portfolio: "catalogue sur demande",
+      autoRequest: "hello dubontemps, j'aimerais recevoir votre catalogue de tirages d'art."
     },
     footer: {
       location: "48° 53' 10.115\" N 2° 20' 35.246\" E"
@@ -152,7 +153,7 @@ const CONTENT = {
       title: "Dubontemps | Landscape & Documentary Photographer | Paris",
       description: "Dubontemps develops a photographic language between nature, presence, and memory. Explore her series and fine art prints, her awards ((ND Awards MH, Lensculture Editors' Pick) and collaborations (Musée de Cluny)."
     },
-    nav: { works: 'images', index: 'index', contact: 'contact', lang: 'english' },
+    nav: { works: 'images', index: 'index', contact: 'contact', lang: 'français' },
     hero: { 
       url: '/images/dubontemps-smithsonian-2026-biarritz--surfers-mist-washi-lg.jpg',
       alt: 'Surfers in the mist facing Spanish hills, Biarritz, 2026, art print on Japanese washi paper, Dubontemps'
@@ -278,7 +279,8 @@ const CONTENT = {
       success: "thank you",
       error: "error. try again",
       instagram: "instagram",
-      portfolio: "catalogue on demand"
+      portfolio: "catalogue on demand",
+      autoRequest: "hello dubontemps, I would like to receive your fine art print catalogue."
     },
     footer: {
       location: "48° 53' 10.115\" N 2° 20' 35.246\" E"
@@ -370,19 +372,19 @@ body::-webkit-scrollbar { display: none;
 
     .brand-style:hover { color: var(--accent); }
 
-      .nav-title {
-        font-family: var(--sans);
-        font-size: 18px;
-        font-weight: 300; 
-        text-transform: uppercase;
-        line-height: 1;
-        letter-spacing: 0.1em;
-        transition: color 0.4s ease;
-        background: none; /* Sécurité pour éviter le fond noir */
-        border: none;
-        padding: 0;
-        color: var(--ink);
-        transition: color 0.5s ease;
+   .nav-title {
+     font-family: var(--sans);
+     font-size: 18px;
+     font-weight: 300; 
+     text-transform: uppercase;
+     line-height: 1;
+     letter-spacing: 0.1em;
+     transition: color 0.4s ease;
+     background: none; /* Sécurité pour éviter le fond noir */
+     border: none;
+     padding: 0;
+     color: var(--ink);
+     transition: color 0.5s ease;
       }
     .nav-title:hover { color: var(--accent); }
 
@@ -547,39 +549,21 @@ body::-webkit-scrollbar { display: none;
       object-fit: contain; 
       padding: 0; 
     }
-    .footer-mention {
-      font-size: 12px; 
-      font-weight: 400; 
-      letter-spacing: -0.05em;
-      color: var(--ink);
-      line-height: 1.2;
-      text-transform: lowercase;
-      opacity: 0.3;
-    }
-    .contact-title {
-      font-family: var(--serif);
-      font-size: 20px;
-      line-height: 0.8;
-      font-weight: 400;
-      color: var(--ink);
-      opacity: 0.8;
-      margin-bottom: 4rem;
-      text-transform: lowercase;
-      letter-spacing: -0.02em;
-    }
       .contact-input {
       width: 100%; 
-      max-width: 100%;
+      font-family:var(--sans);
+      color: var(--ink); 
       font-size: 16px !important; /* Minimum pour éviter le décalage/zoom iOS */
-      box-sizing: border-box;
-      background: transparent;
-      border: none;
-      border-bottom: 0.5px solid rgba(0,0,0,0.1);
-      padding: 12px 0;
-      outline: none;
-      transition: border-bottom 0.4s ease;
+      font-weight: 300; 
       display: block;
-      color: var(--ink); /* Force l'écriture en noir */
+      transition: border-bottom 0.4s ease;
+      outline: none;
+      padding: 12px 0;
+      border-bottom: 0.5px solid rgba(0,0,0,0.1);
+      background: transparent;
+      border-top: none; border-left: none; border-right: none;
+      box-sizing: border-box;
+      max-width: 100%;
     }
     .contact-input::placeholder {
       color: currentColor;
@@ -588,30 +572,21 @@ body::-webkit-scrollbar { display: none;
     .contact-input:focus {
       border-bottom: 0.5px solid var(--ink);
     }
-    .contact-textarea {
-      min-height: 80px;
-      resize: none;
+    .contact-submit-btn { border: none; background: transparent; padding: 12px 0; margin: 0; font-family: var(--sans); font-size: 16px; font-weight: 400; text-transform: lowercase; color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; transition: color 0.4s ease; }
+    .contact-submit-btn:hover { color: var(--accent); }
+    .contact-arrow-icon { margin-left: 12px; opacity: 0; transform: translateX(-10px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); font-size: 18px; }
+    .contact-submit-btn:hover .contact-arrow-icon { opacity: 1; transform: translateX(10px); 
     }
-    .contact-submit {
-      border: none;
-      background: transparent;
-      padding: 0;
-      margin: 0;
-      line-height: 1;
-      transition: color 0.4s ease;
-      display: inline-flex;
-      align-items: baseline;
-    }
-    .contact-submit:hover {
-      color: var(--accent);
-    }
-    .contact-submit:disabled {
-      opacity: 0.3;
-      cursor: wait;
-    }
-    @media (min-width: 768px) {
+    .footer-text {
+  font-size: 9px;
+  text-transform: lowercase;
+  letter-spacing: 0.3em;
+  opacity: 0.2;
+  font-weight: 500;
+  font-family: var(--sans);
+}
+@media (min-width: 768px) {
       .manifesto-large { font-size: 18px; line-height: 1.8; max-width: 60%; letter-spacing: -0.02em; text-align: center; font-weight: 500; color: var(--ink);  }
-      #contact-anchor form { max-width: 100%; }
        }
     @media (max-width: 768px) {
       :root {
@@ -661,13 +636,6 @@ body::-webkit-scrollbar { display: none;
      }   
     #contact-anchor { width: 100%; overflow-x: hidden; 
       }
-    #contact-anchor form {
-      width: 100%;
-      max-width: 44ch; /* même largeur que l'index sur desktop */
-      box-sizing: border-box; /* inclut padding dans la largeur */
-      padding-left: 0; /* alignement à gauche */
-      padding-right: 0;
-    }
 
 /* SEO Helper - Masqué visuellement mais accessible aux robots */
   .sr-only {
@@ -699,8 +667,19 @@ body::-webkit-scrollbar { display: none;
     if (!CONTENT || !CONTENT[lang]) return <div>Loading data...</div>;
 
     // Formulaire etats et envoi
+    const [messageValue, setMessageValue] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [formStatus, setFormStatus] = useState(null); // 'success' | 'error'
+    const [formStatus, setFormStatus] = useState(null);
+    const formRef = useRef(null);
+
+    const handleCatalogueClick = () => {
+      setMessageValue(CONTENT[lang].contact.autoRequest);
+      if (formRef.current) {
+        const offset = window.innerWidth < 768 ? 80 : 120;
+        const targetPosition = formRef.current.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({ top: targetPosition - offset, behavior: 'smooth' });
+      }
+    };
 
     const handleFormSubmit = async (e) => {
       e.preventDefault();
@@ -722,7 +701,8 @@ body::-webkit-scrollbar { display: none;
         if (response.ok) {
           setFormStatus('success');
           e.target.reset();
-        } else {
+          setMessageValue("");  } 
+        else {
           setFormStatus('error');
         }
       } catch (error) {
@@ -1136,57 +1116,67 @@ body::-webkit-scrollbar { display: none;
             </section>
 
       {/* CONTACT & FOOTER */}
-          <section id="contact-anchor" className="relative w-full mt-[20vh] pt-8 pb-10">
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-              
-              <div className="px-6 md:px-[10%] grid grid-cols-1 md:grid-cols-4 md:gap-x-12">
-                <div className="col-span-1 md:col-span-3">
+          <section id="contact-anchor" className="w-full pt-[15vh] pb-10 px-6 md:px-[10%]">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 items-end">
 
-                  
-                    <h3 className="contact-title">{contactData.title}</h3>
-              
+      {/* Colonne Gauche : Hello & Form */}
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}>
+        <h3 ref={formRef} className="bio-lead mb-12">{contactData.title}</h3>
 
-                  <form onSubmit={handleFormSubmit} className="flex flex-col w-full m-0 p-0">
-                    <input type="text" name="_gotcha" style={{ display: "none" }} />
-                    <textarea 
-                      name="message" required placeholder={contactData.placeholderMsg} 
-                      className="contact-input contact-textarea mb-2"
-                    />
-                    <input 
-                      type="email" name="email" required placeholder={contactData.placeholderEmail} 
-                      className="contact-input m-0" 
-                    />
-                    
-                    <div className="mt-4 flex justify-end"> 
-                      {!formStatus ? (
-                        <button type="submit" className="contact-submit brand-style h-[18px] flex items-center" disabled={isSubmitting}>
-                          {isSubmitting ? contactData.sending : contactData.submit}
-                        </button>
-                      ) : (
-                        <span className="brand-style opacity-40 italic h-[18px] flex items-center">
-                          {formStatus === 'success' ? contactData.success : contactData.error}
-                        </span>
-                      )}
-                    </div>
-                  </form>
-                </div>
-              </div>
+        <form onSubmit={handleFormSubmit} className="space-y-10 max-w-md">
+          {/* Honeypot Anti-Spam */}
+          <input type="text" name="_gotcha" style={{ display: "none" }} />
 
-            <div className="mt-20 pt-6 px-6 md:px-[40px] flex flex-col md:flex-row justify-between items-end md:items-center gap-4">
-                <div className="flex gap-8 items-center">
-                <a href="https://www.instagram.com/_dubontemps_/" target="_blank" className="brand-style leading-none">
-                    {contactData.instagram}
-                  </a> 
-                  <span className="brand-style cursor-wait leading-none">
-                    {contactData.portfolio}
-                  </span>
-                </div>
-                  <p className="footer-mention m-0">
-                  © {new Date().getFullYear()} {CONTENT[lang].brand} . {footerData.location}
-                  </p>
-              </div>
+          <input 
+            type="email" name="email" required 
+            placeholder={contactData.placeholderEmail} 
+            className="contact-input" 
+          />
+          <textarea 
+            name="message" required 
+            value={messageValue}
+            onChange={(e) => setMessageValue(e.target.value)}
+            placeholder={contactData.placeholderMsg} 
+            className="contact-input min-h-[100px] resize-none" 
+          />
+
+          <div className="pt-6">
+            <button type="submit" disabled={isSubmitting} className="contact-submit-btn group">
+              <span>
+                {isSubmitting ? contactData.sending : (formStatus === 'success' ? contactData.success : (formStatus === 'error' ? contactData.error : contactData.submit))}
+              </span>
+              <span className="contact-arrow-icon">⟶</span>
+            </button>
+          </div>
+        </form>
       </motion.div>
-    </section>
+
+      {/* Colonne Droite : Liens & Localisation */}
+      <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }} className="flex flex-col items-end text-right gap-12 md:gap-16 pb-2">
+        <div className="flex flex-col gap-6">
+          <a href="https://www.instagram.com/_dubontemps_/" target="_blank" rel="noopener noreferrer" className="nav-title text-sm md:text-base">
+            {contactData.instagram}
+          </a>
+          <button onClick={handleCatalogueClick} className="nav-title text-sm md:text-base">
+            {contactData.portfolio}
+          </button>
+        </div>
+        <div className="mt-4">
+          <p className="text-meta-label tracking-tighter text-[10px] md:text-xs">
+            {footerData.location}
+          </p>
+        </div>
+      </motion.div>
+    </div>
+
+    {/* Signature Footer */}
+  <footer className="mt-[15vh] pb-4 flex justify-center">
+    <p className="footer-text">
+      © {new Date().getFullYear()} {CONTENT[lang].brand}
+    </p>
+  </footer>
+  </section>
+    
     </div>
     </div>
   </main>
