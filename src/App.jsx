@@ -24,7 +24,9 @@ const CONTENT = {
       contact: "Coordonnées et réseaux sociaux"
     },
      manifesto: [
-  "Le paysage n’est pas un décor mais un champ d’interactions. La distance des cadrages évoque la neutralité d’un satellite, pour en souligner l'angle mort, la subjectivité de la perception humaine. À mesure que la technologie transforme nos manières de voir, ce travail interroge la persistance du regard : comment un signal discret, ou une absence, éveille l’imagination et la sensation, fait naître une relation.",
+  "Le paysage n’est pas un décor mais un champ d’interactions.", 
+  "Si la distance des cadrages évoque la neutralité d’un satellite, elle en souligne l'angle mort : la subjectivité de la perception humaine.", 
+  "À mesure que la technologie transforme nos manières de voir, ce travail interroge la persistance du regard : comment un signal discret, ou une absence, éveille l’imagination et la sensation, fait naître une relation.",
   "L’image que l’on retient ne capture rien. Elle révèle la rencontre entre un lieu et une mémoire individuelle.",
                ],
     bio: {
@@ -91,10 +93,10 @@ const CONTENT = {
         label: "Collaborations",
         num: "01",
         items: [
-          { client: 'Musée national de Cluny', role: "Végétalisation de 4000m2 dans Paris. Campagne patrimoniale, reportages, inauguration ministérielle.", date: '2025' },
+          { client: 'Musée national de Cluny', role: "Campagne patrimoniale, reportage, inauguration ministérielle.", date: '2025' },
           { client: 'Louis Wallecan', role: "Portrait pour Duel Magazine.", date: '2025' },
           { client: 'French Theory', role: "Portraits presse artistes, art shooting et DA d'exposition.", date: '23-25' },
-          { client: 'Communauté Écotable', role: "Portraits sur l'alimentation durable (Ground Control, François Hollande pour La France s'engage, Isana, Refugee Food, etc.).", date: '21—24' }
+          { client: 'Communauté Écotable', role: "Portraits de l'alimentation durable (Ground Control, François Hollande x LFSE, Refugee Food,...).", date: '21—24' }
         ]
       },
       awards: {
@@ -164,7 +166,9 @@ const CONTENT = {
       contact: "Contact details and social media"
     },
     manifesto: [
-  "The landscape is not a backdrop but a field of interactions. The distance in the framing evokes the neutrality of a satellite, to underscore the subjectivity of human perception. As technology reshapes the way we see, this work questions the persistence of looking: how a subtle signal, or an absence, stirs imagination and sensation, gives rise to a relationship.",
+  "The landscape is not a backdrop but a field of interactions.", 
+  "If the distance in the framing evokes the neutrality of a satellite, it underscores the subjectivity of human perception.", 
+  "As technology reshapes the way we see, this work questions the persistence of looking: how a subtle signal, or an absence, stirs imagination and sensation, gives rise to a relationship.",
   "The image we retain captures nothing. It reveals the encounter between a place and an individual memory.",
                ],
     bio: {
@@ -231,10 +235,10 @@ const CONTENT = {
         label: "Collaborations", 
         num: "01", 
         items: [
-            { client: 'Musée national de Cluny', role: "Re-wilding of 4000m2 in Paris. Heritage campaign, documentary, ministerial inauguration.", date: '2025' },
+            { client: 'Musée national de Cluny', role: "Heritage campaign, documentary, ministerial inauguration.", date: '2025' },
             { client: 'Louis Wallecan', role: "Documentary portrait for Duel Magazine.", date: '2025' },
             { client: 'French Theory', role: "Artists' press portraits, art shooting, exhibition AD.", date: '23-25' },
-            { client: 'Communauté Écotable', role: "Portraits on sustainable food (Ground Control, François Hollande pour La France s'engage, Isana, Refugee Food, etc.).", date: '21—24' }
+            { client: 'Communauté Écotable', role: "Portraits of sustainable food (Ground Control, François Hollande x LFSE, Refugee Food,...).", date: '21—24' }
         ] 
       },
       awards: { 
@@ -339,7 +343,7 @@ body::-webkit-scrollbar { display: none;
     }
     .logo-style {
       font-family: var(--serif);
-      font-size: 32px; 
+      font-size: 24px; 
       font-weight: 500; 
       letter-spacing: -0.03em; 
       background: none;
@@ -352,25 +356,8 @@ body::-webkit-scrollbar { display: none;
       text-transform: lowercase; 
       transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       }   
-    .logo-style:hover { color: var(--accent); }
-
-    .brand-style { 
-      font-family: var(--sans);
-      font-size: 16px; 
-      font-weight: 400; 
-      letter-spacing: 0.02em;
-      background: none;
-      border: none;
-      color: var(--ink);
-      padding: 0;
-      line-height: 1; 
-      text-transform: lowercase;
-      transition: color 0.4s ease, transform 0.3s ease;
-      margin-top: 0; 
-      }
-
-    .brand-style:hover { color: var(--accent); }
-
+    .logo-style:hover { color: var(--accent); 
+    }
    .nav-title {
      font-family: var(--sans);
      font-size: 18px;
@@ -389,86 +376,68 @@ body::-webkit-scrollbar { display: none;
 
     .menu-btn-plus {
       font-family: var(--sans);
-      font-size: 48px; 
+      font-size: 36px; 
       font-weight: 100;
       line-height: 1;
       background: transparent;
       border: none;
       outline: none !important;
     }
-    .text-note { 
-      font-size: 16px; 
-      letter-spacing: 0.02em;
-      line-height: 1.7; 
-      font-weight: 300; 
-      color: var(--ink-soft); 
-      max-width: 44ch; 
-      white-space: pre-line;
-    }
-    .text-meta-label { 
+    .text-meta { 
       font-size: 11px; 
       letter-spacing: 0.2em; 
       text-transform: uppercase; 
       opacity: 0.3; 
-      font-weight: 500; 
+      font-weight: 400; 
     }
-    .text-meta-title {
-      font-size: 11px; 
-      letter-spacing: 0.2em; 
-      text-transform: uppercase; 
-      opacity: 0.3; 
-      font-weight: 500; 
+    .footer-text {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      opacity: 0.3;
+      font-weight: 400;
     }
-    .text-meta-date {
-      font-size: 11px; 
-      letter-spacing: 0.2em; 
-      text-transform: uppercase; 
-      opacity: 0.3; 
-      font-weight: 500; 
-      margin-top: 4px !important;
-    }
-    .manifesto-large {
+  .manifesto-large {
     font-family: var(--serif);
-    font-size: 17px; 
-    line-height: 1.7;
-    font-weight: 500;
+    font-size: 14px; 
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+    opacity: 0.5; 
+    font-weight: 400;
     color: var(--ink);
-    text-align: center; 
-    max-width: 90%; 
-    margin: 0 auto;
-    letter-spacing: -0.02em;
+    text-align: left; 
+    max-width: 100%; 
+    margin: 0;
+    letter-spacing: 0.2em;
     white-space: pre-line;
     }
     .bio-lead {
-      font-family: var(--serif);
-      font-weight: 500; 
-      letter-spacing: -0.02em;
-      font-size: 24px;
+      font-weight: 400; 
+      font-size: 14px;
       line-height: 1.8;
       color: var(--ink);
-      margin-bottom: 2rem;
+      opacity: 0.8;
     }
     .bio-text {
-      font-size: 13px;
-      line-height: 2;
+      font-size: 14px;
       font-weight: 300;
+      line-height: 1.8;
       color: var(--ink);
       opacity: 0.7;
     }
     .index-num { 
-      font-family: var(--serif);
-      font-size: 12px; 
-      font-weight: 500;
-      font-style: italic;
-      color: var(--accent);
-      margin-bottom: 10px; 
+      font-size: 11px; 
+      text-transform: uppercase; 
+      font-weight: 400;
+      opacity: 0.3;
       display: block; 
     }
     .index-label { 
-      font-size: 12px; 
-      letter-spacing: 0.25em; 
+      font-size: 11px; 
+      letter-spacing: 0.2em; 
       text-transform: uppercase; 
-      font-weight: 600; 
+      font-weight: 400; 
       opacity: 0.3;
       margin-bottom: 20px;  
       display: block;
@@ -481,7 +450,7 @@ body::-webkit-scrollbar { display: none;
     }
     .index-item-static { 
       font-family: var(--serif); 
-      font-size: 16px; 
+      font-size: 14px; 
       font-weight: 500; 
       letter-spacing: -0.02em;
       line-height: 1.2; 
@@ -489,7 +458,7 @@ body::-webkit-scrollbar { display: none;
     }
     .index-item-link { 
       font-family: var(--serif); 
-      font-size: 16px; 
+      font-size: 14px; 
       font-weight: 500; 
       letter-spacing: -0.02em;
       line-height: 1.2; 
@@ -506,15 +475,15 @@ body::-webkit-scrollbar { display: none;
       border-bottom: 0.5px solid var(--accent);
     }
     .index-item-sub { 
-      font-size: 12px; 
+      font-size: 13px; 
       font-weight: 300; 
-      opacity: 0.5; 
+      opacity: 0.6; 
       margin-top: 4px; 
       line-height: 1.3;
     }
    .bento-tile {
       background: var(--bg-white);
-      border-top: 1px solid var(--border-light);
+      border-top: 0px solid var(--border-light);
       padding: 40px;
       display: flex;
       flex-direction: column;
@@ -552,8 +521,8 @@ body::-webkit-scrollbar { display: none;
       width: 100%; 
       font-family:var(--sans);
       color: var(--ink); 
-      font-size: 16px !important; /* Minimum pour éviter le décalage/zoom iOS */
-      font-weight: 300; 
+      font-size: 14px 
+      font-weight: 400; 
       display: block;
       transition: border-bottom 0.4s ease;
       outline: none;
@@ -571,22 +540,21 @@ body::-webkit-scrollbar { display: none;
     .contact-input:focus {
       border-bottom: 0.5px solid var(--ink);
     }
-    .contact-submit-btn { border: none; background: transparent; padding: 12px 0; margin: 0; font-family: var(--sans); font-size: 16px; font-weight: 400; text-transform: lowercase; color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; transition: color 0.4s ease; }
-    .contact-submit-btn:hover { color: var(--accent); }
-    .contact-arrow-icon { margin-left: 12px; opacity: 0; transform: translateX(-10px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); font-size: 18px; }
-    .contact-submit-btn:hover .contact-arrow-icon { opacity: 1; transform: translateX(10px); 
-    }
-    .footer-text {
-  font-size: 9px;
-  text-transform: lowercase;
-  letter-spacing: 0.3em;
-  opacity: 0.2;
-  font-weight: 500;
-  font-family: var(--sans);
+    .contact-submit-btn { border: none; background: transparent; padding: 12px 0; margin: 0; cursor: pointer; display: inline-flex; align-items: center; transition: color 0.4s ease; }
+    .contact-arrow-icon { 
+  margin-left: 0; 
+  opacity: 0.4;   /* Visible mais discrète au repos */
+  transform: translateX(0); 
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
+  display: inline-block;
+  font-size: 32px; 
+  font-weight: 100;
 }
-@media (min-width: 768px) {
-      .manifesto-large { font-size: 18px; line-height: 1.8; max-width: 60%; letter-spacing: -0.02em; text-align: center; font-weight: 500; color: var(--ink);  }
-       }
+.contact-submit-btn:hover .contact-arrow-icon { 
+  opacity: 1; 
+  transform: translateX(15px); /* Animation de poussée vers la droite */
+}
+ 
     @media (max-width: 768px) {
       :root {
         --feed-margin-v: 24px;
@@ -954,7 +922,7 @@ body::-webkit-scrollbar { display: none;
                 className="w-full py-0 px-6 text-center"
               >
                 <p className="manifesto-large">
-                  {CONTENT[lang].manifesto.join(' ')}
+                  {CONTENT[lang].manifesto.join('\n')}
                 </p>
               </motion.div>
             )}
@@ -967,10 +935,10 @@ body::-webkit-scrollbar { display: none;
               >
                 <figure className="w-full md:w-[55vw] m-0 p-0">
                   <div className="flex justify-between items-end mb-6">
-                    <div className="text-meta-label">
+                    <div className="text-meta">
                       <span className="sr-only">Project</span> {`${String(idx + 1).padStart(2, '0')} / ${String(stream.length).padStart(2, '0')}`}
                     </div>
-                    <div className="text-meta-label text-right opacity-40 uppercase tracking-widest text-[10px] md:text-[12px]">
+                    <div className="text-meta text-right">
                       {item.tech}
                     </div>
                   </div>
@@ -993,9 +961,9 @@ body::-webkit-scrollbar { display: none;
                   </div>
 
                   <figcaption className="mt-6 text-right flex flex-col items-end gap-1">                
-                  <h2 className="text-meta-title m-0">{item.caption}</h2>
-                  {item.coords && ( <span className="text-meta-date opacity-20 italic lowercase" style={{ fontSize: '9px' }}> {item.coords} </span>  )}
-                  <span className="text-meta-date m-0">{item.year}</span>
+                  <h2 className="text-meta m-0">{item.caption}</h2>
+                  {item.coords && ( <span className="text-meta"> {item.coords} </span>  )}
+                  <span className="text-meta m-0">{item.year}</span>
                 </figcaption>
                 </figure>
               </motion.article>
@@ -1141,10 +1109,7 @@ body::-webkit-scrollbar { display: none;
 
           <div className="pt-6">
             <button type="submit" disabled={isSubmitting} className="contact-submit-btn group">
-              <span>
-                {isSubmitting ? contactData.sending : (formStatus === 'success' ? contactData.success : (formStatus === 'error' ? contactData.error : contactData.submit))}
-              </span>
-              <span className="contact-arrow-icon">⟶</span>
+            <span className="contact-arrow-icon" style={{ fontSize: '32px', fontWeight: '100' }}>⟶</span>
             </button>
           </div>
         </form>
@@ -1153,15 +1118,15 @@ body::-webkit-scrollbar { display: none;
       {/* Colonne Droite : Liens & Localisation */}
       <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }} className="flex flex-col items-end text-right gap-12 md:gap-16 pb-2">
         <div className="flex flex-col gap-6">
-          <a href="https://www.instagram.com/_dubontemps_/" target="_blank" rel="noopener noreferrer" className="nav-title text-sm md:text-base">
+          <a href="https://www.instagram.com/_dubontemps_/" target="_blank" rel="noopener noreferrer" className="nav-title">
             {contactData.instagram}
           </a>
-          <button onClick={handleCatalogueClick} className="nav-title text-sm md:text-base">
+          <button onClick={handleCatalogueClick} className="nav-title">
             {contactData.portfolio}
           </button>
         </div>
         <div className="mt-4">
-          <p className="text-meta-label tracking-tighter text-[10px] md:text-xs">
+          <p className="text-meta">
             {footerData.location}
           </p>
         </div>
