@@ -290,7 +290,7 @@ const CONTENT = {
 
 const TypographyStyles = () => (
   <style>{`
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&family=Shippori+Mincho:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&family=Shippori+Mincho:wght@300;400;500;600;700&display=swap');
 
     :root {
       --bg-white: #FFFFFF;
@@ -317,8 +317,8 @@ const TypographyStyles = () => (
       scrollbar-width: none; /* Pour Firefox */
       -ms-overflow-style: none; /* Pour Edge/IE */
 }
-    /* Pour Chrome, Safari et Opera */
-    body::-webkit-scrollbar { display: none;
+/* Pour Chrome, Safari et Opera */
+body::-webkit-scrollbar { display: none;
     }
     html, body {
       max-width: 100%;
@@ -340,7 +340,7 @@ const TypographyStyles = () => (
     }
     .logo-style {
       font-family: var(--serif);
-      font-size: 24px; 
+      font-size: 32px; 
       font-weight: 500; 
       letter-spacing: -0.03em; 
       background: none;
@@ -354,6 +354,23 @@ const TypographyStyles = () => (
       transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       }   
     .logo-style:hover { color: var(--accent); }
+
+    .brand-style { 
+      font-family: var(--sans);
+      font-size: 16px; 
+      font-weight: 400; 
+      letter-spacing: 0.02em;
+      background: none;
+      border: none;
+      color: var(--ink);
+      padding: 0;
+      line-height: 1; 
+      text-transform: lowercase;
+      transition: color 0.4s ease, transform 0.3s ease;
+      margin-top: 0; 
+      }
+
+    .brand-style:hover { color: var(--accent); }
 
    .nav-title {
      font-family: var(--sans);
@@ -373,23 +390,47 @@ const TypographyStyles = () => (
 
     .menu-btn-plus {
       font-family: var(--sans);
-      font-size: 36px; 
+      font-size: 48px; 
       font-weight: 100;
       line-height: 1;
       background: transparent;
       border: none;
       outline: none !important;
     }
-    .text-meta { 
+    .text-note { 
+      font-size: 16px; 
+      letter-spacing: 0.02em;
+      line-height: 1.7; 
+      font-weight: 300; 
+      color: var(--ink-soft); 
+      max-width: 44ch; 
+      white-space: pre-line;
+    }
+    .text-meta-label { 
       font-size: 11px; 
       letter-spacing: 0.2em; 
       text-transform: uppercase; 
       opacity: 0.3; 
-      font-weight: 400; 
+      font-weight: 500; 
+    }
+    .text-meta-title {
+      font-size: 11px; 
+      letter-spacing: 0.2em; 
+      text-transform: uppercase; 
+      opacity: 0.3; 
+      font-weight: 500; 
+    }
+    .text-meta-date {
+      font-size: 11px; 
+      letter-spacing: 0.2em; 
+      text-transform: uppercase; 
+      opacity: 0.3; 
+      font-weight: 500; 
+      margin-top: 4px !important;
     }
     .manifesto-large {
     font-family: var(--serif);
-    font-size: 24px; 
+    font-size: 17px; 
     line-height: 1.7;
     font-weight: 500;
     color: var(--ink);
@@ -419,14 +460,16 @@ const TypographyStyles = () => (
       font-family: var(--serif);
       font-size: 12px; 
       font-weight: 500;
+      font-style: italic;
+      color: var(--accent);
       margin-bottom: 10px; 
       display: block; 
     }
     .index-label { 
-      font-size: 11px; 
+      font-size: 12px; 
       letter-spacing: 0.25em; 
       text-transform: uppercase; 
-      font-weight: 400; 
+      font-weight: 600; 
       opacity: 0.3;
       margin-bottom: 20px;  
       display: block;
@@ -606,8 +649,11 @@ const TypographyStyles = () => (
     white-space: nowrap;
     border-width: 0;
     }
-    );
-    const MixedText = ({ text }) => text || null;
+} 
+  `}</style>
+);
+
+  const MixedText = ({ text }) => text || null;
 
   export default function App() {
     const [lang, setLang] = useState('EN');
@@ -922,10 +968,10 @@ const TypographyStyles = () => (
               >
                 <figure className="w-full md:w-[55vw] m-0 p-0">
                   <div className="flex justify-between items-end mb-6">
-                    <div className="text-meta">
+                    <div className="text-meta-label">
                       <span className="sr-only">Project</span> {`${String(idx + 1).padStart(2, '0')} / ${String(stream.length).padStart(2, '0')}`}
                     </div>
-                    <div className="text-meta">
+                    <div className="text-meta-label text-right opacity-40 uppercase tracking-widest text-[10px] md:text-[12px]">
                       {item.tech}
                     </div>
                   </div>
@@ -948,9 +994,9 @@ const TypographyStyles = () => (
                   </div>
 
                   <figcaption className="mt-6 text-right flex flex-col items-end gap-1">                
-                  <h2 className="text-meta m-0">{item.caption}</h2>
-                  {item.coords && ( <span className="text-meta"> {item.coords} </span>  )}
-                  <span className="text-meta m-0">{item.year}</span>
+                  <h2 className="text-meta-title m-0">{item.caption}</h2>
+                  {item.coords && ( <span className="text-meta-date opacity-20 italic lowercase" style={{ fontSize: '9px' }}> {item.coords} </span>  )}
+                  <span className="text-meta-date m-0">{item.year}</span>
                 </figcaption>
                 </figure>
               </motion.article>
@@ -1116,7 +1162,7 @@ const TypographyStyles = () => (
           </button>
         </div>
         <div className="mt-4">
-          <p className="text-meta">
+          <p className="text-meta-label tracking-tighter text-[10px] md:text-xs">
             {footerData.location}
           </p>
         </div>
@@ -1137,4 +1183,3 @@ const TypographyStyles = () => (
   </div>
   );
   }
-
