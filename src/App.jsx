@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-import './App.css';
 
 /**
  * --- CONFIGURATION DU THÈME & CONTENUS ---
