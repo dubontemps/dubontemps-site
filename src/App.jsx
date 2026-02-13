@@ -391,8 +391,8 @@ body::-webkit-scrollbar { display: none;
       font-weight: 400; 
     }
     .footer-text {
-      font-size: 11px;
-      text-transform: uppercase;
+      font-size: 9px;
+      text-transform: lowercase;
       letter-spacing: 0.2em;
       font-weight: 300;
       opacity : 0.15;
@@ -521,12 +521,12 @@ body::-webkit-scrollbar { display: none;
       object-fit: contain; 
       padding: 0; 
     }
-    .contact-hello { font-size: 14px ; font-weight: 400;}
+    .contact-hello { font-size: 16px ; font-weight: 400;}
     .contact-input {
       width: 100%; 
       font-family:var(--sans);
       color: var(--ink); 
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 400; 
       opacity: 0.5;
       display: block;
@@ -557,8 +557,8 @@ body::-webkit-scrollbar { display: none;
       font-weight: 100;
     }
     .contact-submit-btn:hover .contact-arrow-icon { opacity: 1; transform: translateX(15px); }
-    .contact-status {font-family:var(--sans); font-size: 14px ; font-weight: 400; text-transform: lowercase; opacity: 0.5;
-    margin-top: 2px;
+    .contact-status {font-family:var(--sans); font-size: 16px ; font-weight: 400; text-transform: lowercase; opacity: 0.5;
+    margin-top: 4px;
     }
  
     @media (max-width: 768px) {
@@ -1089,14 +1089,14 @@ body::-webkit-scrollbar { display: none;
             </section>
 
       {/* CONTACT & FOOTER */}
-          <section id="contact-anchor" className="w-full pt-[15vh] pb-10 px-6 md:px-[10%]">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 items-start">
+          <section id="contact-anchor" className="w-full pt-[40vh] px-6 md:px-[10%]">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 items-end">
 
       {/* Colonne Gauche : Hello & Form */}
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}>
-        <h3 ref={formRef} className="contact-hello mb-12">{contactData.title}</h3>
+        <h3 ref={formRef} className="contact-hello mb-8">{contactData.title}</h3>
 
-        <form onSubmit={handleFormSubmit} className="space-y-10 max-w-md">
+        <form onSubmit={handleFormSubmit} className="max-w-md">
           {/* Honeypot Anti-Spam */}
           <input type="text" name="_gotcha" style={{ display: "none" }} />
 
@@ -1110,11 +1110,12 @@ body::-webkit-scrollbar { display: none;
             value={messageValue}
             onChange={(e) => setMessageValue(e.target.value)}
             placeholder={contactData.placeholderMsg} 
-            className="contact-input min-h-[100px] resize-none" 
+            className="contact-input min-h-[50px] resize-none" 
           />
 
-          <div className="pt-2 flex items-center justify-end gap-4">
-            <button type="submit" disabled={isSubmitting} className="contact-submit-btn group flex items-center gap-3">
+          <div className="flex items-center gap-4">
+            <button type="submit" disabled={isSubmitting} 
+            className="contact-submit-btn group flex items-center gap-3">
               <AnimatePresence mode="wait">
                 {(isSubmitting || formStatus) && (
                   <motion.span
@@ -1135,30 +1136,22 @@ body::-webkit-scrollbar { display: none;
       </motion.div>
 
       {/* Colonne Droite : Liens & Localisation */}
-      <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }} 
-      className="flex flex-col items-end md:mt-[200px] text-right gap-12 md:gap-16 pb-2">
-        <div className="flex flex-col gap-6">
-          <a href="https://www.instagram.com/_dubontemps_/" target="_blank" rel="noopener noreferrer" className="nav-title">
-            {contactData.instagram}
-          </a>
-          <button onClick={handleCatalogueClick} className="nav-title"> 
-            {contactData.portfolio}
-          </button>
+   <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }} 
+     className="flex flex-col items-end text-right gap-6">
+     <div className="flex flex-col gap-4 mb-8">
+     <a href="https://www.instagram.com/_dubontemps_/" target="_blank" rel="noopener noreferrer" 
+      className="nav-title">{contactData.instagram}</a>
+      <button onClick={handleCatalogueClick} className="nav-title">{contactData.portfolio}</button>
         </div>
-        <div className="mt-2">
-          <p className="text-meta">
-            {footerData.location}
-          </p>
-        </div>
-      </motion.div>
-    </div>
+    </motion.div>
+      </div>
 
     {/* Signature Footer */}
-  <footer className="mt-[5vh] pb-4 flex justify-center">
-    <p className="footer-text">
-      © {new Date().getFullYear()} {CONTENT[lang].brand}
-    </p>
+  <footer className="w-full pb-8 flex justify-between items-center">
+    <div className="mt-0"><p className="text-meta opacity-20 text-[9px]">{footerData.location}</p></div>
+      <p className="footer-text">© {new Date().getFullYear()} {CONTENT[lang].brand}</p>
   </footer>
+        
   </section>
     
     </div>
