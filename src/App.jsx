@@ -138,7 +138,7 @@ manifesto: [
       submit: "envoyer",
       sending: "...",
       success: "merci",
-      error: "erreur. réessayez",
+      error: "erreur",
       instagram: "instagram",
       portfolio: "catalogue sur demande",
       autoRequest: "hello dubontemps, j'aimerais recevoir votre catalogue de tirages d'art."
@@ -279,8 +279,8 @@ manifesto: [
       placeholderEmail: "your email",
       submit: "send",
       sending: "...", 
-      success: "thank you",
-      error: "error. try again",
+      success: "merci",
+      error: "error",
       instagram: "instagram",
       portfolio: "catalogue on demand",
       autoRequest: "hello dubontemps, I would like to receive your fine art print catalogue."
@@ -394,8 +394,8 @@ body::-webkit-scrollbar { display: none;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.2em;
-      opacity: 0.3;
-      font-weight: 400;
+      font-weight: 300;
+      opacity : 0.15;
     }
   .manifesto-large {
     font-family: var(--sans);
@@ -521,12 +521,14 @@ body::-webkit-scrollbar { display: none;
       object-fit: contain; 
       padding: 0; 
     }
-      .contact-input {
+    .contact-hello { font-size: 14px ; font-weight: 400;}
+    .contact-input {
       width: 100%; 
       font-family:var(--sans);
       color: var(--ink); 
-      font-size: 14px 
+      font-size: 14px;
       font-weight: 400; 
+      opacity: 0.5;
       display: block;
       transition: border-bottom 0.4s ease;
       outline: none;
@@ -546,25 +548,24 @@ body::-webkit-scrollbar { display: none;
     }
     .contact-submit-btn { border: none; background: transparent; padding: 12px 0; margin: 0; cursor: pointer; display: inline-flex; align-items: center; transition: color 0.4s ease; }
     .contact-arrow-icon { 
-  margin-left: 0; 
-  opacity: 0.4;   /* Visible mais discrète au repos */
-  transform: translateX(0); 
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
-  display: inline-block;
-  font-size: 32px; 
-  font-weight: 100;
-}
-.contact-submit-btn:hover .contact-arrow-icon { 
-  opacity: 1; 
-  transform: translateX(15px); /* Animation de poussée vers la droite */
-}
+      margin-left: 0; 
+      opacity: 0.4;   /* Visible mais discrète au repos */
+      transform: translateX(0); 
+      transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); 
+      display: inline-block;
+      font-size: 32px; 
+      font-weight: 100;
+    }
+    .contact-submit-btn:hover .contact-arrow-icon { opacity: 1; transform: translateX(15px); }
+    .contact-status {font-family:var(--sans); font-size: 14px ; font-weight: 400; text-transform: lowercase; opacity: 0.5;
+    margin-top: 2px;
+    }
  
     @media (max-width: 768px) {
       :root {
         --feed-margin-v: 24px;
         --header-h: 80px;
       }
-    .logo-style { font-size: 24px; }
 
     .bento-tile { padding: 32px 24px; 
     }
@@ -1089,11 +1090,11 @@ body::-webkit-scrollbar { display: none;
 
       {/* CONTACT & FOOTER */}
           <section id="contact-anchor" className="w-full pt-[15vh] pb-10 px-6 md:px-[10%]">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 items-end">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 items-start">
 
       {/* Colonne Gauche : Hello & Form */}
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}>
-        <h3 ref={formRef} className="bio-lead mb-12">{contactData.title}</h3>
+        <h3 ref={formRef} className="contact-hello mb-12">{contactData.title}</h3>
 
         <form onSubmit={handleFormSubmit} className="space-y-10 max-w-md">
           {/* Honeypot Anti-Spam */}
@@ -1112,25 +1113,39 @@ body::-webkit-scrollbar { display: none;
             className="contact-input min-h-[100px] resize-none" 
           />
 
-          <div className="pt-6">
-            <button type="submit" disabled={isSubmitting} className="contact-submit-btn group">
-            <span className="contact-arrow-icon" style={{ fontSize: '32px', fontWeight: '100' }}>⟶</span>
+          <div className="pt-2 flex items-center justify-end gap-4">
+            <button type="submit" disabled={isSubmitting} className="contact-submit-btn group flex items-center gap-3">
+              <AnimatePresence mode="wait">
+                {(isSubmitting || formStatus) && (
+                  <motion.span
+                    key={formStatus || 'sending'}
+                    initial={{ opacity: 0, x: -5 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 5 }}
+                    className="contact-status w-auto p-0"
+                  >
+                    {isSubmitting ? "..." : (formStatus === 'success' ? "merci" : "erreur")}
+                  </motion.span>
+                )}
+              </AnimatePresence>
+              <span className="contact-arrow-icon">⟶</span>
             </button>
           </div>
         </form>
       </motion.div>
 
       {/* Colonne Droite : Liens & Localisation */}
-      <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }} className="flex flex-col items-end text-right gap-12 md:gap-16 pb-2">
+      <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }} 
+      className="flex flex-col items-end md:mt-[200px] text-right gap-12 md:gap-16 pb-2">
         <div className="flex flex-col gap-6">
           <a href="https://www.instagram.com/_dubontemps_/" target="_blank" rel="noopener noreferrer" className="nav-title">
             {contactData.instagram}
           </a>
-          <button onClick={handleCatalogueClick} className="nav-title">
+          <button onClick={handleCatalogueClick} className="nav-title"> 
             {contactData.portfolio}
           </button>
         </div>
-        <div className="mt-4">
+        <div className="mt-2">
           <p className="text-meta">
             {footerData.location}
           </p>
@@ -1139,7 +1154,7 @@ body::-webkit-scrollbar { display: none;
     </div>
 
     {/* Signature Footer */}
-  <footer className="mt-[15vh] pb-4 flex justify-center">
+  <footer className="mt-[5vh] pb-4 flex justify-center">
     <p className="footer-text">
       © {new Date().getFullYear()} {CONTENT[lang].brand}
     </p>
