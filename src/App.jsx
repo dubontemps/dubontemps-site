@@ -23,12 +23,12 @@ const CONTENT = {
       index: "Index, collaborations et distinctions",
       contact: "Coordonnées et réseaux sociaux"
     },
-     manifesto: [
-  "Le paysage n’est pas un décor mais un champ d’interactions.", 
-  "Si la distance des cadrages évoque la neutralité d’un satellite, elle en souligne l'angle mort : la subjectivité de la perception humaine.", 
-  "À mesure que la technologie transforme nos manières de voir, ce travail interroge la persistance du regard : comment un signal discret, ou une absence, éveille l’imagination et la sensation, fait naître une relation.",
-  "L’image que l’on retient ne capture rien. Elle révèle la rencontre entre un lieu et une mémoire individuelle.",
-               ],
+manifesto: [
+  "Un paysage n’est pas un décor. C’est un champ vivant traversé d’interactions multiples.", 
+  "\nLa prise de vue à distance peut évoquer la neutralité d’un satellite, et pourtant elle souligne un écart fondamental : la perception humaine est toujours subjective.", 
+  "\nÀ mesure que la technologie influence nos manières de voir, ce travail interroge la persistance du regard : comment un signal discret, même une absence, peut activer des sensations et réveiller l’imaginaire.",
+  "\nPhotographier est un acte d’écoute. L’image que l’on retient ne capture rien. Elle révèle la rencontre entre un lieu et une mémoire. À chaque fois imprévisible.",
+],
     bio: {
       label: "",
       lead: "dubontemps explore notre relation au paysage et à l’imaginaire",
@@ -166,10 +166,10 @@ const CONTENT = {
       contact: "Contact details and social media"
     },
     manifesto: [
-  "The landscape is not a backdrop but a field of interactions.", 
-  "If the distance in the framing evokes the neutrality of a satellite, it underscores the subjectivity of human perception.", 
-  "As technology reshapes the way we see, this work questions the persistence of looking: how a subtle signal, or an absence, stirs imagination and sensation, gives rise to a relationship.",
-  "The image we retain captures nothing. It reveals the encounter between a place and an individual memory.",
+  "A landscape is not a backdrop. It is a living field shaped by multiple interactions.", 
+  "\nDistant framing may evoke the neutrality of a satellite, and yet it underscores a fundamental difference: human perception is always subjective.", 
+  "\nAs technology influences the way we see, this work questions the persistence of looking: how a subtle signal, even an absence, can activate sensations and stir the imagination.",
+  "\nPhotography is an act of listening. The image we retain captures nothing. It reveals the encounter between a place and a memory. Each time unpredictable.",
                ],
     bio: {
       label: "",
@@ -398,37 +398,41 @@ body::-webkit-scrollbar { display: none;
       font-weight: 400;
     }
   .manifesto-large {
-    font-family: var(--serif);
+    font-family: var(--sans);
     font-size: 14px; 
     text-transform: uppercase;
-    letter-spacing: 0.02em;
     line-height: 1.6;
-    opacity: 0.5; 
-    font-weight: 400;
+    letter-spacing: 0.2em;
+    opacity: 0.6; 
+    font-weight: 300;
     color: var(--ink);
-    text-align: left; 
     max-width: 100%; 
     margin: 0;
-    letter-spacing: 0.2em;
     white-space: pre-line;
+    text-align: left; 
+    padding-left: 10%;  
+    padding-right: 10%;
     }
     .bio-lead {
-      font-weight: 400; 
-      font-size: 14px;
-      line-height: 1.8;
-      color: var(--ink);
-      opacity: 0.8;
+     font-family: var(--serif);
+     letter-spacing: -0.02em;
+     font-weight: 400;
+     font-size: 16px;
+     line-height: 1.7;
+     margin-bottom: 20px;        
+     color: var(--ink);
+     opacity: 1;
     }
     .bio-text {
       font-size: 14px;
       font-weight: 300;
-      line-height: 1.8;
+      line-height: 1.7;
       color: var(--ink);
-      opacity: 0.7;
+      opacity: 0.6;
     }
     .index-num { 
       font-size: 11px; 
-      text-transform: uppercase; 
+       letter-spacing: 0.2em; 
       font-weight: 400;
       opacity: 0.3;
       display: block; 
@@ -475,9 +479,9 @@ body::-webkit-scrollbar { display: none;
       border-bottom: 0.5px solid var(--accent);
     }
     .index-item-sub { 
-      font-size: 13px; 
+      font-size: 14px; 
       font-weight: 300; 
-      opacity: 0.6; 
+      opacity: 0.5; 
       margin-top: 4px; 
       line-height: 1.3;
     }
@@ -496,7 +500,7 @@ body::-webkit-scrollbar { display: none;
       box-shadow: 0 15px 50px rgba(0,0,0,0.03);
       }
     .bg-index-gradient {
-      background: linear-gradient(to bottom, var(--bg-white) 0%, var(--bg-off-white) 100%);
+      background: linear-gradient(to bottom, var(--bg-white) 0%, rgba(252, 252, 252, 0.5) 50%, var(--bg-off-white) 100%);
     }
     .lightbox-overlay {
       position: fixed;
@@ -585,7 +589,7 @@ body::-webkit-scrollbar { display: none;
         box-sizing: border-box;   
         scroll-snap-align: start;  
         margin-right: 0;  
-        padding-right: 16px;
+        padding-right: 24px;
         flex: 0 0 80%; 
     }
     .bento-col-mobile:nth-child(1) { flex: 0 0 80%; } 
@@ -902,10 +906,12 @@ body::-webkit-scrollbar { display: none;
               className="w-full h-full object-cover object-bottom" 
             />
           </section>
+ 
   <div className="relative z-10 bg-white">
+    <div className="bg-index-gradient">
 
   {/* LA GALERIE UNIQUE */}
-          <section className="bg-white pt-[30vh] space-y-[30vh] md:space-y-[30vh] relative" aria-labelledby="section-gallery">
+          <section className="bg-transparent pt-[30vh] space-y-[30vh] md:space-y-[30vh] relative" aria-labelledby="section-gallery">
             <div id="works-anchor" className="absolute top-[-100px] left-0" aria-hidden="true" />
             <h2 id="section-gallery" className="sr-only">{sectionTitles.gallery}</h2>
             
@@ -972,11 +978,10 @@ body::-webkit-scrollbar { display: none;
           </section>
 
           {/* Index & Contact Combined */}
-          <div className="bg-index-gradient pt-[40vh]">
             
             {/* Bento Index */}
-            <section id="index-anchor" className="px-0 md:px-[10%] mb-[20vh]">
-              <div className="hidden md:grid grid-cols-4 gap-6 grid-rows-[auto_auto_auto]">
+            <section id="index-anchor" className="px-0 md:px-[10%] mb-[20vh] pt-[40vh]">
+              <div className="hidden md:grid grid-cols-4 gap-10 grid-rows-[auto_auto_auto]">
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="col-span-3">
                   <div className="bento-tile">
                     <h3 className="bio-lead">{bioData.lead}</h3>
