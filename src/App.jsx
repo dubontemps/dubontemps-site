@@ -392,6 +392,7 @@ body::-webkit-scrollbar { display: none;
     }
     .footer-text {
       font-size: 9px;
+      text-transform: uppercase; 
       text-transform: lowercase;
       letter-spacing: 0.2em;
       font-weight: 300;
@@ -822,8 +823,8 @@ body::-webkit-scrollbar { display: none;
         </AnimatePresence>
 
   {/* 1. BOUTON + (Fixe en haut à droite) */}
-    <div className="fixed top-0 inset-x-0 z-[5100] px-6 md:px-[10%] h-[var(--header-h)] flex items-center justify-end pointer-events-none">
-    <motion.button 
+    <div className="fixed top-0 right-0 z-[5100] w-full md:w-screen px-6 md:px-[10%] h-[var(--header-h)] flex items-center justify-end pointer-events-none">   
+       <motion.button 
       onClick={() => setIsMenuOpen(!isMenuOpen)} 
       animate={{ 
         rotate: isMenuOpen ? 45 : 0,
@@ -864,9 +865,8 @@ body::-webkit-scrollbar { display: none;
        <div onClick={() => setIsMenuOpen(false)} className="absolute inset-0 bg-white/20 backdrop-blur-[2px]" />
        
        {/* Liste des liens alignés à droite */}
-       <div className="absolute top-[calc(var(--header-h)*1.2)] right-6 md:right-[10%] flex flex-col items-end gap-10 md:gap-14 pointer-events-auto">
-          {[
-            { id: 'works-anchor', text: navData.works },
+<div className="absolute top-[calc(var(--header-h)*1.2)] right-0 w-full px-6 md:px-[10%] flex flex-col items-end gap-10 md:gap-14 pointer-events-auto">           
+   { id: 'works-anchor', text: navData.works },
             { id: 'index-anchor', text: navData.index },
             { id: 'contact-anchor', text: navData.contact },
             { id: 'lang-switch', text: navData.lang, isLang: true }
@@ -1089,7 +1089,7 @@ body::-webkit-scrollbar { display: none;
             </section>
 
       {/* CONTACT & FOOTER */}
-          <section id="contact-anchor" className="w-full pt-[40vh] px-6 md:px-[10%]">
+          <section id="contact-anchor" className="w-full px-6 md:px-[10%]">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 items-end">
 
       {/* Colonne Gauche : Hello & Form */}
@@ -1148,9 +1148,17 @@ body::-webkit-scrollbar { display: none;
 
     {/* Signature Footer */}
   <footer className="w-full pb-8 flex justify-between items-center">
-    <div className="mt-0"><p className="text-meta opacity-20 text-[9px]">{footerData.location}</p></div>
-      <p className="footer-text">© {new Date().getFullYear()} {CONTENT[lang].brand}</p>
-  </footer>
+  <div className="text-left">
+    <p className="text-meta opacity-20 text-[7px] uppercase tracking-widest">
+      {footerData.location}
+    </p>
+  </div>
+  <div className="text-right">
+    <p className="text-meta opacity-20 text-[7px] uppercase tracking-widest">
+      © {new Date().getFullYear()} {CONTENT[lang].brand}
+    </p>
+  </div>
+</footer>
         
   </section>
     
