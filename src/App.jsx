@@ -748,17 +748,21 @@ body::-webkit-scrollbar { display: none;
 
   useEffect(() => {
       const unsubscribe = scrollY.on("change", (latest) => {
-        const heroHeight = window.innerHeight * 0.8; // Apparaît après 80% de la hauteur Hero
-
-        if (latest < heroHeight) {
-          setHeaderVisible(false); // Cache sur l'image Hero
-        } else if (latest > lastScrollY) {
-          setHeaderVisible(false); // Cache au scroll down
-        } else {
-          setHeaderVisible(true);  // Apparaît au scroll up
-        }
-        setLastScrollY(latest);
-      });
+      // 1. Sécurité absolue : Toujours caché au point 0 (ouverture)
+      if (latest <= 10) {
+        setHeaderVisible(false);
+      } 
+      // 2. Si on remonte (latest < lastScrollY), on affiche PEU IMPORTE la position
+      else if (latest < lastScrollY) {
+        setHeaderVisible(true);
+      } 
+      // 3. Si on descend (latest > lastScrollY), on cache
+      else {
+        setHeaderVisible(false);
+      }
+      
+      setLastScrollY(latest);
+    });
       return () => unsubscribe();
     }, [scrollY, lastScrollY]);
 
@@ -833,7 +837,7 @@ body::-webkit-scrollbar { display: none;
         color: isMenuOpen ? "var(--ink)" : (headerVisible ? "var(--ink)" : "transparent")
       }}
       transition={smoothSpring}
-      className="menu-btn-plus pointer-events-auto flex items-center justify-center translate-x-[15%]"
+      className="menu-btn-plus pointer-events-auto flex items-center justify-center translate-x-[22%]"
       style={{ pointerEvents: headerVisible || isMenuOpen ? 'auto' : 'none' }}
     >
       +
