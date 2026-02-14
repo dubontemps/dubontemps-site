@@ -382,6 +382,8 @@ body::-webkit-scrollbar { display: none;
       background: transparent;
       border: none;
       outline: none !important;
+      display: inline-flex;
+      width: auto;
     }
     .text-meta { 
       font-size: 11px; 
@@ -831,11 +833,11 @@ body::-webkit-scrollbar { display: none;
         color: isMenuOpen ? "var(--ink)" : (headerVisible ? "var(--ink)" : "transparent")
       }}
       transition={smoothSpring}
-      className="menu-btn-plus pointer-events-auto"
+      className="menu-btn-plus pointer-events-auto flex items-center justify-center translate-x-[15%]"
       style={{ pointerEvents: headerVisible || isMenuOpen ? 'auto' : 'none' }}
     >
       +
-    </motion.button>
+      </motion.button>
   </div>
 
 {/* 2. LOGO CENTRAL (Apparaît au scroll ou quand menu ouvert) */}
