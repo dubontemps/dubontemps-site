@@ -24,15 +24,15 @@ const CONTENT = {
       contact: "Coordonnées et réseaux sociaux"
     },
 manifesto: [
-  "Un paysage n’est pas un décor. C’est un champ vivant traversé d’interactions multiples.", 
-  "\nLa prise de vue à distance peut évoquer la neutralité d’un satellite, et pourtant elle souligne un écart fondamental : la perception humaine est toujours subjective.", 
-  "\nÀ mesure que la technologie influence nos manières de voir, ce travail interroge la persistance du regard : comment un signal discret, même une absence, peut activer des sensations et réveiller l’imaginaire.",
-  "\nPhotographier est un acte d’écoute. L’image que l’on retient ne capture rien. Elle révèle la rencontre entre un lieu et une mémoire. À chaque fois imprévisible.",
+  "Un paysage n’est pas un décor. C’est un langage vivant.", 
+  "\nSi les cadrages distants évoquent la neutralité d’un satellite, ils soulignent pourtant un écart fondamental : la perception humaine est toujours subjective.", 
+  "\nÀ mesure que la technologie influence nos manières de voir, ce travail interroge la persistance du regard : comment un signal discret, même une absence, active des sensations et réveille l’imaginaire.",
+  "\nPhotographier est écouter. L’image que l’on retient ne capture rien. Elle révèle une rencontre entre un lieu et une mémoire. À chaque fois imprévisible.",
 ],
     bio: {
       label: "",
       lead: "dubontemps explore notre relation au paysage et à l’imaginaire",
-      text: "Photographe française, elle a été formée aux arts visuels à New York et aux relations internationales à Paris. Elle collabore avec artisans, artistes et institutions culturelles, après une carrière en conseil.\n\nSon travail observe le vivant, sur plusieurs continents, entre réel et mystère, rigueur et instinct. Chaque tirage est réalisé par procédé pigmentaire d’archivage sur papier Fine Art, washi japonais fait main ou baryté."
+      text: "Photographe docuementaire basée à Paris, elle collabore avec des artisans, des artistes et des institutions culturelles, après une carrière en conseil. Son travail s'attache aux liens entre lieu, sensation et mémoire. Formée à la narration visuelle à Lee Strasberg, New York et diplômée de Dauphine et de Sciences Po Paris, son approche s'appuie sur ce double parcours, entre rigueur analytique et sensibilité perceptive. Chaque tirage est réalisé par procédé pigmentaire d’archivage sur papier Fine Art, baryté ou washi japonais fait main."
     },
     stream: [
       { 
@@ -166,15 +166,15 @@ manifesto: [
       contact: "Contact details and social media"
     },
     manifesto: [
-  "A landscape is not a backdrop. It is a living field shaped by multiple interactions.", 
-  "\nDistant framing may evoke the neutrality of a satellite, and yet it underscores a fundamental difference: human perception is always subjective.", 
-  "\nAs technology influences the way we see, this work questions the persistence of looking: how a subtle signal, even an absence, can activate sensations and stir the imagination.",
-  "\nPhotography is an act of listening. The image we retain captures nothing. It reveals the encounter between a place and a memory. Each time unpredictable.",
+  "A landscape is not a backdrop. It is a living language.", 
+  "\nIf distant framing evokes the neutrality of a satellite, yet it underscores a fundamental difference: human perception is always subjective.", 
+  "\nAs technology influences the way we see, this work questions the persistence of looking: how a subtle signal, even an absence, activates sensations and stir the imagination.",
+  "\nPhotography is listening. The image we retain captures nothing. It reveals an encounter between a place and a memory. Each time unpredictable.",
                ],
     bio: {
       label: "",
       lead: "dubontemps explores our relationship to landscape and imagination",
-      text: "French photographer, she was trained in visual arts in New York and in international relations in Paris. She collaborate with artisans, artists and cultural institutions, following a consulting career.\n\nHer work observes the living world across several continents, between reality and mystery, rigor and instinct. Each print is produced with archival pigment processes on Fine Art paper, handmade Japanese washi or baryta."
+      text: "Documentary photographer based in Paris, she collaborates with artisans, artists and cultural institutions, following a consulting career. Her work focuses on the connections between place, sensation, and memory. Trained in visual storytelling at Lee Strasberg New York, and a graduate of Dauphine and Sciences Po Paris, her approach draws on this dual background, between analytical rigor and perceptual sensitivity. Each print is produced using archival pigment processes on Fine Art paper, baryta, or handmade Japanese washi."
      },
     stream: [
       { 
