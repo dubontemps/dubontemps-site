@@ -866,7 +866,7 @@ body::-webkit-scrollbar { display: none;
        
        {/* Liste des liens alignés à droite */}
 <div className="absolute top-[calc(var(--header-h)*1.2)] right-0 w-full px-6 md:px-[10%] flex flex-col items-end gap-10 md:gap-14 pointer-events-auto">           
-   { id: 'works-anchor', text: navData.works },
+   {[{ id: 'works-anchor', text: navData.works },
             { id: 'index-anchor', text: navData.index },
             { id: 'contact-anchor', text: navData.contact },
             { id: 'lang-switch', text: navData.lang, isLang: true }
