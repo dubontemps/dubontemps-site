@@ -82,7 +82,8 @@ manifesto: [
         label: "Distinctions",
         num: "02",
         items: [
-          { label: "Lensculture Art", subtitle: "Editors' Pick, 2025" },
+          { label: "Smithsonian Magazine", subtitle: "Art Shortlist, 2026" },
+          { label: "Lensculture", subtitle: "Art Editors' Pick, 2025" },
           { label: "ND Awards", subtitle: "Honorable Mention, 2025", url: "https://ndawards.net/winners-gallery/nd-awards-2025/professional/landscape/hm/22577/" },
           { label: "World Food Awards", subtitle: "Shortlist Récolte, 2023" }
         ]
@@ -203,7 +204,8 @@ manifesto: [
         label: "Awards", 
         num: "02", 
         items: [
-            { label: "Lensculture Art", subtitle: "Editors' Pick, 2025" },
+            { label: "Smithsonian Magazine", subtitle: "Art Shortlist, 2026" },
+            { label: "Lensculture", subtitle: "Art Editors' Pick, 2025" },
             { label: "ND Awards", subtitle: "Honorable Mention, 2025", url: "https://ndawards.net/winners-gallery/nd-awards-2025/professional/landscape/hm/22577/" },
             { label: "World Food Awards", subtitle: "Shortlist Crop, 2023" }
         ] 
@@ -882,7 +884,7 @@ body::-webkit-scrollbar { display: none;
               <React.Fragment key={item.id}>
 
     {/* Nouveau Manifeste en grand avant l'image 4 */}
-            {idx === 3 && (
+            {idx === 2 && (
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
