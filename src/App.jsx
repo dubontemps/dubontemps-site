@@ -36,37 +36,6 @@ manifesto: [
     },
     stream: [
       { 
-        id: 'wandering-souls-dubontemps', 
-        url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
-        caption: "Équation sauvage", 
-        coords: "39°34'11\"N 2°38'56\"E",
-        year: "2026",
-        tech: "Tirage pigmentaire, papier baryté",
-        alt: "Ombres de palmier et marcheurs, Palma de Majorque, série Équation Sauvage 2026, tirage pigmentaire papier baryté, Dubontemps",
-        note: "" 
-      },
-      { 
-        id: 'vertigo-dubontemps', 
-        url: '/images/dubontemps-wild-equation-2026-pacific-aerial-view-sandbank-washi-lg.jpg', 
-        caption: "Équation sauvage", 
-        coords: "49°09'07\"N 125°54'25\"W",
-        year: "2026",
-        tech: "Tirage pigmentaire, papier washi japonais",
-        alt: "Vue aérienne d'un banc de sable dans l’océan Pacifique, Vancouver Island, série Équation Sauvage 2026, tirage pigmentaire papier washi japonais, Dubontemps",
-        note: "", 
-        side: 'right'
-      },
-      { 
-        id: 'echoes-of-the-woods-dubontemps', 
-        url: '/images/dubontemps-wild-equation-2026-clayoquot-sound-aerial-view-forest-washi-lg.jpg', 
-        caption: "Équation sauvage", 
-        coords: "49°09'07\"N 125°54'25\"W",
-        year: "2026",
-        tech: "Tirage pigmentaire, papier washi japonais",
-        alt: "Forêt primitive dans la brume, Clayoquot Sound, Vancouver Island, série Équation Sauvage 2026, tirage pigmentaire papier washi japonais, Dubontemps",
-        note: "" 
-      },
-      { 
         id: 'between-realms-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-idf-mysterious-windows-matte-lg.jpg', 
         caption: "L’art du silence", 
@@ -477,7 +446,7 @@ body::-webkit-scrollbar { display: none;
       padding-bottom: 1px;
     }
     .index-item-link:hover { 
-      color: var(--accent);
+      color: var(--accent); 
       transform: translateX(6px); 
       border-bottom: 0.5px solid var(--accent);
     }
@@ -631,7 +600,11 @@ body::-webkit-scrollbar { display: none;
   const MixedText = ({ text }) => text || null;
 
   export default function App() {
-    const [lang, setLang] = useState('EN');
+    const [lang, setLang] = useState(() => {
+    if (typeof window !== 'undefined') {
+        const browserLang = navigator.language.split('-')[0].toUpperCase();
+        return browserLang === 'FR' ? 'FR' : 'EN';    }
+    return 'EN';});
     const [headerVisible, setHeaderVisible] = useState(false); 
     const [lastScrollY, setLastScrollY] = useState(0);
     const [zoomImage, setZoomImage] = useState(null);
@@ -750,21 +723,15 @@ body::-webkit-scrollbar { display: none;
       const unsubscribe = scrollY.on("change", (latest) => {
       // 1. Sécurité absolue : Toujours caché au point 0 (ouverture)
       if (latest <= 10) {
-        setHeaderVisible(false);
-      } 
+        setHeaderVisible(false);      } 
       // 2. Si on remonte (latest < lastScrollY), on affiche PEU IMPORTE la position
       else if (latest < lastScrollY) {
-        setHeaderVisible(true);
-      } 
+        setHeaderVisible(true);} 
       // 3. Si on descend (latest > lastScrollY), on cache
       else {
-        setHeaderVisible(false);
-      }
-      
-      setLastScrollY(latest);
-    });
-      return () => unsubscribe();
-    }, [scrollY, lastScrollY]);
+        setHeaderVisible(false);      }
+      setLastScrollY(latest);    });
+      return () => unsubscribe();    }, [scrollY, lastScrollY]);
 
     const scrollTo = (id) => {
       setIsMenuOpen(false); // Sécurité : on ferme toujours le menu avant de scroller
@@ -837,7 +804,7 @@ body::-webkit-scrollbar { display: none;
         color: isMenuOpen ? "var(--ink)" : (headerVisible ? "var(--ink)" : "transparent")
       }}
       transition={smoothSpring}
-      className="menu-btn-plus pointer-events-auto flex items-center justify-center translate-x-[22%]"
+      className="menu-btn-plus pointer-events-auto flex items-center justify-center translate-x-[25%]"
       style={{ pointerEvents: headerVisible || isMenuOpen ? 'auto' : 'none' }}
     >
       +
@@ -918,7 +885,7 @@ body::-webkit-scrollbar { display: none;
     <div className="bg-index-gradient">
 
   {/* LA GALERIE UNIQUE */}
-          <section className="bg-transparent pt-[30vh] space-y-[30vh] md:space-y-[30vh] relative" aria-labelledby="section-gallery">
+          <section className="bg-transparent pt-[10vh] space-y-[30vh] md:space-y-[30vh] relative" aria-labelledby="section-gallery">
             <div id="works-anchor" className="absolute top-[-100px] left-0" aria-hidden="true" />
             <h2 id="section-gallery" className="sr-only">{sectionTitles.gallery}</h2>
             
@@ -940,7 +907,7 @@ body::-webkit-scrollbar { display: none;
               </motion.div>
             )}
 
-  {/* L'ARTICLE IMAGE (Commun à toutes les photos) */}
+  {/* L'ARTICLE IMAGE */}
               <motion.article 
                 key={item.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: "easeOut" }} viewport={{ once: true, margin: "-10%" }}
@@ -987,7 +954,7 @@ body::-webkit-scrollbar { display: none;
           {/* Index & Contact Combined */}
             
             {/* Bento Index */}
-            <section id="index-anchor" className="px-0 md:px-[10%] mb-[20vh] pt-[40vh]">
+            <section id="index-anchor" className="px-0 md:px-[10%] mb-[20vh] pt-[30vh]">
               <div className="hidden md:grid grid-cols-4 gap-10 grid-rows-[auto_auto_auto]">
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="col-span-3">
                   <div className="bento-tile">
