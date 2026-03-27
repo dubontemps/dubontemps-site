@@ -35,6 +35,16 @@ manifesto: [
       text: "Photographe docuementaire basée à Paris, elle collabore avec des artisans, des artistes et des institutions culturelles, après une carrière en conseil. Son travail s'attache aux liens entre lieu, sensation et mémoire. Formée à la narration visuelle à Lee Strasberg, New York et diplômée de Dauphine et de Sciences Po Paris, son approche s'appuie sur ce double parcours, entre rigueur analytique et sensibilité perceptive. Chaque tirage est réalisé par procédé pigmentaire d’archivage sur papier Fine Art, baryté ou washi japonais fait main."
     },
     stream: [
+        { 
+        id: 'wandering-souls-dubontemps', 
+        url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
+        caption: "Équation sauvage", 
+        coords: "39°34'11\"N 2°38'56\"E",
+        year: "en cours",
+        tech: "Tirage pigmentaire, papier baryté",
+        alt: "Ombres de palmier et marcheurs, Palma de Majorque, série Équation Sauvage 2026, tirage pigmentaire papier baryté, Dubontemps",
+        note: "" 
+      },
       { 
         id: 'between-realms-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-idf-mysterious-windows-matte-lg.jpg', 
@@ -151,33 +161,12 @@ manifesto: [
         url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
         caption: 'Wild Equation', 
         coords: "39°34'11\"N 2°38'56\"E",
-        year: "2026",
+        year: "ongoing",
         tech: "Pigment inkjet print, baryta paper",
         alt: "Palm shadows and walkers, Palma de Mallorca, Équation Sauvage series 2026, pigment print on baryta paper, Dubontemps",
         note: "" 
       },
-      { 
-        id: 'vertigo-dubontemps', 
-        url: '/images/dubontemps-wild-equation-2026-pacific-aerial-view-sandbank-washi-lg.jpg', 
-        caption: 'Wild Equation', 
-        coords: "49°09'07\"N 125°54'25\"W",
-        year: "2026",
-        tech: "Pigment inkjet print, handmade Japanese washi paper",
-        alt: "Aerial view of a sandbank in the Pacific Ocean, Vancouver Island, Équation Sauvage series 2026, pigment print on Japanese washi paper, Dubontemps",
-        note: "", 
-        side: 'right'
-      },
-      { 
-        id: 'echoes-of-the-woods-dubontemps', 
-        url: '/images/dubontemps-wild-equation-2026-clayoquot-sound-aerial-view-forest-washi-lg.jpg', 
-        caption: 'Wild Equation', 
-        coords: "49°09'07\"N 125°54'25\"W",
-        year: "2026",
-        tech: "Pigment inkjet print, handmade Japanese washi paper",
-        alt: "Primitive forest in the mist, Clayoquot Sound, Vancouver Island, Équation Sauvage series 2026, pigment print on Japanese washi paper, Dubontemps",
-        note: "" 
-      },
-      { 
+       { 
         id: 'between-realms-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-idf-mysterious-windows-matte-lg.jpg', 
         caption: 'Art of Silence', 
@@ -885,7 +874,7 @@ body::-webkit-scrollbar { display: none;
     <div className="bg-index-gradient">
 
   {/* LA GALERIE UNIQUE */}
-          <section className="bg-transparent pt-[10vh] space-y-[30vh] md:space-y-[30vh] relative" aria-labelledby="section-gallery">
+          <section className="bg-transparent pt-[30vh] space-y-[30vh] md:space-y-[30vh] relative" aria-labelledby="section-gallery">
             <div id="works-anchor" className="absolute top-[-100px] left-0" aria-hidden="true" />
             <h2 id="section-gallery" className="sr-only">{sectionTitles.gallery}</h2>
             
