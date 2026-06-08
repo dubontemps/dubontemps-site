@@ -24,22 +24,21 @@ const CONTENT = {
       contact: "Coordonnées et réseaux sociaux"
     },
 manifesto: [
-  "Un paysage n’est pas un décor. C’est un langage vivant.", 
-  "\nSi les cadrages distants évoquent la neutralité d’un satellite, ils soulignent pourtant un écart fondamental : la perception humaine est toujours subjective.", 
-  "\nÀ mesure que la technologie influence nos manières de voir, ce travail interroge la persistance du regard : comment un signal discret, même une absence, active des sensations et réveille l’imaginaire.",
-  "\nPhotographier est écouter. L’image que l’on retient ne capture rien. Elle révèle une rencontre entre un lieu et une mémoire. À chaque fois imprévisible.",
+  "L’échelle et le point de vue peuvent transformer un paysage en surface, presque en dessin.", 
+  "\nDans les grands espaces, je recherche des images que l’on ne reconnaît pas tout de suite.", 
+  "\nQue voit-on quand les repères se troublent et que le paysage nous renvoie nos propres projections ?",
 ],
     bio: {
       label: "",
-      lead: "dubontemps explore notre relation au paysage et à l’imaginaire",
-      text: "Photographe docuementaire basée à Paris, elle collabore avec des artisans, des artistes et des institutions culturelles, après une carrière en conseil. Son travail s'attache aux liens entre lieu, sensation et mémoire. Formée à la narration visuelle à Lee Strasberg, New York et diplômée de Dauphine et de Sciences Po Paris, son approche s'appuie sur ce double parcours, entre rigueur analytique et sensibilité perceptive. Chaque tirage est réalisé par procédé pigmentaire d’archivage sur papier Fine Art, baryté ou washi japonais fait main."
+      lead: "dubontemps explore comment la distance et la perspective orientent notre perception du monde",
+      text: "Photographe française basée à Paris, elle est attirée par les îles, les reliefs et les déserts. Elle photographie en mouvement, attentive aux structures, aux motifs et aux tensions qui émergent. L’échelle se trouble, les repères glissent, les lieux deviennent des indices à assembler. Son parcours en conseil aux organisations nourrit une attention particulière aux systèmes et aux signaux faibles. Qu’elle photographie un paysage, un artiste ou un lieu, elle s’intéresse à ce qui relie les éléments entre eux et révèle un contexte plus large. Formée à la narration visuelle au Lee Strasberg Institute à New York, à Dauphine et Sciences Po Paris, elle développe une approche à la fois sensible et analytique de l’image."
     },
     stream: [
         { 
         id: 'wandering-souls-dubontemps', 
         url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
         caption: "Surfaces", 
-        coords: "39°34'11\"N 2°38'56\"E",
+        coords: "39° N 2° E",
         year: "2026",
         tech: "Tirage pigmentaire, papier baryté",
         alt: "Ombres de palmier et marcheurs, Palma de Majorque, série Surfaces 2026, tirage pigmentaire papier baryté, Dubontemps",
@@ -49,17 +48,18 @@ manifesto: [
         id: 'geothermal-field-dubontemps', 
         url: '/images/dubontemps-surfaces-2026-iceland-geothermal-field-baryta-lg.jpg', 
         caption: "Surfaces", 
-        coords: "65°02'49\"N 16°43'42\"W",
+        coords: "65°N 16°W",
         year: "2026",
         tech: "Tirage pigmentaire, papier baryté",
         alt: "Station géothermique, Islande, série Surfaces 2026, tirage pigmentaire papier baryté, Dubontemps",
-        note: "" 
+        note: ""
+        side: 'right' 
       },
         { 
         id: 'salt-mine-dubontemps', 
         url: '/images/dubontemps-surfaces-2026-peru-salt-mine-baryta-lg.jpg', 
         caption: "Surfaces", 
-        coords: "13°19'58\"S 72°09'23\"W",
+        coords: "13°S 72°W",
         year: "2026",
         tech: "Tirage pigmentaire, papier baryté",
         alt: "Mine de sel, Arequipa, Pérou, série Surfaces 2026, tirage pigmentaire papier baryté, Dubontemps",
@@ -69,8 +69,8 @@ manifesto: [
         id: 'between-realms-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-idf-mysterious-windows-matte-lg.jpg', 
         caption: "L’art du silence", 
-        coords: "48°51'24\"N 2°21'08\"E",
-        year: "2025",
+        coords: "48°N 2°E",
+        year: "Solo show, 2025",
         tech: "Tirage pigmentaire, papier fine art mat",
         alt: "Fenêtres sur la rivière dans une forêt brumeuse, Île-de-France, série L’Art du Silence 2025, tirage pigmentaire papier fine art mat, Dubontemps",
         note: "",
@@ -80,8 +80,8 @@ manifesto: [
         id: 'roots-of-time-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-brittany-tree-shadow-matte-lg.jpg', 
         caption: "L’art du silence", 
-        coords: "48°34'42\"N 4°32'43\"W",
-        year: "2025",
+        coords: "48°N 4°W",
+        year: "Solo show, 2025",
         tech: "Tirage pigmentaire, papier fine art mat",
         alt: "Grand arbre et ombres vues de haut, pâquerettes, chaise en retrait, Finistère Nord Bretagne, série L’Art du Silence 2025, tirage pigmentaire papier fine art mat, Dubontemps",
         note: "" 
@@ -92,7 +92,7 @@ manifesto: [
         label: "Collaborations",
         num: "01",
         items: [
-          { client: 'Musée national de Cluny', role: "Campagne patrimoniale, reportage, inauguration ministérielle.", date: '2025' },
+          { client: 'Musée de Cluny x Grand Palais', role: "Campagne patrimoniale, reportage, inauguration ministérielle.", date: '2025' },
           { client: 'Louis Wallecan', role: "Portrait pour Duel Magazine.", date: '2025' },
           { client: 'French Theory', role: "Portraits presse artistes, art shooting et DA d'exposition.", date: '23-25' },
           { client: 'Communauté Écotable', role: "Portraits de l'alimentation durable (Ground Control, François Hollande x LFSE, Refugee Food,...).", date: '21—24' }
@@ -132,7 +132,7 @@ manifesto: [
       }
     },
      contact: {
-      title: "hello.",
+      title: "contact",
       placeholderMsg: "votre message",
       placeholderEmail: "votre email",
       submit: "envoyer",
@@ -144,7 +144,7 @@ manifesto: [
       autoRequest: "hello dubontemps, j'aimerais recevoir votre catalogue de tirages d'art."
     },
     footer: {
-      location: "48° 53' 10.115\" N 2° 20' 35.246\" E"
+      location: "48°N 2°E"
     }
 
   },  
@@ -166,22 +166,21 @@ manifesto: [
       contact: "Contact details and social media"
     },
     manifesto: [
-  "A landscape is not a backdrop. It is a living language.", 
-  "\nIf distant framing evokes the neutrality of a satellite, yet it underscores a fundamental difference: human perception is always subjective.", 
-  "\nAs technology influences the way we see, this work questions the persistence of looking: how a subtle signal, even an absence, activates sensations and stir the imagination.",
-  "\nPhotography is listening. The image we retain captures nothing. It reveals an encounter between a place and a memory. Each time unpredictable.",
+  "Scale and perspective can transform a landscape into a surface, almost into a drawing.", 
+  "\nIn vast open spaces, I look for images that are not immediately recognizable.", 
+  "\nWhat do we see when familiar landmarks begin to blur and the landscape reflects our own projections back to us?",
                ],
     bio: {
       label: "",
-      lead: "dubontemps explores our relationship to landscape and imagination",
-      text: "Documentary photographer based in Paris, she collaborates with artisans, artists and cultural institutions, following a consulting career. Her work focuses on the connections between place, sensation, and memory. Trained in visual storytelling at Lee Strasberg New York, and a graduate of Dauphine and Sciences Po Paris, her approach draws on this dual background, between analytical rigor and perceptual sensitivity. Each print is produced using archival pigment processes on Fine Art paper, baryta, or handmade Japanese washi."
+      lead: "dubontemps explores how distance and perspective shape the way we perceive the world.",
+      text: "French photographer based in Paris, she is drawn to islands, mountains and deserts. She photographs in motion, attentive to the structures, patterns and tensions that emerge. Scale becomes uncertain, landmarks shift, and places turn into clues to be assembled. Her background in consulting informs a particular interest in systems and weak signals. Whether photographing a landscape, an artist or a cultural institution, she is interested in what connects elements and reveals a broader context. Trained in visual storytelling at the Lee Strasberg Institute in New York, after Dauphine and Sciences Po Paris, she develops an approach that combines analytical observation with sensory attention."
      },
     stream: [
       { 
         id: 'wandering-souls-dubontemps', 
         url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
         caption: "Surfaces", 
-        coords: "39°34'11\"N 2°38'56\"E",
+        coords: "39°N 2°E",
         year: "2026",
         tech: "Pigment inkjet print, baryta paper",
         alt: "Palm shadows and walkers, Palma de Mallorca, Équation Sauvage series 2026, pigment print on baryta paper, Dubontemps",
@@ -191,17 +190,18 @@ manifesto: [
         id: 'geothermal-field-dubontemps', 
         url: '/images/dubontemps-surfaces-2026-iceland-geothermal-field-baryta-lg.jpg', 
         caption: "Surfaces", 
-        coords: "65°02'49\"N 16°43'42\"W",
+        coords: "65°N 16°W",
         year: "2026",
         tech: "Pigment inkjet print, baryta paper",
         alt: "Geothermal field, Iceland, Surfaces series 2026, pigment print on baryta paper, Dubontemps",
         note: "" 
+        side: 'right'
       },
         { 
         id: 'salt-mine-dubontemps', 
         url: '/images/dubontemps-surfaces-2026-peru-salt-mine-baryta-lg.jpg', 
         caption: "Surfaces", 
-        coords: "13°19'58\"S 72°09'23\"W",
+        coords: "13°S 72°W",
         year: "2026",
         tech: "Pigment inkjet print, baryta paper",
         alt: "Salt mine, Arequipa, Peru, Surfaces series 2026, pigment print on baryta paper, Dubontemps",
@@ -211,8 +211,8 @@ manifesto: [
         id: 'between-realms-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-idf-mysterious-windows-matte-lg.jpg', 
         caption: 'Art of Silence', 
-        coords: "48°51'24\"N 2°21'08\"E",
-        year: "2025",
+        coords: "48°N 2°E",
+        year: "Solo show, 2025",
         tech: "Pigment inkjet print, matte fine art paper",
         alt: "Windows over river in the misty forest, Île-de-France, L’Art of Silence series 2025, pigment print on fine art matte paper, Dubontemps",
         note: "",
@@ -222,8 +222,8 @@ manifesto: [
         id: 'roots-of-time-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-brittany-tree-shadow-matte-lg.jpg', 
         caption: 'Art of Silence', 
-        coords: "48°34'42\"N 4°32'43\"W",
-        year: "2025",
+        coords: "48°N 4°W",
+        year: "Solo show, 2025",
         tech: "Pigment inkjet print, matte fine art paper",
         alt: "Large tree's shadows from above, daisies, chair in the distance, Finistère North Brittany, L’Art of Silence series 2025, pigment print on fine art matte paper, Dubontemps",
         note: "" 
@@ -234,7 +234,7 @@ manifesto: [
         label: "Collaborations", 
         num: "01", 
         items: [
-            { client: 'Musée national de Cluny', role: "Heritage campaign, documentary, ministerial inauguration.", date: '2025' },
+            { client: 'Musée de Cluny x Grand Palais', role: "Heritage campaign, documentary, ministerial inauguration.", date: '2025' },
             { client: 'Louis Wallecan', role: "Documentary portrait for Duel Magazine.", date: '2025' },
             { client: 'French Theory', role: "Artists' press portraits, art shooting, exhibition AD.", date: '23-25' },
             { client: 'Communauté Écotable', role: "Portraits of sustainable food (Ground Control, François Hollande x LFSE, Refugee Food,...).", date: '21—24' }
@@ -274,7 +274,7 @@ manifesto: [
       }
     },
     contact: {
-      title: "hello.",
+      title: "contact",
       placeholderMsg: "your message",
       placeholderEmail: "your email",
       submit: "send",
@@ -286,7 +286,7 @@ manifesto: [
       autoRequest: "hello dubontemps, I would like to receive your fine art print catalogue."
     },
     footer: {
-      location: "48° 53' 10.115\" N 2° 20' 35.246\" E"
+      location: "48°N 2°E"
     }
   }
 };
@@ -924,7 +924,7 @@ body::-webkit-scrollbar { display: none;
               <React.Fragment key={item.id}>
 
     {/* Nouveau Manifeste en grand avant l'image 4 */}
-            {idx === 2 && (
+            {idx === 3 && (
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -1026,7 +1026,6 @@ body::-webkit-scrollbar { display: none;
                       </div>
                       <div className="flex flex-col gap-12">
                         <div><p className="index-item-static m-0">{indexData.awards.items[2].label}</p><p className="index-item-sub m-0">{indexData.awards.items[2].subtitle}</p></div>
-                        <div className="opacity-10 border-t border-dashed border-black mt-2 pt-2"><p className="text-xs uppercase tracking-widest font-semibold">Award imminent</p></div>
                       </div>
                     </div>
                   </div>
