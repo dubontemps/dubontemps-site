@@ -403,7 +403,6 @@ body::-webkit-scrollbar { display: none;
   .manifesto-large {
     font-family: var(--sans);
     font-size: 14px; 
-    text-transform: uppercase;
     line-height: 1.6;
     letter-spacing: 0.2em;
     opacity: 0.6; 
@@ -420,7 +419,7 @@ body::-webkit-scrollbar { display: none;
      font-family: var(--serif);
      letter-spacing: -0.02em;
      font-weight: 400;
-     font-size: 16px;
+     font-size: 20px;
      line-height: 1.7;
      margin-bottom: 20px;        
      color: var(--ink);
