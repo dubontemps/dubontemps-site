@@ -9,8 +9,8 @@ const CONTENT = {
   FR: {
     brand: "dubontemps",
     meta: {
-      title: "Dubontemps | Photographe paysage & documentaire | Paris",
-      description: "Dubontemps développe une écriture photographique entre nature, présence et mémoire. Explorez ses séries et tirages d'art, distinctions (ND Awards MH, Lensculture Editors' Pick) et collaborations (Musée de Cluny)."
+      title: "Dubontemps | Paysage contemporain | Paris",
+      description: "Photographe française, dubontemps explore matière, échelle et perception. Découvrez son travail."
     },
     nav: { works: 'images', index: 'index', contact: 'contact', lang: 'english' },
     hero: { 
@@ -24,31 +24,32 @@ const CONTENT = {
       contact: "Coordonnées et réseaux sociaux"
     },
 manifesto: [
-  "L’échelle et le point de vue peuvent transformer un paysage en surface, presque en dessin.", 
-  "\nDans les grands espaces, je recherche des images que l’on ne reconnaît pas tout de suite.", 
-  "\nQue voit-on quand les repères se troublent et que le paysage nous renvoie nos propres projections ?",
+  "L’échelle et la distance peuvent transformer un paysage en surface, presque en dessin.", 
+  "\nJe vois dans les grands espaces les indices d’un ensemble plus vaste. ", 
+  "\nOn ne peut jamais le voir en entier, alors j’en collecte des fragments que l’on ne reconnaît pas immédiatement, que l’on interprète par soi-même. ", 
+  "\nComment trouver des repères lorsque le monde qui nous contient ne cesse de se réécrire ?",
 ],
     bio: {
       label: "",
-      lead: "dubontemps explore comment la distance et la perspective orientent notre perception du monde",
+      lead: "dubontemps photographie des paysages où les repères se troublent",
       text: "Photographe française basée à Paris, elle est attirée par les îles, les reliefs et les déserts. Elle photographie en mouvement, attentive aux structures, aux motifs et aux tensions qui émergent. L’échelle se trouble, les repères glissent, les lieux deviennent des indices à assembler. Son parcours en conseil aux organisations nourrit une attention particulière aux systèmes et aux signaux faibles. Qu’elle photographie un paysage, un artiste ou un lieu, elle s’intéresse à ce qui relie les éléments entre eux et révèle un contexte plus large. Formée à la narration visuelle au Lee Strasberg Institute à New York, à Dauphine et Sciences Po Paris, elle développe une approche à la fois sensible et analytique de l’image."
     },
     stream: [
         { 
-        id: 'wandering-souls-dubontemps', 
-        url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
+        id: 'salmon-farm-dubontemps', 
+        url: '/images/dubontemps-surfaces-2026-salmon-farm-matte-lg.jpg', 
         caption: "Surfaces", 
-        coords: "39° N 2° E",
+        coords: "68°10'00\"N 13°45'00\"E",
         year: "2026",
-        tech: "Tirage pigmentaire, papier baryté",
-        alt: "Ombres de palmier et marcheurs, Palma de Majorque, série Surfaces 2026, tirage pigmentaire papier baryté, Dubontemps",
+        tech: "Tirage pigmentaire, papier mat",
+        alt: "Ferme à saumon, Lofoten, série Surfaces 2026, tirage pigmentaire papier mat, Dubontemps",
         note: "" 
       },
         { 
         id: 'geothermal-field-dubontemps', 
         url: '/images/dubontemps-surfaces-2026-iceland-geothermal-field-baryta-lg.jpg', 
         caption: "Surfaces", 
-        coords: "65°N 16°W",
+        coords: "65°02'49\"N 16°43'42\"O",
         year: "2026",
         tech: "Tirage pigmentaire, papier baryté",
         alt: "Station géothermique, Islande, série Surfaces 2026, tirage pigmentaire papier baryté, Dubontemps",
@@ -59,7 +60,7 @@ manifesto: [
         id: 'salt-mine-dubontemps', 
         url: '/images/dubontemps-surfaces-2026-peru-salt-mine-baryta-lg.jpg', 
         caption: "Surfaces", 
-        coords: "13°S 72°W",
+        coords: "13°19'58\"S 72°09'23\"O",
         year: "2026",
         tech: "Tirage pigmentaire, papier baryté",
         alt: "Mine de sel, Arequipa, Pérou, série Surfaces 2026, tirage pigmentaire papier baryté, Dubontemps",
@@ -69,7 +70,7 @@ manifesto: [
         id: 'between-realms-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-idf-mysterious-windows-matte-lg.jpg', 
         caption: "L’art du silence", 
-        coords: "48°N 2°E",
+        coords: "48°51'24\"N 2°21'08\"E",
         year: "Solo show, 2025",
         tech: "Tirage pigmentaire, papier fine art mat",
         alt: "Fenêtres sur la rivière dans une forêt brumeuse, Île-de-France, série L’Art du Silence 2025, tirage pigmentaire papier fine art mat, Dubontemps",
@@ -80,7 +81,7 @@ manifesto: [
         id: 'roots-of-time-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-brittany-tree-shadow-matte-lg.jpg', 
         caption: "L’art du silence", 
-        coords: "48°N 4°W",
+        coords: "48°34'42\"N 4°32'43\"O",
         year: "Solo show, 2025",
         tech: "Tirage pigmentaire, papier fine art mat",
         alt: "Grand arbre et ombres vues de haut, pâquerettes, chaise en retrait, Finistère Nord Bretagne, série L’Art du Silence 2025, tirage pigmentaire papier fine art mat, Dubontemps",
@@ -144,15 +145,15 @@ manifesto: [
       autoRequest: "hello dubontemps, j'aimerais recevoir votre catalogue de tirages d'art."
     },
     footer: {
-      location: "48°N 2°E"
+      location: "48°53'10.115\"N 2°20'35.246\"E"
     }
 
   },  
   EN: {
     brand: "dubontemps",
     meta: {
-      title: "Dubontemps | Landscape & Documentary Photographer | Paris",
-      description: "Dubontemps develops a photographic language between nature, presence, and memory. Explore her series and fine art prints, her awards ((ND Awards MH, Lensculture Editors' Pick) and collaborations (Musée de Cluny)."
+      title: "Dubontemps | Contemporary Landscape | Paris",
+      description: "French photographer, dubontemps explores perception through matter, scale and distance. Discover her work."
     },
     nav: { works: 'images', index: 'index', contact: 'contact', lang: 'français' },
     hero: { 
@@ -166,31 +167,32 @@ manifesto: [
       contact: "Contact details and social media"
     },
     manifesto: [
-  "Scale and perspective can transform a landscape into a surface, almost into a drawing.", 
-  "\nIn vast open spaces, I look for images that are not immediately recognizable.", 
-  "\nWhat do we see when familiar landmarks begin to blur and the landscape reflects our own projections back to us?",
+  "Scale and distance can transform a landscape into a surface, almost into a drawing.", 
+  "\nIn vast open spaces, I look for clues to something larger.", 
+   "\nWe can never see the whole picture, so I collect fragments instead that are not immediately recognizable, that we interpret by ourselves.", 
+  "\nHow do we find our bearings when the world around us keeps rewriting itself?",
                ],
     bio: {
       label: "",
-      lead: "dubontemps explores how distance and perspective shape the way we perceive the world.",
+      lead: "dubontemps photographs landscapes where points of reference begin to blur.",
       text: "French photographer based in Paris, she is drawn to islands, mountains and deserts. She photographs in motion, attentive to the structures, patterns and tensions that emerge. Scale becomes uncertain, landmarks shift, and places turn into clues to be assembled. Her background in consulting informs a particular interest in systems and weak signals. Whether photographing a landscape, an artist or a cultural institution, she is interested in what connects elements and reveals a broader context. Trained in visual storytelling at the Lee Strasberg Institute in New York, after Dauphine and Sciences Po Paris, she develops an approach that combines analytical observation with sensory attention."
      },
     stream: [
       { 
-        id: 'wandering-souls-dubontemps', 
-        url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
+        id: 'salmon-farm-dubontemps', 
+        url: '/images/dubontemps-surfaces-2026-salmon-farm-matte-lg.jpg', 
         caption: "Surfaces", 
-        coords: "39°N 2°E",
+        coords: "68°10'00\"N 13°45'00\"E",
         year: "2026",
-        tech: "Pigment inkjet print, baryta paper",
-        alt: "Palm shadows and walkers, Palma de Mallorca, Surfaces series 2026, pigment print on baryta paper, Dubontemps",
+        tech: "Pigment inkjet print, matte fine art paper",
+        alt: "Salmon farm, Lofoten, Surfaces series 2026, pigment print on matte fine art paper, Dubontemps",
         note: "" 
       },
         { 
         id: 'geothermal-field-dubontemps', 
         url: '/images/dubontemps-surfaces-2026-iceland-geothermal-field-baryta-lg.jpg', 
         caption: "Surfaces", 
-        coords: "65°N 16°W",
+        coords: "65°02'49\"N 16°43'42\"W",
         year: "2026",
         tech: "Pigment inkjet print, baryta paper",
         alt: "Geothermal field, Iceland, Surfaces series 2026, pigment print on baryta paper, Dubontemps",
@@ -201,7 +203,7 @@ manifesto: [
         id: 'salt-mine-dubontemps', 
         url: '/images/dubontemps-surfaces-2026-peru-salt-mine-baryta-lg.jpg', 
         caption: "Surfaces", 
-        coords: "13°S 72°W",
+        coords: "13°19'58\"S 72°09'23\"W",
         year: "2026",
         tech: "Pigment inkjet print, baryta paper",
         alt: "Salt mine, Arequipa, Peru, Surfaces series 2026, pigment print on baryta paper, Dubontemps",
@@ -211,7 +213,7 @@ manifesto: [
         id: 'between-realms-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-idf-mysterious-windows-matte-lg.jpg', 
         caption: 'Art of Silence', 
-        coords: "48°N 2°E",
+        coords: "48°51'24\"N 2°21'08\"E",
         year: "Solo show, 2025",
         tech: "Pigment inkjet print, matte fine art paper",
         alt: "Windows over river in the misty forest, Île-de-France, L’Art of Silence series 2025, pigment print on fine art matte paper, Dubontemps",
@@ -222,7 +224,7 @@ manifesto: [
         id: 'roots-of-time-dubontemps', 
         url: '/images/dubontemps-art-of-silence-2025-brittany-tree-shadow-matte-lg.jpg', 
         caption: 'Art of Silence', 
-        coords: "48°N 4°W",
+        coords: "48°34'42\"N 4°32'43\"W",
         year: "Solo show, 2025",
         tech: "Pigment inkjet print, matte fine art paper",
         alt: "Large tree's shadows from above, daisies, chair in the distance, Finistère North Brittany, L’Art of Silence series 2025, pigment print on fine art matte paper, Dubontemps",
@@ -286,7 +288,7 @@ manifesto: [
       autoRequest: "hello dubontemps, I would like to receive your fine art print catalogue."
     },
     footer: {
-      location: "48°N 2°E"
+      location: "48°53'10.115\"N 2°20'35.246\"E"
     }
   }
 };
