@@ -375,18 +375,6 @@ body::-webkit-scrollbar { display: none;
      transition: color 0.5s ease;
       }
     .nav-title:hover { color: var(--accent); }
-
-    .menu-btn-plus {
-      font-family: var(--sans);
-      font-size: 36px; 
-      font-weight: 100;
-      line-height: 1;
-      background: transparent;
-      border: none;
-      outline: none !important;
-      display: inline-flex;
-      width: auto;
-    }
     .text-meta { 
       font-size: 11px; 
       letter-spacing: 0.2em; 
@@ -827,20 +815,36 @@ body::-webkit-scrollbar { display: none;
           )}
         </AnimatePresence>
 
-  {/* 1. BOUTON + (Fixe en haut à droite) */}
+  {/* 1. BOUTON menu (Fixe en haut à droite) */}
     <div className="fixed top-0 right-0 z-[5100] w-full md:w-screen px-6 md:px-[10%] h-[var(--header-h)] flex items-center justify-end pointer-events-none">   
        <motion.button 
-      onClick={() => setIsMenuOpen(!isMenuOpen)} 
-      animate={{ 
-        rotate: isMenuOpen ? 45 : 0,
-        color: isMenuOpen ? "var(--ink)" : (headerVisible ? "var(--ink)" : "transparent")
-      }}
-      transition={smoothSpring}
-      className="menu-btn-plus pointer-events-auto flex items-center justify-center translate-x-[25%]"
-      style={{ pointerEvents: headerVisible || isMenuOpen ? 'auto' : 'none' }}
-    >
-      +
-      </motion.button>
+          onClick={() => setIsMenuOpen(!isMenuOpen)} 
+          className="pointer-events-auto flex flex-col justify-center items-end gap-[6px] w-8 h-8 bg-transparent border-none focus:outline-none translate-x-[25%]"
+          style={{ pointerEvents: headerVisible || isMenuOpen ? 'auto' : 'none' }}
+        >
+          {/* Ligne du haut */}
+          <motion.span 
+            animate={{ 
+              rotate: isMenuOpen ? 45 : 0, 
+              y: isMenuOpen ? 3.5 : 0,
+              backgroundColor: isMenuOpen ? "var(--ink)" : (headerVisible ? "var(--ink)" : "transparent")
+            }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="h-[1px] w-6 block transition-colors duration-500"
+          />
+          
+          {/* Ligne du bas */}
+          <motion.span 
+            animate={{ 
+              rotate: isMenuOpen ? -45 : 0, 
+              y: isMenuOpen ? -3.5 : 0,
+              width: isMenuOpen ? "24px" : "16px", // Effet de ligne plus courte au repos (très chic !)
+              backgroundColor: isMenuOpen ? "var(--ink)" : (headerVisible ? "var(--ink)" : "transparent")
+            }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="h-[1px] block transition-colors duration-500"
+          />
+        </motion.button>
   </div>
 
 {/* 2. LOGO CENTRAL (Apparaît au scroll ou quand menu ouvert) */}
