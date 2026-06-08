@@ -334,6 +334,12 @@ body::-webkit-scrollbar { display: none;
       text-decoration: none;
       color: inherit;
       -webkit-tap-highlight-color: transparent;
+      -webkit-appearance: none; /* Supprime le style natif sur iOS */
+      appearance: none;
+      background: none !important; 
+      border: none;
+      outline: none !important; 
+      box-shadow: none !important;
       cursor: pointer;
     }
     button:focus {
