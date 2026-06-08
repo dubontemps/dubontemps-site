@@ -38,11 +38,31 @@ manifesto: [
         { 
         id: 'wandering-souls-dubontemps', 
         url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
-        caption: "Équation sauvage", 
+        caption: "Surfaces", 
         coords: "39°34'11\"N 2°38'56\"E",
-        year: "en cours",
+        year: "2026",
         tech: "Tirage pigmentaire, papier baryté",
-        alt: "Ombres de palmier et marcheurs, Palma de Majorque, série Équation Sauvage 2026, tirage pigmentaire papier baryté, Dubontemps",
+        alt: "Ombres de palmier et marcheurs, Palma de Majorque, série Surfaces 2026, tirage pigmentaire papier baryté, Dubontemps",
+        note: "" 
+      },
+        { 
+        id: 'geothermal-field-dubontemps', 
+        url: '/images/dubontemps-surfaces-2026-iceland-geothermal-field-baryta-lg.jpg', 
+        caption: "Surfaces", 
+        coords: "65°02'49\"N 16°43'42\"W",
+        year: "2026",
+        tech: "Tirage pigmentaire, papier baryté",
+        alt: "Station géothermique, Islande, série Surfaces 2026, tirage pigmentaire papier baryté, Dubontemps",
+        note: "" 
+      },
+        { 
+        id: 'salt-mine-dubontemps', 
+        url: '/images/dubontemps-surfaces-2026-peru-salt-mine-baryta-lg.jpg', 
+        caption: "Surfaces", 
+        coords: "13°19'58\"S 72°09'23\"W",
+        year: "2026",
+        tech: "Tirage pigmentaire, papier baryté",
+        alt: "Mine de sel, Arequipa, Pérou, série Surfaces 2026, tirage pigmentaire papier baryté, Dubontemps",
         note: "" 
       },
       { 
@@ -160,11 +180,31 @@ manifesto: [
       { 
         id: 'wandering-souls-dubontemps', 
         url: '/images/dubontemps-equationsauvage-2026-palma-shadows-baryta-lg.jpg', 
-        caption: 'Wild Equation', 
+        caption: "Surfaces", 
         coords: "39°34'11\"N 2°38'56\"E",
-        year: "ongoing",
+        year: "2026",
         tech: "Pigment inkjet print, baryta paper",
         alt: "Palm shadows and walkers, Palma de Mallorca, Équation Sauvage series 2026, pigment print on baryta paper, Dubontemps",
+        note: "" 
+      },
+        { 
+        id: 'geothermal-field-dubontemps', 
+        url: '/images/dubontemps-surfaces-2026-iceland-geothermal-field-baryta-lg.jpg', 
+        caption: "Surfaces", 
+        coords: "65°02'49\"N 16°43'42\"W",
+        year: "2026",
+        tech: "Pigment inkjet print, baryta paper",
+        alt: "Geothermal field, Iceland, Surfaces series 2026, pigment print on baryta paper, Dubontemps",
+        note: "" 
+      },
+        { 
+        id: 'salt-mine-dubontemps', 
+        url: '/images/dubontemps-surfaces-2026-peru-salt-mine-baryta-lg.jpg', 
+        caption: "Surfaces", 
+        coords: "13°19'58\"S 72°09'23\"W",
+        year: "2026",
+        tech: "Pigment inkjet print, baryta paper",
+        alt: "Salt mine, Arequipa, Peru, Surfaces series 2026, pigment print on baryta paper, Dubontemps",
         note: "" 
       },
        { 
