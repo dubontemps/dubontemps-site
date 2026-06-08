@@ -853,7 +853,7 @@ body::-webkit-scrollbar { display: none;
         </motion.button>
   </div>
 
-{/* 2. LOGO CENTRAL (Apparaît au scroll ou quand menu ouvert) */}
+{/* 2. LOGO GAUCHE (Apparaît au scroll ou quand menu ouvert) */}
 <AnimatePresence>
   {(headerVisible || isMenuOpen) && (
     <motion.header 
@@ -861,7 +861,7 @@ body::-webkit-scrollbar { display: none;
       animate={{ y: 0, opacity: 1 }} 
       exit={{ y: -40, opacity: 0 }}
       transition={smoothSpring}
-      className="fixed top-0 left-0 w-full z-[5090] h-[var(--header-h)] flex items-center justify-center pointer-events-none"
+      className="fixed top-0 left-0 w-full z-[5090] h-[var(--header-h)] flex items-center justify-start px-6 md:px-[10%] pointer-events-none"
     >   
       <button 
         onClick={() => { if(!isMenuOpen) window.scrollTo({top: 0, behavior: 'smooth'}); }} 
