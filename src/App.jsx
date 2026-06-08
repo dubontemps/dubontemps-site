@@ -52,8 +52,8 @@ manifesto: [
         year: "2026",
         tech: "Tirage pigmentaire, papier baryté",
         alt: "Station géothermique, Islande, série Surfaces 2026, tirage pigmentaire papier baryté, Dubontemps",
-        note: ""
-        side: 'right' 
+        note: "",
+        side: 'right', 
       },
         { 
         id: 'salt-mine-dubontemps', 
@@ -74,7 +74,7 @@ manifesto: [
         tech: "Tirage pigmentaire, papier fine art mat",
         alt: "Fenêtres sur la rivière dans une forêt brumeuse, Île-de-France, série L’Art du Silence 2025, tirage pigmentaire papier fine art mat, Dubontemps",
         note: "",
-        side: 'right'
+        side: 'right',
       },
       { 
         id: 'roots-of-time-dubontemps', 
@@ -183,7 +183,7 @@ manifesto: [
         coords: "39°N 2°E",
         year: "2026",
         tech: "Pigment inkjet print, baryta paper",
-        alt: "Palm shadows and walkers, Palma de Mallorca, Équation Sauvage series 2026, pigment print on baryta paper, Dubontemps",
+        alt: "Palm shadows and walkers, Palma de Mallorca, Surfaces series 2026, pigment print on baryta paper, Dubontemps",
         note: "" 
       },
         { 
@@ -194,7 +194,7 @@ manifesto: [
         year: "2026",
         tech: "Pigment inkjet print, baryta paper",
         alt: "Geothermal field, Iceland, Surfaces series 2026, pigment print on baryta paper, Dubontemps",
-        note: "" 
+        note: "", 
         side: 'right'
       },
         { 
