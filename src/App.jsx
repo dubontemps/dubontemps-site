@@ -1175,16 +1175,32 @@ body::-webkit-scrollbar { display: none;
         </form>
       </motion.div>
 
-      {/* Colonne Droite : Liens & Localisation */}
-   <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }} 
-     className="w-full flex flex-col items-end text-right gap-6">
-     <div className="flex flex-col items-end gap-4 mb-8 ml-auto">
-     <a href="https://www.instagram.com/_dubontemps_/" target="_blank" rel="noopener noreferrer" 
-      className="index-item-link">{contactData.instagram}</a>
-      <button onClick={handleCatalogueClick} className="index-item-link text-right bg-transparent p-0 border-none">{contactData.portfolio}</button>
+     {/* Colonne Droite : Liens & Localisation */}
+      <motion.div 
+        initial={{ opacity: 0, x: 20 }} 
+        whileInView={{ opacity: 1, x: 0 }} 
+        viewport={{ once: true }} 
+        transition={{ duration: 1, delay: 0.2 }} 
+        className="w-full flex flex-col justify-self-end items-end text-right gap-6"
+      >
+        <div className="flex flex-col items-end gap-4 mb-8 ml-auto w-full md:w-auto">
+          <a 
+            href="https://www.instagram.com/_dubontemps_/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="index-item-link"
+          >
+            {contactData.instagram}
+          </a>
+          <button 
+            onClick={handleCatalogueClick} 
+            className="index-item-link text-right bg-transparent p-0 border-none ml-auto"
+          >
+            {contactData.portfolio}
+          </button>
         </div>
-    </motion.div>
-      </div>
+      </motion.div>
+        </div>
 
     {/* Signature Footer */}
   <footer className="w-full pb-8 flex justify-between items-center">
