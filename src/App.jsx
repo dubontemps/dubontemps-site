@@ -133,9 +133,9 @@ manifesto: [
       }
     },
      contact: {
-      title: "contact",
-      placeholderMsg: "votre message",
-      placeholderEmail: "votre email",
+      title: "Pour une commande, un tirage ou une collaboration.",
+      placeholderMsg: "[ message ]",
+      placeholderEmail: "[ email ]",
       submit: "envoyer",
       sending: "...",
       success: "merci",
@@ -276,9 +276,9 @@ manifesto: [
       }
     },
     contact: {
-      title: "contact",
-      placeholderMsg: "your message",
-      placeholderEmail: "your email",
+      title: "For commissions, prints or collaborations.",
+      placeholderMsg: "[ message ]",
+      placeholderEmail: "[ email ]",
       submit: "send",
       sending: "...", 
       success: "merci",
@@ -391,7 +391,6 @@ body::-webkit-scrollbar { display: none;
     .footer-text {
       font-size: 9px;
       text-transform: uppercase; 
-      text-transform: lowercase;
       letter-spacing: 0.2em;
       font-weight: 300;
       opacity : 0.15;
@@ -519,7 +518,7 @@ body::-webkit-scrollbar { display: none;
       object-fit: contain; 
       padding: 0; 
     }
-    .contact-hello { font-size: 16px ; font-weight: 400;}
+    .contact-hello { font-size: 14px ; font-weight: 400;}
     .contact-input {
       width: 100%; 
       font-family:var(--sans);
@@ -1114,12 +1113,12 @@ body::-webkit-scrollbar { display: none;
                         href={p.url} 
                         target="_blank" 
                         rel="noreferrer" 
-                        className="index-item-link opacity-60"
+                        className="index-item-link"
                       >
                         {p.name}
                       </a>
                     ) : (
-                      <span key={i} className="index-item-static opacity-60">
+                      <span key={i} className="index-item-static">
                         {p.name}
                       </span>
                     )
@@ -1181,8 +1180,8 @@ body::-webkit-scrollbar { display: none;
      className="flex flex-col items-end text-right gap-6">
      <div className="flex flex-col gap-4 mb-8">
      <a href="https://www.instagram.com/_dubontemps_/" target="_blank" rel="noopener noreferrer" 
-      className="nav-title">{contactData.instagram}</a>
-      <button onClick={handleCatalogueClick} className="nav-title">{contactData.portfolio}</button>
+      className="index-item-link">{contactData.instagram}</a>
+      <button onClick={handleCatalogueClick} className="index-item-link">{contactData.portfolio}</button>
         </div>
     </motion.div>
       </div>
