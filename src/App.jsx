@@ -518,7 +518,7 @@ body::-webkit-scrollbar { display: none;
       object-fit: contain; 
       padding: 0; 
     }
-    .contact-hello { font-size: 14px ; font-weight: 400;}
+    .contact-hello { font-size: 14px ; font-weight: 400; margin-top: 60px;}
     .contact-input {
       width: 100%; 
       font-family:var(--sans);
@@ -995,7 +995,7 @@ body::-webkit-scrollbar { display: none;
           {/* Index & Contact Combined */}
             
             {/* Bento Index */}
-            <section id="index-anchor" className="px-0 md:px-[10%] mb-[20vh] pt-[30vh]">
+            <section id="index-anchor" className="px-0 md:px-[10%] mb-[10vh] pt-[30vh]">
               <div className="hidden md:grid grid-cols-4 gap-10 grid-rows-[auto_auto_auto]">
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="col-span-3">
                   <div className="bento-tile">
@@ -1178,7 +1178,7 @@ body::-webkit-scrollbar { display: none;
       {/* Colonne Droite : Liens & Localisation */}
    <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }} 
      className="w-full flex flex-col items-end text-right gap-6">
-     <div className="flex flex-col items-end gap-4 mb-8">
+     <div className="flex flex-col items-end gap-4 mb-8 ml-auto">
      <a href="https://www.instagram.com/_dubontemps_/" target="_blank" rel="noopener noreferrer" 
       className="index-item-link">{contactData.instagram}</a>
       <button onClick={handleCatalogueClick} className="index-item-link text-right bg-transparent p-0 border-none">{contactData.portfolio}</button>
