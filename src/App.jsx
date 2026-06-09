@@ -1035,9 +1035,18 @@ body::-webkit-scrollbar { display: none;
                           </div>
                         ))}
                       </div>
-                      <div className="flex flex-col gap-12">
-                        <div><p className="index-item-static m-0">{indexData.awards.items[2].label}</p><p className="index-item-sub m-0">{indexData.awards.items[2].subtitle}</p></div>
-                      </div>
+                     <div className="flex flex-col gap-12">
+                      {indexData.awards.items.slice(2, 4).map((a, i) => (
+                        <div key={i}>
+                          {a.url ? (
+                            <a href={a.url} target="_blank" rel="noreferrer" className="index-item-link m-0">{a.label}</a> 
+                          ) : (
+                            <p className="index-item-static m-0">{a.label}</p>  
+                          )}
+                          <p className="index-item-sub m-0">{a.subtitle}</p>
+                        </div>
+                      ))}
+                    </div>
                     </div>
                   </div>
                 </motion.div>
@@ -1058,18 +1067,6 @@ body::-webkit-scrollbar { display: none;
                   </div>
                 </motion.div>
 
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="col-span-4">
-                  <div className="bento-tile">
-                    <span className="index-num">04</span><h4 className="index-label">{indexData.publications.label}</h4>
-                    <ul className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-4 list-none p-0">
-                      {indexData.publications.items.map((p, i) => (
-                        <li key={i}>
-                          {p.url ? <a href={p.url} target="_blank" rel="noreferrer" className="index-item-link">{p.name}</a> : <span className="index-item-static">{p.name}</span>}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
               </div>
 
               {/* Mobile Layout */}
@@ -1081,12 +1078,12 @@ body::-webkit-scrollbar { display: none;
                    </div>
                 </div>
                 <div className="index-slider-mobile">
-                   {['collabs', 'awards', 'exhibitions', 'publications'].map((key, idx) => (
+                   {['collabs', 'awards', 'exhibitions'].map((key, idx) => (
                      <div className="bento-col-mobile" key={key}>
                         <div className="bento-tile">
                           <span className="index-num">0{idx + 1}</span>
                           <h4 className="index-label">{indexData[key].label}</h4>
-                          <ul className={`list-none p-0 ${key === 'publications' ? 'space-y-4' : 'space-y-8'}`}>
+                          <ul className="list-none p-0 space-y-8">
                             {indexData[key].items.map((item, i) => (
                               <li key={i}> {item.url ? ( <a href={item.url} target="_blank" rel="noreferrer" 
                               className="index-item-link m-0"> {item.client || item.label || item.name} </a> ) : ( <p 
@@ -1100,6 +1097,36 @@ body::-webkit-scrollbar { display: none;
                    ))}
                 </div>
               </div>
+
+                {/* Footer d'Index (Publications) */}
+              <motion.div 
+                initial={{ opacity: 0 }} 
+                whileInView={{ opacity: 1 }} 
+                transition={{ duration: 1, delay: 0.5 }}
+                className="pt-10 px-12 md:px-10 flex flex-col md:flex-row md:items-baseline gap-y-4 md:gap-x-12"
+              >
+                <span className="index-label md:mb-0 inline-block">{lang === 'FR' ? 'Vu dans' : 'Featured in'}</span>
+                <div className="flex flex-wrap gap-x-8 gap-y-4">
+                  {indexData.publications.items.map((p, i) => (
+                    p.url ? (
+                      <a 
+                        key={i} 
+                        href={p.url} 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="index-item-link opacity-60"
+                      >
+                        {p.name}
+                      </a>
+                    ) : (
+                      <span key={i} className="index-item-static opacity-60">
+                        {p.name}
+                      </span>
+                    )
+                  ))}
+                </div>
+              </motion.div>
+
             </section>
 
       {/* CONTACT & FOOTER */}
