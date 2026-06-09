@@ -523,7 +523,7 @@ body::-webkit-scrollbar { display: none;
       width: 100%; 
       font-family:var(--sans);
       color: var(--ink); 
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 400; 
       opacity: 0.5;
       display: block;
@@ -1129,8 +1129,8 @@ body::-webkit-scrollbar { display: none;
             </section>
 
       {/* CONTACT & FOOTER */}
-          <section id="contact-anchor" className="w-full px-6 md:px-[10%]">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32 items-end">
+          <section id="contact-anchor" className="w-full px-6 md:px-[10%] border-t border-white pt-20 md:pt-32 mt-20">
+    <div className="grid grid-cols-1 md:grid-cols-2 items-end">
 
       {/* Colonne Gauche : Hello & Form */}
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}>
@@ -1178,7 +1178,7 @@ body::-webkit-scrollbar { display: none;
       {/* Colonne Droite : Liens & Localisation */}
    <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }} 
      className="flex flex-col items-end text-right gap-6">
-     <div className="flex flex-col gap-4 mb-8">
+     <div className="flex flex-col items-end gap-4 mb-8">
      <a href="https://www.instagram.com/_dubontemps_/" target="_blank" rel="noopener noreferrer" 
       className="index-item-link">{contactData.instagram}</a>
       <button onClick={handleCatalogueClick} className="index-item-link">{contactData.portfolio}</button>
