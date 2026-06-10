@@ -24,15 +24,15 @@ const CONTENT = {
       contact: "Coordonnées et réseaux sociaux"
     },
 manifesto: [
-  "L’échelle et la distance peuvent transformer un paysage en surface, presque en dessin.", 
-  "\nJe vois dans les grands espaces les indices d’un ensemble plus vaste. ", 
-  "\nOn ne peut jamais le voir en entier, alors j’en collecte des fragments que l’on ne reconnaît pas immédiatement, que l’on interprète par soi-même. ", 
-  "\nComment trouver des repères lorsque le monde qui nous contient ne cesse de se réécrire ?",
+  "Dubontemps observe notre manière d'occuper un monde qui nous dépasse.", 
+  "\nSite d'extraction, côte, forêt, elle en collecte les indices.", 
+  "\nLa distance et l’échelle transforment le paysage en surface, en dessin.", 
+  "\nLes formes, les structures, les couleurs sont une manière d'approcher ce qui nous échappe.",
 ],
     bio: {
       label: "",
       lead: "dubontemps photographie des paysages où les repères se troublent",
-      text: "Photographe française basée à Paris, elle est attirée par les îles, les reliefs et les déserts. Elle photographie en mouvement, attentive aux structures, aux motifs et aux tensions qui émergent. L’échelle se trouble, les repères glissent, les lieux deviennent des indices à assembler. Son parcours en conseil aux organisations nourrit une attention particulière aux systèmes et aux signaux faibles. Qu’elle photographie un paysage, un artiste ou un lieu, elle s’intéresse à ce qui relie les éléments entre eux et révèle un contexte plus large. Formée à la narration visuelle au Lee Strasberg Institute à New York, à Dauphine et Sciences Po Paris, elle développe une approche à la fois sensible et analytique de l’image."
+      text: "Photographe française basée à Paris, elle est attirée par les îles, les reliefs et les déserts. Elle photographie en mouvement, attentive aux structures, aux motifs et aux tensions qui émergent. L’échelle se trouble, les repères glissent, les lieux deviennent des indices à assembler. Son parcours en conseil aux organisations nourrit son intérêt pour les systèmes et les signaux faibles. Qu’elle photographie un paysage, un artiste ou un lieu, elle s’intéresse à ce qui relie les éléments entre eux et révèle un contexte plus large. Formée au Lee Strasberg Film Institute à New York, à Dauphine et Sciences Po Paris, son approche de l'image est à la fois sensible et analytique."
     },
     stream: [
         { 
@@ -167,15 +167,15 @@ manifesto: [
       contact: "Contact details and social media"
     },
     manifesto: [
-  "Scale and distance can transform a landscape into a surface, almost into a drawing.", 
-  "\nIn vast open spaces, I look for clues to something larger.", 
-   "\nWe can never see the whole picture, so I collect fragments instead that are not immediately recognizable, that we interpret by ourselves.", 
-  "\nHow do we find our bearings when the world around us keeps rewriting itself?",
+  "Dubontemps observes the ways we inhabit a world larger than ourselves.", 
+  "\nExtraction sites, coastlines and forests are gathered as clues.", 
+   "\nDistance and scale transform landscape into surface, almost into drawing.", 
+  "\nForms, structures and colors become ways of approaching what remains beyond our grasp.",
                ],
     bio: {
       label: "",
       lead: "dubontemps photographs landscapes where points of reference begin to blur.",
-      text: "French photographer based in Paris, she is drawn to islands, mountains and deserts. She photographs in motion, attentive to the structures, patterns and tensions that emerge. Scale becomes uncertain, landmarks shift, and places turn into clues to be assembled. Her background in consulting informs a particular interest in systems and weak signals. Whether photographing a landscape, an artist or a cultural institution, she is interested in what connects elements and reveals a broader context. Trained in visual storytelling at the Lee Strasberg Institute in New York, after Dauphine and Sciences Po Paris, she develops an approach that combines analytical observation with sensory attention."
+      text: "French photographer based in Paris, she is drawn to islands, mountains and deserts. She photographs in motion, attentive to the structures, patterns and tensions that emerge. Scale becomes uncertain, landmarks shift, and places turn into clues to be assembled. Her background in consulting informs a particular interest in systems and weak signals. Whether photographing a landscape, an artist or a cultural institution, she is interested in what connects elements and reveals a broader context. Trained at the Lee Strasberg Film Institute in New York, after Dauphine and Sciences Po Paris, her approach combines analytical observation with sensory attention."
      },
     stream: [
       { 
